@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MapUIHandler : MonoBehaviour
 {
+    public int stageNum;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,8 +17,21 @@ public class MapUIHandler : MonoBehaviour
     {
         
     }
-    public void StartGameScene()
+
+    
+
+    public void backToMain()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(0);
+    }
+    
+    public void backToMap()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void StartStageScene()
+    {
+        SceneManager.LoadScene("Stage" + stageNum.ToString());
     }
 }
