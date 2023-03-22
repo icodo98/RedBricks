@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public abstract class Bits : MonoBehaviour
@@ -9,9 +10,10 @@ public abstract class Bits : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerBits>().temporalBits.Add(name);
+            other.gameObject.GetComponent<PlayerBits>().temporalBits.Add(this);
+            other.gameObject.GetComponent<PlayerBits>().temporalBits.Last<Bits>().Power();
         }
-        else if (other.CompareTag("Bottom"))
+        else if (other.name == "Bottom")
         {
             Destroy(gameObject);
         }
