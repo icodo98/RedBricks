@@ -30,4 +30,6 @@ EditorBuildSettings:
     path: Assets/BH/BHScenes/level1/Stage4.unity
     guid: f7053729d90f1484882386684b75f8fc
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: d1c09ef013edbfa478dda3430147830e, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: af310c49c5b3cbf4eace9c8a7b5c3e41, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: cc12f5688f992f44a9bc722512a0fc58, type: 2}
