@@ -11,9 +11,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/BH/BHScenes/BHMainUI.unity
     guid: a8bf65ef05de7499a91b43a9c404b0c8
-  - enabled: 1
+  - enabled: 0
     path: Assets/BH/BHScenes/BHMap.unity
     guid: 40c7fda162977482d89a81045d42041e
+  - enabled: 1
+    path: Assets/STsMap/Scenes/SampleScene.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Battle.unity
     guid: acf86df37a1d404429ece58bd591e68f
