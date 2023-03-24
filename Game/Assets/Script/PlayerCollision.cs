@@ -13,7 +13,7 @@ public class PlayerCollision : MonoBehaviour
     {
       rb = GetComponent<Rigidbody2D>();
         HP = MAXHP;
-        Vector2 diagonal = new Vector2(-3, 3);
+        Vector2 diagonal = new Vector2(-2, 2);
         rb.AddForce(diagonal);
     }
 
