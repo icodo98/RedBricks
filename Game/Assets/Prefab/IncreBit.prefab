@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8914617314805011979}
   - component: {fileID: 5280063425147567479}
-  - component: {fileID: -6424834645080196751}
+  - component: {fileID: 6871336874001036131}
   m_Layer: 0
-  m_Name: TiltBit
+  m_Name: IncreBit
   m_TagString: Bit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &-6424834645080196751
+--- !u!114 &6871336874001036131
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,7 +58,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1002333147501056570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39f95dbcd38ff3642bcb80f854b68004, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b2e92046d591174eb659090ff07ffab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FallingSpeed: 0
+  FallingSpeed: 0.3
+  prefab: {fileID: 8346545128772368621, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
