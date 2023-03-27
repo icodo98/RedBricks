@@ -4,35 +4,22 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public Rigidbody2D rb;
-    public int  MAXHP;
-    private int HP;
+    [SerializeField]
+    private Rigidbody2D rb;
+    public float speed = 3.0f;
     void Start()
 
     {
       rb = GetComponent<Rigidbody2D>();
-        HP = MAXHP;
-        Vector2 diagonal = new Vector2(-2, 2);
-        rb.AddForce(diagonal);
+        Vector2 diagonal = new Vector2(-2, 2).normalized;
+        diagonal = speed * diagonal;
+        //rb.AddForce(diagonal);
+        rb.velocity = diagonal;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     void OnCollisionEnter2D(Collision2D other)
     {
-        /*if(other.gameObject.name == "Ball"){
-            Vector2 temp = other.transform.eulerAngles;
-            temp.x = 180f - temp.x;
-            other.transform.eulerAngles = temp;
-            //Debug.Log(rb.GetRelativePointVelocity(other.contacts[0].point));
-            //other.gameObject.GetComponent<Rigidbody2D>().AddForce(rb.GetRelativePointVelocity(other.contacts[0].point));
-        }*/
         if (other.gameObject.CompareTag("Block")){
-            Debug.Log("Hit Blcok");
             Destroy(other.gameObject);
         }
         else if (other.gameObject.name.Equals("Bottom"))
@@ -43,19 +30,18 @@ public class PlayerCollision : MonoBehaviour
     }
     void BallHasFallen()
     {
-        HP -= (int) (MAXHP * 0.25f);
-        if (HP <= 0) EndGame();
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConroller>().BallFallen();
         float temp = rb.gravityScale;
         rb.gravityScale = 0;
         rb.velocity = Vector2.zero; 
         rb.angularVelocity = 0;
         rb.transform.position = new Vector3(0.02f, -1.23f, 0f);
-        rb.AddForce(new Vector2(-3, 3));
+        Vector2 iniForce = new Vector2(-1, 1).normalized;
+        iniForce = speed * iniForce;
+        //rb.AddForce(iniForce);
+        rb.velocity = iniForce;
         rb.gravityScale = temp;
 
     }
-    void EndGame()
-    {
-        Destroy(gameObject);
-    }
+   
 }

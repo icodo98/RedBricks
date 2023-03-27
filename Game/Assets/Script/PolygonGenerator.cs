@@ -5,7 +5,7 @@ using UnityEngine;
 public class PolygonGenerator : MonoBehaviour
 {
 	[SerializeField][Range(3, 100)]
-	private	int				polygonPoints = 3;	// 다각형 점 개수 (3 ~ 100개)
+	public	int				polygonPoints = 3;	// 다각형 점 개수 (3 ~ 100개)
 	[SerializeField][Min(0.1f)]
 	private	float			outerRadius = 3;	// 다각형의 원점부터 외곽 둘레까지의 반지름 (최소 값 0.1)
 	[SerializeField][Min(0)]
@@ -28,27 +28,15 @@ public class PolygonGenerator : MonoBehaviour
 		meshFilter.mesh	= mesh;
 
 		edgeCollider2D = GetComponent<EdgeCollider2D>();
+		Draw(4);
 	}
 
 	/// <summary>
-	/// 현재는 테스트를 위해 Update()에서 호출하지만
-	/// 도형이 계속 바뀌지 않고, 최적화를 고려한다면 Awake()에서 호출
+	/// 새로운 바 모양을 그림
 	/// </summary>
-	private void Update()
+	public void Draw(int polygonPoints)
 	{
-		// innerRadius의 값은 outerRadius보다 클 수 없다
-		innerRadius = innerRadius > outerRadius ? outerRadius - 0.1f : innerRadius;
-
-		// innerRadius의 값이 0이면 구멍이 없는 꽉 찬 다각형 생성
-		if ( innerRadius == 0 )
-		{
 			DrawFilled(polygonPoints, outerRadius);
-		}
-		// innerRadius의 값이 0이 아니면 innerRadius만큼 구멍이 있는 다각형 생성
-		else
-		{
-			DrawHollow(polygonPoints, outerRadius, innerRadius);
-		}
 	}
 
 	private void DrawFilled(int sides, float radius)
