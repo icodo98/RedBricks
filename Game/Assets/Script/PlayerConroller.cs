@@ -10,9 +10,23 @@ public class PlayerConroller : MonoBehaviour
     public float Speed = 5.0f;
     Vector2 Speed_vec;
     float h, v;
+
+    public int MAXHP;
+    public int HP;
+    [SerializeField]
+    private int damage = 1;
+
+    private void Awake()
+    {
+        HP = MAXHP;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Hitted : "+ collision.gameObject.name);
+        if(collision.gameObject.CompareTag("Ball"))
+        {
+            HP -= damage;
+            if (HP <= 0) EndGame();
+        }
     }
     void FixedUpdate()
     {
@@ -25,4 +39,13 @@ public class PlayerConroller : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = Speed_vec * Time.deltaTime;
         //GetComponent<Rigidbody2D>().AddForce(Speed_vec);
     }
- }
+    public void BallFallen()
+    {
+        HP -= (int) (MAXHP * 0.25);
+        if (HP <= 0) EndGame();
+    }
+    void EndGame()
+    {
+        Destroy(gameObject);
+    }
+}
