@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Block
   - Bit
+  - Ball
   layers:
   - Default
   - TransparentFX

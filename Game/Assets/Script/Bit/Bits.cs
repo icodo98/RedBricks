@@ -12,6 +12,7 @@ public abstract class Bits : MonoBehaviour
         {
             other.gameObject.GetComponent<PlayerBits>().temporalBits.Add(this);
             other.gameObject.GetComponent<PlayerBits>().temporalBits.Last<Bits>().Power();
+            Destroy(gameObject);
         }
         else if (other.name == "Bottom")
         {
