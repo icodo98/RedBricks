@@ -7,7 +7,7 @@ public class PlayerConroller : MonoBehaviour
 {
 
     // Update is called once per frame
-    public float Speed = 5.0f;
+    public float Speed;
     Vector2 Speed_vec;
     float h, v;
 
