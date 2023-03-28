@@ -84,7 +84,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6accce96aa3d97b46b295da795afc7e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 100
+  Speed: 125
+  MAXHP: 100
+  HP: 0
+  damage: 1
 --- !u!33 &893961231
 MeshFilter:
   m_ObjectHideFlags: 0
