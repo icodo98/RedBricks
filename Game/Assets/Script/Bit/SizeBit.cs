@@ -10,5 +10,8 @@ public class SizeBit :Bits
     {
         GameObject.Find("Ball").transform.localScale = GameObject.Find("Ball").transform.localScale * mulSize; 
     }
-
+    public override double Weight()
+    {
+        return weight;
+    }
 }

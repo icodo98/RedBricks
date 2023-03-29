@@ -25,16 +25,14 @@ public class CreateScene : MonoBehaviour
     
     void Start()
     {
-        //GameObject Blocks = new GameObject("Blocks");
+        
         GameObject Blocks = this.gameObject;
-        //int cols = Random.Range(MinCols, MaxCols);
-        //int rows = Random.Range(MinRows, MaxRows);
         int cols = MaxCols;
         int rows = MaxRows;
         float h = endPoint.y - startPoint.y;
         float w = endPoint.x - startPoint.x;
-        h = h / cols;
-        w = w / rows;
+        h /= cols;
+        w /= rows;
 
         float[] colPoint = new float[cols];
         for (int i = 0; i < cols; i++)
@@ -58,21 +56,11 @@ public class CreateScene : MonoBehaviour
 
         while (BloNums > 0 && allPoints.Count > 0)
         {
-            int i = Random.Range(0,allPoints.Count);
+            int i = Random.Range(0, allPoints.Count);
             Instantiate(prefabBlock, allPoints[i], Quaternion.identity, Blocks.transform);
             allPoints.RemoveAt(i);
             BloNums--;
         }
-
-
-        //for (int i = 0; i < cols; i++)
-        //{
-        //    for (int j = 0; j < rows; j++) 
-        //    {
-        //        Instantiate(prefabBlock, new Vector3(rowPoint[j], colPoint[i], 0), Quaternion.identity,Blocks.transform);
-        //    }
-        //}
-
 
     }
 

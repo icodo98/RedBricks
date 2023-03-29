@@ -7,6 +7,10 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rb;
     public float speed = 3.0f;
+    [SerializeField]
+    private float BitDropRate = 0.5f;
+
+    public List<Bits> BitTable = new List<Bits>();
     void Start()
 
     {
@@ -15,12 +19,22 @@ public class PlayerCollision : MonoBehaviour
         diagonal = speed * diagonal;
         //rb.AddForce(diagonal);
         rb.velocity = diagonal;
+        var wrPicker = new Rito.WeightedRandomPicker<Bits>();
+        for (int i = 0; i < BitTable.Count; i++)
+        {
+
+        }
+        wrPicker.Add()
     }
     
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Block")){
             Destroy(other.gameObject);
+            float isDropped = Random.Range(0.0f,1.0f);
+            if(isDropped < BitDropRate) {
+                BitDrop();
+            }
         }
         else if (other.gameObject.name.Equals("Bottom"))
         {
@@ -42,6 +56,13 @@ public class PlayerCollision : MonoBehaviour
         rb.velocity = iniForce;
         rb.gravityScale = temp;
 
+    }
+    void BitDrop()
+    {
+        if(BitTable.Count > 0)
+        {
+            
+        }
     }
    
 }

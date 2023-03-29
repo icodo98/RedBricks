@@ -9,4 +9,8 @@ public class TiltBits :Bits
         GameObject.FindGameObjectWithTag("Player").transform.eulerAngles += new Vector3(0, 0, 20);
     }
 
+    public override double Weight()
+    {
+        return weight;
+    }
 }

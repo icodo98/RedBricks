@@ -13,4 +13,8 @@ public class IncreBits : Bits
         Instantiate(prefab,OriPos , Quaternion.identity); ;
     }
 
+    public override double Weight()
+    {
+        return weight;
+    }
 }
