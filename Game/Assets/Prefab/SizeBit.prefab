@@ -62,4 +62,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FallingSpeed: 0.3
+  weight: 200
   mulSize: 1.25

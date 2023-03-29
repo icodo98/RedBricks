@@ -15,11 +15,7 @@ public class CreateScene : MonoBehaviour
     [SerializeField]
     private int MaxCols = 7;
     [SerializeField]
-    private int MinCols = 4;
-    [SerializeField]
     private int MaxRows = 4;
-    [SerializeField]
-    private int MinRows = 1;
     [SerializeField]
     private int BloNums = 10;
     

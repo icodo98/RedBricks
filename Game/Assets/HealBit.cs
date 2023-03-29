@@ -19,4 +19,8 @@ public class HealBit : Bits
             Pc.HP += Heal;
         }
     }
+    public override double Weight()
+    {
+        return weight;
+    }
 }

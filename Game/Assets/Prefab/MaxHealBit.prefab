@@ -61,3 +61,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d9d18c8846bc7d408c932b855da16fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FallingSpeed: 0.3
+  weight: 100
+  MaxHeal: 20

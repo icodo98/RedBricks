@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build.Content;
 using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
@@ -11,6 +12,7 @@ public class PlayerCollision : MonoBehaviour
     private float BitDropRate = 0.5f;
 
     public List<Bits> BitTable = new List<Bits>();
+    public static Rito.WeightedRandomPicker<Bits> wrPicker = new Rito.WeightedRandomPicker<Bits>();
     void Start()
 
     {
@@ -19,21 +21,21 @@ public class PlayerCollision : MonoBehaviour
         diagonal = speed * diagonal;
         //rb.AddForce(diagonal);
         rb.velocity = diagonal;
-        var wrPicker = new Rito.WeightedRandomPicker<Bits>();
         for (int i = 0; i < BitTable.Count; i++)
         {
-
+            wrPicker.Add(BitTable[i], BitTable[i].Weight()) ;
         }
-        wrPicker.Add()
+        
     }
     
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Block")){
+            Vector3 pos = other.transform.position;
             Destroy(other.gameObject);
             float isDropped = Random.Range(0.0f,1.0f);
             if(isDropped < BitDropRate) {
-                BitDrop();
+                BitDrop(pos);
             }
         }
         else if (other.gameObject.name.Equals("Bottom"))
@@ -57,12 +59,10 @@ public class PlayerCollision : MonoBehaviour
         rb.gravityScale = temp;
 
     }
-    void BitDrop()
+    void BitDrop(Vector3 pos)
     {
-        if(BitTable.Count > 0)
-        {
-            
-        }
+        Bits dropped = wrPicker.GetRandomPick();
+        GameObject Drop = Instantiate(dropped.gameObject, pos, Quaternion.identity) as GameObject;
     }
    
 }
