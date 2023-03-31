@@ -62,12 +62,14 @@ public class CreateScene : MonoBehaviour
             IniBloNums--;
         }
         StartCoroutine(CreateNewRow(LeftBloNum));
+        
     }
     
     IEnumerator CreateNewRow(int LeftBloNum)
     {
         while (LeftBloNum > 0)
         {
+            Debug.Log("In the coroutine while");
             float h = endPoint.y;
             float w = endPoint.x - startPoint.x;
             w /= MaxRows;
@@ -82,20 +84,22 @@ public class CreateScene : MonoBehaviour
                 rowPoint[i] = startPoint.x + w * i;
             }
             List<Vector3> newPoints = new List<Vector3>();
-            foreach (int item in rowPoint)
+            foreach (float item in rowPoint)
             {
+                Debug.Log("row points are " + item);
                 newPoints.Add(new Vector3(item, h, 0));
             }
-            Debug.Log("newpoints are ");
-           
+            
             while (newBlock > 0 && newPoints.Count > 0)
             {
                 int i = Random.Range(0, newPoints.Count);
+                Debug.Log("random position's index is " + i);
+                Debug.Log("random position is " + newPoints[i]);
                 Instantiate(prefabBlock, newPoints[i], Quaternion.identity, this.transform);
                 newPoints.RemoveAt(i);
                 newBlock--;
             }
-            yield return new WaitForSecondsRealtime(2.7f);
+            yield return new WaitForSeconds(3f);
         }
         yield break;
     }
