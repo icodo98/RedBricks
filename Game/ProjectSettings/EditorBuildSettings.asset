@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/BH/BHScenes/characterSelectScene.unity
     guid: ea84f0364b4cd4c9392a79879aab7ff8
-  - enabled: 1
+  - enabled: 0
     path: Assets/BH/BHScenes/BHMap.unity
     guid: 40c7fda162977482d89a81045d42041e
   - enabled: 1

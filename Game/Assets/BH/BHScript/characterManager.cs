@@ -12,9 +12,13 @@ public class characterManager : MonoBehaviour
 
     private int selectedOption = 0;
     public GameObject playerskin;
+
+    public Animator transtiton;
+    public float transtitonTime = 1f;
     // Start is called before the first frame update
     void Start()
     {
+        
         if(!PlayerPrefs.HasKey("selectedOption"))
         {
             selectedOption = 0;
@@ -24,6 +28,7 @@ public class characterManager : MonoBehaviour
             load();
         }
         UpdateCharacter(selectedOption);
+        
     }
 
    public void NextOption()
@@ -54,10 +59,12 @@ public class characterManager : MonoBehaviour
         SelectCharacter character = characterDB.GetCaharacter(selectedOption);
         artworkSprite.sprite = character.characterSprite;
    }
+   
    private void load()
     {
         selectedOption = PlayerPrefs.GetInt("selectedOption");
     }
+    
     private void Save() 
     {
         PlayerPrefs.SetInt("SelectedOption", selectedOption);
@@ -68,9 +75,18 @@ public class characterManager : MonoBehaviour
         SceneManager.LoadScene(sceneID);
     }
     */
-    public void PlayGameButton(int sceneID)
+    public void PlayGameButton()
     {
-        PrefabUtility.SaveAsPrefabAsset(playerskin, "Assets/selectedskin.prefab");
-        SceneManager.LoadScene(sceneID);
+        StartCoroutine(LoadLevel());
+        PrefabUtility.SaveAsPrefabAsset(playerskin, "Assets/BH/BHprefab/selectedskin.prefab");
+       
+    }
+
+
+    IEnumerator LoadLevel()
+    {
+        transtiton.SetTrigger("Start");
+        yield return new WaitForSeconds(transtitonTime);
+        SceneManager.LoadScene(2);
     }
 }

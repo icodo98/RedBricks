@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ManuUIHadnler : MonoBehaviour
 {
-    private Animator animator;
+    private Animator animator; //setting open animator
+    public Animator transtiton;
+    public float transtitonTime = 1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +20,18 @@ public class ManuUIHadnler : MonoBehaviour
         
     }
     
+    
     public void ToMapScene()
     {
+    
+        StartCoroutine(LoadLevel());
+        
+    }
+
+    IEnumerator LoadLevel()
+    {
+        transtiton.SetTrigger("Start");
+        yield return new WaitForSeconds(transtitonTime);
         SceneManager.LoadScene(1);
     }
 
