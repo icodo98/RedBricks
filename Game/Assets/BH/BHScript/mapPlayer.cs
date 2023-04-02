@@ -4,15 +4,25 @@ using UnityEngine;
 
 public class mapPlayer : MonoBehaviour
 {
+
+    public GameObject selectedskin;
+    public GameObject player;
+    private Sprite playerSprite;
+    /*
     public CharacterDatabase characterDB;
     public SpriteRenderer artworkSprite;
 
     private int selectedOption = 0;
 
     // Start is called before the first frame update
+    
+    */
     void Start()
     { 
-        if(!PlayerPrefs.HasKey("selectedOption"))
+        playerSprite = selectedskin.GetComponent<SpriteRenderer>().sprite;
+
+        player.GetComponent<SpriteRenderer>().sprite = playerSprite;
+       /* if(!PlayerPrefs.HasKey("selectedOption"))
         {
             selectedOption = 0;
         }
@@ -20,9 +30,11 @@ public class mapPlayer : MonoBehaviour
         {
             load();
         }
-        UpdateCharacter(selectedOption);
+        UpdateCharacter(selectedOption); 
+        */
     }
 
+  /*
   private void UpdateCharacter(int selectedOption)
    {
         SelectCharacter character = characterDB.GetCaharacter(selectedOption);
@@ -32,5 +44,5 @@ public class mapPlayer : MonoBehaviour
     {
         selectedOption = PlayerPrefs.GetInt("selectedOption");
     }
-   
+   */
 }
