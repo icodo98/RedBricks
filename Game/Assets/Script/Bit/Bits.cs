@@ -6,6 +6,7 @@ using UnityEngine;
 public abstract class Bits : MonoBehaviour
 {
     public float FallingSpeed;
+    public double weight;
     public void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player"))
@@ -24,4 +25,6 @@ public abstract class Bits : MonoBehaviour
         transform.Translate(0, -FallingSpeed * Time.deltaTime, 0);
     }
     public abstract void Power();
+    public abstract double Weight();
+
 }

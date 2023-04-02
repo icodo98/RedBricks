@@ -5,34 +5,26 @@ using UnityEngine;
 public class Background : MonoBehaviour
 {
     public float speed;
-    public int startIndex;
-    public int endIndex;
-    public Transform[] sprites;
-
-    float viewHeight;
-
-
-    private void Awake()
-    {
-        viewHeight = Camera.main.orthographicSize * 2;
-    }
+    private float height = 6.4f;
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 curPos = transform.position;
-        Vector3 nextPos = Vector3.down * speed * Time.deltaTime;
-        transform.position = curPos + nextPos;
 
-        if(sprites[endIndex].position.y < viewHeight * (-1))
+        transform.Translate(Vector3.down * speed * Time.deltaTime);
+        if (transform.position.y <= -height)
         {
-            Vector3 backSpritePos = sprites[startIndex].localPosition;
-            Vector3 frontSpritePos = sprites[endIndex].localPosition;
-            sprites[endIndex].transform.localPosition = backSpritePos + Vector3.up * viewHeight;
-
-            int startIndexSave = startIndex;
-            startIndex = endIndex;
-            endIndex = (startIndexSave - 1 == -1) ? sprites.Length - 1 : startIndexSave - 1;
+            Reposition();
         }
+
     }
+
+    void Reposition()
+    {
+        Vector2 offset = new Vector2(0, height * 2f);
+        transform.position = (Vector2)transform.position + offset;
+    }
+
+
+
 }

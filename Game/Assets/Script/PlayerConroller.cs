@@ -48,4 +48,8 @@ public class PlayerConroller : MonoBehaviour
     {
         Destroy(gameObject);
     }
+    private void Update()
+    {
+        Debug.Log(this.gameObject.layer);
+    }
 }

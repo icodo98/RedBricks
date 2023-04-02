@@ -12,4 +12,8 @@ public class MaxHealBit : Bits
         Pc.MAXHP += MaxHeal;
         Pc.HP += MaxHeal;
     }
+    public override double Weight()
+    {
+        return weight;
+    }
 }

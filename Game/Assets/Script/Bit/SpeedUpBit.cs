@@ -18,4 +18,8 @@ public class SpeedUpBit : Bits
 
 
     }
+    public override double Weight()
+    {
+        return weight;
+    }
 }

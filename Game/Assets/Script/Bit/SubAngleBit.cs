@@ -9,4 +9,8 @@ public class SubAngleBit : Bits
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         player.GetComponent<PolygonGenerator>().Draw(--player.GetComponent<PolygonGenerator>().polygonPoints);
     }
+    public override double Weight()
+    {
+        return weight;
+    }
 }

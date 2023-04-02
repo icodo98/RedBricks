@@ -12,5 +12,8 @@ public class LengthBits : Bits
         temp.x = factor * temp.x;
         GameObject.FindGameObjectWithTag("Player").transform.localScale = temp;
     }
-
+    public override double Weight()
+    {
+        return weight;
+    }
 }
