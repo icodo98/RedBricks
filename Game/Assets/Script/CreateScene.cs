@@ -22,6 +22,11 @@ public class CreateScene : MonoBehaviour
     private int IniBloNums = 20;
 
     private int LeftBloNum;
+    /*
+     * 초기에 IniBloNums의 크기 만큼 블럭을 만들어 낸다.
+     * 전체 중에서 블럭이 생길 수 있는 x,y좌표를 설정한뒤 하나의 벡터로 만들어서
+     * 각 위치에 블럭을 인스턴스화한다.
+     */
     void Start()
     {
         
@@ -64,7 +69,9 @@ public class CreateScene : MonoBehaviour
         StartCoroutine(CreateNewRow(LeftBloNum));
         
     }
-    
+    /*
+     * 생성해야할 블럭이 남아 있다면 매3초 마다 새로운 블럭을 만들어 낸다.
+     */
     IEnumerator CreateNewRow(int LeftBloNum)
     {
         while (LeftBloNum > 0)

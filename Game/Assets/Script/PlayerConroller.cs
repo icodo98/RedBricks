@@ -1,6 +1,4 @@
-using Codice.CM.Common;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerConroller : MonoBehaviour
@@ -54,9 +52,9 @@ public class PlayerConroller : MonoBehaviour
         GameObject Blocks = GameObject.Find("Blocks");
         while (remainBlock)
         {
-            remainBlock =  (Blocks.transform.childCount == 0)? remainBlock : false;
+            remainBlock =  (Blocks.transform.childCount > 0)? remainBlock : false;
             yield return null;
         }
-        
+        yield break;
     }
 }
