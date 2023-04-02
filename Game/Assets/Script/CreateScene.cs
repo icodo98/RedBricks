@@ -17,8 +17,11 @@ public class CreateScene : MonoBehaviour
     [SerializeField]
     private int MaxRows = 4;
     [SerializeField]
-    private int BloNums = 10;
-    
+    private int MaxBloNums = 40;
+    [SerializeField]
+    private int IniBloNums = 20;
+
+    private int LeftBloNum;
     void Start()
     {
         
@@ -29,6 +32,7 @@ public class CreateScene : MonoBehaviour
         float w = endPoint.x - startPoint.x;
         h /= cols;
         w /= rows;
+        LeftBloNum = MaxBloNums - IniBloNums;
 
         float[] colPoint = new float[cols];
         for (int i = 0; i < cols; i++)
@@ -50,14 +54,53 @@ public class CreateScene : MonoBehaviour
             }
         }
 
-        while (BloNums > 0 && allPoints.Count > 0)
+        while (IniBloNums > 0 && allPoints.Count > 0)
         {
             int i = Random.Range(0, allPoints.Count);
             Instantiate(prefabBlock, allPoints[i], Quaternion.identity, Blocks.transform);
             allPoints.RemoveAt(i);
-            BloNums--;
+            IniBloNums--;
         }
-
+        StartCoroutine(CreateNewRow(LeftBloNum));
+        
     }
+    
+    IEnumerator CreateNewRow(int LeftBloNum)
+    {
+        while (LeftBloNum > 0)
+        {
+            Debug.Log("In the coroutine while");
+            float h = endPoint.y;
+            float w = endPoint.x - startPoint.x;
+            w /= MaxRows;
 
+            int newBlock = Random.Range(0, MaxRows);
+            newBlock = (newBlock < LeftBloNum) ? newBlock : LeftBloNum;
+            LeftBloNum -= newBlock;
+
+            float[] rowPoint = new float[MaxRows];
+            for (int i = 0; i < MaxRows; i++)
+            {
+                rowPoint[i] = startPoint.x + w * i;
+            }
+            List<Vector3> newPoints = new List<Vector3>();
+            foreach (float item in rowPoint)
+            {
+                Debug.Log("row points are " + item);
+                newPoints.Add(new Vector3(item, h, 0));
+            }
+            
+            while (newBlock > 0 && newPoints.Count > 0)
+            {
+                int i = Random.Range(0, newPoints.Count);
+                Debug.Log("random position's index is " + i);
+                Debug.Log("random position is " + newPoints[i]);
+                Instantiate(prefabBlock, newPoints[i], Quaternion.identity, this.transform);
+                newPoints.RemoveAt(i);
+                newBlock--;
+            }
+            yield return new WaitForSeconds(3f);
+        }
+        yield break;
+    }
 }

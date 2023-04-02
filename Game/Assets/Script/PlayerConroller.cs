@@ -48,8 +48,15 @@ public class PlayerConroller : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    private void Update()
+    IEnumerator remainBlocks()
     {
-        Debug.Log(this.gameObject.layer);
+        bool remainBlock = true;
+        GameObject Blocks = GameObject.Find("Blocks");
+        while (remainBlock)
+        {
+            remainBlock =  (Blocks.transform.childCount == 0)? remainBlock : false;
+            yield return null;
+        }
+        
     }
 }
