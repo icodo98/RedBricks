@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerBits : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     public List<Bits> temporalBits;
 
     private List<Bits> permBits;
