@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2320182108e83c489f6e2c1a0ec5d49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FallingSpeed: 0.5
+  FallingSpeed: 0.3
   weight: 100
   factor: 1.2
 --- !u!61 &4751419752270456737
@@ -73,7 +73,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.25, y: 1.25}
   m_EdgeRadius: 0
 --- !u!212 &446356094996326178
 SpriteRenderer:

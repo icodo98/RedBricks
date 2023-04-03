@@ -21,6 +21,10 @@ public class CreateScene : MonoBehaviour
     [SerializeField]
     private int IniBloNums = 20;
 
+    public int leftBlock
+    {
+        get { return LeftBloNum; }
+    }
     private int LeftBloNum;
     /*
      * 초기에 IniBloNums의 크기 만큼 블럭을 만들어 낸다.
@@ -108,6 +112,7 @@ public class CreateScene : MonoBehaviour
             }
             yield return new WaitForSeconds(3f);
         }
+        
         yield break;
     }
 }

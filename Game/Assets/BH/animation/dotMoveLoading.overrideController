@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: dotMoveLoading
+  m_Controller: {fileID: 9100000, guid: f939b0ea61e79489abbf19a24d9741de, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 73e59e6abf5db4027b14c462addffc31, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 8b152a9ba55b449e48a33e08a2b48c82, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7464c89ae3e71476ab1135e1026a9149, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7eab7ff5080fb4ab3a0e7e74d8e8047b, type: 2}

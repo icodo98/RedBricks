@@ -6,14 +6,17 @@ public class BlocksDown : MonoBehaviour
 {
     // Start is called before the first frame update
     public float fallingSpeed;
-    void Start()
-    {
-        
-    }
-
+    public bool blCount = false;
+    public bool blLeft = false;
     // Update is called once per frame
     void Update()
     {
         transform.Translate(0,-fallingSpeed*Time.deltaTime,0);
+        blCount = (transform.childCount > 0)? false : true;
+        blLeft = (GetComponent<CreateScene>().leftBlock > 0)? false : true;
+        if(blCount&&blLeft)
+        {
+            EventManager.Instance.PostNotification(myEventType.StageClear, this);
+        }
     }
 }
