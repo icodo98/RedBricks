@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayerConroller : MonoBehaviour
+public class PlayerConroller : MonoBehaviour,IListener
 {
 
     // Update is called once per frame
@@ -18,12 +18,16 @@ public class PlayerConroller : MonoBehaviour
     {
         HP = MAXHP;
     }
+    private void Start()
+    {
+        EventManager.Instance.AddListener(myEventType.GameOver,this);
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Ball"))
         {
             HP -= damage;
-            if (HP <= 0) EndGame();
+            if (HP <= 0) EventManager.Instance.PostNotification(myEventType.GameOver, this);
         }
     }
     void FixedUpdate()
@@ -40,10 +44,12 @@ public class PlayerConroller : MonoBehaviour
     public void BallFallen()
     {
         HP -= (int) (MAXHP * 0.25);
-        if (HP <= 0) EndGame();
+        if (HP <= 0) EventManager.Instance.PostNotification(myEventType.GameOver,this);
     }
-    void EndGame()
+    
+    void GameOver()
     {
+        Time.timeScale = 0f;
         Destroy(gameObject);
     }
     IEnumerator remainBlocks()
@@ -56,5 +62,15 @@ public class PlayerConroller : MonoBehaviour
             yield return null;
         }
         yield break;
+    }
+
+    public void OnEvent(myEventType eventType, Component Sender, object Param = null)
+    {
+        switch (eventType)
+        {
+            case myEventType.GameOver:
+                GameOver();
+                break;
+        }
     }
 }
