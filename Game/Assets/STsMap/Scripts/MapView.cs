@@ -235,7 +235,7 @@ namespace Map
                         scrollNonUi.yConstraints.max = 0;
                         scrollNonUi.yConstraints.min = -(span + 2f * offset);
                     }
-                    firstParent.transform.localPosition += new Vector3(0, offset, 0);
+                    firstParent.transform.localPosition += new Vector3(1.05f, offset, 0);
                     break;
                 case MapOrientation.TopToBottom:
                     mapParent.transform.eulerAngles = new Vector3(0, 0, 180);
@@ -245,7 +245,7 @@ namespace Map
                         scrollNonUi.yConstraints.max = span + 2f * offset;
                     }
                     // factor in map span:
-                    firstParent.transform.localPosition += new Vector3(0, -offset, 0);
+                    firstParent.transform.localPosition += new Vector3(1.05f, -offset, 0);
                     break;
                 case MapOrientation.RightToLeft:
                     offset *= cam.aspect;
