@@ -19,16 +19,14 @@ public class PlayerCollision : MonoBehaviour
     /*
      * 초기 속도에 맞게 공이 출발하게 해주고, bit 아이템 드랍 테이블을 picker에 연결함.
      */
-    private void Awake()
-    {
-        
-    }
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         Vector2 diagonal = new Vector2(-2, 2).normalized;
         diagonal = speed * diagonal;
         rb.velocity = diagonal;
+
         for (int i = 0; i < BitTable.Count; i++)
         {
             wrPicker.Add(BitTable[i], BitTable[i].Weight());
@@ -42,7 +40,7 @@ public class PlayerCollision : MonoBehaviour
         }
     }
     /*
-     * 출동시 동작제어. block에 부딪혔을 때와 바닥에 부딪혔을 경우로 나눠짐.
+     * 충돌시 동작제어. block에 부딪혔을 때와 바닥에 부딪혔을 경우로 나눠짐.
      * 블럭에 부딪힌다면 부딪힌 블럭을 파괴 후 아이템 드랍 여부를 결정
      * 바닥에 떨어진 경우 체력을 줄이고 초기 위치로 돌아와 다시 발사됨.
      */

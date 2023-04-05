@@ -89,6 +89,7 @@ MonoBehaviour:
   speed: 4.5
   iniPos: {x: 0.02, y: -1.23, z: 0}
   BitDropRate: 0.5
+  maxSpeed: 5.5
   BitTable:
   - {fileID: 0}
   - {fileID: 0}
