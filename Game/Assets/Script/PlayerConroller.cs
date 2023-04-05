@@ -49,7 +49,7 @@ public class PlayerConroller : MonoBehaviour,IListener
     
     void GameOver()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 0.1f;
         Destroy(gameObject);
     }
     IEnumerator remainBlocks()

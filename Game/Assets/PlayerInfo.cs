@@ -7,7 +7,7 @@ public class PlayerInfo : MonoBehaviour
     public static PlayerInfo playerInfo;
 
     public List<Bits> bitsList;
-
+    
 
     public void Awake()
     {
