@@ -70,10 +70,7 @@ public class EventManager : MonoBehaviour
         }
         Listeners = ListenerList;
     }
-    private void OnLevelWasLoaded()
-    {
-        RemoveRedundancies();
-    }
+
     void OnSecenLoaded(Scene scene, LoadSceneMode level)
     {
         RemoveRedundancies();

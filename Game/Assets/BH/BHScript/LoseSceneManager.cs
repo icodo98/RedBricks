@@ -11,8 +11,6 @@ public class LoseSceneManager : MonoBehaviour,IListener
     }
     private void Start()
     {
-        //this.enabled = false;
-        //this.transform.localScale = Vector3.zero;
         this.transform.GetChild(0).gameObject.SetActive(false);
         EventManager.Instance.AddListener(myEventType.GameOver, this);
     }
@@ -21,9 +19,7 @@ public class LoseSceneManager : MonoBehaviour,IListener
         switch (eventType)
         {
             case myEventType.GameOver:
-                //this.transform.localScale = new Vector3(1,1,1);
-                //this.enabled = true;
-                this.transform.GetChild(0).gameObject.SetActive(true);
+               this.transform.GetChild(0).gameObject.SetActive(true);
                 break;
 
         }

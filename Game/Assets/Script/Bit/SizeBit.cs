@@ -8,7 +8,11 @@ public class SizeBit :Bits
     private float mulSize = 1.25f;
     public override void Power()
     {
-        GameObject.Find("Ball").transform.localScale = GameObject.Find("Ball").transform.localScale * mulSize; 
+        GameObject[] ball = GameObject.FindGameObjectsWithTag("Ball");
+        foreach (GameObject item in ball)
+        {
+            item.transform.localScale = item.transform.localScale * mulSize;
+        }
     }
     public override double Weight()
     {

@@ -28,6 +28,7 @@ namespace Map
                     CurrentMap = map;
                     // player has not reached the boss yet, load the current map
                     view.ShowMap(map);
+                
                 }
             }
             else

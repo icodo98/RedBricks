@@ -7,7 +7,6 @@ public class PlayerConroller : MonoBehaviour,IListener
     // Update is called once per frame
     public float Speed;
     Vector2 Speed_vec;
-    float h, v;
 
     public int MAXHP;
     public int HP;
@@ -39,7 +38,6 @@ public class PlayerConroller : MonoBehaviour,IListener
             Speed_vec.x -= Speed;
         }
         GetComponent<Rigidbody2D>().velocity = Speed_vec * Time.deltaTime;
-        //GetComponent<Rigidbody2D>().AddForce(Speed_vec);
     }
     public void BallFallen()
     {
@@ -49,21 +47,9 @@ public class PlayerConroller : MonoBehaviour,IListener
     
     void GameOver()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 0.1f;
         Destroy(gameObject);
     }
-    IEnumerator remainBlocks()
-    {
-        bool remainBlock = true;
-        GameObject Blocks = GameObject.Find("Blocks");
-        while (remainBlock)
-        {
-            remainBlock =  (Blocks.transform.childCount > 0)? remainBlock : false;
-            yield return null;
-        }
-        yield break;
-    }
-
     public void OnEvent(myEventType eventType, Component Sender, object Param = null)
     {
         switch (eventType)
