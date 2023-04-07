@@ -2,6 +2,7 @@
 using System.Linq;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Map
 {
@@ -11,6 +12,7 @@ namespace Map
         public float enterNodeDelay = 1f;
         public MapManager mapManager;
         public MapView view;
+        
 
         public static MapPlayerTracker Instance;
 
@@ -69,6 +71,8 @@ namespace Map
             switch (mapNode.Node.nodeType)
             {
                 case NodeType.MinorEnemy:
+                    
+                SceneManager.LoadScene(3);
                     break;
                 case NodeType.EliteEnemy:
                     break;
