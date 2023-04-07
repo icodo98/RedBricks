@@ -10,6 +10,7 @@ public class EventManager : MonoBehaviour
 
     private Dictionary<myEventType, List<IListener>> Listeners =
         new Dictionary<myEventType, List<IListener>>();
+    private ListenerComparer linstnerComparer = new ListenerComparer();
 
     private void Awake()
     {
@@ -29,7 +30,11 @@ public class EventManager : MonoBehaviour
         List<IListener> ListenerList = null;
         if (Listeners.TryGetValue(eventType, out ListenerList))
         {
-            ListenerList.Add(listener);
+            if (!ListenerList.Contains(listener))
+            {
+                ListenerList.Add(listener);
+                ListenerList.Sort(linstnerComparer);
+            }
             return;
         }
         ListenerList = new List<IListener>();

@@ -97,15 +97,12 @@ public class CreateScene : MonoBehaviour
             List<Vector3> newPoints = new List<Vector3>();
             foreach (float item in rowPoint)
             {
-                Debug.Log("row points are " + item);
                 newPoints.Add(new Vector3(item, h, 0));
             }
             
             while (newBlock > 0 && newPoints.Count > 0)
             {
                 int i = Random.Range(0, newPoints.Count);
-                Debug.Log("random position's index is " + i);
-                Debug.Log("random position is " + newPoints[i]);
                 Instantiate(prefabBlock, newPoints[i], Quaternion.identity, this.transform);
                 newPoints.RemoveAt(i);
                 newBlock--;

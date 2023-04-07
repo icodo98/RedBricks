@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum myEventType
@@ -13,4 +15,16 @@ public enum myEventType
 public interface IListener
 {
     void OnEvent(myEventType eventType, Component Sender, object Param = null);
+    int priority
+    {
+        get; 
+        set;
+    }
+}
+public class ListenerComparer : IComparer<IListener>
+{
+    public int Compare(IListener x, IListener y)
+    {
+        return x.priority.CompareTo(y.priority);
+    }
 }
