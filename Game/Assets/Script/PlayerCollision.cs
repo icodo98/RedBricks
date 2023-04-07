@@ -16,12 +16,15 @@ public class PlayerCollision : MonoBehaviour
 
     public List<Bits> BitTable = new List<Bits>();
     public static Rito.WeightedRandomPicker<Bits> wrPicker = new Rito.WeightedRandomPicker<Bits>();
+
+    
     /*
      * 초기 속도에 맞게 공이 출발하게 해주고, bit 아이템 드랍 테이블을 picker에 연결함.
      */
-    
+
     void Start()
     {
+       
         rb = GetComponent<Rigidbody2D>();
         Vector2 diagonal = new Vector2(-2, 2).normalized;
         diagonal = speed * diagonal;
@@ -62,7 +65,7 @@ public class PlayerCollision : MonoBehaviour
     }
     void BallHasFallen()
     {
-        if (GameObject.FindGameObjectsWithTag("Ball").Length > 1)
+        if (transform.parent.childCount > 1)
         {
             Destroy(gameObject);
             return;
@@ -85,5 +88,6 @@ public class PlayerCollision : MonoBehaviour
         Bits dropped = wrPicker.GetRandomPick();
         GameObject Drop = Instantiate(dropped.gameObject, pos, Quaternion.identity) as GameObject;
     }
-   
+
+    
 }

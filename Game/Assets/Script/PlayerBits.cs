@@ -40,9 +40,5 @@ public class PlayerBits : MonoBehaviour
             return temporalBits;
         }
     }
-    public void saveToPermBits(Bits bit)
-    {
-        permBits.Add(bit);
-    }
-
+   
 }
