@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using DG.Tweening;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,6 +10,10 @@ namespace Map
 {
     public class MapPlayerTracker : MonoBehaviour
     {
+        //animation
+        // public Animator transtiton;
+        //  public float transtitonTime = 1f;
+        //animation
         public bool lockAfterSelecting = false;
         public float enterNodeDelay = 1f;
         public MapManager mapManager;
@@ -71,20 +77,27 @@ namespace Map
             switch (mapNode.Node.nodeType)
             {
                 case NodeType.MinorEnemy:
-                    
-                SceneManager.LoadScene(3);
+                //MapPlayerTracker MPT = new MapPlayerTracker();
+               // StartCoroutine(LoadLevelAnimation(3));
+               SceneManager.LoadScene(3);
                     break;
                 case NodeType.EliteEnemy:
+                SceneManager.LoadScene(4);
                     break;
                 case NodeType.RestSite:
+                SceneManager.LoadScene(4);
                     break;
                 case NodeType.Treasure:
+                SceneManager.LoadScene(4);
                     break;
                 case NodeType.Store:
+                SceneManager.LoadScene(4);
                     break;
                 case NodeType.Boss:
+                SceneManager.LoadScene(4);
                     break;
                 case NodeType.Mystery:
+                SceneManager.LoadScene(4);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -95,5 +108,6 @@ namespace Map
         {
             Debug.Log("Selected node cannot be accessed");
         }
+
     }
 }

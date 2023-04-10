@@ -424,6 +424,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734426914}
   m_CullTransparentMesh: 0
+--- !u!95 &1279222691 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 650624234, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
+  m_PrefabInstance: {fileID: 689866749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1294898512
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,6 +970,14 @@ PrefabInstance:
     - target: {fileID: 38306197627197040, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337413450055484461, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
+      propertyPath: transtiton
+      value: 
+      objectReference: {fileID: 1279222691}
+    - target: {fileID: 5337413450055484461, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
+      propertyPath: lockAfterSelecting
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5337413451386887160, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
       propertyPath: m_LocalPosition.x

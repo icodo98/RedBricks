@@ -21,7 +21,7 @@ public class WinSceneManager : MonoBehaviour, IListener
     {
         yield return new WaitForSeconds(2f);
         EventManager.Instance.PostNotification(myEventType.StageClear,this) ;
-
+    }
     [SerializeField]
     private Button bit1;
     [SerializeField]
