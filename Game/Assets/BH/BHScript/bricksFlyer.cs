@@ -32,7 +32,7 @@ public class bricksFlyer : MonoBehaviour
     public void SpawnFloatingBricks(float distance)
     {
         float angle = Random.Range(0f, 360f);
-        Vector3 spawnPos = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle),0f) * distance;
+        Vector3 spawnPos = new Vector3(Mathf.Sin(angle), Mathf.Cos(angle),1.5f) * distance;
         Vector3 direction = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f,1f), 0f);
         float floatingSpeed = Random.Range(1f, 4f);
         float rotateSpeed = Random.Range(-1f,1f);

@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class LoseSceneManager : MonoBehaviour,IListener
 {
+    private int _priority = 1;
+    public int priority { 
+        get => _priority; 
+        set => _priority = value; 
+    }
+
     private void Awake()
     {
         
@@ -19,9 +25,10 @@ public class LoseSceneManager : MonoBehaviour,IListener
         switch (eventType)
         {
             case myEventType.GameOver:
-               this.transform.GetChild(0).gameObject.SetActive(true);
-                break;
+                this.transform.GetChild(0).gameObject.SetActive(true);
 
+                break;
+            default: throw new System.Exception("There is a unhandled event at " + this.name);
         }
     }
 
@@ -30,5 +37,9 @@ public class LoseSceneManager : MonoBehaviour,IListener
         SceneManager.LoadScene(0);
     }
 
+    public int CompareTo(IListener other)
+    {
+        throw new System.NotImplementedException();
+    }
 }
 

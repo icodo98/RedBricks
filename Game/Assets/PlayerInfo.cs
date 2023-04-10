@@ -8,32 +8,30 @@ public class PlayerInfo : MonoBehaviour, IListener
     public static PlayerInfo playerInfo;
 
     public List<Bits> bitsList;
-    
+
+    private int _priority = 0;
+    public int priority
+    {
+        get => _priority;
+        set => _priority = value;
+    }
+
     public void Awake()
     {
         DontDestroyOnLoad(gameObject);
         if (playerInfo == null)
         {
             playerInfo = this;
-            EventManager.Instance.AddListener(myEventType.StageClear, playerInfo);
         }else if (playerInfo != this)
         {
             Destroy(gameObject);
         }
     }
-    /*
-     * 나중에 지울거. getcomponent로 playerinfo에 있는 정보를 불러옴. 이를 이용해 씬이 바뀌어도
-     * bit정보를 저장함.
-     */
-    public void Update()
+    public void Start()
     {
-        Debug.Log(bitsList.Count);
-        Bits nBits = GetComponent(bitsList[0].GetType()) as Bits;
-        bitsList.Add(nBits);
-        
-
-        bitsList.Add((Bits)nBits);
+        EventManager.Instance.AddListener(myEventType.StageClear, playerInfo);
     }
+
     /*
      * stageClear시 발생할 이벤트. 영구 bit을 추가하여야함.
      */
@@ -42,11 +40,11 @@ public class PlayerInfo : MonoBehaviour, IListener
        switch (eventType)
         {
             case myEventType.StageClear:
-                Bits[] temp = Sender.GetComponent<PlayerBits>().temporalBits.ToArray();
+                Bits[] temp = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBits>().temporalBits.ToArray();
+                if (temp.Length == 0) break;
                 int i = Random.Range(0, temp.Length);
-                bitsList.Add(temp[i]);
-                
-                _ = Sender.GetComponent<PlayerBits>().temporalBits;
+                Bits aBits = GetComponent(temp[i].GetType()) as Bits;
+                bitsList.Add(aBits);
                 break;
         }
     }

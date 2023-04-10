@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerConroller : MonoBehaviour,IListener
@@ -11,7 +12,14 @@ public class PlayerConroller : MonoBehaviour,IListener
     public int MAXHP;
     public int HP;
     [SerializeField]
-    private int damage = 1;
+    private int damage = 0;
+
+    private int _priority = 3;
+    public int priority
+    {
+        get => _priority;
+        set => _priority = value;
+    }
 
     private void Awake()
     {
@@ -20,6 +28,8 @@ public class PlayerConroller : MonoBehaviour,IListener
     private void Start()
     {
         EventManager.Instance.AddListener(myEventType.GameOver,this);
+        EventManager.Instance.AddListener(myEventType.StageClear, this);
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -47,7 +57,6 @@ public class PlayerConroller : MonoBehaviour,IListener
     
     void GameOver()
     {
-        Time.timeScale = 0.1f;
         Destroy(gameObject);
     }
     public void OnEvent(myEventType eventType, Component Sender, object Param = null)
@@ -57,6 +66,11 @@ public class PlayerConroller : MonoBehaviour,IListener
             case myEventType.GameOver:
                 GameOver();
                 break;
+            case myEventType.StageClear:
+                List<Bits> selectedBits =  GetComponent<PlayerBits>().pickRandomBit();
+                GameObject.Find("YouWin").GetComponent<WinSceneManager>().selectBit(selectedBits);
+                break;
+            default: throw new System.Exception("There is a unhandled event at " + this.name);
         }
     }
 }

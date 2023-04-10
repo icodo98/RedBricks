@@ -13,7 +13,8 @@ public class IncreBits : Bits
     public override void Power()
     {
         prefab = GameObject.FindGameObjectWithTag("Ball");
-        Instantiate(prefab,OriPos , Quaternion.identity);
+        GameObject manager = GameObject.Find("BallManager");
+        Instantiate(prefab,OriPos , Quaternion.identity,manager.transform);
     }
 
     public override double Weight()
