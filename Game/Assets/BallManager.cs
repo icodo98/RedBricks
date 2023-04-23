@@ -5,7 +5,7 @@ using UnityEngine;
 public class BallManager : MonoBehaviour, IListener
 {
     private Rigidbody2D rb;
-    private int _priority = 0;
+    private int _priority = 5;
     public int priority
     {
         get => _priority;
@@ -22,13 +22,14 @@ public class BallManager : MonoBehaviour, IListener
         {
             case myEventType.GameOver:
             case myEventType.StageClear:
+                gameObject.SetActive(false);
                 // gameover와 stageClear의 경우 공의 움직임을 멈춘다.
-                foreach (Transform Child in transform)
+                /*foreach (Transform Child in transform)
                 {
                     rb = Child.GetComponent<Rigidbody2D>();
                     rb.gravityScale = 0f;
                     rb.velocity = Vector2.zero;
-                }
+                }*/
                 break;
             default: throw new System.Exception("There is a unhandled event at " + this.name);
 

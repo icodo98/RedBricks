@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,18 +12,6 @@ public class WinSceneManager : MonoBehaviour, IListener
         get => 1; 
         set => priority = value; 
     }
-    private void Start()
-    {
-        EventManager.Instance.AddListener(myEventType.StageClear, this);
-        StartCoroutine(testc());
-        
-    }
-    IEnumerator testc()
-    {
-        yield return new WaitForSeconds(2f);
-        EventManager.Instance.PostNotification(myEventType.StageClear, this);
-    }
-
     [SerializeField]
     private Button bit1;
     [SerializeField]
@@ -83,9 +72,23 @@ public class WinSceneManager : MonoBehaviour, IListener
         GameObject bit1 = transform.GetChild(0).GetChild(6).GetChild(2).gameObject;
         GameObject bit2 = transform.GetChild(0).GetChild(6).GetChild(3).gameObject;
         GameObject bit3 = transform.GetChild(0).GetChild(6).GetChild(4).gameObject;
-        bit1.GetComponent<Image>().sprite = bits[0].GetComponent<SpriteRenderer>().sprite;
-        bit2.GetComponent<Image>().sprite = bits[1].GetComponent<SpriteRenderer>().sprite;
-        bit3.GetComponent<Image>().sprite = bits[2].GetComponent<SpriteRenderer>().sprite;
+        switch (bits.Count)
+        {
+            case 3:
+                bit1.GetComponent<Image>().sprite = bits[0].GetComponent<SpriteRenderer>().sprite;
+                bit2.GetComponent<Image>().sprite = bits[1].GetComponent<SpriteRenderer>().sprite;
+                bit3.GetComponent<Image>().sprite = bits[2].GetComponent<SpriteRenderer>().sprite;
+                break;
+            case 2:
+                bit1.GetComponent<Image>().sprite = bits[0].GetComponent<SpriteRenderer>().sprite;
+                bit2.GetComponent<Image>().sprite = bits[1].GetComponent<SpriteRenderer>().sprite;
+                break;
+            case 1:
+                bit1.GetComponent<Image>().sprite = bits[0].GetComponent<SpriteRenderer>().sprite;
+                break;
+            default:
+                break;
+        }
     }
 
     public void OnEvent(myEventType eventType, Component Sender, object Param = null)

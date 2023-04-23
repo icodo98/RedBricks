@@ -20,6 +20,7 @@ public class PlayerBits : MonoBehaviour
         }
         
     }
+    
     public List<Bits> pickRandomBit()
     {
         temporalBits = temporalBits.Distinct<Bits>().ToList();

@@ -86,7 +86,8 @@ public class PlayerCollision : MonoBehaviour
     void BitDrop(Vector3 pos)
     {
         Bits dropped = wrPicker.GetRandomPick();
-        GameObject Drop = Instantiate(dropped.gameObject, pos, Quaternion.identity) as GameObject;
+        GameObject Drop = Instantiate(dropped.gameObject, pos, Quaternion.identity,dropped.gameObject.transform) as GameObject;
+        Drop.transform.localScale = new Vector3(1,1,1);
     }
 
     

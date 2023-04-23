@@ -37,8 +37,7 @@ public class EventManager : MonoBehaviour
             }
             return;
         }
-        ListenerList = new List<IListener>();
-        ListenerList.Add(listener);
+        ListenerList = new List<IListener>{listener};
         Listeners.Add(eventType, ListenerList);
     }
     /*

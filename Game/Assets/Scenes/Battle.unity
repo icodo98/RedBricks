@@ -1974,7 +1974,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bitsList:
-  - {fileID: 2099785005}
+  - {fileID: 465857697}
 --- !u!4 &1925324747
 Transform:
   m_ObjectHideFlags: 0
@@ -2103,10 +2103,6 @@ PrefabInstance:
     - target: {fileID: 1002333147501056570, guid: d37cab08df2305848a33953dddaa129d, type: 3}
       propertyPath: m_Name
       value: IncreBit
-      objectReference: {fileID: 0}
-    - target: {fileID: 6871336874001036131, guid: d37cab08df2305848a33953dddaa129d, type: 3}
-      propertyPath: weight
-      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8914617314805011979, guid: d37cab08df2305848a33953dddaa129d, type: 3}
       propertyPath: m_RootOrder
