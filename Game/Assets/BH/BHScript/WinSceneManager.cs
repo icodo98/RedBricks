@@ -29,6 +29,7 @@ public class WinSceneManager : MonoBehaviour, IListener
     private Button bit2;
     [SerializeField]
     private Button bit3;
+    /*
     private void OnEnable()
      {
         switch (WinSceneBitSelect.bitselcet)
@@ -49,7 +50,7 @@ public class WinSceneManager : MonoBehaviour, IListener
                 bit3.image.color = Color.green;
                 break;
         }
-    }
+    */
 
     public void SelectedBit(int bitselcet)
     {
