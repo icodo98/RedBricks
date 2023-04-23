@@ -20,7 +20,8 @@ public class WinSceneManager : MonoBehaviour, IListener
     IEnumerator testc()
     {
         yield return new WaitForSeconds(2f);
-        EventManager.Instance.PostNotification(myEventType.StageClear,this) ;
+        EventManager.Instance.PostNotification(myEventType.StageClear, this);
+    }
 
     [SerializeField]
     private Button bit1;
