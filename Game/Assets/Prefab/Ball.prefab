@@ -85,6 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87ecc954892aeea47a985d94e6f7fc6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  woodbreak: {fileID: 6401667322302999664, guid: 7072caf6e0a5b294e8a9ecf9da4098ca, type: 3}
   rb: {fileID: 0}
   speed: 4.5
   iniPos: {x: 0.02, y: -1.23, z: 0}

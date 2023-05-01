@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
+    public ParticleSystem woodbreak;
+
     [SerializeField]
     private Rigidbody2D rb;
     public float speed = 3.0f;
@@ -52,6 +54,7 @@ public class PlayerCollision : MonoBehaviour
         if (other.gameObject.CompareTag("Block")){
             Vector3 pos = other.transform.position;
             Destroy(other.gameObject);
+            Instantiate(woodbreak, pos, Quaternion.identity);
             float isDropped = Random.Range(0.0f,1.0f);
             if(isDropped < BitDropRate) {
                 BitDrop(pos);
