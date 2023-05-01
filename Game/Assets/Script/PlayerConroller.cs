@@ -1,3 +1,5 @@
+using Cinemachine;
+using Mono.Cecil;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +10,12 @@ public class PlayerConroller : MonoBehaviour,IListener
     // Update is called once per frame
     public float Speed;
     Vector2 Speed_vec;
+    public Rigidbody2D rb;
+    Vector3 offset;
+    Vector3 mousePosition;
+    public float maxSpeed = 10f;
+    Vector3 lastPosition;
+    bool isClicked= false;
 
     public int MAXHP;
     public int HP;
@@ -29,6 +37,7 @@ public class PlayerConroller : MonoBehaviour,IListener
     {
         EventManager.Instance.AddListener(myEventType.GameOver,this);
         EventManager.Instance.AddListener(myEventType.StageClear, this);
+        rb = GetComponent<Rigidbody2D>();
 
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -39,16 +48,47 @@ public class PlayerConroller : MonoBehaviour,IListener
             if (HP <= 0) EventManager.Instance.PostNotification(myEventType.GameOver, this);
         }
     }
+   
+    void Update()
+    {
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (Input.GetMouseButton(0))
+        {
+            lastPosition = mousePosition;
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            isClicked = true;
+            offset = rb.transform.position - mousePosition;
+         
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            rb.velocity = Vector2.zero;
+            isClicked = false;
+        }
+    }
     void FixedUpdate()
     {
-        Speed_vec = Vector2.zero;
-        if(Input.GetKey(KeyCode.D)) {
-            Speed_vec.x += Speed;
-        }if(Input.GetKey(KeyCode.A)) {
-            Speed_vec.x -= Speed;
+        if (isClicked)
+        {
+            rb.MovePosition(mousePosition + offset);
         }
-        GetComponent<Rigidbody2D>().velocity = Speed_vec * Time.deltaTime;
+        else
+        {
+            Speed_vec = Vector2.zero;
+            if (Input.GetKey(KeyCode.D))
+            {
+                Speed_vec.x += Speed;
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                Speed_vec.x -= Speed;
+            }
+            rb.velocity = Speed_vec * Time.deltaTime;
+        }
     }
+
     public void BallFallen()
     {
         HP -= (int) (MAXHP * 0.25);
