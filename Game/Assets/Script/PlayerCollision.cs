@@ -7,7 +7,7 @@ public class PlayerCollision : MonoBehaviour
 
     [SerializeField]
     private Rigidbody2D rb;
-    public float speed = 3.0f;
+    public float InitialSpeed = 3.0f;
     public Vector3 iniPos = new Vector3(0.02f, -1.23f, 0f);
     [SerializeField]
     private float BitDropRate = 0.5f;
@@ -27,7 +27,7 @@ public class PlayerCollision : MonoBehaviour
        
         rb = GetComponent<Rigidbody2D>();
         Vector2 diagonal = new Vector2(-2, 2).normalized;
-        diagonal = speed * diagonal;
+        diagonal = InitialSpeed * diagonal;
         rb.velocity = diagonal;
 
         for (int i = 0; i < BitTable.Count; i++)
@@ -42,8 +42,8 @@ public class PlayerCollision : MonoBehaviour
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
         Vector3 pos = transform.position;
-        if(pos.x < 2 || pos.x > 6 
-            || pos.y < -2 || pos.y > 2.2f
+        if((pos.x < -2) || (pos.x > 1.1) 
+            || (pos.y < -2) || (pos.y > 2.2f)
             ) {
             transform.position = iniPos;
         }
@@ -88,7 +88,7 @@ public class PlayerCollision : MonoBehaviour
         rb.transform.position = iniPos;
         float angle = Random.Range(20, 160) * Mathf.Deg2Rad;
         Vector2 iniForce = new Vector2(Mathf.Cos(angle) ,Mathf.Sin(angle)).normalized;
-        iniForce = speed * iniForce;
+        iniForce = InitialSpeed * iniForce;
         //rb.AddForce(iniForce);
         rb.velocity = iniForce;
         rb.gravityScale = temp;
