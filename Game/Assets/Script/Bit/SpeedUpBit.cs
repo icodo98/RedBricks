@@ -14,6 +14,7 @@ public class SpeedUpBit : Bits
             Vector2 tmp = item.GetComponent<Rigidbody2D>().velocity.normalized;
             tmp = tmp * mulSpeed;
             item.GetComponent<Rigidbody2D>().velocity += tmp;
+            item.GetComponent<PlayerCollision>().speed = item.GetComponent<PlayerCollision>().speed *(1 + mulSpeed);
         }
         
     }

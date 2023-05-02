@@ -41,6 +41,12 @@ public class PlayerCollision : MonoBehaviour
         {
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
+        Vector3 pos = transform.position;
+        if(pos.x < 2 || pos.x > 6 
+            || pos.y < -2 || pos.y > 2.2f
+            ) {
+            transform.position = iniPos;
+        }
     }
     /*
      * Ãæµ¹½Ã µ¿ÀÛÁ¦¾î. block¿¡ ºÎµúÇûÀ» ¶§¿Í ¹Ù´Ú¿¡ ºÎµúÇûÀ» °æ¿ì·Î ³ª´²Áü.
@@ -49,14 +55,17 @@ public class PlayerCollision : MonoBehaviour
      */
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Block")){
+        if (other.gameObject.CompareTag("Block"))
+        {
             Vector3 pos = other.transform.position;
             Destroy(other.gameObject);
             Instantiate(woodbreak, pos, Quaternion.identity);
-            float isDropped = Random.Range(0.0f,1.0f);
-            if(isDropped < BitDropRate) {
+            float isDropped = Random.Range(0.0f, 1.0f);
+            if (isDropped < BitDropRate)
+            {
                 BitDrop(pos);
             }
+            Invoke("DestoryParticle", 0.5f);
         }
         else if (other.gameObject.name.Equals("Bottom"))
         {
@@ -77,7 +86,8 @@ public class PlayerCollision : MonoBehaviour
         rb.velocity = Vector2.zero; 
         rb.angularVelocity = 0;
         rb.transform.position = iniPos;
-        Vector2 iniForce = new Vector2(-1, 1).normalized;
+        float angle = Random.Range(20, 160) * Mathf.Deg2Rad;
+        Vector2 iniForce = new Vector2(Mathf.Cos(angle) ,Mathf.Sin(angle)).normalized;
         iniForce = speed * iniForce;
         //rb.AddForce(iniForce);
         rb.velocity = iniForce;

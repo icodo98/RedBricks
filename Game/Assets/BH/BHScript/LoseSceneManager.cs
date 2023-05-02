@@ -41,5 +41,9 @@ public class LoseSceneManager : MonoBehaviour,IListener
     {
         throw new System.NotImplementedException();
     }
+    public void RetryButton()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
 
