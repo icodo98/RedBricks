@@ -36,7 +36,9 @@ public class PolygonGenerator : MonoBehaviour
 	/// </summary>
 	public void Draw(int polygonPoints)
 	{
-			DrawFilled(polygonPoints, outerRadius);
+		if (polygonPoints < 3) return;
+		if (polygonPoints > 8) return;
+		DrawFilled(polygonPoints, outerRadius);
 	}
 
 	private void DrawFilled(int sides, float radius)

@@ -5,14 +5,14 @@ public class PlayerCollision : MonoBehaviour
 {
     public ParticleSystem woodbreak;
 
-    [SerializeField]
+  
     private Rigidbody2D rb;
-    public float speed = 3.0f;
+    public float InitialSpeed = 4.5f;
     public Vector3 iniPos = new Vector3(0.02f, -1.23f, 0f);
     [SerializeField]
     private float BitDropRate = 0.5f;
     [SerializeField]
-    private float maxSpeed = 5.5f;
+    private float maxSpeed = 7.0f;
 
     public List<Bits> BitTable = new List<Bits>();
     public static Rito.WeightedRandomPicker<Bits> wrPicker = new Rito.WeightedRandomPicker<Bits>();
@@ -27,7 +27,7 @@ public class PlayerCollision : MonoBehaviour
        
         rb = GetComponent<Rigidbody2D>();
         Vector2 diagonal = new Vector2(-2, 2).normalized;
-        diagonal = speed * diagonal;
+        diagonal = InitialSpeed * diagonal;
         rb.velocity = diagonal;
 
         for (int i = 0; i < BitTable.Count; i++)
@@ -41,6 +41,12 @@ public class PlayerCollision : MonoBehaviour
         {
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
+        Vector3 pos = transform.position;
+        if((pos.x < -2) || (pos.x > 1.1) 
+            || (pos.y < -2) || (pos.y > 2.2f)
+            ) {
+            transform.position = iniPos;
+        }
     }
     /*
      * Ãæµ¹½Ã µ¿ÀÛÁ¦¾î. block¿¡ ºÎµúÇûÀ» ¶§¿Í ¹Ù´Ú¿¡ ºÎµúÇûÀ» °æ¿ì·Î ³ª´²Áü.
@@ -49,14 +55,18 @@ public class PlayerCollision : MonoBehaviour
      */
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Block")){
+        if (other.gameObject.CompareTag("Block"))
+        {
             Vector3 pos = other.transform.position;
-            Destroy(other.gameObject);
             Instantiate(woodbreak, pos, Quaternion.identity);
-            float isDropped = Random.Range(0.0f,1.0f);
-            if(isDropped < BitDropRate) {
+            other.gameObject.GetComponent<Enemytext>().TakeDamage(Random.Range(1, 5),pos);
+            Destroy(other.gameObject);
+            float isDropped = Random.Range(0.0f, 1.0f);
+            if (isDropped < BitDropRate)
+            {
                 BitDrop(pos);
             }
+            Invoke("DestoryParticle", 0.5f);
         }
         else if (other.gameObject.name.Equals("Bottom"))
         {
@@ -77,8 +87,9 @@ public class PlayerCollision : MonoBehaviour
         rb.velocity = Vector2.zero; 
         rb.angularVelocity = 0;
         rb.transform.position = iniPos;
-        Vector2 iniForce = new Vector2(-1, 1).normalized;
-        iniForce = speed * iniForce;
+        float angle = Random.Range(20, 160) * Mathf.Deg2Rad;
+        Vector2 iniForce = new Vector2(Mathf.Cos(angle) ,Mathf.Sin(angle)).normalized;
+        iniForce = InitialSpeed * iniForce;
         //rb.AddForce(iniForce);
         rb.velocity = iniForce;
         rb.gravityScale = temp;

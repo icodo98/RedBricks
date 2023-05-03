@@ -18,7 +18,7 @@ public class CreateScene : MonoBehaviour
     [SerializeField]
     private int MaxBloNums = 40;
     [SerializeField]
-    private int IniBloNums = 20;
+    private int MinBloNums = 20;
 
     public int leftBlock
     {
@@ -40,7 +40,7 @@ public class CreateScene : MonoBehaviour
         float w = endPoint.x - startPoint.x;
         h /= cols;
         w /= rows;
-        LeftBloNum = MaxBloNums - IniBloNums;
+        LeftBloNum = MaxBloNums - MinBloNums;
 
         float[] colPoint = new float[cols];
         for (int i = 0; i < cols; i++)
@@ -62,12 +62,12 @@ public class CreateScene : MonoBehaviour
             }
         }
 
-        while (IniBloNums > 0 && allPoints.Count > 0)
+        while (MinBloNums > 0 && allPoints.Count > 0)
         {
             int i = Random.Range(0, allPoints.Count);
             Instantiate(prefabBlock, allPoints[i], Quaternion.identity, Blocks.transform);
             allPoints.RemoveAt(i);
-            IniBloNums--;
+            MinBloNums--;
         }
         StartCoroutine(CreateNewRow(LeftBloNum));
         

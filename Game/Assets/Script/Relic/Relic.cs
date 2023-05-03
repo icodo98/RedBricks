@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Relic : MonoBehaviour
+namespace Relic
 {
-    
+    public class Relic : MonoBehaviour
+    {
+
+    }
+
 }
