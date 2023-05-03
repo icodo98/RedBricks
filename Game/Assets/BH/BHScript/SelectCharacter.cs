@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class SelectCharacter
 {
+   public string characterName;
    public Sprite characterSprite;
 
 }

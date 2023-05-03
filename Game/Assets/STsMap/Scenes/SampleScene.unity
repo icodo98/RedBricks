@@ -296,7 +296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5934337652452248839, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5934337652452248840, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
       propertyPath: m_RootOrder
@@ -589,7 +589,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -644,8 +644,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e55c1e458dab404c982a560bd78c6cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedskin: {fileID: 300600665, guid: 54f4941a81ece439c8e8c936c5a4e7af, type: 3}
-  player: {fileID: 1321236829}
+  characterDB: {fileID: 11400000, guid: 32f3ce2c5b28449b2ac14599b6e45fdb, type: 2}
+  artworkSprite: {fileID: 1321236831}
+  selectedOption: 0
 --- !u!212 &1321236831
 SpriteRenderer:
   m_ObjectHideFlags: 0

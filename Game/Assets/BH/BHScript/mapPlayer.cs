@@ -5,44 +5,53 @@ using UnityEngine;
 public class mapPlayer : MonoBehaviour
 {
 
-    public GameObject selectedskin;
-    public GameObject player;
-    private Sprite playerSprite;
-    /*
+    //public GameObject selectedskin;
+    //public GameObject player;
+    //private Sprite playerSprite;
+    
     public CharacterDatabase characterDB;
+
     public SpriteRenderer artworkSprite;
 
-    private int selectedOption = 0;
+    public int selectedOption;
+
+    characterManager CM = new characterManager();
+    
 
     // Start is called before the first frame update
     
-    */
+    
     void Start()
     { 
-        playerSprite = selectedskin.GetComponent<SpriteRenderer>().sprite;
+        selectedOption = CM.selectedOption;
+       // playerSprite = selectedskin.GetComponent<SpriteRenderer>().sprite;
 
-        player.GetComponent<SpriteRenderer>().sprite = playerSprite;
-       /* if(!PlayerPrefs.HasKey("selectedOption"))
+       // player.GetComponent<SpriteRenderer>().sprite = playerSprite;
+       
+
+       if(!PlayerPrefs.HasKey("selectedOption"))
         {
             selectedOption = 0;
-        }
+       }
         else
         {
             load();
-        }
+       }
         UpdateCharacter(selectedOption); 
-        */
+        
     }
 
-  /*
+  
   private void UpdateCharacter(int selectedOption)
    {
-        SelectCharacter character = characterDB.GetCaharacter(selectedOption);
+        SelectCharacter character = characterDB.GetCharacter(selectedOption);
         artworkSprite.sprite = character.characterSprite;
    }
    private void load()
     {
+        Debug.Log("PlayerPrefs has key : " +PlayerPrefs.HasKey("selectedOption"));
+        Debug.Log("PlayerPrefs selected option is : " +PlayerPrefs.GetInt("selectedOption"));
         selectedOption = PlayerPrefs.GetInt("selectedOption");
     }
-   */
+   
 }

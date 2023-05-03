@@ -498,7 +498,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 300600668}
-        m_TargetAssemblyTypeName: characterManager, Main
+        m_TargetAssemblyTypeName: characterManager, Assembly-CSharp
         m_MethodName: PlayGameButton
         m_Mode: 1
         m_Arguments:

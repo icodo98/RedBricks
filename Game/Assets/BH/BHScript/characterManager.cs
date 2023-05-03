@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEditor;
+//using UnityEditor;
 
 public class characterManager : MonoBehaviour
 {
     public CharacterDatabase characterDB;
+  // public Text nameText;
     public SpriteRenderer artworkSprite;
 
-    private int selectedOption = 0;
-    public GameObject playerskin;
+    public int selectedOption;
+   // public GameObject playerskin;
 
     public Animator transtiton;
     public float transtitonTime = 1f;
@@ -41,6 +42,7 @@ public class characterManager : MonoBehaviour
         }
         UpdateCharacter(selectedOption);
         Save();
+        Debug.Log("Saved option : " + PlayerPrefs.GetInt("selectedOption"));
    }
 
    public void BackOption()
@@ -53,11 +55,13 @@ public class characterManager : MonoBehaviour
     }
         UpdateCharacter(selectedOption);
         Save();
+        Debug.Log("Saved option : " + PlayerPrefs.GetInt("selectedOption"));
    }
    private void UpdateCharacter(int selectedOption)
    {
-        SelectCharacter character = characterDB.GetCaharacter(selectedOption);
+        SelectCharacter character = characterDB.GetCharacter(selectedOption);
         artworkSprite.sprite = character.characterSprite;
+    //    nameText.text = character.characterName;
    }
    
    private void load()
@@ -67,7 +71,8 @@ public class characterManager : MonoBehaviour
     
     private void Save() 
     {
-        PlayerPrefs.SetInt("SelectedOption", selectedOption);
+        PlayerPrefs.SetInt("selectedOption", selectedOption);
+       PlayerPrefs.Save();
     }
    /*
    public void ChangeSene(int sceneID)
@@ -78,7 +83,7 @@ public class characterManager : MonoBehaviour
     public void PlayGameButton()
     {
         StartCoroutine(LoadLevel());
-        PrefabUtility.SaveAsPrefabAsset(playerskin, "Assets/BH/BHprefab/selectedskin.prefab");
+        //PrefabUtility.SaveAsPrefabAsset(playerskin, "Assets/BH/BHprefab/selectedskin.prefab");
        
     }
 
