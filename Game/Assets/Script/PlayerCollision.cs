@@ -5,14 +5,14 @@ public class PlayerCollision : MonoBehaviour
 {
     public ParticleSystem woodbreak;
 
-    [SerializeField]
+  
     private Rigidbody2D rb;
-    public float InitialSpeed = 3.0f;
+    public float InitialSpeed = 4.5f;
     public Vector3 iniPos = new Vector3(0.02f, -1.23f, 0f);
     [SerializeField]
     private float BitDropRate = 0.5f;
     [SerializeField]
-    private float maxSpeed = 5.5f;
+    private float maxSpeed = 7.0f;
 
     public List<Bits> BitTable = new List<Bits>();
     public static Rito.WeightedRandomPicker<Bits> wrPicker = new Rito.WeightedRandomPicker<Bits>();

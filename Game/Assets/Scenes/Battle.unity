@@ -2367,22 +2367,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8346545128772368617, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
-      propertyPath: m_GravityScale
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346545128772368617, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346545128772368618, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
-      propertyPath: maxSpeed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346545128772368618, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
-      propertyPath: woodbreak
-      value: 
-      objectReference: {fileID: 6401667322302999664, guid: 7072caf6e0a5b294e8a9ecf9da4098ca, type: 3}
     - target: {fileID: 8346545128772368618, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
       propertyPath: BitTable.Array.data[0]
       value: 
