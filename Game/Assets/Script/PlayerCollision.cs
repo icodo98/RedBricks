@@ -58,8 +58,9 @@ public class PlayerCollision : MonoBehaviour
         if (other.gameObject.CompareTag("Block"))
         {
             Vector3 pos = other.transform.position;
-            Destroy(other.gameObject);
             Instantiate(woodbreak, pos, Quaternion.identity);
+            other.gameObject.GetComponent<Enemytext>().TakeDamage(Random.Range(1, 5),pos);
+            Destroy(other.gameObject);
             float isDropped = Random.Range(0.0f, 1.0f);
             if (isDropped < BitDropRate)
             {

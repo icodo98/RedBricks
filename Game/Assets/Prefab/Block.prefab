@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5865805073489956134}
   - component: {fileID: 5865805073489956132}
   - component: {fileID: 5865805073489956135}
+  - component: {fileID: 5895769259752544224}
   m_Layer: 0
   m_Name: Block
   m_TagString: Block
@@ -110,3 +111,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5895769259752544224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5865805073489956123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd1a6416bd1a01428fc10ed2ff7430a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hudDamageText: {fileID: 2898461515439624268, guid: 556a9ec9957a49d4fa043fa6fee3a559, type: 3}
+  hudPos: {fileID: 0}
