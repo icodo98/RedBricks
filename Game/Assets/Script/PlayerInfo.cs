@@ -27,7 +27,8 @@ public class PlayerInfo : MonoBehaviour, IListener
     }
     public void Start()
     {
-        EventManager.Instance.AddListener(myEventType.StageClear, playerInfo);
+        EventManager.Instance.AddListener(myEventType.StageClear, playerInfo); 
+        EventManager.Instance.AddListener(myEventType.GameOver, playerInfo);
     }
 
     /*
@@ -44,6 +45,11 @@ public class PlayerInfo : MonoBehaviour, IListener
                 Bits aBits = GetComponent(temp[i].GetType()) as Bits;
                 bitsList.Add(aBits);
                 break;
+                case myEventType.GameOver:
+                PlayerPrefs.SetInt("GameOver", 1);
+                break;
+                default: throw new System.Exception("There is a unhandled event at " + this.name);
+
         }
     }
  }
