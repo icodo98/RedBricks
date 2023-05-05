@@ -11,6 +11,7 @@ public class SkillButton : MonoBehaviour
 
     public int skillButtonId;
 
+    
     public void pressSkillButton()
     {
         SkillManager.instance.activateSkill = transform.GetComponent<Skill>();
