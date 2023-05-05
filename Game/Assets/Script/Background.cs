@@ -21,8 +21,8 @@ public class Background : MonoBehaviour
 
     void Reposition()
     {
-        Vector2 offset = new Vector2(0, height * 2f);
-        transform.position = (Vector2)transform.position + offset;
+        Vector3 offset = new Vector3(0, height * 2f,0);
+        transform.position = transform.position + offset;
     }
 
 
