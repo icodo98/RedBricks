@@ -4,7 +4,6 @@ using UnityEngine;
 public class PlayerInfo : MonoBehaviour, IListener
 {
     public static PlayerInfo playerInfo;
-
     public List<Bits> bitsList;
 
     private int _priority = 0;
