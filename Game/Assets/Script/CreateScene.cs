@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -41,7 +42,7 @@ public class CreateScene : MonoBehaviour
         h /= cols;
         w /= rows;
         LeftBloNum = MaxBloNums - MinBloNums;
-
+        if(LeftBloNum < 0 ) { throw new Exception("Max block number should bigger than min block num"); }
         float[] colPoint = new float[cols];
         for (int i = 0; i < cols; i++)
         {
@@ -64,18 +65,18 @@ public class CreateScene : MonoBehaviour
 
         while (MinBloNums > 0 && allPoints.Count > 0)
         {
-            int i = Random.Range(0, allPoints.Count);
+            int i = UnityEngine.Random.Range(0, allPoints.Count);
             Instantiate(prefabBlock, allPoints[i], Quaternion.identity, Blocks.transform);
             allPoints.RemoveAt(i);
             MinBloNums--;
         }
-        StartCoroutine(CreateNewRow(LeftBloNum));
+        StartCoroutine(CreateNewRow());
         
     }
     /*
      * 생성해야할 블럭이 남아 있다면 매3초 마다 새로운 블럭을 만들어 낸다.
      */
-    IEnumerator CreateNewRow(int LeftBloNum)
+    IEnumerator CreateNewRow()
     {
         while (LeftBloNum > 0)
         {
@@ -84,7 +85,7 @@ public class CreateScene : MonoBehaviour
             float w = endPoint.x - startPoint.x;
             w /= MaxRows;
 
-            int newBlock = Random.Range(0, MaxRows);
+            int newBlock = UnityEngine.Random.Range(0, MaxRows);
             newBlock = (newBlock < LeftBloNum) ? newBlock : LeftBloNum;
             LeftBloNum -= newBlock;
 
@@ -101,7 +102,7 @@ public class CreateScene : MonoBehaviour
             
             while (newBlock > 0 && newPoints.Count > 0)
             {
-                int i = Random.Range(0, newPoints.Count);
+                int i = UnityEngine.Random.Range(0, newPoints.Count);
                 Instantiate(prefabBlock, newPoints[i], Quaternion.identity, this.transform);
                 newPoints.RemoveAt(i);
                 newBlock--;
