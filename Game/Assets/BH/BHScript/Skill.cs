@@ -12,5 +12,8 @@ public class Skill : MonoBehaviour
    public bool isUpgrade;
 
    public Skill[] previousSkill;
+
+   public int skillLevel;
+   public int skillMaxLevel;
    
 }

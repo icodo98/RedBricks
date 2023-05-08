@@ -13,6 +13,10 @@ public class SkillManager : MonoBehaviour
     public int reamainPoint;
     public Text PointsText;
 
+    [Header("STAGE 04")]
+    public Text[] skillLevelTexts;
+    //public Text SkillLevelDisplayText;
+
     private void Awake() {
         if(instance == null)
         {
@@ -32,6 +36,7 @@ public class SkillManager : MonoBehaviour
         reamainPoint = totalPoints;
         DisplaySkillPoint();
         UpadteSkillImage();
+        DisplaySkillLevel();
     }
         private void DisplaySkillPoint()
         {
@@ -54,7 +59,9 @@ public class SkillManager : MonoBehaviour
      }
     }
     public void UpgradeButton()
-    {
+    {  
+        //single time upgrade
+         /*
         if(!activateSkill.isUpgrade && reamainPoint >=1)
         {
             for(int i = 0; i < activateSkill.previousSkill.Length; i++)
@@ -63,6 +70,7 @@ public class SkillManager : MonoBehaviour
                 {
                     activateSkill.isUpgrade = true;
                      reamainPoint -=1;
+                     activateSkill.skillLevel++;
                 }
                 else
                 {
@@ -74,8 +82,51 @@ public class SkillManager : MonoBehaviour
         else
         {
             Debug.Log("Not enough skill points OR" + activateSkill + " is upgraded yet");
-        }
+        } */
+
+        //levelup skill
+        /*
+        for(int i = 0; i < activateSkill.previousSkill.Length; i++)
+        {
+            if(activateSkill.previousSkill[i].isUpgrade && reamainPoint > 0)
+            {
+                reamainPoint -= 1;
+                activateSkill.isUpgrade= true;
+                activateSkill.skillLevel++;
+            }
+        }*/
+        //redbreak
+         if( activateSkill.skillLevel < activateSkill.skillMaxLevel && reamainPoint > 0)
+            {
+                reamainPoint -= 1;
+                activateSkill.isUpgrade= true;
+                activateSkill.skillLevel++;
+            }
         UpadteSkillImage();
         DisplaySkillPoint();
+        DisplaySkillLevel();
+    }
+    public void DisplaySkillLevel()
+    {
+        if(activateSkill !=null)
+        {
+            for(int i =0; i<skills.Length; i++)
+        {
+            if(skills[i].isUpgrade)
+            {
+                skillLevelTexts[i].text = skills[i].skillLevel.ToString();
+            }
+            else
+            {
+                skillLevelTexts[i].text = "";
+            }
+        }
+
+        }
+        else
+        {
+            return;
+        }
+        
     }
 }
