@@ -19,5 +19,7 @@ public class SkillButton : MonoBehaviour
       //  SkillImage.sprite = SkillManager.instance.skills[skillButtonId].skillSprite;
         skillNameText.text = SkillManager.instance.skills[skillButtonId].skillName;
       //  skillDesText.text = SkillManager.instance.skills[skillButtonId].skillDes;
+
+      SkillManager.instance.DisplaySkillLevel();
     }
 }

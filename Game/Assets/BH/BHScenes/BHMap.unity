@@ -2089,6 +2089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterDB: {fileID: 11400000, guid: 32f3ce2c5b28449b2ac14599b6e45fdb, type: 2}
   artworkSprite: {fileID: 1953328128}
+  selectedOption: 0
 --- !u!212 &1953328128
 SpriteRenderer:
   m_ObjectHideFlags: 0
