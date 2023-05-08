@@ -13,6 +13,11 @@ namespace Map
 
         private void Start()
         {
+            if (PlayerPrefs.GetInt("GameOver")==1){
+                GenerateNewMap();
+                PlayerPrefs.SetInt("GameOver",0);
+            }
+            else{
             if (PlayerPrefs.HasKey("Map"))
             {
                 var mapJson = PlayerPrefs.GetString("Map");
@@ -34,6 +39,7 @@ namespace Map
             else
             {
                 GenerateNewMap();
+            }
             }
         }
 

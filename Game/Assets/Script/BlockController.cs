@@ -47,9 +47,10 @@ public class BlockController : MonoBehaviour,IListener
     private void Update()
     {
         transform.Translate(0,-fallingSpeed*Time.deltaTime,0);
-        blCount = (transform.childCount > 0)? false : true;
-        blLeft = (GetComponent<CreateScene>().leftBlock > 0)? false : true;
-        if(blCount&&blLeft)
+       /* blCount = (transform.childCount > 0) ? false : true;
+        blLeft = (GetComponent<CreateScene>().leftBlock > 0) ? false : true;*/
+       
+        if (true)//blCount&&blLeft)
         {
             List<Bits> bits = new List<Bits>();
             EventManager.Instance.PostNotification(myEventType.StageClear, this, bits);

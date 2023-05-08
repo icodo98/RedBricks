@@ -439,7 +439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8914617314805011979, guid: 88e7bc4d3af79a04d840275b200d9a80, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 1.008
       objectReference: {fileID: 0}
     - target: {fileID: 8914617314805011979, guid: 88e7bc4d3af79a04d840275b200d9a80, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1233,6 +1233,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7056453915193646105, guid: 8519d8b57f44a8f449a7e09f79969600, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 893961231, guid: 8519d8b57f44a8f449a7e09f79969600, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8679559896897149097, guid: 8519d8b57f44a8f449a7e09f79969600, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1480,6 +1488,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2723313605571001949, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2723313606676655845, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
       propertyPath: m_Name
       value: YouWin
@@ -2211,7 +2223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6474405324530036543, guid: a92107b7b2b460e488c8190e3bbeecfa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.12236414
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 6474405324530036543, guid: a92107b7b2b460e488c8190e3bbeecfa, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2367,22 +2379,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8346545128772368617, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
-      propertyPath: m_GravityScale
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346545128772368617, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346545128772368618, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
-      propertyPath: maxSpeed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8346545128772368618, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
-      propertyPath: woodbreak
-      value: 
-      objectReference: {fileID: 6401667322302999664, guid: 7072caf6e0a5b294e8a9ecf9da4098ca, type: 3}
     - target: {fileID: 8346545128772368618, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
       propertyPath: BitTable.Array.data[0]
       value: 

@@ -1,8 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
-
-public class Relic : MonoBehaviour
+namespace Relic
 {
     
+    public interface Relic //: MonoBehaviour
+    {
+    
+        void Power();
+        
+    }
+
 }
