@@ -39,7 +39,13 @@ public class PlayerConroller : MonoBehaviour,IListener
         EventManager.Instance.AddListener(myEventType.GameOver,this);
         EventManager.Instance.AddListener(myEventType.StageClear, this);
         rb = GetComponent<Rigidbody2D>();
-
+        if (PlayerInfo.playerInfo.curData.AddBall) Invoke("AddBall", 1.5f);
+    }
+    private void AddBall()
+    {
+        IncreBits b1 = new IncreBits();
+        b1.Power();
+        b1 = null;
     }
     public void TakeDamage(float damage)
     {
@@ -48,7 +54,12 @@ public class PlayerConroller : MonoBehaviour,IListener
         if (intDamage < 0) intDamage = 0;
         HP -= intDamage;
         DisplayDamage(intDamage, this.transform.position);
-        if (HP <= 0) EventManager.Instance.PostNotification(myEventType.GameOver, this);
+        if (HP <= 0)
+        {
+            if(PlayerInfo.playerInfo.curData.curResurrection-- > 0) { HP = MAXHP / 2; }
+            else { EventManager.Instance.PostNotification(myEventType.GameOver, this);}
+        }
+
     }
    
     void Update()

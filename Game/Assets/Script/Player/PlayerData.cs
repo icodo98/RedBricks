@@ -18,7 +18,27 @@ namespace PlayerInformation
         public bool EnableSelection; //bit 계승 가능
         public float FallingPenalty; // 떨어졌을때 패널티 감소
         public int IncreaseHealth; //최대체력 증가
-        
+        public int curResurrection; //현재 남은 부활기회
+        public PlayerData()
+        {
+            curResurrection = Resurrection;
+        }
+        public PlayerData( PlayerData loadData)
+        {
+            Amor= loadData.Amor;
+            Attack= loadData.Attack;
+            Speed= loadData.Speed;
+            BarLength= loadData.BarLength;
+            Critical= loadData.Critical;    
+            ElementDamage= loadData.ElementDamage;
+            AddBall= loadData.AddBall;
+            curResurrection = loadData.Resurrection;
+            EnableSelection= loadData.EnableSelection;
+            FallingPenalty= loadData.FallingPenalty;
+            IncreaseHealth= loadData.IncreaseHealth;
+            Resurrection = loadData.Resurrection;
+        }
+
     }
     public enum DamageType
     {
@@ -45,7 +65,7 @@ namespace PlayerInformation
         public static bool SaveDataAsJson(string Path, object data) {
             Type dataType = data.GetType();
             if (!dataType.IsSerializable) return false;
-            string dataWrite = JsonUtility.ToJson(data);
+            string dataWrite = JsonUtility.ToJson(data,true);
             try
             {
                 File.WriteAllText(Path, dataWrite);

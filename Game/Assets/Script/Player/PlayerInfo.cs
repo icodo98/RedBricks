@@ -40,7 +40,7 @@ namespace PlayerInformation
             EventManager.Instance.AddListener(myEventType.GameOver, playerInfo);
             
             LoadData = PlayerDataUtils.ReadData(FilePath);
-            curData = LoadData;
+            curData = new PlayerData(LoadData);
         }
         
 
