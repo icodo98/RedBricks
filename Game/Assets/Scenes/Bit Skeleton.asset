@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 656ac48212793a74ebbb6176d057bf09, type: 3}
   m_Name: Bit Skeleton
   m_EditorClassIdentifier: 
-  bitName: Tilt
-  bitDescription: tilting player
+  bitName: 
+  bitDescription: 
   bit: {fileID: 0}

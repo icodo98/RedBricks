@@ -85,9 +85,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 125
+  rb: {fileID: 0}
+  maxSpeed: 10
   MAXHP: 100
   HP: 0
-  damage: 1
+  hudDamageText: {fileID: 2898461515439624268, guid: 556a9ec9957a49d4fa043fa6fee3a559, type: 3}
 --- !u!33 &893961231
 MeshFilter:
   m_ObjectHideFlags: 0

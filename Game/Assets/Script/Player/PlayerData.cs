@@ -20,6 +20,14 @@ namespace PlayerInformation
         public int IncreaseHealth; //최대체력 증가
         
     }
+    public enum DamageType
+    {
+        Non,
+        Explosion,
+        Poision,
+        Dark,
+        Electricity
+    }
     public class PlayerDataUtils : MonoBehaviour
     {
         public static PlayerData ReadData(string Path)

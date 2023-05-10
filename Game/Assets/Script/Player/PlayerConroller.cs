@@ -1,5 +1,6 @@
 using Cinemachine;
 using Mono.Cecil;
+using PlayerInformation;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,8 +20,8 @@ public class PlayerConroller : MonoBehaviour,IListener
 
     public int MAXHP;
     public int HP;
-    [SerializeField]
-    private int damage = 0;
+
+    public GameObject hudDamageText;
 
     private int _priority = 3;
     public int priority
@@ -40,13 +41,14 @@ public class PlayerConroller : MonoBehaviour,IListener
         rb = GetComponent<Rigidbody2D>();
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void TakeDamage(float damage)
     {
-        if(collision.gameObject.CompareTag("Ball"))
-        {
-            HP -= damage;
-            if (HP <= 0) EventManager.Instance.PostNotification(myEventType.GameOver, this);
-        }
+        damage -= PlayerInfo.playerInfo.curData.Amor;
+        int intDamage = Mathf.FloorToInt(damage);
+        if (intDamage < 0) intDamage = 0;
+        HP -= intDamage;
+        DisplayDamage(intDamage, this.transform.position);
+        if (HP <= 0) EventManager.Instance.PostNotification(myEventType.GameOver, this);
     }
    
     void Update()
@@ -98,6 +100,12 @@ public class PlayerConroller : MonoBehaviour,IListener
     void GameOver()
     {
         Destroy(gameObject);
+    }
+    private void DisplayDamage(int damage, Vector3 hudPos)
+    {
+        GameObject hudText = Instantiate(hudDamageText);
+        hudText.transform.position = hudPos;
+        hudText.GetComponent<DamageText>().damage = damage;
     }
     public void OnEvent(myEventType eventType, Component Sender, object Param = null)
     {

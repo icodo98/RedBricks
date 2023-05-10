@@ -1233,14 +1233,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -7056453915193646105, guid: 8519d8b57f44a8f449a7e09f79969600, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 893961231, guid: 8519d8b57f44a8f449a7e09f79969600, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8679559896897149097, guid: 8519d8b57f44a8f449a7e09f79969600, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1488,10 +1480,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2723313605571001949, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2723313606676655845, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
       propertyPath: m_Name
       value: YouWin
@@ -2078,8 +2066,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc705993a0749e8408ee534a3bf86fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bitsList:
-  - {fileID: 465857697}
+  bitsList: []
+  curData:
+    Amor: 0
+    Attack: 0
+    Speed: 0
+    BarLength: 0
+    Critical: 0
+    ElementDamage: []
+    AddBall: 0
+    Resurrection: 0
+    EnableSelection: 0
+    FallingPenalty: 0
+    IncreaseHealth: 0
 --- !u!4 &1925324747
 Transform:
   m_ObjectHideFlags: 0
