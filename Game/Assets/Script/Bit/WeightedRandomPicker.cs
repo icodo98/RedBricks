@@ -172,6 +172,10 @@ namespace Rito
             throw new Exception($"Unreachable - [Random Value : {randomValue}, Current Value : {current}]");
             //return itemPairList[itemPairList.Count - 1].item; // Last Item
         }
+        public bool Empty()
+        {
+            return itemWeightDict.Keys.Count == 0;
+        }
 
         /// <summary> 대상 아이템의 가중치 확인 </summary>
         public double GetWeight(T item)

@@ -1,13 +1,1 @@
-{
-    "Amor": 45.0,
-    "Attack": 0.0,
-    "Speed": 0.0,
-    "BarLength": 0.0,
-    "Critical": 0.0,
-    "ElementDamage": [],
-    "AddBall": false,
-    "Resurrection": 0,
-    "EnableSelection": false,
-    "FallingPenalty": 0.0,
-    "IncreaseHealth": 0
-}
+{"Amor":45.0,"Attack":0.0,"Speed":0.0,"BarLength":0.0,"Critical":0.0,"ElementDamage":[],"AddBall":false,"Resurrection":1,"EnableSelection":false,"FallingPenalty":0.0,"IncreaseHealth":0,"curResurrection":-1}
