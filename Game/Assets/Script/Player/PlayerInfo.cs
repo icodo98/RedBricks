@@ -9,6 +9,7 @@ namespace PlayerInformation
     {
         public static PlayerInfo playerInfo;
         public List<Bits> bitsList;
+        public List<GameObject> bitPrefs;
         PlayerData LoadData;
         public PlayerData curData;
         private int _priority = 0;
@@ -33,14 +34,14 @@ namespace PlayerInformation
             {
                 Destroy(gameObject);
             }
+            LoadData = PlayerDataUtils.ReadData(FilePath);
+            curData = new PlayerData(LoadData);
         }
         public void Start()
         {
             EventManager.Instance.AddListener(myEventType.StageClear, playerInfo);
             EventManager.Instance.AddListener(myEventType.GameOver, playerInfo);
-            
-            LoadData = PlayerDataUtils.ReadData(FilePath);
-            curData = new PlayerData(LoadData);
+
         }
         
 

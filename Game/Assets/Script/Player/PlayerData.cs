@@ -7,7 +7,7 @@ namespace PlayerInformation
     [Serializable]
     public class PlayerData
     {
-        public float Amor; //단단력
+        public float Amor; //단단력 공과 부딪힐때의 데미지 감소
         public float Attack; //공격력
         public float Speed; //공의 속도
         public float BarLength; //바의 길이 증가

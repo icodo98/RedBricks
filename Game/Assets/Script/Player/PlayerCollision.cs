@@ -20,11 +20,9 @@ public class PlayerCollision : MonoBehaviour
     public List<Bits> BitTable = new List<Bits>();
     public static Rito.WeightedRandomPicker<Bits> wrPicker = new Rito.WeightedRandomPicker<Bits>();
 
-    
-    /*
-     * 초기 속도에 맞게 공이 출발하게 해주고, bit 아이템 드랍 테이블을 picker에 연결함.
-     */
-
+    /// <summary>
+    /// 초기 속도에 맞게 공이 출발하게 해주고, bit 아이템 드랍 테이블을 picker에 연결함.
+    /// </summary>
     void Start()
     {
        
@@ -53,11 +51,11 @@ public class PlayerCollision : MonoBehaviour
             transform.position = iniPos;
         }
     }
-    /*
-     * 충돌시 동작제어. block에 부딪혔을 때와 바닥에 부딪혔을 경우로 나눠짐.
-     * 블럭에 부딪힌다면 부딪힌 블럭을 파괴 후 아이템 드랍 여부를 결정
-     * 바닥에 떨어진 경우 체력을 줄이고 초기 위치로 돌아와 다시 발사됨.
-     */
+    /// <summary>
+    /// 블럭에 부딪힌다면 부딪힌 블럭을 파괴 후 아이템 드랍
+    /// 바닥에 떨어진 경우 체력을 줄이고 초기 위치로 돌아와 다시 발사됨.  
+    /// </summary>
+    /// <param name="other"></param>
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Block"))
@@ -75,7 +73,7 @@ public class PlayerCollision : MonoBehaviour
         }
         else if(other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerConroller>().TakeDamage(BrickHittedDamage);
+            other.gameObject.GetComponent<PlayerConroller>().TakeDamage(BrickHittedDamage,false);
         }
         else if (other.gameObject.name.Equals("Bottom"))
         {

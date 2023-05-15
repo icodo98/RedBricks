@@ -80,7 +80,6 @@ public class CreateScene : MonoBehaviour
     {
         while (LeftBloNum > 0)
         {
-            Debug.Log("In the coroutine while");
             float h = endPoint.y;
             float w = endPoint.x - startPoint.x;
             w /= MaxRows;

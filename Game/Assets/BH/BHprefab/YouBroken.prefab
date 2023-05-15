@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2447304534894590849}
   - component: {fileID: 2447304534894590851}
   - component: {fileID: 2447304534894590848}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: 'ScoreText '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 2447304535057744084}
   - component: {fileID: 2447304535057744086}
   - component: {fileID: 2447304535057744087}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ScoreText1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 2447304535368319639}
   - component: {fileID: 2447304535368319625}
   - component: {fileID: 2447304535368319638}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   - component: {fileID: 2447304535406425278}
   - component: {fileID: 2447304535406425279}
   - component: {fileID: 2447304535406425276}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: RetryButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 2447304535617027143}
   - component: {fileID: 2447304535617027257}
   - component: {fileID: 2447304535617027142}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ScoreText1 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -686,7 +686,7 @@ GameObject:
   - component: {fileID: 2447304535753786174}
   - component: {fileID: 2447304535753786175}
   - component: {fileID: 2447304535753786172}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: YouBrokenCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -791,7 +791,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2447304535841325846}
   - component: {fileID: 2447304535841325833}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: YouBroken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -837,7 +837,7 @@ GameObject:
   - component: {fileID: 2447304535879521144}
   - component: {fileID: 2447304535879521146}
   - component: {fileID: 2447304535879521147}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -972,7 +972,7 @@ GameObject:
   - component: {fileID: 2447304536431763126}
   - component: {fileID: 2447304536431763112}
   - component: {fileID: 2447304536431763113}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: YouBrokenText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1107,7 +1107,7 @@ GameObject:
   - component: {fileID: 2447304536575189072}
   - component: {fileID: 2447304536575189074}
   - component: {fileID: 2447304536575189075}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ScoreText1 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1243,7 +1243,7 @@ GameObject:
   - component: {fileID: 2447304536638618421}
   - component: {fileID: 2447304536638618418}
   - component: {fileID: 2447304536638618419}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MainButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
