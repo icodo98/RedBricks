@@ -11,20 +11,10 @@ public class pauesMenu : MonoBehaviour
     {
        
     }
-
-    public void Resume()
-    {
-       
-    }
-    public void backToMap(int SceneId) 
-    {
-     
-        SceneManager.LoadScene(SceneId);
-    }
      private void Awake() {
         animator = GetComponent<Animator>();
     }
-    public void Close(){
+    public void Resume(){
         StartCoroutine(CloseAfterDelay());
     }
 
@@ -36,8 +26,5 @@ public class pauesMenu : MonoBehaviour
         animator.ResetTrigger("close");
     }
 
-    private IEnumerator delayTime()
-    {
-        yield return new WaitForSeconds(0.7f);
-    }
+
 }
