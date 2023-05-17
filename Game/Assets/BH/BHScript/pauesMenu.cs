@@ -28,6 +28,11 @@ public class pauesMenu : MonoBehaviour
         gameObject.SetActive(false);
         animator.ResetTrigger("close");
     }
-
+    public void ToMain()
+    {
+        SceneManager.LoadScene(0);
+        EventManager.Instance.PostNotification(myEventType.GameResume, this);
+        Time.timeScale = 1;
+    }
 
 }
