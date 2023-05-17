@@ -53,6 +53,7 @@ namespace PlayerInformation
             switch (eventType)
             {
                 case myEventType.StageClear:
+                    if (curData.EnableSelection) break;
                     Bits[] temp = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBits>().temporalBits.ToArray();
                     if (temp.Length == 0) break;
                     int i = Random.Range(0, temp.Length);
