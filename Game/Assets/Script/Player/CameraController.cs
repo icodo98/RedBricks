@@ -17,10 +17,10 @@ public class CameraController : MonoBehaviour,IListener
             case myEventType.GameStart:
                 break;
             case myEventType.GamePause:
-                GetComponent<AudioSource>().Pause();
+                //GetComponent<AudioSource>().Pause();
                 break;
             case myEventType.GameResume:
-                GetComponent<AudioSource>().Play();
+                //GetComponent<AudioSource>().Play();
                 break;
             case myEventType.GameOver:
                 break;
