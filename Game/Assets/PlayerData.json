@@ -6,8 +6,9 @@
     "Critical": 0.0,
     "ElementDamage": [],
     "AddBall": false,
-    "Resurrection": 0,
+    "Resurrection": 1,
     "EnableSelection": false,
     "FallingPenalty": 0.0,
-    "IncreaseHealth": 0
+    "IncreaseHealth": 0,
+    "curResurrection": -1
 }

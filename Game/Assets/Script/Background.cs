@@ -24,7 +24,4 @@ public class Background : MonoBehaviour
         Vector3 offset = new Vector3(0, height * 2f,0);
         transform.position = transform.position + offset;
     }
-
-
-
 }

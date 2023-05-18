@@ -9,7 +9,9 @@ namespace PlayerInformation
     {
         public static PlayerInfo playerInfo;
         public List<Bits> bitsList;
+        public List<GameObject> bitPrefs;
         PlayerData LoadData;
+        public PlayerData curData;
         private int _priority = 0;
         public int priority
         {
@@ -17,9 +19,13 @@ namespace PlayerInformation
             set => _priority = value;
         }
 
+        private string FilePath;
+
         public void Awake()
         {
             DontDestroyOnLoad(gameObject);
+            FilePath = Application.dataPath + "/PlayerData.json";
+
             if (playerInfo == null)
             {
                 playerInfo = this;
@@ -28,15 +34,14 @@ namespace PlayerInformation
             {
                 Destroy(gameObject);
             }
+            LoadData = PlayerDataUtils.ReadData(FilePath);
+            curData = new PlayerData(LoadData);
         }
         public void Start()
         {
             EventManager.Instance.AddListener(myEventType.StageClear, playerInfo);
             EventManager.Instance.AddListener(myEventType.GameOver, playerInfo);
-            string FileName = "PlayerData.json";
 
-            string Path = Application.dataPath + "/" + FileName;
-            LoadData = PlayerDataUtils.ReadData(Path);
         }
         
 
@@ -48,6 +53,7 @@ namespace PlayerInformation
             switch (eventType)
             {
                 case myEventType.StageClear:
+                    if (curData.EnableSelection) break;
                     Bits[] temp = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBits>().temporalBits.ToArray();
                     if (temp.Length == 0) break;
                     int i = Random.Range(0, temp.Length);
@@ -55,7 +61,9 @@ namespace PlayerInformation
                     bitsList.Add(aBits);
                     break;
                 case myEventType.GameOver:
+                    // game over시 Map reloading을 위해 표시함.
                     PlayerPrefs.SetInt("GameOver", 1);
+                    PlayerDataUtils.SaveDataAsJson(FilePath, curData);
                     break;
                 default: throw new System.Exception("There is a unhandled event at " + this.name);
 

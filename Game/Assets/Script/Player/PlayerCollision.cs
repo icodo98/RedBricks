@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
+using PlayerInformation;
 
 public class PlayerCollision : MonoBehaviour
 {
     public ParticleSystem woodbreak;
-
   
     private Rigidbody2D rb;
     public float InitialSpeed = 4.5f;
@@ -14,14 +14,15 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField]
     private float maxSpeed = 7.0f;
 
+    public float BrickHittedDamage = 1.0f;
+    private float DamageCoefficient = 100f;
+
     public List<Bits> BitTable = new List<Bits>();
     public static Rito.WeightedRandomPicker<Bits> wrPicker = new Rito.WeightedRandomPicker<Bits>();
 
-    
-    /*
-     * 초기 속도에 맞게 공이 출발하게 해주고, bit 아이템 드랍 테이블을 picker에 연결함.
-     */
-
+    /// <summary>
+    /// 초기 속도에 맞게 공이 출발하게 해주고, bit 아이템 드랍 테이블을 picker에 연결함.
+    /// </summary>
     void Start()
     {
        
@@ -29,10 +30,12 @@ public class PlayerCollision : MonoBehaviour
         Vector2 diagonal = new Vector2(-2, 2).normalized;
         diagonal = InitialSpeed * diagonal;
         rb.velocity = diagonal;
-
-        for (int i = 0; i < BitTable.Count; i++)
+        if (wrPicker.Empty())
         {
-            wrPicker.Add(BitTable[i], BitTable[i].Weight());
+            for (int i = 0; i < BitTable.Count; i++)
+            {
+                wrPicker.Add(BitTable[i], BitTable[i].Weight());
+            }
         }
     }
     private void Update()
@@ -48,19 +51,19 @@ public class PlayerCollision : MonoBehaviour
             transform.position = iniPos;
         }
     }
-    /*
-     * 충돌시 동작제어. block에 부딪혔을 때와 바닥에 부딪혔을 경우로 나눠짐.
-     * 블럭에 부딪힌다면 부딪힌 블럭을 파괴 후 아이템 드랍 여부를 결정
-     * 바닥에 떨어진 경우 체력을 줄이고 초기 위치로 돌아와 다시 발사됨.
-     */
+    /// <summary>
+    /// 블럭에 부딪힌다면 부딪힌 블럭을 파괴 후 아이템 드랍
+    /// 바닥에 떨어진 경우 체력을 줄이고 초기 위치로 돌아와 다시 발사됨.  
+    /// </summary>
+    /// <param name="other"></param>
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Block"))
         {
             Vector3 pos = other.transform.position;
             Instantiate(woodbreak, pos, Quaternion.identity);
-            other.gameObject.GetComponent<Enemytext>().TakeDamage(Random.Range(1, 5),pos);
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<Enemytext>().TakeDamage(CalculateDamage(), pos);
+            //Destroy(other.gameObject);
             float isDropped = Random.Range(0.0f, 1.0f);
             if (isDropped < BitDropRate)
             {
@@ -68,10 +71,15 @@ public class PlayerCollision : MonoBehaviour
             }
             Invoke("DestoryParticle", 0.5f);
         }
+        else if(other.gameObject.CompareTag("Player"))
+        {
+            other.gameObject.GetComponent<PlayerConroller>().TakeDamage(BrickHittedDamage,false);
+        }
         else if (other.gameObject.name.Equals("Bottom"))
         {
             BallHasFallen();
         }
+
 
     }
     void BallHasFallen()
@@ -102,5 +110,58 @@ public class PlayerCollision : MonoBehaviour
         Drop.transform.localScale = new Vector3(1,1,1);
     }
 
-    
+    public float CalculateDamage()
+    {
+        float baseDamage = rb.velocity.magnitude * rb.mass * DamageCoefficient;
+        
+        // Apply default damage
+        float damage = baseDamage;
+        
+        // Apply Attack attribute of player info
+        damage += PlayerInfo.playerInfo.curData.Attack;
+
+        // Apply 치명타. 치명타 성공시 데미지 200%증가
+        if (Random.value < PlayerInfo.playerInfo.curData.Critical) damage *= 2;
+
+        // Apply 속성. 현재는 구현되어진 속성이 없으므로 Non(무) 속성 고정.
+        damage *= GetDamageTypeModifier(DamageType.Non);
+
+        return damage;
+    }
+
+    /// <summary>
+    /// Working on implement element(attribute) damage. 
+    /// TO DO : 속성별 데미지 계수 정하기.
+    /// PlayerInfo 에서 현재 element설정하기.
+    /// 각 속성별 특성에 맞는 공격 방식 추가.
+    /// </summary>
+    /// <param name="damageType"></param>
+    /// <returns></returns>
+    private float GetDamageTypeModifier(DamageType damageType)
+    {
+        // Retrieve the damage type modifier based on the specific damage type
+        float damageModifier = 1f;
+
+        switch (damageType)
+        {
+            case DamageType.Explosion:
+                damageModifier = 1.2f;
+                break;
+            case DamageType.Poision:
+                damageModifier = 0.8f;
+                break;
+            case DamageType.Dark:
+                damageModifier = 1.5f;
+                break;
+            case DamageType.Electricity:
+                damageModifier = 0.5f;
+                break;
+            case DamageType.Non:
+                damageModifier= 1f;
+                break;
+                // Add more damage type cases and modifiers as needed
+        }
+
+        return damageModifier;
+    }
 }

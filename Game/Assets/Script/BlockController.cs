@@ -23,6 +23,7 @@ public class BlockController : MonoBehaviour,IListener
         EventManager.Instance.AddListener(myEventType.GameOver, this);
         EventManager.Instance.AddListener(myEventType.StageClear, this);
         EventManager.Instance.AddListener(myEventType.GamePause, this);
+        StartCoroutine(StageClear());
 
     }
     public void OnEvent(myEventType eventType, Component Sender, object Param = null)
@@ -47,14 +48,22 @@ public class BlockController : MonoBehaviour,IListener
     private void Update()
     {
         transform.Translate(0,-fallingSpeed*Time.deltaTime,0);
-       /* blCount = (transform.childCount > 0) ? false : true;
-        blLeft = (GetComponent<CreateScene>().leftBlock > 0) ? false : true;*/
-       
-        if (true)//blCount&&blLeft)
+        
+    }
+    IEnumerator StageClear()
+    {
+        while (true)
         {
-            List<Bits> bits = new List<Bits>();
-            EventManager.Instance.PostNotification(myEventType.StageClear, this, bits);
+            blCount = (transform.childCount > 0) ? false : true;
+            blLeft = (GetComponent<CreateScene>().leftBlock > 0) ? false : true;
+
+            if (blCount && blLeft)
+            {
+                List<Bits> bits = new List<Bits>();
+                EventManager.Instance.PostNotification(myEventType.StageClear, this, bits);
+                yield break;
+            }
+           yield return null;
         }
     }
-
  }

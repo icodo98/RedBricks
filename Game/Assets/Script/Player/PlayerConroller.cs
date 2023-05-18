@@ -1,7 +1,9 @@
 using Cinemachine;
 using Mono.Cecil;
+using PlayerInformation;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class PlayerConroller : MonoBehaviour,IListener
@@ -16,11 +18,11 @@ public class PlayerConroller : MonoBehaviour,IListener
     public float maxSpeed = 10f;
     Vector3 lastPosition;
     bool isClicked= false;
-
+    private bool isPaused;
     public int MAXHP;
     public int HP;
-    [SerializeField]
-    private int damage = 0;
+
+    public GameObject hudDamageText;
 
     private int _priority = 3;
     public int priority
@@ -29,28 +31,50 @@ public class PlayerConroller : MonoBehaviour,IListener
         set => _priority = value;
     }
 
-    private void Awake()
-    {
-        HP = MAXHP;
-    }
     private void Start()
     {
         EventManager.Instance.AddListener(myEventType.GameOver,this);
         EventManager.Instance.AddListener(myEventType.StageClear, this);
+        EventManager.Instance.AddListener(myEventType.GamePause, this);
+        EventManager.Instance.AddListener(myEventType.GameResume, this);
         rb = GetComponent<Rigidbody2D>();
+        if (PlayerInfo.playerInfo.curData.AddBall) Invoke("AddBall", 1.5f);
+        if (PlayerInfo.playerInfo.curData.IncreaseHealth > 1) MAXHP = PlayerInfo.playerInfo.curData.IncreaseHealth * MAXHP;
+        HP = MAXHP;
+        isPaused = false;
+    }
+    private void AddBall()
+    {
+        IncreBits b1 = new IncreBits();
+        b1.Power();
+        b1 = null;
+    }
+    private void TakeDamage(float damage)
+    {
+        int intDamage = Mathf.FloorToInt(damage);
+        if (intDamage < 0) intDamage = 0;
+        HP -= intDamage;
+        DisplayDamage(intDamage, this.transform.position);
+        if (HP <= 0)
+        {
+            if(PlayerInfo.playerInfo.curData.curResurrection-- > 0) { HP = MAXHP / 2; }
+            else { EventManager.Instance.PostNotification(myEventType.GameOver, this);}
+        }
 
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    /// <summary>
+    /// 데미지 계산 함수. isTrue 가 true일 경우 유저의 방어력 수치를 무시한 데미지가 들어온다.
+    /// </summary>
+    /// <param name="damage"></param>
+    /// <param name="isTrue"></param> 
+    public void TakeDamage(float damage, bool isTrue)
     {
-        if(collision.gameObject.CompareTag("Ball"))
-        {
-            HP -= damage;
-            if (HP <= 0) EventManager.Instance.PostNotification(myEventType.GameOver, this);
-        }
+        if(isTrue) TakeDamage(damage);
+        else TakeDamage(damage - PlayerInfo.playerInfo.curData.Amor);
     }
-   
     void Update()
     {
+        if(isPaused) return;
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (Input.GetMouseButton(0))
         {
@@ -88,21 +112,36 @@ public class PlayerConroller : MonoBehaviour,IListener
             rb.velocity = Speed_vec * Time.deltaTime;
         }
     }
-
+    /// <summary>
+    /// 공을 떨어뜨렸을 때 입을 데미지 계산. 패널티 감소를 올려 놓았다면 0.25 -> 0.2 -> 0.15 순으로 적은 데미지를 받는다.
+    /// </summary>
     public void BallFallen()
     {
-        HP -= (int) (MAXHP * 0.25);
-        if (HP <= 0) EventManager.Instance.PostNotification(myEventType.GameOver,this);
+        float fallenDamage = (PlayerInfo.playerInfo.curData.FallingPenalty < 1) ? 0.25f :
+            (PlayerInfo.playerInfo.curData.FallingPenalty < 2) ? 0.2f : 0.15f;
+        TakeDamage(MAXHP * fallenDamage,true);
     }
     
     void GameOver()
     {
         Destroy(gameObject);
     }
+    private void DisplayDamage(int damage, Vector3 hudPos)
+    {
+        GameObject hudText = Instantiate(hudDamageText);
+        hudText.transform.position = hudPos;
+        hudText.GetComponent<DamageText>().damage = damage;
+    }
     public void OnEvent(myEventType eventType, Component Sender, object Param = null)
     {
         switch (eventType)
         {
+            case myEventType.GamePause:
+                isPaused = true;
+                break;
+            case myEventType.GameResume:
+                isPaused = false;
+                break;
             case myEventType.GameOver:
                 GameOver();
                 break;
