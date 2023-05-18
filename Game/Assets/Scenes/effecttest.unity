@@ -361,6 +361,7 @@ GameObject:
   - component: {fileID: 367996333}
   - component: {fileID: 367996335}
   - component: {fileID: 367996334}
+  - component: {fileID: 367996336}
   m_Layer: 3
   m_Name: Square (8)
   m_TagString: Block
@@ -461,6 +462,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &367996336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367996332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd1a6416bd1a01428fc10ed2ff7430a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hudDamageText: {fileID: 2898461515439624268, guid: 556a9ec9957a49d4fa043fa6fee3a559, type: 3}
 --- !u!1 &409521765
 GameObject:
   m_ObjectHideFlags: 0
@@ -503,6 +517,7 @@ GameObject:
   - component: {fileID: 425083625}
   - component: {fileID: 425083627}
   - component: {fileID: 425083626}
+  - component: {fileID: 425083628}
   m_Layer: 3
   m_Name: Square (2)
   m_TagString: Block
@@ -603,6 +618,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &425083628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 425083624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd1a6416bd1a01428fc10ed2ff7430a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hudDamageText: {fileID: 2898461515439624268, guid: 556a9ec9957a49d4fa043fa6fee3a559, type: 3}
 --- !u!1 &546092605
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,6 +775,7 @@ GameObject:
   - component: {fileID: 576751322}
   - component: {fileID: 576751324}
   - component: {fileID: 576751323}
+  - component: {fileID: 576751325}
   m_Layer: 3
   m_Name: Square (6)
   m_TagString: Block
@@ -847,6 +876,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &576751325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576751321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd1a6416bd1a01428fc10ed2ff7430a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hudDamageText: {fileID: 2898461515439624268, guid: 556a9ec9957a49d4fa043fa6fee3a559, type: 3}
 --- !u!1 &644500172
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,6 +900,7 @@ GameObject:
   - component: {fileID: 644500173}
   - component: {fileID: 644500175}
   - component: {fileID: 644500174}
+  - component: {fileID: 644500176}
   m_Layer: 3
   m_Name: Square (7)
   m_TagString: Block
@@ -958,6 +1001,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &644500176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644500172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd1a6416bd1a01428fc10ed2ff7430a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hudDamageText: {fileID: 2898461515439624268, guid: 556a9ec9957a49d4fa043fa6fee3a559, type: 3}
 --- !u!1 &654350593
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,6 +1025,7 @@ GameObject:
   - component: {fileID: 654350594}
   - component: {fileID: 654350596}
   - component: {fileID: 654350595}
+  - component: {fileID: 654350597}
   m_Layer: 3
   m_Name: Square (5)
   m_TagString: Block
@@ -1069,6 +1126,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &654350597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654350593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd1a6416bd1a01428fc10ed2ff7430a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hudDamageText: {fileID: 2898461515439624268, guid: 556a9ec9957a49d4fa043fa6fee3a559, type: 3}
 --- !u!1 &873873018
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,6 +1150,7 @@ GameObject:
   - component: {fileID: 873873019}
   - component: {fileID: 873873021}
   - component: {fileID: 873873020}
+  - component: {fileID: 873873022}
   m_Layer: 3
   m_Name: Square (9)
   m_TagString: Block
@@ -1180,6 +1251,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &873873022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873873018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd1a6416bd1a01428fc10ed2ff7430a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hudDamageText: {fileID: 2898461515439624268, guid: 556a9ec9957a49d4fa043fa6fee3a559, type: 3}
 --- !u!1 &985466962
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,6 +1275,7 @@ GameObject:
   - component: {fileID: 985466963}
   - component: {fileID: 985466965}
   - component: {fileID: 985466964}
+  - component: {fileID: 985466966}
   m_Layer: 3
   m_Name: Square (1)
   m_TagString: Block
@@ -1291,6 +1376,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &985466966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985466962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd1a6416bd1a01428fc10ed2ff7430a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hudDamageText: {fileID: 2898461515439624268, guid: 556a9ec9957a49d4fa043fa6fee3a559, type: 3}
 --- !u!1 &1067867531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,6 +1400,7 @@ GameObject:
   - component: {fileID: 1067867532}
   - component: {fileID: 1067867534}
   - component: {fileID: 1067867533}
+  - component: {fileID: 1067867535}
   m_Layer: 3
   m_Name: Square (3)
   m_TagString: Block
@@ -1402,6 +1501,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1067867535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067867531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd1a6416bd1a01428fc10ed2ff7430a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hudDamageText: {fileID: 2898461515439624268, guid: 556a9ec9957a49d4fa043fa6fee3a559, type: 3}
 --- !u!1 &1077809345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1546,6 +1658,7 @@ GameObject:
   - component: {fileID: 1110323999}
   - component: {fileID: 1110324001}
   - component: {fileID: 1110324000}
+  - component: {fileID: 1110324002}
   m_Layer: 3
   m_Name: Square (11)
   m_TagString: Block
@@ -1646,6 +1759,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1110324002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110323998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd1a6416bd1a01428fc10ed2ff7430a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hudDamageText: {fileID: 2898461515439624268, guid: 556a9ec9957a49d4fa043fa6fee3a559, type: 3}
 --- !u!1 &1262943709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,7 +1897,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hudDamageText: {fileID: 2898461515439624268, guid: 556a9ec9957a49d4fa043fa6fee3a559, type: 3}
-  hudPos: {fileID: 2070576582}
 --- !u!1 &1265521152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,6 +1908,7 @@ GameObject:
   - component: {fileID: 1265521153}
   - component: {fileID: 1265521155}
   - component: {fileID: 1265521154}
+  - component: {fileID: 1265521156}
   m_Layer: 3
   m_Name: Square (4)
   m_TagString: Block
@@ -1883,6 +2009,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1265521156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265521152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd1a6416bd1a01428fc10ed2ff7430a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hudDamageText: {fileID: 2898461515439624268, guid: 556a9ec9957a49d4fa043fa6fee3a559, type: 3}
 --- !u!1 &1287822221
 GameObject:
   m_ObjectHideFlags: 0
@@ -2208,6 +2347,7 @@ GameObject:
   - component: {fileID: 1899931151}
   - component: {fileID: 1899931153}
   - component: {fileID: 1899931152}
+  - component: {fileID: 1899931154}
   m_Layer: 3
   m_Name: Square (10)
   m_TagString: Block
@@ -2308,6 +2448,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1899931154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1899931150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd1a6416bd1a01428fc10ed2ff7430a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hudDamageText: {fileID: 2898461515439624268, guid: 556a9ec9957a49d4fa043fa6fee3a559, type: 3}
 --- !u!1 &1959280284
 GameObject:
   m_ObjectHideFlags: 0
@@ -2402,11 +2555,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!4 &2070576582 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8346545128772368616, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
-  m_PrefabInstance: {fileID: 8346545129942237580}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &245811708013436024
 PrefabInstance:
   m_ObjectHideFlags: 0
