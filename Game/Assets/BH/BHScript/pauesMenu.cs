@@ -9,6 +9,7 @@ public class pauesMenu : MonoBehaviour
 
     public void Pause()
     {
+        AudioManager.Instance.musicSource.Stop();
         EventManager.Instance.PostNotification(myEventType.GamePause, this);
         Time.timeScale = 0;
     }
@@ -19,6 +20,7 @@ public class pauesMenu : MonoBehaviour
         StartCoroutine(CloseAfterDelay());
         EventManager.Instance.PostNotification(myEventType.GameResume, this);
         Time.timeScale = 1;
+        AudioManager.Instance.musicSource.Play();
     }
 
     private IEnumerator CloseAfterDelay()
