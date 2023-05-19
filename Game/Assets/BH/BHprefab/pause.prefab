@@ -228,6 +228,7 @@ MonoBehaviour:
   sfxSounds: []
   musicSource: {fileID: 4035265749969823651}
   sfxSource: {fileID: 0}
+  volumeSlider: {fileID: 1474530733299897320}
 --- !u!1 &1303571928454355687
 GameObject:
   m_ObjectHideFlags: 0
