@@ -9,17 +9,16 @@ public class PermissionTest : MonoBehaviour
 
     private Vector3 pos;
     public GameObject sceneObj;
-    private Camera[] cams;
+    public Camera[] cams;
     private Camera mainCam;
     public void showMap()
     {
         pauesMenu a = new pauesMenu();
         a.Pause();
-        sceneObj.SetActive(false);
-        mainCam = Camera.main;
-        pos = mainCam.transform.position;
-        mainCam.transform.position = new Vector3(0, 0, -10);
-        StartCoroutine(AsyncLoad());
+        cams[0].enabled = false;
+        cams[1].enabled = true;
+        sceneObj.SetActive(true);
+        //StartCoroutine(AsyncLoad());
         
     }
     IEnumerator AsyncLoad()
@@ -33,10 +32,11 @@ public class PermissionTest : MonoBehaviour
 
     public void returnMap()
     {
-        SceneManager.UnloadSceneAsync(2);
-        SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(3));
-        mainCam.transform.position = pos;
-        sceneObj.SetActive(true);
+        //SceneManager.UnloadSceneAsync(2);
+        //SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(3));
+        cams[1].enabled= false;
+        cams[0].enabled = true;
+        sceneObj.SetActive(false);
         pauesMenu a = new pauesMenu();
         a.Resume();
     }
