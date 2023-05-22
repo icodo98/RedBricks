@@ -17,7 +17,7 @@ public class pauesMenu : MonoBehaviour
         animator = GetComponent<Animator>();
     }
     public void Resume(){
-        StartCoroutine(CloseAfterDelay());
+      //  StartCoroutine(CloseAfterDelay());
         EventManager.Instance.PostNotification(myEventType.GameResume, this);
         Time.timeScale = 1;
         AudioManager.Instance.musicSource.Play();

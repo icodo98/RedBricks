@@ -11,10 +11,13 @@ public class BallManager : MonoBehaviour, IListener
         get => _priority;
         set => _priority = value;
     }
+    private Vector3 velocity;
     private void Start()
     {
         EventManager.Instance.AddListener(myEventType.GameOver, this);
         EventManager.Instance.AddListener(myEventType.StageClear, this);
+        EventManager.Instance.AddListener(myEventType.GameResume, this);
+        EventManager.Instance.AddListener(myEventType.GamePause,this);
     }
     public void OnEvent(myEventType eventType, Component Sender, object Param = null)
     {
@@ -31,6 +34,14 @@ public class BallManager : MonoBehaviour, IListener
                     rb.velocity = Vector2.zero;
                 }*/
                 break;
+            case myEventType.GamePause:
+                velocity = transform.GetChild(0).GetComponent<Rigidbody2D>().velocity;
+                transform.GetChild(0).GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+                break;
+            case myEventType.GameResume:
+                transform.GetChild(0).GetComponent<Rigidbody2D>().velocity = velocity;
+                break;
+
             default: throw new System.Exception("There is a unhandled event at " + this.name);
 
         }

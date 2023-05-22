@@ -60,7 +60,7 @@ namespace Map
 
         private void Awake()
         {
-            Instance = this;
+            if (Instance == null) Instance = this;
             cam = Camera.main;
         }
 
@@ -336,6 +336,10 @@ namespace Map
         {
             var config = GetConfig(mapManager.CurrentMap.configName);
             return config.nodeBlueprints.FirstOrDefault(n => n.name == blueprintName);
+        }
+        public void OnDestroy()
+        {
+            ClearMap();
         }
     }
 }

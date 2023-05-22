@@ -30,7 +30,6 @@ public class CameraController : MonoBehaviour,IListener
                 break;
             default:
                 throw new System.Exception("There is a unhandled event at " + this.name);
-                break;
         }
     }
     public void Start()

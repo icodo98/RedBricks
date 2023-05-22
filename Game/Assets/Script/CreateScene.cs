@@ -26,6 +26,8 @@ public class CreateScene : MonoBehaviour
         get { return LeftBloNum; }
     }
     private int LeftBloNum;
+    private bool coroutineWorking = false;
+    private WaitForSeconds waitFor3Seconds = new WaitForSeconds(3f);
     /*
      * 초기에 IniBloNums의 크기 만큼 블럭을 만들어 낸다.
      * 전체 중에서 블럭이 생길 수 있는 x,y좌표를 설정한뒤 하나의 벡터로 만들어서
@@ -80,6 +82,7 @@ public class CreateScene : MonoBehaviour
     {
         while (LeftBloNum > 0)
         {
+            coroutineWorking = true;
             float h = endPoint.y;
             float w = endPoint.x - startPoint.x;
             w /= MaxRows;
@@ -106,9 +109,15 @@ public class CreateScene : MonoBehaviour
                 newPoints.RemoveAt(i);
                 newBlock--;
             }
-            yield return new WaitForSeconds(3f);
+            coroutineWorking= false;
+            yield return waitFor3Seconds;
         }
-        
+        coroutineWorking = false;
         yield break;
+    }
+    private void OnEnable()
+    {
+        if(!coroutineWorking)
+        StartCoroutine(CreateNewRow());
     }
 }
