@@ -1815,7 +1815,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exit
+  m_text: Reinforce
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3140,6 +3140,46 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 650624233, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 650624233, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 650624233, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1080
+      objectReference: {fileID: 0}
+    - target: {fileID: 650624233, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 650624233, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 650624233, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 650624233, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 650624233, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 650624233, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 650624233, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
     - target: {fileID: 1118904666, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 154.5
@@ -3147,6 +3187,14 @@ PrefabInstance:
     - target: {fileID: 1251442173, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 176.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1979293024166826665, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5934337651966486703, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5934337652452248839, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
       propertyPath: m_Name
@@ -3178,15 +3226,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5934337652452248840, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5934337652452248840, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5934337652452248840, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 5934337652452248840, guid: fa94129d7abbc45118c75dda049c866c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3851,7 +3899,7 @@ GameObject:
   - component: {fileID: 1886889016}
   - component: {fileID: 1886889015}
   m_Layer: 0
-  m_Name: exitButton
+  m_Name: ReinforceButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3921,7 +3969,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1886889016}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1274034590}
+        m_TargetAssemblyTypeName: ManuUIHadnler, Assembly-CSharp
+        m_MethodName: ToReinforceScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1886889016
 MonoBehaviour:
   m_ObjectHideFlags: 0

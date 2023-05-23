@@ -26,17 +26,20 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/BH/BHScenes/BackToMap.unity
     guid: fba71bd28cf70442da2aee9c258308a5
+  - enabled: 1
+    path: Assets/BH/BHScenes/SkillTree.unity
+    guid: 762f390566c5f4dc292cd759168ba60e
   - enabled: 0
-    path: Assets/BH/BHScenes/level1/Stage1.unity
+    path: 
     guid: 4909b7d587bf24c668d7dfa360b5ae57
   - enabled: 0
-    path: Assets/BH/BHScenes/level1/Stage2.unity
+    path: 
     guid: 797569fe0c3df44ee9916955676b9739
   - enabled: 0
-    path: Assets/BH/BHScenes/level1/Stage3.unity
+    path: 
     guid: 311f51de5e16e42579c98a57618df583
   - enabled: 0
-    path: Assets/BH/BHScenes/level1/Stage4.unity
+    path: 
     guid: f7053729d90f1484882386684b75f8fc
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: d1c09ef013edbfa478dda3430147830e, type: 2}
