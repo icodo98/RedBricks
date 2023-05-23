@@ -21,6 +21,7 @@ public class pauesMenu : MonoBehaviour
         EventManager.Instance.PostNotification(myEventType.GameResume, this);
         Time.timeScale = 1;
         AudioManager.Instance.musicSource.Play();
+        StartCoroutine(CloseAfterDelay());
     }
 
     private IEnumerator CloseAfterDelay()

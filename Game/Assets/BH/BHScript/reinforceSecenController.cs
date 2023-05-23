@@ -2,26 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class ManuUIHadnler : MonoBehaviour
+public class reinforceSecenController : MonoBehaviour
 {
-    private Animator animator; //setting open animator
+   public void ToMain()
+   {
+        StartCoroutine(LoadLevel(0));
+   }
+
+   private Animator animator; //setting open animator
     public Animator transtiton;
     public float transtitonTime = 1f;
     
     
-    public void ToMapScene()
-    {
-    
-        StartCoroutine(LoadLevel(1));
-        
-    }
-
-    public void ToReinforceScene()
-    {
-        StartCoroutine(LoadLevel(5));
-    }
-
     IEnumerator LoadLevel(int scene)
     {
         transtiton.SetTrigger("Start");
