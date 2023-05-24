@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6141becc813288499a8a72ea8759f19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FallingSpeed: 0
-  weight: 0
+  FallingSpeed: 0.3
+  weight: 100
   mulSize: 0.75
 --- !u!212 &4382765780758260862
 SpriteRenderer:

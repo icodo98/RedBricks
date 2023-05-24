@@ -8,7 +8,7 @@ public class Enemytext : MonoBehaviour
     public GameObject hudDamageText;
     public int HP = 5;
     
-    public void TakeDamage(float damage,Vector3 hudPos)
+    public bool TakeDamage(float damage,Vector3 hudPos)
     {
         int normalizedDamage;
 
@@ -20,7 +20,11 @@ public class Enemytext : MonoBehaviour
         HP -= normalizedDamage;
 
         DisplayDamage(normalizedDamage, hudPos);
-        if(HP < 0) { Destroy(this.gameObject); }
+        if(HP < 0) { 
+            Destroy(this.gameObject);
+            return true;
+        }
+        return false;
     }
     private void DisplayDamage(int damage, Vector3 hudPos)
     {

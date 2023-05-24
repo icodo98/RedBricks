@@ -69,23 +69,27 @@ namespace Map
 
         private void OnMouseEnter()
         {
+            if (Time.timeScale < 1f) return;
             sr.transform.DOKill();
             sr.transform.DOScale(initialScale * HoverScaleFactor, 0.3f);
         }
 
         private void OnMouseExit()
         {
+            if (Time.timeScale < 1f) return;
             sr.transform.DOKill();
             sr.transform.DOScale(initialScale, 0.3f);
         }
 
         private void OnMouseDown()
         {
+            if (Time.timeScale < 1f) return;
             mouseDownTime = Time.time;
         }
 
         private void OnMouseUp()
         {
+            if (Time.timeScale < 1f) return;
             if (Time.time - mouseDownTime < MaxClickDuration)
             {
                 // user clicked on this node:

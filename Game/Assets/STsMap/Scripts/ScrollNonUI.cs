@@ -74,7 +74,7 @@ namespace Map
                     return;
 
                 var targetY = transform.localPosition.y < yConstraints.min ? yConstraints.min : yConstraints.max;
-                transform.DOLocalMoveY(targetY, tweenBackDuration).SetEase(tweenBackEase);
+                transform.DOLocalMoveY(targetY, tweenBackDuration).SetEase(tweenBackEase).SetUpdate(true);
             }
         }
     }

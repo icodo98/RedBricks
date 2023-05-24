@@ -5,8 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class pauesMenu : MonoBehaviour
 {
-    private Animator animator; 
+    private Animator animator;
 
+    private void OnEnable()
+    {
+        transform.SetAsLastSibling();
+        Debug.Log("this onEnable function is called.");
+    }
     public void Pause()
     {
         AudioManager.Instance.musicSource.Stop();
@@ -17,10 +22,10 @@ public class pauesMenu : MonoBehaviour
         animator = GetComponent<Animator>();
     }
     public void Resume(){
-      //  StartCoroutine(CloseAfterDelay());
         EventManager.Instance.PostNotification(myEventType.GameResume, this);
         Time.timeScale = 1;
         AudioManager.Instance.musicSource.Play();
+        StartCoroutine(CloseAfterDelay());
     }
 
     private IEnumerator CloseAfterDelay()
