@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSounds:
-  - name: battle
+  - name: BGM
     clip: {fileID: 8300000, guid: be4433a6219c34b499b974cb8f795cbb, type: 3}
   sfxSounds: []
   musicSource: {fileID: 4035265749969823651}
