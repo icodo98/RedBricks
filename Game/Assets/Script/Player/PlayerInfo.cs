@@ -12,6 +12,7 @@ namespace PlayerInformation
         public List<GameObject> bitPrefs;
         PlayerData LoadData;
         public PlayerData curData;
+        public Rito.WeightedRandomPicker<Bits> RandomPicker = new Rito.WeightedRandomPicker<Bits>();
         private int _priority = 0;
         public int priority
         {
@@ -41,7 +42,11 @@ namespace PlayerInformation
         {
             EventManager.Instance.AddListener(myEventType.StageClear, playerInfo);
             EventManager.Instance.AddListener(myEventType.GameOver, playerInfo);
-
+            foreach (GameObject obj in bitPrefs)
+            {
+                Bits bits = obj.GetComponent<Bits>();
+                RandomPicker.Add(bits, bits.weight);
+            }
         }
         
 

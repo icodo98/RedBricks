@@ -12,7 +12,8 @@ public abstract class Bits : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             //other.gameObject.GetComponent<PlayerBits>().temporalBits.Add(this);
-            other.gameObject.GetComponent<PlayerBits>().temporalBits.Add(transform.parent.GetComponent<Bits>());
+            Debug.Log("bits meet player!");
+            other.gameObject.GetComponent<PlayerBits>().temporalBits.Add(GetComponent<Bits>());
             other.gameObject.GetComponent<PlayerBits>().temporalBits.Last<Bits>().Power();
             Destroy(gameObject);
         }

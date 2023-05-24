@@ -6,19 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class battleMapUI : MonoBehaviour
 {
-    public GameObject sceneObj;
+    public GameObject mapObj;
     public Camera[] cams;
     public void showMap()
     {
         cams[0].enabled = false;
         cams[1].enabled = true;
-        sceneObj.SetActive(true);
+        mapObj.SetActive(true);
         
     }
     public void returnMap()
     {
         cams[1].enabled= false;
         cams[0].enabled = true;
-        sceneObj.SetActive(false);
+        mapObj.SetActive(false);
     }
 }
