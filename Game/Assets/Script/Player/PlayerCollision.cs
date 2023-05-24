@@ -13,12 +13,11 @@ public class PlayerCollision : MonoBehaviour
     private float BitDropRate = 0.5f;
     [SerializeField]
     private float maxSpeed = 7.0f;
-
+    
     public float BrickHittedDamage = 1.0f;
     private float DamageCoefficient = 100f;
 
     public List<Bits> BitTable = new List<Bits>();
-    public static Rito.WeightedRandomPicker<Bits> wrPicker = new Rito.WeightedRandomPicker<Bits>();
 
     /// <summary>
     /// 초기 속도에 맞게 공이 출발하게 해주고, bit 아이템 드랍 테이블을 picker에 연결함.
@@ -30,13 +29,6 @@ public class PlayerCollision : MonoBehaviour
         Vector2 diagonal = new Vector2(-2, 2).normalized;
         diagonal = InitialSpeed * diagonal;
         rb.velocity = diagonal;
-        if (wrPicker.Empty())
-        {
-            for (int i = 0; i < BitTable.Count; i++)
-            {
-                wrPicker.Add(BitTable[i], BitTable[i].Weight());
-            }
-        }
     }
     private void Update()
     {
@@ -62,10 +54,9 @@ public class PlayerCollision : MonoBehaviour
         {
             Vector3 pos = other.transform.position;
             Instantiate(woodbreak, pos, Quaternion.identity);
-            other.gameObject.GetComponent<Enemytext>().TakeDamage(CalculateDamage(), pos);
-            //Destroy(other.gameObject);
+            bool isBroken = other.gameObject.GetComponent<Enemytext>().TakeDamage(CalculateDamage(), pos);
             float isDropped = Random.Range(0.0f, 1.0f);
-            if (isDropped < BitDropRate)
+            if (isDropped < BitDropRate && isBroken)
             {
                 BitDrop(pos);
             }
@@ -105,9 +96,9 @@ public class PlayerCollision : MonoBehaviour
     }
     void BitDrop(Vector3 pos)
     {
-        Bits dropped = wrPicker.GetRandomPick();
-        GameObject Drop = Instantiate(dropped.gameObject, pos, Quaternion.identity,dropped.gameObject.transform) as GameObject;
-        Drop.transform.localScale = new Vector3(1,1,1);
+        Bits dropped = PlayerInfo.playerInfo.RandomPicker.GetRandomPick();
+        GameObject Drop = Instantiate(dropped.gameObject, pos, Quaternion.identity) as GameObject;
+        Drop.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
     }
 
     public float CalculateDamage()
