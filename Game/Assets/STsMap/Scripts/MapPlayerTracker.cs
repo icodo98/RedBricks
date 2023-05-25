@@ -58,6 +58,9 @@ namespace Map
         private void SendPlayerToNode(MapNode mapNode)
         {
             Locked = lockAfterSelecting;
+            //
+            mapManager.SaveTampMap();
+            //
             mapManager.CurrentMap.path.Add(mapNode.Node.point);
             mapManager.SaveMap();
             view.SetAttainableNodes();
@@ -79,6 +82,7 @@ namespace Map
                 case NodeType.MinorEnemy:
                 //MapPlayerTracker MPT = new MapPlayerTracker();
                // StartCoroutine(LoadLevelAnimation(3));
+               PlayerPrefs.SetInt("StageClear",0);
                SceneManager.LoadScene(3);
                     break;
                 case NodeType.EliteEnemy:
