@@ -78,6 +78,7 @@ public class WinSceneManager : MonoBehaviour, IListener
         switch (eventType)
         {
             case myEventType.StageClear:
+                PlayerPrefs.SetInt("StageClear", 1);
                 this.transform.GetChild(0).gameObject.SetActive(true);
                 break;
             default: throw new System.Exception("There is a unhandled event at " + this.name);

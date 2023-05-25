@@ -10,6 +10,10 @@ namespace PlayerInformation
         public static PlayerInfo playerInfo;
         public List<Bits> bitsList;
         public List<GameObject> bitPrefs;
+
+        public GameObject[] Relic;
+
+
         PlayerData LoadData;
         public PlayerData curData;
         public Rito.WeightedRandomPicker<Bits> RandomPicker = new Rito.WeightedRandomPicker<Bits>();
@@ -73,6 +77,10 @@ namespace PlayerInformation
                 default: throw new System.Exception("There is a unhandled event at " + this.name);
 
             }
+        }
+        private void OnApplicationQuit()
+        {
+           PlayerDataUtils.SaveDataAsJson(FilePath, curData);
         }
     }
 }
