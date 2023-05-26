@@ -31,7 +31,7 @@ public class AudioManager : MonoBehaviour
     private void Start() 
     {
         
-        PlayMusic("battle");
+        PlayMusic("BGM");
         LoadByJSON();
         volumeSlider.value = musicSource.volume;
     }
