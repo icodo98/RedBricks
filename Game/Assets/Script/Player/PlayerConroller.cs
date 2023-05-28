@@ -3,7 +3,6 @@ using Mono.Cecil;
 using PlayerInformation;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 
 public class PlayerConroller : MonoBehaviour,IListener

@@ -11,7 +11,10 @@ public class SizeDownBit : Bits
         GameObject[] ball = GameObject.FindGameObjectsWithTag("Ball");
         foreach (GameObject item in ball)
         {
-            item.transform.localScale = item.transform.localScale * mulSize;
+            if(item.transform.localScale.x > 0.15f)
+            {
+                item.transform.localScale = item.transform.localScale * mulSize;
+            }
         }
     }
     public override double Weight()

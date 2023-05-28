@@ -7,7 +7,7 @@ public class PlayerCollision : MonoBehaviour
     public ParticleSystem woodbreak;
   
     private Rigidbody2D rb;
-    public float InitialSpeed = 4.5f;
+    public float InitialSpeed = 3.5f;
     public Vector3 iniPos = new Vector3(0.02f, -1.23f, 0f);
     [SerializeField]
     private float BitDropRate = 0.5f;
