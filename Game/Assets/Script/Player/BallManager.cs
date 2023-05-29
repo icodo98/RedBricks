@@ -12,6 +12,7 @@ public class BallManager : MonoBehaviour, IListener
         set => _priority = value;
     }
     private Vector3 velocity;
+    
     private void Start()
     {
         EventManager.Instance.AddListener(myEventType.GameOver, this);
@@ -25,6 +26,7 @@ public class BallManager : MonoBehaviour, IListener
         {
             case myEventType.GameOver:
             case myEventType.StageClear:
+                velocity = velocity = transform.GetChild(0).GetComponent<Rigidbody2D>().velocity;
                 gameObject.SetActive(false);
                 // gameover와 stageClear의 경우 공의 움직임을 멈춘다.
                 /*foreach (Transform Child in transform)
@@ -39,6 +41,7 @@ public class BallManager : MonoBehaviour, IListener
                 transform.GetChild(0).GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                 break;
             case myEventType.GameResume:
+                gameObject.SetActive(true);
                 transform.GetChild(0).GetComponent<Rigidbody2D>().velocity = velocity;
                 break;
 
