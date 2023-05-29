@@ -89,7 +89,7 @@ namespace Map
                 SceneManager.LoadScene(4);
                     break;
                 case NodeType.RestSite:
-                SceneManager.LoadScene(4);
+                SceneManager.LoadScene(7);
                     break;
                 case NodeType.Treasure:
                 SceneManager.LoadScene(4);
@@ -101,7 +101,7 @@ namespace Map
                 SceneManager.LoadScene(4);
                     break;
                 case NodeType.Mystery:
-                SceneManager.LoadScene(4);
+                SceneManager.LoadScene(6);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

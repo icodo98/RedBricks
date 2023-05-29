@@ -15,6 +15,8 @@ namespace Map
         {
             if (PlayerPrefs.GetInt("GameOver")==1){
                 GenerateNewMap();
+                SaveMap();
+                SaveTampMap();
                 PlayerPrefs.SetInt("GameOver",0);
             }
             else{
