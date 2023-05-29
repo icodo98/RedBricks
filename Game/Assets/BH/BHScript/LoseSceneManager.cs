@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using PlayerInformation;
 
 public class LoseSceneManager : MonoBehaviour,IListener
 {
@@ -26,7 +27,7 @@ public class LoseSceneManager : MonoBehaviour,IListener
         {
             case myEventType.GameOver:
                 this.transform.GetChild(0).gameObject.SetActive(true);
-
+                Time.timeScale = 0;
                 break;
             default: throw new System.Exception("There is a unhandled event at " + this.name);
         }
@@ -34,16 +35,17 @@ public class LoseSceneManager : MonoBehaviour,IListener
 
     public void TitleButton()
     {
+        Time.timeScale+= 1;
         SceneManager.LoadScene(0);
     }
 
-    public int CompareTo(IListener other)
-    {
-        throw new System.NotImplementedException();
-    }
     public void RetryButton()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        PlayerInfo.playerInfo.curData.curResurrection--;
+        EventManager.Instance.PostNotification(myEventType.GameResume,this,true);
+        Time.timeScale = 1;
+        transform.GetChild(0).gameObject.SetActive(false);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
 
