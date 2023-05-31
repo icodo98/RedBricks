@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Box : MonoBehaviour
 {
@@ -9,5 +10,10 @@ public class Box : MonoBehaviour
     {
         GetComponent<LootBag>().InstantiateLoot(transform.position);
         Destroy(gameObject);
+    }
+
+    public void Gomap()
+    {
+        SceneManager.LoadScene(2);
     }
 }

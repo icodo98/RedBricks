@@ -34,9 +34,9 @@ public class LootBag : MonoBehaviour
         GameObject lootGameObject = Instantiate(droppedItemPrefab, spawnPosition, Quaternion.identity);
         lootGameObject.GetComponent<SpriteRenderer>().sprite =droppedItem.lootSprite;
 
-        float dropForce = 3f;
-        Vector2 dropDirecetion = new Vector2(Random.Range(-1f,1f),Random.Range(-1f,1f));
-        lootGameObject.GetComponent<Rigidbody2D>().AddForce(dropDirecetion * dropForce, ForceMode2D.Impulse);
+       // float dropForce = 3f;
+      //  Vector2 dropDirecetion = new Vector2(Random.Range(-1f,1f),Random.Range(-1f,1f));
+      //  lootGameObject.GetComponent<Rigidbody2D>().AddForce(dropDirecetion * dropForce, ForceMode2D.Impulse);
 
         }
 
