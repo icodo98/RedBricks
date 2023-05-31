@@ -135,7 +135,7 @@ public class PlayerConroller : MonoBehaviour,IListener
         hudText.transform.position = hudPos;
         hudText.GetComponent<DamageText>().damage = damage;
     }
-    public void OnEvent(myEventType eventType, Component Sender, object Param)
+    public void OnEvent(myEventType eventType, Component Sender, object Param = null)
     {
         switch (eventType)
         {
@@ -145,7 +145,7 @@ public class PlayerConroller : MonoBehaviour,IListener
             case myEventType.GameResume:
                 isPaused = false;
                 gameObject.SetActive(true);
-                if ((bool)Param) Resurrection();
+                if (Sender.gameObject.name == "YouBroken") Resurrection();
                 break;
             case myEventType.GameOver:
                 GameOver();
