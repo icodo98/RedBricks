@@ -1,14 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+using System.Linq;
 using UnityEngine;
 namespace Relic
 {
     
-    public interface Relic //: MonoBehaviour
+    public abstract class Relic : MonoBehaviour
     {
-    
-        void Power();
+        public GameObject prefab;
+        public abstract void Power();
+
+        public void AddtoPlayer()
+        {
+            if(prefab != null)
+            {
+                PlayerInformation.PlayerInfo.playerInfo.Relic.Add(prefab);
+
+            }
+        }
         
     }
 

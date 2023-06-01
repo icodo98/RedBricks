@@ -10,7 +10,7 @@ public class PlayerBits : MonoBehaviour
     public List<Bits> temporalBits;
 
     private List<Bits> permBits;
-    
+    public GameObject maxHealBit;
     private void Start()
     {
         temporalBits = new List<Bits>();
@@ -25,7 +25,13 @@ public class PlayerBits : MonoBehaviour
     public List<Bits> pickRandomBit()
     {
         temporalBits = temporalBits.Distinct<Bits>().ToList();
-        temporalBits.Remove(GameObject.Find("MaxHealBit").GetComponent<MaxHealBit>());
+        if(temporalBits.Count > 0)
+        {
+            if (temporalBits.Contains(PlayerInfo.playerInfo.bitPrefs[3].GetComponent<Bits>()))
+            {
+                temporalBits.Remove(PlayerInfo.playerInfo.bitPrefs[3].GetComponent<Bits>());
+            }
+        }
         if(temporalBits.Count > 3)
         {
             List<Bits> returnList = new List<Bits>();
