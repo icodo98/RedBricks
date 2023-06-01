@@ -827,6 +827,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8679559896897149097, guid: 8519d8b57f44a8f449a7e09f79969600, type: 3}
   m_PrefabInstance: {fileID: 893961221}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &885578482 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2447304535753786170, guid: 81c6f704b9e714e99bff5de097f459ef, type: 3}
+  m_PrefabInstance: {fileID: 1057787759}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &885578487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885578482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97eb67090e0e20d45b30bac385fd1456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &893961221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -896,6 +913,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 691112670}
     m_Modifications:
+    - target: {fileID: 2447304535406425274, guid: 81c6f704b9e714e99bff5de097f459ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447304535753786170, guid: 81c6f704b9e714e99bff5de097f459ef, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2447304535753786174, guid: 81c6f704b9e714e99bff5de097f459ef, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2447304535841325846, guid: 81c6f704b9e714e99bff5de097f459ef, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1113,6 +1142,10 @@ PrefabInstance:
     - target: {fileID: 2723313605511428983, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723313605571001889, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2723313605571001949, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
       propertyPath: m_Layer
@@ -1440,7 +1473,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1542401146278438132, guid: f5685eec0d5484a76a45dfdc2545dbc7, type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1542401146278438133, guid: f5685eec0d5484a76a45dfdc2545dbc7, type: 3}
       propertyPath: m_Pivot.x
@@ -2014,14 +2047,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1925324747}
   - component: {fileID: 1925324746}
-  - component: {fileID: 1925324754}
-  - component: {fileID: 1925324753}
-  - component: {fileID: 1925324752}
-  - component: {fileID: 1925324751}
-  - component: {fileID: 1925324750}
-  - component: {fileID: 1925324749}
-  - component: {fileID: 1925324748}
-  - component: {fileID: 1925324755}
   m_Layer: 0
   m_Name: PlayerInfo
   m_TagString: Untagged
@@ -2052,6 +2077,7 @@ MonoBehaviour:
   - {fileID: 1002333147501056570, guid: 88e7bc4d3af79a04d840275b200d9a80, type: 3}
   - {fileID: 1002333147501056570, guid: 134f81db0eb4b9241b8d8c867770fef6, type: 3}
   - {fileID: 1002333147501056570, guid: 4f0446e88a0a5d845abc261f1b4d404c, type: 3}
+  Relic: []
   curData:
     Amor: 0
     Attack: 0
@@ -2081,124 +2107,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1925324748
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925324745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39f95dbcd38ff3642bcb80f854b68004, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FallingSpeed: 0
-  weight: 0
---- !u!114 &1925324749
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925324745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4dbdef56bbdfd548ac270b0d0ab44c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FallingSpeed: 0
-  weight: 0
---- !u!114 &1925324750
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925324745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ae2e7353c54e30469fc51a35d7afe13, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FallingSpeed: 0
-  weight: 0
-  mulSpeed: 0.05
---- !u!114 &1925324751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925324745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba9393d222394a142963628a47c26046, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FallingSpeed: 0
-  weight: 0
-  mulSize: 1.25
---- !u!114 &1925324752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925324745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2320182108e83c489f6e2c1a0ec5d49, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FallingSpeed: 0
-  weight: 0
-  factor: 1.1
---- !u!114 &1925324753
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925324745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b2e92046d591174eb659090ff07ffab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FallingSpeed: 0
-  weight: 0
-  prefab: {fileID: 0}
-  OriPos: {x: 0.02, y: -1.23, z: 0}
---- !u!114 &1925324754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925324745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d4a0b2e400007840a8d76a64f217d95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FallingSpeed: 0
-  weight: 0
---- !u!114 &1925324755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1925324745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6141becc813288499a8a72ea8759f19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FallingSpeed: 0
-  weight: 0
-  mulSize: 0.75
 --- !u!1 &1963328544 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1542401146278438024, guid: f5685eec0d5484a76a45dfdc2545dbc7, type: 3}
@@ -2284,6 +2192,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1480330781}
     m_Modifications:
+    - target: {fileID: 3904243527025856690, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8346545128772368616, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2327,6 +2239,14 @@ PrefabInstance:
     - target: {fileID: 8346545128772368616, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346545128772368617, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346545128772368617, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
+      propertyPath: m_Constraints
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8346545128772368618, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
       propertyPath: BitTable.Array.data[0]

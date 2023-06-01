@@ -11,9 +11,15 @@ public abstract class Bits : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            //other.gameObject.GetComponent<PlayerBits>().temporalBits.Add(this);
-            Debug.Log("bits meet player!");
-            other.gameObject.GetComponent<PlayerBits>().temporalBits.Add(GetComponent<Bits>());
+            List<GameObject> prefabs = new List<GameObject>();
+            prefabs = PlayerInformation.PlayerInfo.playerInfo.bitPrefs;
+            int i = 0;
+            foreach (GameObject item in prefabs)
+            {
+                if (item.GetComponent<Bits>().GetType().Equals(this.GetType())) break;
+                i++;
+            }
+            other.gameObject.GetComponent<PlayerBits>().temporalBits.Add(prefabs[i].GetComponent<Bits>()) ;
             other.gameObject.GetComponent<PlayerBits>().temporalBits.Last<Bits>().Power();
             Destroy(gameObject);
         }

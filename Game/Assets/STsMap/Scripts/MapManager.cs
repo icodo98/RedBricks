@@ -15,6 +15,8 @@ namespace Map
         {
             if (PlayerPrefs.GetInt("GameOver")==1){
                 GenerateNewMap();
+                SaveMap();
+                SaveTampMap();
                 PlayerPrefs.SetInt("GameOver",0);
             }
             else{
@@ -22,6 +24,8 @@ namespace Map
             {
                 var mapJson = PlayerPrefs.GetString("Map");
                 var map = JsonConvert.DeserializeObject<Map>(mapJson);
+                var TampmapJson = PlayerPrefs.GetString("TampMap");
+                var Tampmap = JsonConvert.DeserializeObject<Map>(TampmapJson);
                 // using this instead of .Contains()
                 if (map.path.Any(p => p.Equals(map.GetBossNode().point)))
                 {
@@ -30,9 +34,18 @@ namespace Map
                 }
                 else
                 {
+                    if(PlayerPrefs.GetInt("StageClear") == 1)
+                    {
                     CurrentMap = map;
                     // player has not reached the boss yet, load the current map
                     view.ShowMap(map);
+                    }
+                    else
+                    {
+                        CurrentMap = Tampmap;
+                  
+                    view.ShowMap(Tampmap);
+                    }
                 
                 }
             }
@@ -65,6 +78,16 @@ namespace Map
         private void OnApplicationQuit()
         {
             SaveMap();
+        }
+         public void SaveTampMap()
+        {
+            if (CurrentMap == null) return;
+            var settings = new JsonSerializerSettings();
+            settings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+
+            var Tampjson = JsonConvert.SerializeObject(CurrentMap, settings);
+            PlayerPrefs.SetString("TampMap", Tampjson);
+            PlayerPrefs.Save();
         }
     }
 }

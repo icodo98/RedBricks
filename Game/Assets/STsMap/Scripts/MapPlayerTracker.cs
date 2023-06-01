@@ -58,6 +58,9 @@ namespace Map
         private void SendPlayerToNode(MapNode mapNode)
         {
             Locked = lockAfterSelecting;
+            //
+            mapManager.SaveTampMap();
+            //
             mapManager.CurrentMap.path.Add(mapNode.Node.point);
             mapManager.SaveMap();
             view.SetAttainableNodes();
@@ -79,13 +82,14 @@ namespace Map
                 case NodeType.MinorEnemy:
                 //MapPlayerTracker MPT = new MapPlayerTracker();
                // StartCoroutine(LoadLevelAnimation(3));
+               PlayerPrefs.SetInt("StageClear",0);
                SceneManager.LoadScene(3);
                     break;
                 case NodeType.EliteEnemy:
                 SceneManager.LoadScene(4);
                     break;
                 case NodeType.RestSite:
-                SceneManager.LoadScene(4);
+                SceneManager.LoadScene(7);
                     break;
                 case NodeType.Treasure:
                 SceneManager.LoadScene(4);
@@ -97,7 +101,7 @@ namespace Map
                 SceneManager.LoadScene(4);
                     break;
                 case NodeType.Mystery:
-                SceneManager.LoadScene(4);
+                SceneManager.LoadScene(6);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

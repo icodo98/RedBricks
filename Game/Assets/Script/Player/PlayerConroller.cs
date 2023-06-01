@@ -3,7 +3,7 @@ using Mono.Cecil;
 using PlayerInformation;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerConroller : MonoBehaviour,IListener
@@ -57,10 +57,13 @@ public class PlayerConroller : MonoBehaviour,IListener
         DisplayDamage(intDamage, this.transform.position);
         if (HP <= 0)
         {
-            if(PlayerInfo.playerInfo.curData.curResurrection-- > 0) { HP = MAXHP / 2; }
-            else { EventManager.Instance.PostNotification(myEventType.GameOver, this);}
+            EventManager.Instance.PostNotification(myEventType.GameOver, this);
         }
 
+    }
+    public void Resurrection()
+    {
+        HP = MAXHP / 2;
     }
     /// <summary>
     /// 데미지 계산 함수. isTrue 가 true일 경우 유저의 방어력 수치를 무시한 데미지가 들어온다.
@@ -124,7 +127,7 @@ public class PlayerConroller : MonoBehaviour,IListener
     
     void GameOver()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
     private void DisplayDamage(int damage, Vector3 hudPos)
     {
@@ -141,6 +144,8 @@ public class PlayerConroller : MonoBehaviour,IListener
                 break;
             case myEventType.GameResume:
                 isPaused = false;
+                gameObject.SetActive(true);
+                if (Sender.gameObject.name == "YouBroken") Resurrection();
                 break;
             case myEventType.GameOver:
                 GameOver();
