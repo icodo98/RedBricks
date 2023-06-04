@@ -11,7 +11,7 @@ namespace PlayerInformation
         public List<Bits> bitsList;
         public List<GameObject> bitPrefs;
 
-        public GameObject[] Relic;
+        public List<GameObject> Relic;
 
 
         PlayerData LoadData;
