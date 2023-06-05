@@ -1563,6 +1563,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4086221255985007707, guid: f5685eec0d5484a76a45dfdc2545dbc7, type: 3}
+      propertyPath: musicSounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 40c9bb88ae5f8438b81fb7db6bf1ca7e, type: 3}
     - target: {fileID: 5459933783980426979, guid: f5685eec0d5484a76a45dfdc2545dbc7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
