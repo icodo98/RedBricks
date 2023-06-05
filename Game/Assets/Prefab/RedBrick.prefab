@@ -72,6 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   temporalBits: []
+  maxHealBit: {fileID: 0}
 --- !u!114 &1847664750509776266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,7 +119,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 35621328388ee574d803cfbb2bc5bd36, type: 2}
+  - {fileID: 2100000, guid: afc33c9eebb10c84dad002dbe1e9bbf3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
