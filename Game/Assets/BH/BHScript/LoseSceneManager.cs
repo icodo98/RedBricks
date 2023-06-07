@@ -42,6 +42,7 @@ public class LoseSceneManager : MonoBehaviour,IListener
     public void RetryButton()
     {
         PlayerInfo.playerInfo.curData.curResurrection--;
+        PlayerPrefs.SetInt("GameOver",0);
         EventManager.Instance.PostNotification(myEventType.GameResume,this,true);
         Time.timeScale = 1;
         transform.GetChild(0).gameObject.SetActive(false);

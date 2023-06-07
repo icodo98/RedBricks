@@ -178,8 +178,8 @@ MonoBehaviour:
   endPoint: {x: 0.8, y: 1.9, z: 0}
   MaxCols: 7
   MaxRows: 4
-  MaxBloNums: 1
-  MinBloNums: 1
+  MaxBloNums: 40
+  MinBloNums: 20
 --- !u!114 &99703607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2086,6 +2086,27 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6474405324530036543, guid: a92107b7b2b460e488c8190e3bbeecfa, type: 3}
   m_PrefabInstance: {fileID: 1964507934}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1923817474 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8346545128772368621, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
+  m_PrefabInstance: {fileID: 8346545129942237580}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &1923817480
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923817474}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 8858598e3c8cc1246a9a3b2e9ec0313d, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000009934107, y: -0.00047683716}
+  m_Size: {x: 1, y: 1.0405571}
+  m_Direction: 0
 --- !u!1 &1925324745
 GameObject:
   m_ObjectHideFlags: 0
@@ -2336,6 +2357,14 @@ PrefabInstance:
     - target: {fileID: 8346545128772368621, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
       propertyPath: m_Name
       value: Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346545128772368622, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
+      propertyPath: m_Density
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8346545128772368622, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
