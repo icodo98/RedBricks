@@ -1,15 +1,13 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Game/Assets/BH/animation/regneration/generation.anim.meta
 guid: 8d28c6c71e7e24e9e98e56e0c7cfd8f4
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 7400000
-========
 guid: a74af49949acb0945b8396d6fa7b0bc5
+guid: 2b3b16ba7225c24c6116313a59dccf32ab750254
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 0
->>>>>>>> d08193904031c7c7cb95534c7fd35cbc9d378c44:Game/Assets/Material/Noopen/balls/Rock_Ground_Cliff_1/Rock_Ground_Cliff_1.mat.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 
