@@ -40,14 +40,16 @@ public class PlayerConroller : MonoBehaviour,IListener
         rb = GetComponent<Rigidbody2D>();
         if (PlayerInfo.playerInfo.curData.AddBall) Invoke("AddBall", 1.5f);
         if (PlayerInfo.playerInfo.curData.IncreaseHealth > 1) MAXHP = PlayerInfo.playerInfo.curData.IncreaseHealth * MAXHP;
-        HP = MAXHP;
+        PlayerInfo.playerInfo.HP = MAXHP;
+        HP = PlayerInfo.playerInfo.HP;
+
+
         isPaused = false;
     }
     private void AddBall()
     {
-        IncreBits b1 = new IncreBits();
+        IncreBits b1 = new();
         b1.Power();
-        b1 = null;
     }
     private void TakeDamage(float damage)
     {
@@ -156,5 +158,9 @@ public class PlayerConroller : MonoBehaviour,IListener
                 break;
             default: throw new System.Exception("There is a unhandled event at " + this.name);
         }
+    }
+    private void OnDestroy()
+    {
+        PlayerInfo.playerInfo.HP = HP;
     }
 }

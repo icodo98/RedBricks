@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f08b9fae1a9254a41a063bb0c48144c3, type: 3}
-  m_Name: 7
+  m_Name: SDB
   m_EditorClassIdentifier: 
-  lootSprite: {fileID: 21300000, guid: 3e5c34adf5ed444d7a0f883b6e57a706, type: 3}
-  lootName: 7
-  dropChance: 99
+  lootSprite: {fileID: 21300000, guid: 38d9710d55f29d24198155204a7f78ba, type: 3}
+  lootName: SDB
+  dropChance: 70
