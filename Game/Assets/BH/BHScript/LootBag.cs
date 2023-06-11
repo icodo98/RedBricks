@@ -8,7 +8,7 @@ public class LootBag : MonoBehaviour
     public List<Loot> lootList = new List<Loot>();
     // Start is called before the first frame update
     
-   Loot GetDroppedItem(){
+   Loot GetItem(){
         int randomNumber = Random.Range(1,101);
         List<Loot> possibleItems = new List<Loot>();
         foreach (Loot item in lootList)
@@ -28,11 +28,11 @@ public class LootBag : MonoBehaviour
     }
     public void InstantiateLoot(Vector3 spawnPosition)
     {
-        Loot droppedItem = GetDroppedItem();
-        if(droppedItem != null)
+        Loot RandomItem = GetItem();
+        if(RandomItem != null)
         {
         GameObject lootGameObject = Instantiate(droppedItemPrefab, spawnPosition, Quaternion.identity);
-        lootGameObject.GetComponent<SpriteRenderer>().sprite =droppedItem.lootSprite;
+        lootGameObject.GetComponent<SpriteRenderer>().sprite =RandomItem.lootSprite;
 
        // float dropForce = 3f;
       //  Vector2 dropDirecetion = new Vector2(Random.Range(-1f,1f),Random.Range(-1f,1f));
