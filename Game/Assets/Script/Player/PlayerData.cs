@@ -27,6 +27,7 @@ namespace PlayerInformation
         public PlayerData()
         {
             curResurrection = Resurrection;
+            AddBall = false;
         }
         public PlayerData( PlayerData loadData)
         {
@@ -58,7 +59,7 @@ namespace PlayerInformation
     {
         public static PlayerData ReadData(string Path)
         {
-            PlayerData LoadData= new PlayerData();
+            PlayerData LoadData= new ();
             if (File.Exists(Path))
             {
                 string data = File.ReadAllText(Path);

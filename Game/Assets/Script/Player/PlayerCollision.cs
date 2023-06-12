@@ -19,9 +19,6 @@ public class PlayerCollision : MonoBehaviour
 
     public List<Bits> BitTable = new List<Bits>();
 
-    /// <summary>
-    /// 초기 속도에 맞게 공이 출발하게 해주고, bit 아이템 드랍 테이블을 picker에 연결함.
-    /// </summary>
     void Start()
     {
        
@@ -122,7 +119,7 @@ public class PlayerCollision : MonoBehaviour
 
     /// <summary>
     /// Working on implement element(attribute) damage. 
-    /// TO DO : 속성별 데미지 계수 정하기.
+    /// TODO : 속성별 데미지 계수 정하기.
     /// PlayerInfo 에서 현재 element설정하기.
     /// 각 속성별 특성에 맞는 공격 방식 추가.
     /// </summary>

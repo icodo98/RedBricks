@@ -423,7 +423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2447304535406425277
 RectTransform:
   m_ObjectHideFlags: 0
@@ -686,6 +686,7 @@ GameObject:
   - component: {fileID: 2447304535753786174}
   - component: {fileID: 2447304535753786175}
   - component: {fileID: 2447304535753786172}
+  - component: {fileID: 885578487}
   m_Layer: 5
   m_Name: YouBrokenCanvas
   m_TagString: Untagged
@@ -739,7 +740,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &2447304535753786175
 MonoBehaviour:
@@ -781,6 +782,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &885578487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2447304535753786170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97eb67090e0e20d45b30bac385fd1456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2447304535841325847
 GameObject:
   m_ObjectHideFlags: 0

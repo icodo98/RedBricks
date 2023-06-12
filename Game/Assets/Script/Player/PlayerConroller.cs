@@ -70,8 +70,8 @@ public class PlayerConroller : MonoBehaviour,IListener
     /// <summary>
     /// 데미지 계산 함수. isTrue 가 true일 경우 유저의 방어력 수치를 무시한 데미지가 들어온다.
     /// </summary>
-    /// <param name="damage"></param>
-    /// <param name="isTrue"></param> 
+    /// <param name="damage"> 입을 데미지</param>
+    /// <param name="isTrue"> true 일 경우 방어력 무시</param> 
     public void TakeDamage(float damage, bool isTrue)
     {
         if(isTrue) TakeDamage(damage);
