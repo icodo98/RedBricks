@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
-
+using System;
 
 namespace PlayerInformation
 {
+    [Serializable]
     public class PlayerInfo : MonoBehaviour, IListener
     {
         public static PlayerInfo playerInfo;
@@ -16,7 +16,7 @@ namespace PlayerInformation
 
         PlayerData LoadData;
         public PlayerData curData;
-        public Rito.WeightedRandomPicker<Bits> RandomPicker = new Rito.WeightedRandomPicker<Bits>();
+        public Rito.WeightedRandomPicker<Bits> RandomPicker = new ();
         private int _priority = 0;
         public int priority
         {
@@ -24,12 +24,22 @@ namespace PlayerInformation
             set => _priority = value;
         }
 
-        private string FilePath;
+        public int HP
+        {
+            get => _HP;
+            set => _HP = value;
+        }
+        private int _HP;
+        private string dataFilePath;
+        private string infoFilePath;
+        public int MaxHP = 100;
 
         public void Awake()
         {
             DontDestroyOnLoad(gameObject);
-            FilePath = Application.dataPath + "/PlayerData.json";
+            dataFilePath = Application.dataPath + "/PlayerData.json";
+            infoFilePath = Application.dataPath + "/PlayerInfo.json";
+
 
             if (playerInfo == null)
             {
@@ -39,7 +49,9 @@ namespace PlayerInformation
             {
                 Destroy(gameObject);
             }
-            LoadData = PlayerDataUtils.ReadData(FilePath);
+            if(PlayerPrefs.GetInt("GameOver") == 0) LoadPlayerInfo();
+
+            LoadData = PlayerDataUtils.ReadData(dataFilePath);
             curData = new PlayerData(LoadData);
         }
         public void Start()
@@ -51,6 +63,7 @@ namespace PlayerInformation
                 Bits bits = obj.GetComponent<Bits>();
                 RandomPicker.Add(bits, bits.weight);
             }
+            HP = curData.IncreaseHealth * MaxHP;
         }
         
 
@@ -62,17 +75,21 @@ namespace PlayerInformation
             switch (eventType)
             {
                 case myEventType.StageClear:
+                    //ToDo Check if playerBits remains after clear. make sure not showing bit select UI when EnableSelection is false.
                     if (curData.EnableSelection) break;
                     Bits[] temp = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBits>().temporalBits.ToArray();
                     if (temp.Length == 0) break;
-                    int i = Random.Range(0, temp.Length);
+                    int i = UnityEngine.Random.Range(0, temp.Length);
                     Bits aBits = GetComponent(temp[i].GetType()) as Bits;
                     bitsList.Add(aBits);
+                    PlayerDataUtils.SaveDataAsJson(infoFilePath, this);
+
                     break;
                 case myEventType.GameOver:
                     // game over시 Map reloading을 위해 표시함.
                     PlayerPrefs.SetInt("GameOver", 1);
-                    PlayerDataUtils.SaveDataAsJson(FilePath, curData);
+                    PlayerPrefs.Save();
+                    PlayerDataUtils.SaveDataAsJson(dataFilePath, curData);
                     break;
                 default: throw new System.Exception("There is a unhandled event at " + this.name);
 
@@ -80,7 +97,17 @@ namespace PlayerInformation
         }
         private void OnApplicationQuit()
         {
-           PlayerDataUtils.SaveDataAsJson(FilePath, curData);
+           PlayerDataUtils.SaveDataAsJson(dataFilePath, curData);
+        }
+        
+        public void LoadPlayerInfo()
+        {
+            PlayerInfo loaded = PlayerDataUtils.ReadInfo(infoFilePath);
+            if (loaded != null)
+            {
+                playerInfo = loaded;
+            }
+
         }
     }
 }

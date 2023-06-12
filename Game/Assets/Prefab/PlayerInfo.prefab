@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1130177693080908566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1130177693080908564}
+  - component: {fileID: 1130177693080908565}
+  m_Layer: 0
+  m_Name: PlayerInfo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1130177693080908564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130177693080908566}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.7101649, y: -0.06819315, z: 0.17931208}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1130177693080908565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130177693080908566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc705993a0749e8408ee534a3bf86fd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bitsList: []
+  bitPrefs:
+  - {fileID: 1002333147501056570, guid: 539a3740da5606a4faf4e4352848d4f9, type: 3}
+  - {fileID: 1002333147501056570, guid: d37cab08df2305848a33953dddaa129d, type: 3}
+  - {fileID: 1002333147501056570, guid: afbc5b1557f5ed946a1d72321ea947bf, type: 3}
+  - {fileID: 1002333147501056570, guid: da6eb1be491595d42a76edf93253c18e, type: 3}
+  - {fileID: 1002333147501056570, guid: d3550166b2d762648b97d5d5753c72d8, type: 3}
+  - {fileID: 1002333147501056570, guid: 3a434d354dcd70e45b06191319b98518, type: 3}
+  - {fileID: 1002333147501056570, guid: 88e7bc4d3af79a04d840275b200d9a80, type: 3}
+  - {fileID: 1002333147501056570, guid: 134f81db0eb4b9241b8d8c867770fef6, type: 3}
+  - {fileID: 1002333147501056570, guid: 4f0446e88a0a5d845abc261f1b4d404c, type: 3}
+  Relic: []
+  curData:
+    Amor: 0
+    Attack: 0
+    Speed: 0
+    BarLength: 0
+    Critical: 0
+    ElementDamage: []
+    AddBall: 0
+    Resurrection: 0
+    EnableSelection: 0
+    FallingPenalty: 0
+    IncreaseHealth: 0
+    curResurrection: 0
+    bitsList: []
+  MaxHP: 100

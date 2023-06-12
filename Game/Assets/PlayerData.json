@@ -6,10 +6,10 @@
     "Critical": 0.0,
     "ElementDamage": [],
     "AddBall": false,
-    "Resurrection": 1,
+    "Resurrection": 0,
     "EnableSelection": false,
     "FallingPenalty": 0.0,
     "IncreaseHealth": 0,
-    "curResurrection": 1,
+    "curResurrection": 0,
     "bitsList": []
 }

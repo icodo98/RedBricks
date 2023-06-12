@@ -11,8 +11,7 @@ public abstract class Bits : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            List<GameObject> prefabs = new List<GameObject>();
-            prefabs = PlayerInformation.PlayerInfo.playerInfo.bitPrefs;
+            List<GameObject> prefabs =  PlayerInformation.PlayerInfo.playerInfo.bitPrefs;
             int i = 0;
             foreach (GameObject item in prefabs)
             {

@@ -27,6 +27,7 @@ namespace PlayerInformation
         public PlayerData()
         {
             curResurrection = Resurrection;
+            AddBall = false;
         }
         public PlayerData( PlayerData loadData)
         {
@@ -58,7 +59,7 @@ namespace PlayerInformation
     {
         public static PlayerData ReadData(string Path)
         {
-            PlayerData LoadData= new PlayerData();
+            PlayerData LoadData= new ();
             if (File.Exists(Path))
             {
                 string data = File.ReadAllText(Path);
@@ -67,7 +68,15 @@ namespace PlayerInformation
             else return null;
             return LoadData;
         }
-
+        public static PlayerInfo ReadInfo(string Path)
+        { 
+            if (File.Exists(Path))
+            {
+                string data = File.ReadAllText(Path);
+                return JsonUtility.FromJson<PlayerInfo>(data);
+            }
+            else return null;
+        }
         public static bool SaveDataAsJson(string Path, object data) {
             Type dataType = data.GetType();
             if (!dataType.IsSerializable) return false;
