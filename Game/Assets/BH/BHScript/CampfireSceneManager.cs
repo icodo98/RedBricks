@@ -20,20 +20,19 @@ public class CampfireSceneManager : MonoBehaviour
   private PlayerInformation.PlayerData LoadData;
  private PlayerInformation.PlayerData curData;
 
- public void Awake()
- {
-  bringBits();
-   
- }
+ private int sbit;
+
+ 
   public void bringBits()
   {
      FilePath = Application.dataPath + "/PlayerData.json";
     LoadData = PlayerInformation.PlayerDataUtils.ReadData(FilePath);
             curData = new PlayerInformation.PlayerData(LoadData);
-    //bBits = 
+    bBits = curData.bitsList;
   }
   public void displaybits()
   {
+    bringBits();
     int rndnum1 = Random.Range(0, bBits.Count);
     int rndnum2 = Random.Range(0, bBits.Count);
     int rndnum3 = Random.Range(0, bBits.Count);
@@ -94,16 +93,19 @@ public class CampfireSceneManager : MonoBehaviour
                 bit1.image.color = Color.green;
                 bit2.image.color = Color.white;
                 bit3.image.color = Color.white;
+                sbit = 0;
                 break;
             case 1:
                 bit1.image.color = Color.white;
                 bit2.image.color = Color.green;
                 bit3.image.color = Color.white;
+                sbit = 1;
                 break;
             case 2:
                 bit1.image.color = Color.white;
                 bit2.image.color = Color.white;
                 bit3.image.color = Color.green;
+                sbit = 2;
                 break;
         }
     }

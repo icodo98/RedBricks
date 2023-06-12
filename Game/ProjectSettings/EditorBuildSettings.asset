@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Campfire.unity
     guid: d62de24eacbcb184e8e45881c7524a57
+  - enabled: 1
+    path: Assets/Scenes/Shopping.unity
+    guid: 6d2ee378ea792f44f9e260fd415a8bbe
   - enabled: 0
     path: 
     guid: 4909b7d587bf24c668d7dfa360b5ae57

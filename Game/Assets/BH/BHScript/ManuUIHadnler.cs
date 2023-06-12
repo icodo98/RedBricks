@@ -2,19 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ManuUIHadnler : MonoBehaviour
 {
     private Animator animator; //setting open animator
     public Animator transtiton;
     public float transtitonTime = 1f;
-    
+    public Button loadbutton;
     
     public void ToMapScene()
     {
     
         StartCoroutine(LoadLevel(1));
         
+    }
+
+    public void ToMapSeceneNewGame()
+    {
+        PlayerPrefs.SetInt("GameOver",1);
+        StartCoroutine(LoadLevel(1));
     }
 
     public void ToReinforceScene()
@@ -31,6 +38,9 @@ public class ManuUIHadnler : MonoBehaviour
 
     private void Awake() {
         animator = GetComponent<Animator>();
+         if (PlayerPrefs.GetInt("GameOver")==1){
+            loadbutton.gameObject.SetActive(false);
+         }
     }
     public void Close(){
         StartCoroutine(CloseAfterDelay());

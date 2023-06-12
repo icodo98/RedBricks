@@ -95,7 +95,7 @@ namespace Map
                 SceneManager.LoadScene(4);
                     break;
                 case NodeType.Store:
-                SceneManager.LoadScene(4);
+                SceneManager.LoadScene(8);
                     break;
                 case NodeType.Boss:
                 SceneManager.LoadScene(4);
