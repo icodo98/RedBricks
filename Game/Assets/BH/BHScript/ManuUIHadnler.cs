@@ -14,7 +14,7 @@ public class ManuUIHadnler : MonoBehaviour
     public void ToMapScene()
     {
     
-        StartCoroutine(LoadLevel(1));
+        StartCoroutine(LoadLevel(2));
         
     }
 
