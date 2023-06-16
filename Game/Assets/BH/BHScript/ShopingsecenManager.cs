@@ -14,11 +14,15 @@ public class ShopingsecenManager : MonoBehaviour
    }
    
    [SerializeField] List<ShopItem> ShopItemList;
+   [SerializeField] Animator NoCoinsAnim;
+   [SerializeField] Text coinText;
     
     GameObject ItemTemplate;
    GameObject g;
    [SerializeField] Transform ShopView;
 
+    Button buyBtn;
+    
    void Start()
    {
     ItemTemplate = ShopView.GetChild(0).gameObject;
@@ -28,11 +32,37 @@ public class ShopingsecenManager : MonoBehaviour
         g = Instantiate ( ItemTemplate, ShopView);
         g.transform.GetChild (0).GetComponent<Image>().sprite = ShopItemList[i].Image;
         g.transform.GetChild (1).GetComponent<Text>().text = ShopItemList[i].Price.ToString();
-        g.transform.GetChild (2).GetComponent<Button>().interactable = !ShopItemList[i].IsPurchased;
+        buyBtn = g.transform.GetChild (2).GetComponent<Button>();
+        buyBtn.interactable = !ShopItemList[i].IsPurchased;
+        buyBtn.AddEventListener(i,onShopItemBtnClicked);
     }
     Destroy(ItemTemplate);
+
+    SetCoinsUI();
    }
    
+   void onShopItemBtnClicked(int itemIndex){
+
+    if(ShopCoin.Instance.HasEnoughCoins(ShopItemList[itemIndex].Price)){
+
+        ShopCoin.Instance.UesCoins(ShopItemList[itemIndex].Price);
+        Debug.Log(itemIndex);
+        ShopItemList [itemIndex].IsPurchased = true;
+        buyBtn = ShopView.GetChild(itemIndex).GetChild(2).GetComponent<Button>();
+        buyBtn.interactable = false;
+        buyBtn.transform.GetChild(0).GetComponent<Text>().text = "Purchased";
+        SetCoinsUI();
+    }else{
+        NoCoinsAnim.SetTrigger("noMoney");
+        Debug.Log("Not enough Coin");
+    }
+   }
+   /////////
+   void SetCoinsUI()
+   {
+    coinText.text = ShopCoin.Instance.Coins.ToString();
+   }
+   ////// LoadScene//////
     public void ToMain()
    {
         StartCoroutine(LoadLevel(2));
