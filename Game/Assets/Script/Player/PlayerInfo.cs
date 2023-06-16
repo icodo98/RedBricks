@@ -15,6 +15,7 @@ namespace PlayerInformation
 
 
         PlayerData LoadData;
+        public PlayerRun curRun;
         public PlayerData curData;
         public Rito.WeightedRandomPicker<Bits> RandomPicker = new ();
         private int _priority = 0;
@@ -49,10 +50,18 @@ namespace PlayerInformation
             {
                 Destroy(gameObject);
             }
-            if(PlayerPrefs.GetInt("GameOver") == 0) LoadPlayerInfo();
+            if (PlayerPrefs.HasKey("GameOver"))
+            {
+                if (PlayerPrefs.GetInt("GameOver") == 0) LoadPlayerInfo();
+                else curRun = new();
+
+            }
 
             LoadData = PlayerDataUtils.ReadData(dataFilePath);
             curData = new PlayerData(LoadData);
+            if (curData.IncreaseHealth > 1) MaxHP = curData.IncreaseHealth * MaxHP;
+            _HP = MaxHP;
+
         }
         public void Start()
         {
@@ -63,7 +72,6 @@ namespace PlayerInformation
                 Bits bits = obj.GetComponent<Bits>();
                 RandomPicker.Add(bits, bits.weight);
             }
-            HP = curData.IncreaseHealth * MaxHP;
         }
         
 
@@ -82,7 +90,7 @@ namespace PlayerInformation
                     int i = UnityEngine.Random.Range(0, temp.Length);
                     Bits aBits = GetComponent(temp[i].GetType()) as Bits;
                     bitsList.Add(aBits);
-                    PlayerDataUtils.SaveDataAsJson(infoFilePath, this);
+                    PlayerDataUtils.SaveDataAsJson(infoFilePath, curRun);
 
                     break;
                 case myEventType.GameOver:
@@ -102,10 +110,10 @@ namespace PlayerInformation
         
         public void LoadPlayerInfo()
         {
-            PlayerInfo loaded = PlayerDataUtils.ReadInfo(infoFilePath);
+            PlayerRun loaded = PlayerDataUtils.ReadInfo(infoFilePath);
             if (loaded != null)
             {
-                playerInfo = loaded;
+                curRun = loaded;
             }
 
         }

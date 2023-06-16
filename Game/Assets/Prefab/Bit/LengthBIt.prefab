@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4751419752270456737}
   - component: {fileID: 446356094996326178}
   m_Layer: 0
-  m_Name: LengthBIt
+  m_Name: LengthBit
   m_TagString: Bit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -39,11 +39,8 @@ public class PlayerConroller : MonoBehaviour,IListener
         EventManager.Instance.AddListener(myEventType.GameResume, this);
         rb = GetComponent<Rigidbody2D>();
         if (PlayerInfo.playerInfo.curData.AddBall) Invoke("AddBall", 1.5f);
-        if (PlayerInfo.playerInfo.curData.IncreaseHealth > 1) MAXHP = PlayerInfo.playerInfo.curData.IncreaseHealth * MAXHP;
-        PlayerInfo.playerInfo.HP = MAXHP;
+        MAXHP = PlayerInfo.playerInfo.MaxHP;
         HP = PlayerInfo.playerInfo.HP;
-
-
         isPaused = false;
     }
     private void AddBall()

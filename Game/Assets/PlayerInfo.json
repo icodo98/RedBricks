@@ -6,36 +6,42 @@
     ],
     "bitPrefs": [
         {
-            "instanceID": 37974
+            "instanceID": 27310
         },
         {
-            "instanceID": 37976
+            "instanceID": 27312
         },
         {
-            "instanceID": 37978
+            "instanceID": 27314
         },
         {
-            "instanceID": 37980
+            "instanceID": 27316
         },
         {
-            "instanceID": 37982
+            "instanceID": 27318
         },
         {
-            "instanceID": 37984
+            "instanceID": 27320
         },
         {
-            "instanceID": 37986
+            "instanceID": 27322
         },
         {
-            "instanceID": 37988
+            "instanceID": 27324
         },
         {
-            "instanceID": 37990
+            "instanceID": 27326
         }
     ],
     "Relic": [],
+    "curRun": {
+        "bitList": [],
+        "relicList": [],
+        "HP": 100,
+        "MaxHP": 100
+    },
     "curData": {
-        "Amor": 45.0,
+        "Amor": 0.0,
         "Attack": 0.0,
         "Speed": 0.0,
         "BarLength": 0.0,
