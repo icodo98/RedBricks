@@ -83,15 +83,6 @@ namespace PlayerInformation
             switch (eventType)
             {
                 case myEventType.StageClear:
-                    //ToDo Check if playerBits remains after clear. make sure not showing bit select UI when EnableSelection is false.
-                    if (curData.EnableSelection) break;
-                    Bits[] temp = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBits>().temporalBits.ToArray();
-                    if (temp.Length == 0) break;
-                    int i = UnityEngine.Random.Range(0, temp.Length);
-                    Bits aBits = GetComponent(temp[i].GetType()) as Bits;
-                    bitsList.Add(aBits);
-                    PlayerDataUtils.SaveDataAsJson(infoFilePath, curRun);
-
                     break;
                 case myEventType.GameOver:
                     // game over시 Map reloading을 위해 표시함.
@@ -115,6 +106,20 @@ namespace PlayerInformation
             {
                 curRun = loaded;
             }
+
+        }
+        public void addParmentBit(List<Bits> bits,int index)
+        {
+            //ToDo playerInfo 와 curRun을 저장하는법. prembit 제대로 저장되어지는 지 확인
+            if(index > 0) {
+            bitsList.Add(bits[--index]);
+            }
+            curRun.bitList = new();
+            foreach (var item in bitsList)
+            {
+                curRun.bitList.Add(item.name);
+            }
+            PlayerDataUtils.SaveDataAsJson(infoFilePath, curRun);
 
         }
     }
