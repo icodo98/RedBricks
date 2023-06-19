@@ -27,4 +27,8 @@ public class ShopCoin : MonoBehaviour
   {
     return (Coins >= amount);
   }
+  public void getBackCoins (int amount)
+  {
+    Coins += amount;
+  }
 }
