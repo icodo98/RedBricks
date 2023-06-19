@@ -8,7 +8,7 @@ public class PlayerBits : MonoBehaviour
 {
     
     public List<Bits> temporalBits;
-
+    [SerializeField]
     private List<Bits> permBits;
     public GameObject maxHealBit;
     private void Start()
@@ -27,9 +27,9 @@ public class PlayerBits : MonoBehaviour
         temporalBits = temporalBits.Distinct<Bits>().ToList();
         if(temporalBits.Count > 0)
         {
-            if (temporalBits.Contains(PlayerInfo.playerInfo.bitPrefs[3].GetComponent<Bits>()))
+            if (temporalBits.Contains(PlayerInfo.playerInfo.bitPrefs[1].GetComponent<Bits>()))
             {
-                temporalBits.Remove(PlayerInfo.playerInfo.bitPrefs[3].GetComponent<Bits>());
+                temporalBits.Remove(PlayerInfo.playerInfo.bitPrefs[1].GetComponent<Bits>());
             }
         }
         if(temporalBits.Count > 3)

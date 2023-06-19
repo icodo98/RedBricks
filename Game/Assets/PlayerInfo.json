@@ -1,53 +1,6 @@
 {
-    "bitsList": [
-        {
-            "instanceID": 0
-        }
-    ],
-    "bitPrefs": [
-        {
-            "instanceID": 37974
-        },
-        {
-            "instanceID": 37976
-        },
-        {
-            "instanceID": 37978
-        },
-        {
-            "instanceID": 37980
-        },
-        {
-            "instanceID": 37982
-        },
-        {
-            "instanceID": 37984
-        },
-        {
-            "instanceID": 37986
-        },
-        {
-            "instanceID": 37988
-        },
-        {
-            "instanceID": 37990
-        }
-    ],
-    "Relic": [],
-    "curData": {
-        "Amor": 45.0,
-        "Attack": 0.0,
-        "Speed": 0.0,
-        "BarLength": 0.0,
-        "Critical": 0.0,
-        "ElementDamage": [],
-        "AddBall": false,
-        "Resurrection": 0,
-        "EnableSelection": false,
-        "FallingPenalty": 0.0,
-        "IncreaseHealth": 0,
-        "curResurrection": 0,
-        "bitsList": []
-    },
+    "bitList": [],
+    "relicList": [],
+    "HP": 100,
     "MaxHP": 100
 }

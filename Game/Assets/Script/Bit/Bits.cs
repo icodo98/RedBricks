@@ -11,6 +11,7 @@ public abstract class Bits : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
+            Debug.Log("Name of this bit is " + this.name);
             List<GameObject> prefabs =  PlayerInformation.PlayerInfo.playerInfo.bitPrefs;
             int i = 0;
             foreach (GameObject item in prefabs)

@@ -68,12 +68,12 @@ namespace PlayerInformation
             else return null;
             return LoadData;
         }
-        public static PlayerInfo ReadInfo(string Path)
+        public static PlayerRun ReadInfo(string Path)
         { 
             if (File.Exists(Path))
             {
                 string data = File.ReadAllText(Path);
-                return JsonUtility.FromJson<PlayerInfo>(data);
+                return JsonUtility.FromJson<PlayerRun>(data);
             }
             else return null;
         }

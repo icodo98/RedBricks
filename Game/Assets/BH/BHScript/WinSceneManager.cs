@@ -19,6 +19,8 @@ public class WinSceneManager : MonoBehaviour, IListener
     [SerializeField]
     private Button bit3;
 
+    private List<Bits> tempBits;
+    public int selectedBit = 0;
     private void Start()
     {
         EventManager.Instance.AddListener(myEventType.StageClear, this);
@@ -29,16 +31,19 @@ public class WinSceneManager : MonoBehaviour, IListener
         switch (WinSceneBitSelect.bitselcet)
         {
             case Bitselcet.Bit1:
+                selectedBit = 1;
                 bit1.image.color = Color.green;
                 bit2.image.color = Color.white;
                 bit3.image.color = Color.white;
                 break;
             case Bitselcet.Bit2:
+                selectedBit = 2;
                 bit1.image.color = Color.white;
                 bit2.image.color = Color.green;
                 bit3.image.color = Color.white;
                 break;
             case Bitselcet.Bit3:
+                selectedBit = 3;
                 bit1.image.color = Color.white;
                 bit2.image.color = Color.white;
                 bit3.image.color = Color.green;
@@ -51,6 +56,7 @@ public class WinSceneManager : MonoBehaviour, IListener
     }
     public void selectBit(List<Bits> bits)
     {
+        tempBits = bits;
         GameObject bit1 = transform.GetChild(0).GetChild(6).GetChild(2).gameObject;
         GameObject bit2 = transform.GetChild(0).GetChild(6).GetChild(3).gameObject;
         GameObject bit3 = transform.GetChild(0).GetChild(6).GetChild(4).gameObject;
@@ -63,12 +69,17 @@ public class WinSceneManager : MonoBehaviour, IListener
                 break;
             case 2:
                 bit1.GetComponent<Image>().sprite = bits[0].GetComponent<SpriteRenderer>().sprite;
-                bit2.GetComponent<Image>().sprite = bits[1].GetComponent<SpriteRenderer>().sprite;
+                bit2.SetActive(false);
+                bit3.GetComponent<Image>().sprite = bits[1].GetComponent<SpriteRenderer>().sprite;
+
                 break;
             case 1:
-                bit1.GetComponent<Image>().sprite = bits[0].GetComponent<SpriteRenderer>().sprite;
+                bit1.SetActive(false);
+                bit2.GetComponent<Image>().sprite = bits[0].GetComponent<SpriteRenderer>().sprite;
+                bit3.SetActive(false);
                 break;
             default:
+                selectedBit = 4;
                 break;
         }
     }
@@ -89,6 +100,9 @@ public class WinSceneManager : MonoBehaviour, IListener
     {
         SceneManager.LoadScene(2);
     }
-
+    public void addPram()
+    {
+        PlayerInformation.PlayerInfo.playerInfo.addParmentBit(tempBits, selectedBit);
+    }
 }
 

@@ -392,6 +392,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2723313606676655847}
+        m_TargetAssemblyTypeName: WinSceneManager, Assembly-CSharp
+        m_MethodName: addPram
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2723313606676655847}
         m_TargetAssemblyTypeName: WinSceneManager, Main
         m_MethodName: MapButton
         m_Mode: 1
@@ -1772,6 +1784,7 @@ MonoBehaviour:
   bit1: {fileID: 3332245186972990743}
   bit2: {fileID: 8083653613413788630}
   bit3: {fileID: 4047303266991212023}
+  selectedBit: 0
 --- !u!1 &2723313606852460121
 GameObject:
   m_ObjectHideFlags: 0
@@ -2105,6 +2118,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 2723313606676655847}
+        m_TargetAssemblyTypeName: WinSceneManager, Assembly-CSharp
+        m_MethodName: addPram
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2723313606676655847}
         m_TargetAssemblyTypeName: WinSceneManager, Main
         m_MethodName: TitleButton
