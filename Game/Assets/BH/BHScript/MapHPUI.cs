@@ -22,10 +22,10 @@ public class MapHPUI : MonoBehaviour
             PlayerInformation.PlayerRun save =JsonUtility.FromJson<PlayerInformation.PlayerRun>(JsonString);
             Debug.Log("LOADED");
 
-        ////
-       HP = save.HP;
+            ////
+       HP = save.HP;// PlayerInformation.PlayerInfo.playerInfo.HP;
 
-        
+
         }
         else
         {
