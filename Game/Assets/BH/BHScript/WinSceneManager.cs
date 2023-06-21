@@ -79,7 +79,10 @@ public class WinSceneManager : MonoBehaviour, IListener
                 bit3.SetActive(false);
                 break;
             default:
-                selectedBit = 4;
+                bit1.SetActive(false);
+                bit2.SetActive(false);
+                bit3.SetActive(false);
+                selectedBit = 0;
                 break;
         }
     }

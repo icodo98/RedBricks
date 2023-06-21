@@ -150,6 +150,7 @@ public class PlayerConroller : MonoBehaviour,IListener
                 GameOver();
                 break;
             case myEventType.StageClear:
+                PlayerInfo.playerInfo.HP = HP;
                 List<Bits> selectedBits =  GetComponent<PlayerBits>().pickRandomBit();
                 GameObject.Find("YouWin").GetComponent<WinSceneManager>().selectBit(selectedBits);
                 break;

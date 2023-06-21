@@ -27,10 +27,9 @@ namespace PlayerInformation
 
         public int HP
         {
-            get => _HP;
-            set => _HP = value;
+            get => curRun.HP;
+            set => curRun.HP = value;
         }
-        private int _HP;
         private string dataFilePath;
         private string infoFilePath;
         public int MaxHP = 100;
@@ -60,7 +59,7 @@ namespace PlayerInformation
             LoadData = PlayerDataUtils.ReadData(dataFilePath);
             curData = new PlayerData(LoadData);
             if (curData.IncreaseHealth > 1) MaxHP = curData.IncreaseHealth * MaxHP;
-            _HP = MaxHP;
+            curRun.HP = MaxHP;
 
         }
         public void Start()
@@ -110,9 +109,12 @@ namespace PlayerInformation
         }
         public void addParmentBit(List<Bits> bits,int index)
         {
-            //ToDo playerInfo 와 curRun을 저장하는법. prembit 제대로 저장되어지는 지 확인
             if(index > 0) {
-            bitsList.Add(bits[--index]);
+                if(--index > bits.Count)
+                {
+                    index--;
+                }
+                bitsList.Add(bits[--index]);
             }
             curRun.bitList = new();
             foreach (var item in bitsList)
