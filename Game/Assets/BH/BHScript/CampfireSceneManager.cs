@@ -13,26 +13,11 @@ public class CampfireSceneManager : MonoBehaviour
     private Button bit2;
     [SerializeField]
     private Button bit3;
- private PlayerInformation.PlayerInfo plin;
  public List<Bits> bBits; 
- private string FilePath;
-
-  private PlayerInformation.PlayerData LoadData;
- private PlayerInformation.PlayerData curData;
-
  private int sbit;
 
- 
-  public void bringBits()
-  {
-     FilePath = Application.dataPath + "/PlayerData.json";
-    LoadData = PlayerInformation.PlayerDataUtils.ReadData(FilePath);
-            curData = new PlayerInformation.PlayerData(LoadData);
-    bBits = curData.bitsList;
-  }
   public void displaybits()
   {
-    bringBits();
     int rndnum1 = Random.Range(0, bBits.Count);
     int rndnum2 = Random.Range(0, bBits.Count);
     int rndnum3 = Random.Range(0, bBits.Count);
@@ -75,7 +60,7 @@ public class CampfireSceneManager : MonoBehaviour
   
   public void Regeneration()
   {
-
+   // SaveFullHPJSON();
   }
 
   public void ToMap()
@@ -109,6 +94,23 @@ public class CampfireSceneManager : MonoBehaviour
                 break;
         }
     }
+///// HP //////
+  private PlayerInformation.PlayerRun saveGameObject()
+    {
+        PlayerInformation.PlayerRun save = new PlayerInformation.PlayerRun();
+        save.HP = save.MaxHP;
+    
+        return save;
+    }
 
+    private void SaveFullHPJSON()
+    {
+        PlayerInformation.PlayerRun save = saveGameObject();
+        string JsonString = JsonUtility.ToJson(save);
+        StreamWriter sw = new StreamWriter(Application.dataPath + "/PlayerInfo.json");
+        sw.Write(JsonString);
+        sw.Close();
+        Debug.Log("Save");
+    }
     
 }

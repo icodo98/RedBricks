@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 public class ShopGetPurchased : MonoBehaviour
 {
 
@@ -55,5 +56,44 @@ public class ShopGetPurchased : MonoBehaviour
         buyBtn = ShopingsecenManager.instance.ShopView.GetChild(i).GetChild(2).GetComponent<Button>();
         buyBtn.interactable = false;
     }
+    SaveByCoinJSON();
 }
+ private CoinJson saveGameObject()
+    {
+        CoinJson save = new CoinJson();
+        save.Coin = ShopCoin.Instance.Coins;
+    
+        return save;
+    }
+
+    private void SaveByCoinJSON()
+    {
+        CoinJson save = saveGameObject();
+        string JsonString = JsonUtility.ToJson(save);
+        StreamWriter sw = new StreamWriter(Application.dataPath + "/CoinJson.text");
+        sw.Write(JsonString);
+        sw.Close();
+        Debug.Log("Save");
+    }
+
+     private void LoadByCoinJSON()
+    {
+        if(File.Exists(Application.dataPath + "/CoinJson.text"))
+        {
+            StreamReader sr = new StreamReader(Application.dataPath + "/CoinJson.text");
+            string JsonString = sr.ReadToEnd();
+            sr.Close();
+            CoinJson save =JsonUtility.FromJson<CoinJson>(JsonString);
+            Debug.Log("LOADED");
+
+        ////
+       ShopCoin.Instance.Coins = save.Coin;
+
+        
+        }
+        else
+        {
+            Debug.Log("NOT FOUND SAVE FILE");
+        }
+    }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
 
 public class ShopingsecenManager : MonoBehaviour
 {
@@ -55,34 +56,33 @@ public class ShopingsecenManager : MonoBehaviour
         buyBtn.AddEventListener(i,onShopItemBtnClicked);
     }
     Destroy(ItemTemplate);
-
+    LoadByCoinJSON();
     SetCoinsUI();
   
    }
    
    void onShopItemBtnClicked(int itemIndex){
-
-    if(ShopCoin.Instance.HasEnoughCoins(ShopItemList[itemIndex].Price)){
-
         buyBtn = ShopView.GetChild(itemIndex).GetChild(2).GetComponent<Button>();
       // buyBtn.interactable = false;
       if(ShopItemList[itemIndex].IsPurchased){
         ShopCoin.Instance.getBackCoins(ShopItemList[itemIndex].Price);
         buyBtn.transform.GetChild(0).GetComponent<Text>().text = "Buy";
         ShopItemList [itemIndex].IsPurchased = false;
+       SetCoinsUI();
       }
       else if (!ShopItemList[itemIndex].IsPurchased)
       {
+         if(ShopCoin.Instance.HasEnoughCoins(ShopItemList[itemIndex].Price)){
          buyBtn.transform.GetChild(0).GetComponent<Text>().text = "Purchased";
           ShopCoin.Instance.UesCoins(ShopItemList[itemIndex].Price);
         Debug.Log(itemIndex);
         ShopItemList [itemIndex].IsPurchased = true;
-      }
-        SetCoinsUI();
-    }else{
+          }else{
         NoCoinsAnim.SetTrigger("noMoney");
         Debug.Log("Not enough Coin");
-    }
+      }
+        SetCoinsUI();
+      }
    }
    /////////
    void SetCoinsUI()
@@ -92,9 +92,23 @@ public class ShopingsecenManager : MonoBehaviour
    /////////randomItem///////
     private void randomItemPutList()
     {
+         List<int> intList = new List<int>();
+
+         int ranNum = Random.Range(0,ShopItemsentireList.Count);
+               for(int i =0; i < 6;){
+              if (intList.Contains(ranNum))
+              {
+                ranNum = Random.Range(0, ShopItemsentireList.Count);
+              }
+              else
+              {
+                intList.Add(ranNum);
+                i++;
+              }
+        }
         for(int i =0; i < 6; i++){
-        int ranNum = Random.Range(0,ShopItemsentireList.Count);
-        ShopItemList.Add(ShopItemsentireList[ranNum]);
+      
+        ShopItemList.Add(ShopItemsentireList[intList[i]]);
         }
     }
    ////// LoadScene//////
@@ -114,5 +128,50 @@ public class ShopingsecenManager : MonoBehaviour
         yield return new WaitForSeconds(transtitonTime);
         SceneManager.LoadScene(scene);
     }
+    ///////Json///////
+
+     private CoinJson saveGameObject()
+    {
+        CoinJson save = new CoinJson();
+        save.Coin = ShopCoin.Instance.Coins;
     
+        return save;
+    }
+
+    private void SaveByCoinJSON()
+    {
+        CoinJson save = saveGameObject();
+        string JsonString = JsonUtility.ToJson(save);
+        StreamWriter sw = new StreamWriter(Application.dataPath + "/CoinJson.text");
+        sw.Write(JsonString);
+        sw.Close();
+        Debug.Log("Save");
+    }
+
+     private void LoadByCoinJSON()
+    {
+        if(File.Exists(Application.dataPath + "/CoinJson.text"))
+        {
+            StreamReader sr = new StreamReader(Application.dataPath + "/CoinJson.text");
+            string JsonString = sr.ReadToEnd();
+            sr.Close();
+            CoinJson save =JsonUtility.FromJson<CoinJson>(JsonString);
+            Debug.Log("LOADED");
+
+        ////
+       ShopCoin.Instance.Coins = save.Coin;
+
+        
+        }
+        else
+        {
+            Debug.Log("NOT FOUND SAVE FILE");
+        }
+    }
+    public void testSetCoin()
+    {
+        ShopCoin.Instance.Coins = 400;
+        SetCoinsUI();
+    }
 }
+
