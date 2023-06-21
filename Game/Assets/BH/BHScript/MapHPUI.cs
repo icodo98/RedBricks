@@ -8,6 +8,7 @@ public class MapHPUI : MonoBehaviour
     int HP;
     public GameObject HPText;
         private void Start() {
+            LoadByHPJSON();
             HPText.GetComponent<Text>().text = HP.ToString();
         }
 
