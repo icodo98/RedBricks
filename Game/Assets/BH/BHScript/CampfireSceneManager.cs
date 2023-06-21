@@ -60,7 +60,7 @@ public class CampfireSceneManager : MonoBehaviour
   
   public void Regeneration()
   {
-   // SaveFullHPJSON();
+    SaveFullHPJSON();
   }
 
   public void ToMap()
