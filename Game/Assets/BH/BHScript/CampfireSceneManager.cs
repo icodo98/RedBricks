@@ -16,11 +16,23 @@ public class CampfireSceneManager : MonoBehaviour
  public List<Bits> bBits; 
  private int sbit;
 
+public GameObject PI;
+
   public void displaybits()
   {
+    bBits = PI.GetComponent<PlayerInformation.PlayerInfo>().bitsList;
+    
     int rndnum1 = Random.Range(0, bBits.Count);
     int rndnum2 = Random.Range(0, bBits.Count);
     int rndnum3 = Random.Range(0, bBits.Count);
+    /*if (true)
+    
+      {
+         bit1.SetActive(false);
+          bit2.SetActive(false);
+           bit3.SetActive(false);
+      }*/
+    
     Sprite b1 = bBits[rndnum1].GetComponent<SpriteRenderer>().sprite; 
     Sprite b2 = bBits[rndnum2].GetComponent<SpriteRenderer>().sprite; 
     Sprite b3 = bBits[rndnum3].GetComponent<SpriteRenderer>().sprite; 
@@ -61,6 +73,7 @@ public class CampfireSceneManager : MonoBehaviour
   public void Regeneration()
   {
     SaveFullHPJSON();
+    PlayerInformation.PlayerInfo.playerInfo.LoadPlayerInfo();
   }
 
   public void ToMap()
