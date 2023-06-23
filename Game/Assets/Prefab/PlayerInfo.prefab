@@ -46,16 +46,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bitsList: []
   bitPrefs:
+  - {fileID: 1002333147501056570, guid: da6eb1be491595d42a76edf93253c18e, type: 3}
+  - {fileID: 1002333147501056570, guid: 3d1b8412193e40445b0b6a0e4c651fc9, type: 3}
   - {fileID: 1002333147501056570, guid: 539a3740da5606a4faf4e4352848d4f9, type: 3}
   - {fileID: 1002333147501056570, guid: d37cab08df2305848a33953dddaa129d, type: 3}
   - {fileID: 1002333147501056570, guid: afbc5b1557f5ed946a1d72321ea947bf, type: 3}
-  - {fileID: 1002333147501056570, guid: da6eb1be491595d42a76edf93253c18e, type: 3}
   - {fileID: 1002333147501056570, guid: d3550166b2d762648b97d5d5753c72d8, type: 3}
   - {fileID: 1002333147501056570, guid: 3a434d354dcd70e45b06191319b98518, type: 3}
   - {fileID: 1002333147501056570, guid: 88e7bc4d3af79a04d840275b200d9a80, type: 3}
   - {fileID: 1002333147501056570, guid: 134f81db0eb4b9241b8d8c867770fef6, type: 3}
   - {fileID: 1002333147501056570, guid: 4f0446e88a0a5d845abc261f1b4d404c, type: 3}
   Relic: []
+  curRun:
+    bitList: []
+    relicList: []
+    HP: 100
+    MaxHP: 100
   curData:
     Amor: 0
     Attack: 0
@@ -70,4 +76,3 @@ MonoBehaviour:
     IncreaseHealth: 0
     curResurrection: 0
     bitsList: []
-  MaxHP: 100

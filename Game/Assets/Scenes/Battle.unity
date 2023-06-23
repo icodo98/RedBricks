@@ -1790,50 +1790,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1130177693080908565, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
-      propertyPath: bitPrefs.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1130177693080908565, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
-      propertyPath: bitPrefs.Array.data[0]
-      value: 
-      objectReference: {fileID: 1002333147501056570, guid: da6eb1be491595d42a76edf93253c18e, type: 3}
-    - target: {fileID: 1130177693080908565, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
-      propertyPath: bitPrefs.Array.data[1]
-      value: 
-      objectReference: {fileID: 1002333147501056570, guid: 3d1b8412193e40445b0b6a0e4c651fc9, type: 3}
-    - target: {fileID: 1130177693080908565, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
-      propertyPath: bitPrefs.Array.data[2]
-      value: 
-      objectReference: {fileID: 1002333147501056570, guid: 539a3740da5606a4faf4e4352848d4f9, type: 3}
-    - target: {fileID: 1130177693080908565, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
-      propertyPath: bitPrefs.Array.data[3]
-      value: 
-      objectReference: {fileID: 1002333147501056570, guid: d37cab08df2305848a33953dddaa129d, type: 3}
-    - target: {fileID: 1130177693080908565, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
-      propertyPath: bitPrefs.Array.data[4]
-      value: 
-      objectReference: {fileID: 1002333147501056570, guid: afbc5b1557f5ed946a1d72321ea947bf, type: 3}
-    - target: {fileID: 1130177693080908565, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
-      propertyPath: bitPrefs.Array.data[5]
-      value: 
-      objectReference: {fileID: 1002333147501056570, guid: d3550166b2d762648b97d5d5753c72d8, type: 3}
-    - target: {fileID: 1130177693080908565, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
-      propertyPath: bitPrefs.Array.data[6]
-      value: 
-      objectReference: {fileID: 1002333147501056570, guid: 3a434d354dcd70e45b06191319b98518, type: 3}
-    - target: {fileID: 1130177693080908565, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
-      propertyPath: bitPrefs.Array.data[7]
-      value: 
-      objectReference: {fileID: 1002333147501056570, guid: 88e7bc4d3af79a04d840275b200d9a80, type: 3}
-    - target: {fileID: 1130177693080908565, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
-      propertyPath: bitPrefs.Array.data[8]
-      value: 
-      objectReference: {fileID: 1002333147501056570, guid: 134f81db0eb4b9241b8d8c867770fef6, type: 3}
-    - target: {fileID: 1130177693080908565, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
-      propertyPath: bitPrefs.Array.data[9]
-      value: 
-      objectReference: {fileID: 1002333147501056570, guid: 4f0446e88a0a5d845abc261f1b4d404c, type: 3}
     - target: {fileID: 1130177693080908566, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
       propertyPath: m_Name
       value: PlayerInfo

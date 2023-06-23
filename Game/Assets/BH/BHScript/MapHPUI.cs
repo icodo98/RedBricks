@@ -8,29 +8,7 @@ public class MapHPUI : MonoBehaviour
     int HP;
     public GameObject HPText;
         private void Start() {
-            LoadByHPJSON();
+            HP = PlayerInformation.PlayerInfo.playerInfo.HP;
             HPText.GetComponent<Text>().text = HP.ToString();
         }
-
- private void LoadByHPJSON()
-    {
-       
-        if(File.Exists(Application.dataPath + "/PlayerInfo.json"))
-        {
-            StreamReader sr = new StreamReader(Application.dataPath + "/PlayerInfo.json");
-            string JsonString = sr.ReadToEnd();
-            sr.Close();
-            PlayerInformation.PlayerRun save =JsonUtility.FromJson<PlayerInformation.PlayerRun>(JsonString);
-            Debug.Log("LOADED");
-
-            ////
-       HP = save.HP;// PlayerInformation.PlayerInfo.playerInfo.HP;
-
-
-        }
-        else
-        {
-            Debug.Log("NOT FOUND SAVE FILE");
-        }
-    }
 }

@@ -10,15 +10,16 @@ namespace PlayerInformation
     {
         public Dictionary<string, int> BitsDic = new Dictionary<string, int>()
         {
-            {"AddAngleBit", 0},
-            {"IncreBit",    1},
-            {"LengthBit",   2},
-            {"MaxHealBit",  3},
-            {"SizeBit",     4},
-            {"SpeedUpBit",  5},
-            {"SubAngleBit", 6},
-            {"TiltBit",     7},
-            {"SizeDownBit", 8},
+            {"MaxHealBit",  0},
+            {"HealBit",     1},
+            {"AddAngleBit", 2},
+            {"IncreBit",    3},
+            {"LengthBit",   4},
+            {"SizeBit",     5},
+            {"SpeedUpBit",  6},
+            {"SubAngleBit", 7},
+            {"TiltBit",     8},
+            {"SizeDownBit", 9}
         };
         public List<string> bitList; 
         public List<string> relicList;

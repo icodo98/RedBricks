@@ -32,7 +32,12 @@ namespace PlayerInformation
         }
         private string dataFilePath;
         private string infoFilePath;
-        public int MaxHP = 100;
+        public int MaxHP
+        {
+            get => curRun.MaxHP;
+            set => curRun.MaxHP = value;
+        }
+
 
         public void Awake()
         {
@@ -49,18 +54,23 @@ namespace PlayerInformation
             {
                 Destroy(gameObject);
             }
-            if (PlayerPrefs.HasKey("GameOver"))
-            {
-                if (PlayerPrefs.GetInt("GameOver") == 0) LoadPlayerInfo();
-                else curRun = new();
-
-            }
-
             LoadData = PlayerDataUtils.ReadData(dataFilePath);
             curData = new PlayerData(LoadData);
-            if (curData.IncreaseHealth > 1) MaxHP = curData.IncreaseHealth * MaxHP;
-            curRun.HP = MaxHP;
+            //ToDo 게임 오버 후에 게임을 끄는 것이 아닌 new game을 시작할 경우 Load를 해오지 않음. 수정 필요.
+            if (PlayerPrefs.HasKey("GameOver"))
+            {
+                if (PlayerPrefs.GetInt("GameOver") == 0)
+                {
+                    LoadPlayerInfo();
+                }
 
+                else
+                {
+                    curRun = new();
+                    if (curData.IncreaseHealth > 1) curRun.MaxHP = curData.IncreaseHealth * curRun.MaxHP;
+                    curRun.HP = curRun.MaxHP;
+                }
+            }
         }
         public void Start()
         {
@@ -97,13 +107,17 @@ namespace PlayerInformation
         {
            PlayerDataUtils.SaveDataAsJson(dataFilePath, curData);
         }
-        
+
         public void LoadPlayerInfo()
         {
             PlayerRun loaded = PlayerDataUtils.ReadInfo(infoFilePath);
             if (loaded != null)
             {
                 curRun = loaded;
+            }
+            else throw new System.Exception("There is no save file!");
+            foreach (string name in  curRun.bitList) {
+                bitsList.Add(bitPrefs[curRun.BitsDic[name]].GetComponent<Bits>());
             }
 
         }
