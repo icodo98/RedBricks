@@ -10,6 +10,8 @@ public class ManuUIHadnler : MonoBehaviour
     public Animator transtiton;
     public float transtitonTime = 1f;
     public Button loadbutton;
+
+    private     int GO;
     
     public void ToMapScene()
     {
@@ -37,8 +39,19 @@ public class ManuUIHadnler : MonoBehaviour
     }
 
     private void Awake() {
-        animator = GetComponent<Animator>();
+        PlayerPrefs.GetInt("GameOver",GO);
+        Debug.Log(GO.ToString());
+            animator = GetComponent<Animator>();
          if (PlayerPrefs.GetInt("GameOver")==1){
+            loadbutton.gameObject.SetActive(false);
+         }
+    }
+    private void Start() {
+    
+        PlayerPrefs.GetInt("GameOver",GO);
+        Debug.Log(GO.ToString());
+
+        if (PlayerPrefs.GetInt("GameOver")==1){
             loadbutton.gameObject.SetActive(false);
          }
     }

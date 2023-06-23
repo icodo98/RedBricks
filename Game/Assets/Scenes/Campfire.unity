@@ -677,6 +677,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1063035407}
+        m_TargetAssemblyTypeName: CampfireSceneManager, Assembly-CSharp
+        m_MethodName: Regeneration
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &474769832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1426,6 +1438,68 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &941794427
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1130177693080908564, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130177693080908564, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.7101649
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130177693080908564, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.06819315
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130177693080908564, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.17931208
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130177693080908564, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130177693080908564, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130177693080908564, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130177693080908564, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130177693080908564, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130177693080908564, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130177693080908564, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1130177693080908566, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
+      propertyPath: m_Name
+      value: PlayerInfo
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
+--- !u!1 &941794428 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1130177693080908566, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
+  m_PrefabInstance: {fileID: 941794427}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1063035406
 GameObject:
   m_ObjectHideFlags: 0
@@ -1459,6 +1533,7 @@ MonoBehaviour:
   bit2: {fileID: 1710525606}
   bit3: {fileID: 411126167}
   bBits: []
+  PI: {fileID: 941794428}
 --- !u!4 &1063035408
 Transform:
   m_ObjectHideFlags: 0
