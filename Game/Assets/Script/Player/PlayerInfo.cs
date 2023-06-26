@@ -38,7 +38,9 @@ namespace PlayerInformation
             set => curRun.MaxHP = value;
         }
 
-
+        /// <summary>
+        /// Map scene에서 처음 생성되어 질 때 don't destory를 위한 설정을 완료함.
+        /// </summary>
         public void Awake()
         {
             DontDestroyOnLoad(gameObject);
@@ -54,9 +56,25 @@ namespace PlayerInformation
             {
                 Destroy(gameObject);
             }
+            //newGame();
+        }
+        public void Start()
+        {
+            EventManager.Instance.AddListener(myEventType.StageClear, playerInfo);
+            EventManager.Instance.AddListener(myEventType.GameOver, playerInfo);
+            foreach (GameObject obj in bitPrefs)
+            {
+                Bits bits = obj.GetComponent<Bits>();
+                RandomPicker.Add(bits, bits.weight);
+            }
+        }
+        /// <summary>
+        /// 저장되어진 스킬 데이터를 로드하고 기존의 체력과 bit List를 새로 초기화함.
+        /// </summary>
+        public void newGame()
+        {
             LoadData = PlayerDataUtils.ReadData(dataFilePath);
             curData = new PlayerData(LoadData);
-            //ToDo 게임 오버 후에 게임을 끄는 것이 아닌 new game을 시작할 경우 Load를 해오지 않음. 수정 필요.
             if (PlayerPrefs.HasKey("GameOver"))
             {
                 if (PlayerPrefs.GetInt("GameOver") == 0)
@@ -72,21 +90,6 @@ namespace PlayerInformation
                 }
             }
         }
-        public void Start()
-        {
-            EventManager.Instance.AddListener(myEventType.StageClear, playerInfo);
-            EventManager.Instance.AddListener(myEventType.GameOver, playerInfo);
-            foreach (GameObject obj in bitPrefs)
-            {
-                Bits bits = obj.GetComponent<Bits>();
-                RandomPicker.Add(bits, bits.weight);
-            }
-        }
-        
-
-        /*
-         * stageClear시 발생할 이벤트. 영구 bit을 추가하여야함.
-         */
         public void OnEvent(myEventType eventType, Component Sender, object Param = null)
         {
             switch (eventType)

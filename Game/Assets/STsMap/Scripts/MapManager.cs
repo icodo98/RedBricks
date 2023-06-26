@@ -14,6 +14,7 @@ namespace Map
         private void Start()
         {
             if (PlayerPrefs.GetInt("GameOver")==1){
+                PlayerInformation.PlayerInfo.playerInfo.newGame();
                 GenerateNewMap();
                 SaveMap();
                 SaveTampMap();
