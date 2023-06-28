@@ -119,6 +119,7 @@ namespace PlayerInformation
                 curRun = loaded;
             }
             else throw new System.Exception("There is no save file!");
+            bitsList = new List<Bits>();
             foreach (string name in  curRun.bitList) {
                 bitsList.Add(bitPrefs[curRun.BitsDic[name]].GetComponent<Bits>());
             }

@@ -16,7 +16,7 @@ public class mapPlayer : MonoBehaviour
     public int selectedOption;
 
     characterManager CM = new characterManager();
-    
+    //ToDo 배틀씬에서는 mesh renderer와 material이고 map씬과 다른 씬에서는 sprite임. 
 
     // Start is called before the first frame update
     
