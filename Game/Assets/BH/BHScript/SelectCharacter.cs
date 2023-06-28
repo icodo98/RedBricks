@@ -7,5 +7,5 @@ public class SelectCharacter
 {
    public string characterName;
    public Sprite characterSprite;
-
+    //ToDo material√ﬂ∞°. 
 }

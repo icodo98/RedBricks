@@ -56,7 +56,7 @@ public class PlayerBits : MonoBehaviour
             }
         }
         
-        if (PlayerInfo.playerInfo.curData.EnableSelection == false) return returnList.Take(0).ToList();
+        if (PlayerInfo.playerInfo.curData.EnableSelection == false) return returnList.Take(1).ToList();
         else return returnList;
     }
    
