@@ -6,7 +6,130 @@ using UnityEngine.UI;
 using System.IO;
 
 public class CampfireSceneManager : MonoBehaviour
-{
+{////tset///
+
+public PlayerInformation.PlayerRun PR;
+
+public PlayerInformation.PlayerInfo PII;
+[System.Serializable] public class campfirebit
+   {
+    public Sprite Image;
+
+  public bool IsSetceted = false;
+
+   }
+
+
+public GameObject PI;
+
+public List<Bits> bBits; 
+public List<campfirebit> sBits; 
+
+public List<campfirebit> presBits; 
+
+GameObject ItemTemplate;
+   GameObject g;
+   public Transform bitView;
+
+   Button selectBtn;
+private void Start() {
+  convertBitsImage();
+  randomItemPutList();
+  bBits = PI.GetComponent<PlayerInformation.PlayerInfo>().bitsList;
+
+  ItemTemplate = bitView.GetChild(0).gameObject;
+  if(bBits == null)
+      {
+        //
+      }
+      else{
+    int len = sBits.Count;
+    for(int i =0; i <len; i++)
+    {
+        g = Instantiate ( ItemTemplate, bitView);
+        g.transform.GetChild (0).GetComponent<Image>().sprite = sBits[i].Image;
+        selectBtn = g.transform.GetChild (1).GetComponent<Button>();
+      
+        selectBtn.AddEventListener(i,onShopItemBtnClicked);
+    }
+    Destroy(ItemTemplate);
+      }
+}
+
+void onShopItemBtnClicked(int itemIndex){
+        selectBtn = bitView.GetChild(itemIndex).GetChild(1).GetComponent<Button>();
+      // buyBtn.interactable = false;
+      if(sBits[itemIndex].IsSetceted){
+
+        selectBtn.transform.GetChild(0).GetComponent<Text>().text = "Pick";
+        sBits [itemIndex].IsSetceted = false;
+      
+      }
+      else if (!sBits[itemIndex].IsSetceted)
+      {
+         selectBtn.transform.GetChild(0).GetComponent<Text>().text = "Selected";
+        Debug.Log(itemIndex);
+        sBits [itemIndex].IsSetceted = true;
+        
+        
+      }
+        
+      }
+
+       private void randomItemPutList()
+    {
+         List<int> intList = new List<int>();
+if(bBits == null)
+      {
+        //
+      }
+      else
+      {
+         int ranNum = Random.Range(0,bBits.Count);
+               for(int i =0; i < 3;){
+              if (intList.Contains(ranNum))
+              {
+                ranNum = Random.Range(0, bBits.Count);
+              }
+              else
+              {
+                intList.Add(ranNum);
+                i++;
+              }
+        }
+        for(int i =0; i < 3; i++){
+      
+        sBits.Add(presBits[intList[i]]);
+        }
+      }
+    }
+
+    private void convertBitsImage()
+    {
+      int tempIndex;
+      Sprite spr;
+      if(bBits == null)
+      {
+        //
+      }
+      else{
+      for(int i=0; i < bBits.Count ;i++)
+      {
+        string tempString = bBits[i].ToString();
+        PR.BitsDic.TryGetValue(tempString, out tempIndex);
+        spr = indToSprite(tempIndex);
+        presBits[i].Image = spr;
+      }
+      }
+    }
+   
+   public Sprite indToSprite(int index)
+        {
+            return PII.bitPrefs[index].GetComponent<Sprite>();
+        }
+
+/////
+  /*
   [SerializeField]
     private Button bit1;
     [SerializeField]
@@ -25,13 +148,13 @@ public GameObject PI;
     int rndnum1 = Random.Range(0, bBits.Count);
     int rndnum2 = Random.Range(0, bBits.Count);
     int rndnum3 = Random.Range(0, bBits.Count);
-    /*if (true)
+    if (true)
     
       {
          bit1.SetActive(false);
           bit2.SetActive(false);
            bit3.SetActive(false);
-      }*/
+      }
     
     Sprite b1 = bBits[rndnum1].GetComponent<SpriteRenderer>().sprite; 
     Sprite b2 = bBits[rndnum2].GetComponent<SpriteRenderer>().sprite; 
@@ -40,19 +163,19 @@ public GameObject PI;
     switch(bC)
     {
       case 0 :
-                Destroy(bit1);
-                Destroy(bit2);
-                Destroy(bit3);
+                bit1.image.color=new Color(0,0,0,0);
+                bit2.image.color=new Color(0,0,0,0);
+                bit3.image.color=new Color(0,0,0,0);
       break;
       case 1 :
-                Destroy(bit1);
+                bit1.image.color=new Color(0,0,0,0);
                   bit2.image.sprite = b2 ;
-                Destroy(bit3);
+                bit3.image.color=new Color(0,0,0,0);
               
       break;
       case 2 :
                 bit1.image.sprite = b1;
-                Destroy(bit2);
+                bit2.image.color=new Color(0,0,0,0);
                 bit3.image.sprite = b3;
       break;
       default :
@@ -63,11 +186,7 @@ public GameObject PI;
       break;
       
     }    
-  }
-  public void RemoveBit()
-  {
-    
-  }
+  }*/
 
   
   public void Regeneration()
@@ -81,7 +200,7 @@ public GameObject PI;
     SceneManager.LoadScene(2);
   }
 
-    
+ /*   
   public void SelectedBit(int bitselcet)
     {
         
@@ -107,6 +226,7 @@ public GameObject PI;
                 break;
         }
     }
+    */
 ///// HP //////
   private PlayerInformation.PlayerRun saveGameObject()
     {

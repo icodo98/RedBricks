@@ -1,11 +1,6 @@
 {
-    "bitList": [
-        "SizeBit",
-        "LengthBit",
-        "IncreBit",
-        "SizeBit"
-    ],
+    "bitList": [],
     "relicList": [],
-    "HP": 100,
+    "HP": 95,
     "MaxHP": 100
 }
