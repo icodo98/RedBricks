@@ -28,6 +28,10 @@ public abstract class Bits : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    private void OnEnable()
+    {
+        FallingSpeed = GameObject.Find("Blocks").GetComponent<BlockController>().fallingSpeed + 0.2f;
+    }
     private void Update()
     {
         transform.Translate(0, -FallingSpeed * Time.deltaTime, 0);
