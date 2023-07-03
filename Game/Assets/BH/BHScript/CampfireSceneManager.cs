@@ -8,9 +8,9 @@ using System.IO;
 public class CampfireSceneManager : MonoBehaviour
 {////tset///
 
+public Animator NoBit;
 public PlayerInformation.PlayerRun PR;
 
-public PlayerInformation.PlayerInfo PII;
 [System.Serializable] public class campfirebit
    {
     public Sprite Image;
@@ -20,12 +20,12 @@ public PlayerInformation.PlayerInfo PII;
    }
 
 
-public GameObject PI;
-
 public List<Bits> bBits; 
 public List<campfirebit> sBits; 
 
 public List<campfirebit> presBits; 
+
+public GameObject b;
 
 GameObject ItemTemplate;
    GameObject g;
@@ -33,14 +33,14 @@ GameObject ItemTemplate;
 
    Button selectBtn;
 private void Start() {
+   bBits = PlayerInformation.PlayerInfo.playerInfo.bitsList;
   convertBitsImage();
   randomItemPutList();
-  bBits = PI.GetComponent<PlayerInformation.PlayerInfo>().bitsList;
-
   ItemTemplate = bitView.GetChild(0).gameObject;
-  if(bBits == null)
+  if(bBits.Count == 0)
       {
-        //
+        b.SetActive(false);
+        NoBit.SetTrigger("noBit");
       }
       else{
     int len = sBits.Count;
@@ -50,36 +50,27 @@ private void Start() {
         g.transform.GetChild (0).GetComponent<Image>().sprite = sBits[i].Image;
         selectBtn = g.transform.GetChild (1).GetComponent<Button>();
       
-        selectBtn.AddEventListener(i,onShopItemBtnClicked);
+        selectBtn.AddEventListener(i,onItemBtnClicked);
     }
     Destroy(ItemTemplate);
       }
 }
 
-void onShopItemBtnClicked(int itemIndex){
+void onItemBtnClicked(int itemIndex){
         selectBtn = bitView.GetChild(itemIndex).GetChild(1).GetComponent<Button>();
-      // buyBtn.interactable = false;
-      if(sBits[itemIndex].IsSetceted){
-
-        selectBtn.transform.GetChild(0).GetComponent<Text>().text = "Pick";
-        sBits [itemIndex].IsSetceted = false;
-      
-      }
-      else if (!sBits[itemIndex].IsSetceted)
-      {
+     
          selectBtn.transform.GetChild(0).GetComponent<Text>().text = "Selected";
         Debug.Log(itemIndex);
         sBits [itemIndex].IsSetceted = true;
-        
-        
-      }
-        
+        for(int i =0; i < 3 ; i++){
+          bitView.GetChild(i).GetChild(1).GetComponent<Button>().interactable = false;
+        }        
       }
 
        private void randomItemPutList()
     {
          List<int> intList = new List<int>();
-if(bBits == null)
+      if(bBits.Count == 0)
       {
         //
       }
@@ -108,7 +99,7 @@ if(bBits == null)
     {
       int tempIndex;
       Sprite spr;
-      if(bBits == null)
+      if(bBits.Count == 0)
       {
         //
       }
@@ -125,7 +116,7 @@ if(bBits == null)
    
    public Sprite indToSprite(int index)
         {
-            return PII.bitPrefs[index].GetComponent<Sprite>();
+            return PlayerInformation.PlayerInfo.playerInfo.bitPrefs[index].GetComponent<Sprite>();
         }
 
 /////
