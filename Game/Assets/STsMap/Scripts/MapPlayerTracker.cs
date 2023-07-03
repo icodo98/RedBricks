@@ -86,7 +86,7 @@ namespace Map
                SceneManager.LoadScene(3);
                     break;
                 case NodeType.EliteEnemy:
-                SceneManager.LoadScene(4);
+                SceneManager.LoadScene(9);
                     break;
                 case NodeType.RestSite:
                 SceneManager.LoadScene(7);
