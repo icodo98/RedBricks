@@ -10,7 +10,6 @@ public class PlayerBits : MonoBehaviour
     public List<Bits> temporalBits;
     [SerializeField]
     private List<Bits> permBits;
-    public GameObject maxHealBit;
     private void Start()
     {
         temporalBits = new List<Bits>();
