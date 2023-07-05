@@ -15,7 +15,6 @@ public class PlayerConroller : MonoBehaviour,IListener
     public Rigidbody2D rb;
     Vector3 offset;
     Vector3 mousePosition;
-    public float maxSpeed = 10f;
     Vector3 lastPosition;
     bool isClicked= false;
     private bool isPaused;

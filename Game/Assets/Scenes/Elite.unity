@@ -173,13 +173,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277f6b1e01efd0242b700f71e81a73d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabBlock: {fileID: 5865805073489956123, guid: 10358870fdb478247b8912dca364caa3, type: 3}
+  prefabBlock: {fileID: 5865805073489956123, guid: a0ec9cd0a641fdf4bb61b4f0e96dbc1f, type: 3}
   startPoint: {x: -0.85, y: 0.45, z: 0}
   endPoint: {x: 0.8, y: 1.9, z: 0}
   MaxCols: 7
-  MaxRows: 4
-  MaxBloNums: 5
-  MinBloNums: 2
+  MaxRows: 5
+  MaxBloNums: 25
+  MinBloNums: 10
 --- !u!114 &99703607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,9 +453,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.7140134, y: -0.47889158}
+  m_Offset: {x: 0, y: -0.44}
   serializedVersion: 2
-  m_Radius: 0.12156415
+  m_Radius: 0.07998253
 --- !u!1 &310365114
 GameObject:
   m_ObjectHideFlags: 0
