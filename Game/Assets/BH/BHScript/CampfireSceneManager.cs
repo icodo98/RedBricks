@@ -11,14 +11,13 @@ public class CampfireSceneManager : MonoBehaviour
 public Animator NoBit;
 public PlayerInformation.PlayerRun PR;
 
-[System.Serializable] public class campfirebit
+[System.Serializable]public class campfirebit
    {
-    public Sprite Image;
+   public Sprite Image;
 
-  public bool IsSetceted = false;
+   public bool IsSetceted = false;
 
    }
-
 
 public List<Bits> bBits; 
 public List<campfirebit> sBits; 
@@ -40,7 +39,7 @@ private void Start() {
   if(bBits.Count == 0)
       {
         b.SetActive(false);
-        NoBit.SetTrigger("noBit");
+        NoBit.SetTrigger("nunoBit");
       }
       else{
     int len = sBits.Count;
@@ -78,15 +77,10 @@ void onItemBtnClicked(int itemIndex){
       {
          int ranNum = Random.Range(0,bBits.Count);
                for(int i =0; i < 3;){
-              if (intList.Contains(ranNum))
-              {
-                ranNum = Random.Range(0, bBits.Count);
-              }
-              else
-              {
+              
                 intList.Add(ranNum);
                 i++;
-              }
+              
         }
         for(int i =0; i < 3; i++){
       
@@ -94,11 +88,13 @@ void onItemBtnClicked(int itemIndex){
         }
       }
     }
-
-    private void convertBitsImage()
+    campfirebit tempCamBit = new();
+    public void convertBitsImage()
     {
-      int tempIndex;
       Sprite spr;
+      int tempIndex;
+      GameObject tempBitspr;
+
       if(bBits.Count == 0)
       {
         //
@@ -106,19 +102,32 @@ void onItemBtnClicked(int itemIndex){
       else{
       for(int i=0; i < bBits.Count ;i++)
       {
-        string tempString = bBits[i].ToString();
+       
+      
+        string tempString = bBits[i].name;
+        Debug.Log(tempString);
         PR.BitsDic.TryGetValue(tempString, out tempIndex);
-        spr = indToSprite(tempIndex);
-        presBits[i].Image = spr;
+        Debug.Log(tempIndex);
+        tempBitspr = indToSprite(tempIndex);
+        Debug.Log(tempBitspr);
+        spr = tempBitspr.gameObject.GetComponent<SpriteRenderer>().sprite;
+        Debug.Log(spr);
+        tempCamBit.Image = spr;
+        presBits.Add(tempCamBit);
+        
       }
       }
     }
    
-   public Sprite indToSprite(int index)
+   public GameObject indToSprite(int index)
         {
-            return PlayerInformation.PlayerInfo.playerInfo.bitPrefs[index].GetComponent<Sprite>();
+            return PlayerInformation.PlayerInfo.playerInfo.bitPrefs[index];
         }
 
+  public void CreatePreBit()
+  {
+
+  }
 /////
   /*
   [SerializeField]
