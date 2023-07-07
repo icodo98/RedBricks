@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FallingSpeed: 0.3
   weight: 100
-  prefab: {fileID: 8346545128772368621, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
+  prefab: {fileID: 0}
   OriPos: {x: 0.02, y: -1.23, z: 0}
 --- !u!61 &7025291462532211200
 BoxCollider2D:
@@ -96,7 +96,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
