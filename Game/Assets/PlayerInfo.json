@@ -1,1 +1,8 @@
-{"bitList":[],"relicList":[],"HP":100,"MaxHP":100}
+{
+    "bitList": [
+        "LengthBIt"
+    ],
+    "relicList": [],
+    "HP": 68,
+    "MaxHP": 100
+}

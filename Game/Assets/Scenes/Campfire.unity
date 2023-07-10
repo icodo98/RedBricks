@@ -3409,6 +3409,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Env_Tree_Type1_3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1684125821567066279, guid: bd6dee57784823a42852a592eb968157, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 099542002c742ce498d418ba92856d5e, type: 2}
     m_RemovedComponents:
     - {fileID: 5050110918423195050, guid: bd6dee57784823a42852a592eb968157, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bd6dee57784823a42852a592eb968157, type: 3}
