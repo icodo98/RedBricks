@@ -4,6 +4,7 @@ using PlayerInformation;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class PlayerConroller : MonoBehaviour,IListener
@@ -17,9 +18,10 @@ public class PlayerConroller : MonoBehaviour,IListener
     Vector3 mousePosition;
     Vector3 lastPosition;
     bool isClicked= false;
+    private WaitForSeconds waitfor3seconds = new WaitForSeconds(3.0f);
     private bool isPaused;
     public int MAXHP;
-    public int HP;
+    public float HP;
 
     public GameObject hudDamageText;
 
@@ -29,7 +31,7 @@ public class PlayerConroller : MonoBehaviour,IListener
         get => _priority;
         set => _priority = value;
     }
-
+    //ToDo : 배틀 씬 시작할때 bitlist 검사해서 healbit, maxhealbit 지우기.
     private void Start()
     {
         EventManager.Instance.AddListener(myEventType.GameOver,this);
@@ -41,6 +43,7 @@ public class PlayerConroller : MonoBehaviour,IListener
         MAXHP = PlayerInfo.playerInfo.MaxHP;
         HP = PlayerInfo.playerInfo.HP;
         isPaused = false;
+        StartCoroutine(RegenHealth());
     }
     private void AddBall()
     {
@@ -159,5 +162,18 @@ public class PlayerConroller : MonoBehaviour,IListener
     private void OnDestroy()
     {
         PlayerInfo.playerInfo.HP = HP;
+    }
+    IEnumerator RegenHealth()
+    {
+        while (true)
+        {
+            if (isPaused) yield return waitfor3seconds;
+            if(PlayerInfo.playerInfo.curData.RegenHealth > 0)
+            {
+                HP += PlayerInfo.playerInfo.curData.RegenHealth;
+            }
+           
+            yield return waitfor3seconds;
+        }
     }
 }

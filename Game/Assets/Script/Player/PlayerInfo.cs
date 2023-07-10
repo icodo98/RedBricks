@@ -25,7 +25,7 @@ namespace PlayerInformation
             set => _priority = value;
         }
 
-        public int HP
+        public float HP
         {
             get => curRun.HP;
             set => curRun.HP = value;

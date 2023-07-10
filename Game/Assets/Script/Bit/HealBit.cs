@@ -5,11 +5,11 @@ using UnityEngine;
 public class HealBit : Bits
 {
     [SerializeField]
-    private int Heal = 10;
+    private  float Heal = 10f;
     public override void Power()
     {
         PlayerConroller Pc = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConroller>();
-        int curHP = Pc.HP;
+        float curHP = Pc.HP;
         if (curHP + Heal > Pc.MAXHP)
         {
             Pc.HP = Pc.MAXHP;
