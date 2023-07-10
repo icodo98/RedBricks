@@ -5,7 +5,7 @@ using System.IO;
 using UnityEngine.UI;
 public class MapHPUI : MonoBehaviour
 {
-    int HP;
+    float HP;
     public GameObject HPText;
         private void Start() {
             HP = PlayerInformation.PlayerInfo.playerInfo.HP;

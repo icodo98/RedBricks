@@ -20,6 +20,7 @@ namespace PlayerInformation
         public float FallingPenalty; // 떨어졌을때 패널티 감소
         public int IncreaseHealth; //최대체력 증가
         public int curResurrection; //현재 남은 부활기회
+        public float RegenHealth; // 재력 재생량
         public List<Bits> bitsList; //현재 가지고 있는 bit
 
 
@@ -43,6 +44,7 @@ namespace PlayerInformation
             FallingPenalty= loadData.FallingPenalty;
             IncreaseHealth= loadData.IncreaseHealth;
             Resurrection = loadData.Resurrection;
+            RegenHealth = loadData.RegenHealth;
             bitsList = loadData.bitsList;
         }
 

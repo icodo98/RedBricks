@@ -22,16 +22,16 @@ namespace PlayerInformation
             {"SizeDownBit", 9}
         };
         public List<string> bitList; 
-        public List<string> relicList;
-        public int HP;
+        public List<GameObject> relicList;
+        public float HP;
         public int MaxHP;
 
         public PlayerRun()
         {
             bitList = new List<string>();
-            relicList = new List<string>();
+            relicList = new List<GameObject>();
             MaxHP = 100;
-            HP = MaxHP;
+            HP = (float) MaxHP;
         }
         public Bits indToBits(int index)
         {
