@@ -1,10 +1,6 @@
-using Cinemachine;
-using Mono.Cecil;
 using PlayerInformation;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditorInternal;
 using UnityEngine;
 
 public class PlayerConroller : MonoBehaviour,IListener
@@ -22,7 +18,7 @@ public class PlayerConroller : MonoBehaviour,IListener
     private bool isPaused;
     public int MAXHP;
     public float HP;
-
+    
     public GameObject hudDamageText;
 
     private int _priority = 3;
@@ -31,7 +27,6 @@ public class PlayerConroller : MonoBehaviour,IListener
         get => _priority;
         set => _priority = value;
     }
-    //ToDo : 배틀 씬 시작할때 bitlist 검사해서 healbit, maxhealbit 지우기.
     private void Start()
     {
         EventManager.Instance.AddListener(myEventType.GameOver,this);

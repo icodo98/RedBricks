@@ -218,5 +218,21 @@ void onItemBtnClicked(int itemIndex){
         sw.Close();
         Debug.Log("Save");
     }
+    //Load Secne//
+    public void ToMap()
+   {
+        StartCoroutine(LoadLevel(2));
+   }
     
+   
+    public Animator transtiton;
+    public float transtitonTime = 1f;
+    
+    
+    IEnumerator LoadLevel(int scene)
+    {
+        transtiton.SetTrigger("Start");
+        yield return new WaitForSeconds(transtitonTime);
+        SceneManager.LoadScene(scene);
+    }
 }

@@ -12,8 +12,21 @@ public class Box : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void Gomap()
+    /////Load Secne///
+    public void ToMap()
+   {
+        StartCoroutine(LoadLevel(2));
+   }
+    
+   
+    public Animator transtiton;
+    public float transtitonTime = 1f;
+    
+    
+    IEnumerator LoadLevel(int scene)
     {
-        SceneManager.LoadScene(2);
+        transtiton.SetTrigger("Start");
+        yield return new WaitForSeconds(transtitonTime);
+        SceneManager.LoadScene(scene);
     }
 }

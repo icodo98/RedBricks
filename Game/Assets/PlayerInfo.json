@@ -1,8 +1,8 @@
 {
     "bitList": [
-        "LengthBIt"
+        "SizeBit"
     ],
     "relicList": [],
-    "HP": 68,
+    "HP": 55.0,
     "MaxHP": 100
 }
