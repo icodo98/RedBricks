@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class obeliskSceneManager : MonoBehaviour
 {
@@ -16,4 +17,5 @@ public class obeliskSceneManager : MonoBehaviour
         gameObject.SetActive(false);
         animator.ResetTrigger("open");
     }
+
 }
