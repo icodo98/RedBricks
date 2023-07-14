@@ -97,7 +97,7 @@ namespace Map
                StaticCoroutine.DoCoroutine(7);
                     break;
                 case NodeType.Treasure:
-               StaticCoroutine.DoCoroutine(4);
+               StaticCoroutine.DoCoroutine(6);
                     break;
                 case NodeType.Store:
                 StaticCoroutine.DoCoroutine(8);
@@ -106,7 +106,7 @@ namespace Map
                StaticCoroutine.DoCoroutine(4);
                     break;
                 case NodeType.Mystery:
-                StaticCoroutine.DoCoroutine(6);
+                StaticCoroutine.DoCoroutine(4);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

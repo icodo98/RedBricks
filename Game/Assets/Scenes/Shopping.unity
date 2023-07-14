@@ -1297,6 +1297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17084782b55414c1091b14d06d5d5e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  comfirmBtn: {fileID: 1158765262}
   PurchasedList: []
   PR:
     bitList: []

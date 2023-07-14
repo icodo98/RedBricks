@@ -20,6 +20,7 @@ public class ShopGetPurchased : MonoBehaviour
     #endregion
 
         Button buyBtn;
+        public Button comfirmBtn;
 
    [System.Serializable] public class Purchased
     {
@@ -55,6 +56,7 @@ public class ShopGetPurchased : MonoBehaviour
         for(int i =0; i < 6; i++){
         buyBtn = ShopingsecenManager.instance.ShopView.GetChild(i).GetChild(2).GetComponent<Button>();
         buyBtn.interactable = false;
+        comfirmBtn.interactable = false;
     }
     SaveByCoinJSON();
 
