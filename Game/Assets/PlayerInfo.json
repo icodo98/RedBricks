@@ -1,8 +1,26 @@
 {
     "bitList": [
-        "SizeBit"
+        "SizeBit",
+        "LengthBIt",
+        "SizeBit",
+        "IncreBit",
+        "LengthBIt",
+        "IncreBit",
+        "LengthBIt",
+        "IncreBit",
+        "LengthBIt",
+        "SizeBit",
+        "IncreBit",
+        "SizeBit",
+        "LengthBIt",
+        "LengthBIt",
+        "IncreBit",
+        "IncreBit",
+        "SpeedUpBit",
+        "SizeBit",
+        "IncreBit"
     ],
     "relicList": [],
-    "HP": 55.0,
+    "HP": 9.0,
     "MaxHP": 100
 }

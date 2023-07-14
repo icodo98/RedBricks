@@ -6,6 +6,7 @@ namespace Map
 {
     public class MapManager : MonoBehaviour
     {
+        MapHPUI MHU;
         public MapConfig config;
         public MapView view;
 

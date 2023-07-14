@@ -201,6 +201,12 @@ void onItemBtnClicked(int itemIndex){
 
 
 ///// HP //////
+
+  public void regenHP()
+  {
+    SaveFullHPJSON();
+   
+  }
   private PlayerInformation.PlayerRun saveGameObject()
     {
         PlayerInformation.PlayerRun save = new PlayerInformation.PlayerRun();
@@ -216,6 +222,7 @@ void onItemBtnClicked(int itemIndex){
         StreamWriter sw = new StreamWriter(Application.dataPath + "/PlayerInfo.json");
         sw.Write(JsonString);
         sw.Close();
+         PlayerInformation.PlayerInfo.playerInfo.HP = save.HP;
         Debug.Log("Save");
     }
     //Load Secne//
