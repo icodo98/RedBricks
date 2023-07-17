@@ -6,21 +6,18 @@ using UnityEngine.UI;
 public class MapHPUI : MonoBehaviour
 {
     public Slider hpSlider;
+    private float HpminValue = 0;
   
     void Start()
     {
         hpSlider = GetComponent<Slider>();
-        hpSlider.minValue = 0;
+        hpSlider.minValue = HpminValue;
+        hpSlider.maxValue = PlayerInformation.PlayerInfo.playerInfo.MaxHP; 
+        hpSlider.value = PlayerInformation.PlayerInfo.playerInfo.HP;
     }
 
     // Update is called once per frame
-    void Update()
-    {
 
-        hpSlider.maxValue = PlayerInformation.PlayerInfo.playerInfo.MaxHP; 
-        hpSlider.value = PlayerInformation.PlayerInfo.playerInfo.HP;
-        
-    }
 
     /*
     float HP;

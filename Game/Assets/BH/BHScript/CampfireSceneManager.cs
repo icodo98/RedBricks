@@ -80,9 +80,9 @@ void onItemBtnClicked(int itemIndex){
       }
       else
       {
-         int ranNum = Random.Range(0,bBits.Count);
+        
                for(int i =0; i < 3;){
-              
+              int ranNum = Random.Range(0,bBits.Count);
                 intList.Add(ranNum);
                 i++;
               
@@ -93,7 +93,7 @@ void onItemBtnClicked(int itemIndex){
         }
       }
     }
-    campfirebit tempCamBit = new();
+    
     public void convertBitsImage()
     {
       Sprite spr;
@@ -105,7 +105,7 @@ void onItemBtnClicked(int itemIndex){
         //
       }
       else{
-      for(int i=0; i < bBits.Count ;i++)
+      for(int i=0; i < bBits.Count;)
       {
        
       
@@ -117,9 +117,10 @@ void onItemBtnClicked(int itemIndex){
         Debug.Log(tempBitspr);
         spr = tempBitspr.gameObject.GetComponent<SpriteRenderer>().sprite;
         Debug.Log(spr);
+        campfirebit tempCamBit = new();
         tempCamBit.Image = spr;
         presBits.Add(tempCamBit);
-        
+        i++;
       }
       }
     }
