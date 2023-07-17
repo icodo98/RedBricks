@@ -24,6 +24,7 @@ namespace Map
             else{
             if (PlayerPrefs.HasKey("Map"))
             {
+                PlayerInformation.PlayerInfo.playerInfo.LoadPlayerInfo();
                 var mapJson = PlayerPrefs.GetString("Map");
                 var map = JsonConvert.DeserializeObject<Map>(mapJson);
                 var TampmapJson = PlayerPrefs.GetString("TampMap");

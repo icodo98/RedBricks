@@ -14,7 +14,6 @@ namespace PlayerInformation
         public List<GameObject> Relic;
 
         //ToDo : 코인 시스템 만들기. 
-        //ToDp : 껏다가 켰을때 먹은거 유지
         PlayerData LoadData;
         public PlayerRun curRun;
         public PlayerData curData;
