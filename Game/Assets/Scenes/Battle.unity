@@ -1144,6 +1144,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 691112670}
     m_Modifications:
+    - target: {fileID: 2723313605571001949, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2723313606676655845, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
       propertyPath: m_Name
       value: YouWin
