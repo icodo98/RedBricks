@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LootBag : MonoBehaviour
 {
+    public PlayerInformation.PlayerRun PR;
     public GameObject droppedItemPrefab;
     public List<Loot> lootList = new List<Loot>();
     // Start is called before the first frame update
@@ -28,6 +29,10 @@ public class LootBag : MonoBehaviour
     }
     public void InstantiateLoot(Vector3 spawnPosition)
     {
+        string bitName;
+        int tempIndex;
+        GameObject tempGameObjectBit;
+        Bits AddBit;
         Loot RandomItem = GetItem();
         if(RandomItem != null)
         {
@@ -40,5 +45,47 @@ public class LootBag : MonoBehaviour
 
         }
 
+         bitName = findBits(RandomItem.lootSprite);
+      PR.BitsDic.TryGetValue(bitName, out tempIndex);
+      tempGameObjectBit = indToSprite(tempIndex);
+      AddBit = tempGameObjectBit.GetComponent<Bits>();
+      PlayerInformation.PlayerInfo.playerInfo.bitsList.Add(AddBit);
+
     }
+
+     public string findBits(Sprite img){
+    string spn = img.name;
+    string bitName = null;
+    switch (spn)
+    {
+      case "Brown": bitName = "AddAngleBit";
+        break;
+      case "Red": bitName = "HealBit";
+        break;
+        case "Aquamarin": bitName = "IncreBit";
+        break;
+        case "Blue": bitName = "LengthBit" ;
+        break;
+        case "Lilac": bitName = "MaxHealBit";
+        break;
+        case "Dark_Blue": bitName = "SizeBit";
+        break;
+        case "Yellow": bitName = "SizeDownBit";
+        break;
+        case "Emerald": bitName = "SpeedUpBit";
+        break;
+        case "Green": bitName = "SubAngleBit";
+        break;
+        case "Orange": bitName = "TiltBit";
+        break;
+      
+    }
+    return bitName;
+  }
+     public GameObject indToSprite(int index)
+        {
+            return PlayerInformation.PlayerInfo.playerInfo.bitPrefs[index];
+        }
+
+
 }

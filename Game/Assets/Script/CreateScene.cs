@@ -117,7 +117,6 @@ public class CreateScene : MonoBehaviour
     }
     private void OnEnable()
     {
-        if(!coroutineWorking)
-        StartCoroutine(CreateNewRow());
+        if(!coroutineWorking) StartCoroutine(CreateNewRow());
     }
 }

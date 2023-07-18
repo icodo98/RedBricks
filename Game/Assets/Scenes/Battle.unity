@@ -178,8 +178,8 @@ MonoBehaviour:
   endPoint: {x: 0.8, y: 1.9, z: 0}
   MaxCols: 7
   MaxRows: 5
-  MaxBloNums: 50
-  MinBloNums: 20
+  MaxBloNums: 20
+  MinBloNums: 10
 --- !u!114 &99703607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 240589425}
   - component: {fileID: 240589424}
+  - component: {fileID: 240589426}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -289,6 +290,26 @@ Transform:
   m_Father: {fileID: 396215886}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &240589426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 240589423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &246212354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,6 +1144,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 691112670}
     m_Modifications:
+    - target: {fileID: 2723313605571001949, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2723313606676655845, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
       propertyPath: m_Name
       value: YouWin
@@ -1518,7 +1543,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1480330780}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.21391192, y: 0.41867623, z: 0.24806556}
+  m_LocalPosition: {x: 0.21391192, y: 0.41867626, z: 0.24806555}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1851,27 +1876,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 1480330781}
     m_Modifications:
     - target: {fileID: 1923817480, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
-      propertyPath: m_Size.x
-      value: 1.0816627
-      objectReference: {fileID: 0}
-    - target: {fileID: 1923817480, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
-      propertyPath: m_Size.y
-      value: 1.0583361
-      objectReference: {fileID: 0}
-    - target: {fileID: 1923817480, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
       propertyPath: m_Density
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1923817480, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.0058332086
-      objectReference: {fileID: 0}
-    - target: {fileID: 1923817480, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.005354733
-      objectReference: {fileID: 0}
-    - target: {fileID: 1923817480, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}
-      propertyPath: m_Direction
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8346545128772368616, guid: 3c2ab8610e8a94c4e96ece8186a7843d, type: 3}

@@ -13,7 +13,7 @@ namespace PlayerInformation
 
         public List<GameObject> Relic;
 
-
+        //ToDo : 코인 시스템 만들기. 
         PlayerData LoadData;
         public PlayerRun curRun;
         public PlayerData curData;
@@ -25,7 +25,7 @@ namespace PlayerInformation
             set => _priority = value;
         }
 
-        public int HP
+        public float HP
         {
             get => curRun.HP;
             set => curRun.HP = value;

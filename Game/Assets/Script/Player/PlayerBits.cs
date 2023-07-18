@@ -16,7 +16,7 @@ public class PlayerBits : MonoBehaviour
         permBits = PlayerInfo.playerInfo.bitsList;
         foreach (Bits bits in permBits)
         {
-            if (bits != null) bits.Power();
+            if (bits != null && bits != PlayerInfo.playerInfo.bitPrefs[1].GetComponent<Bits>() && bits != PlayerInfo.playerInfo.bitPrefs[0].GetComponent<Bits>() && bits) bits.Power();
         }
         
     }

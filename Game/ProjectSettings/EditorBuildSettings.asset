@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Elite.unity
     guid: 2c23dee7a646e92488099830cd53de2c
+  - enabled: 1
+    path: Assets/Scenes/EliteDark.unity
+    guid: d3cf19abb55602a42ab7e75425fe1ff9
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: d1c09ef013edbfa478dda3430147830e, type: 2}
     com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: af310c49c5b3cbf4eace9c8a7b5c3e41, type: 2}

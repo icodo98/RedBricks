@@ -10,6 +10,7 @@ namespace Map
 {
     public class MapPlayerTracker : MonoBehaviour
     {
+     
         //animation
         // public Animator transtiton;
         //  public float transtitonTime = 1f;
@@ -69,9 +70,10 @@ namespace Map
 
             DOTween.Sequence().AppendInterval(enterNodeDelay).OnComplete(() => EnterNode(mapNode));
         }
-
+   
         private static void EnterNode(MapNode mapNode)
-        {
+        {   
+            var mapPlayerTracker = new MapPlayerTracker();
             // we have access to blueprint name here as well
             Debug.Log("Entering node: " + mapNode.Node.blueprintName + " of type: " + mapNode.Node.nodeType);
             // load appropriate scene with context based on nodeType:
@@ -79,29 +81,32 @@ namespace Map
             // if you choose to show GUI in some of these cases, do not forget to set "Locked" in MapPlayerTracker back to false
             switch (mapNode.Node.nodeType)
             {
+                
                 case NodeType.MinorEnemy:
                 //MapPlayerTracker MPT = new MapPlayerTracker();
                // StartCoroutine(LoadLevelAnimation(3));
                PlayerPrefs.SetInt("StageClear",0);
-               SceneManager.LoadScene(3);
+               
+                StaticCoroutine.DoCoroutine(3);
                     break;
                 case NodeType.EliteEnemy:
-                SceneManager.LoadScene(9);
+               
+                StaticCoroutine.DoCoroutine(9);
                     break;
                 case NodeType.RestSite:
-                SceneManager.LoadScene(7);
+               StaticCoroutine.DoCoroutine(7);
                     break;
                 case NodeType.Treasure:
-                SceneManager.LoadScene(4);
+               StaticCoroutine.DoCoroutine(6);
                     break;
                 case NodeType.Store:
-                SceneManager.LoadScene(8);
+                StaticCoroutine.DoCoroutine(8);
                     break;
                 case NodeType.Boss:
-                SceneManager.LoadScene(4);
+               StaticCoroutine.DoCoroutine(4);
                     break;
                 case NodeType.Mystery:
-                SceneManager.LoadScene(6);
+                StaticCoroutine.DoCoroutine(4);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -112,6 +117,8 @@ namespace Map
         {
             Debug.Log("Selected node cannot be accessed");
         }
-
+    
+    
+    
     }
 }

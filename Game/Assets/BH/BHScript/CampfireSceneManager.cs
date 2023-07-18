@@ -25,7 +25,7 @@ public List<campfirebit> sBits;
 public List<campfirebit> presBits; 
 
 public GameObject b;
-
+public GameObject c;
 GameObject ItemTemplate;
    GameObject g;
    public Transform bitView;
@@ -39,7 +39,7 @@ private void Start() {
   if(bBits.Count == 0)
       {
         b.SetActive(false);
-        NoBit.SetTrigger("nunoBit");
+         c.SetActive(false);
       }
       else{
     int len = sBits.Count;
@@ -55,6 +55,11 @@ private void Start() {
       }
 }
 
+public void animatNoBit(){
+  if(bBits.Count==0){
+  NoBit.SetTrigger("noBit");
+  }
+}
 void onItemBtnClicked(int itemIndex){
         selectBtn = bitView.GetChild(itemIndex).GetChild(1).GetComponent<Button>();
      
@@ -75,9 +80,9 @@ void onItemBtnClicked(int itemIndex){
       }
       else
       {
-         int ranNum = Random.Range(0,bBits.Count);
+        
                for(int i =0; i < 3;){
-              
+              int ranNum = Random.Range(0,bBits.Count);
                 intList.Add(ranNum);
                 i++;
               
@@ -88,7 +93,7 @@ void onItemBtnClicked(int itemIndex){
         }
       }
     }
-    campfirebit tempCamBit = new();
+    
     public void convertBitsImage()
     {
       Sprite spr;
@@ -100,7 +105,7 @@ void onItemBtnClicked(int itemIndex){
         //
       }
       else{
-      for(int i=0; i < bBits.Count ;i++)
+      for(int i=0; i < bBits.Count;)
       {
        
       
@@ -112,9 +117,10 @@ void onItemBtnClicked(int itemIndex){
         Debug.Log(tempBitspr);
         spr = tempBitspr.gameObject.GetComponent<SpriteRenderer>().sprite;
         Debug.Log(spr);
+        campfirebit tempCamBit = new();
         tempCamBit.Image = spr;
         presBits.Add(tempCamBit);
-        
+        i++;
       }
       }
     }
@@ -124,110 +130,84 @@ void onItemBtnClicked(int itemIndex){
             return PlayerInformation.PlayerInfo.playerInfo.bitPrefs[index];
         }
 
-  public void CreatePreBit()
-  {
 
-  }
-/////
-  /*
-  [SerializeField]
-    private Button bit1;
-    [SerializeField]
-    private Button bit2;
-    [SerializeField]
-    private Button bit3;
- public List<Bits> bBits; 
- private int sbit;
 
-public GameObject PI;
-
-  public void displaybits()
-  {
-    bBits = PI.GetComponent<PlayerInformation.PlayerInfo>().bitsList;
-    
-    int rndnum1 = Random.Range(0, bBits.Count);
-    int rndnum2 = Random.Range(0, bBits.Count);
-    int rndnum3 = Random.Range(0, bBits.Count);
-    if (true)
-    
-      {
-         bit1.SetActive(false);
-          bit2.SetActive(false);
-           bit3.SetActive(false);
-      }
-    
-    Sprite b1 = bBits[rndnum1].GetComponent<SpriteRenderer>().sprite; 
-    Sprite b2 = bBits[rndnum2].GetComponent<SpriteRenderer>().sprite; 
-    Sprite b3 = bBits[rndnum3].GetComponent<SpriteRenderer>().sprite; 
-    int bC = bBits.Count;
-    switch(bC)
+        //// remove bit
+[System.Serializable] public class SelectedBit
     {
-      case 0 :
-                bit1.image.color=new Color(0,0,0,0);
-                bit2.image.color=new Color(0,0,0,0);
-                bit3.image.color=new Color(0,0,0,0);
-      break;
-      case 1 :
-                bit1.image.color=new Color(0,0,0,0);
-                  bit2.image.sprite = b2 ;
-                bit3.image.color=new Color(0,0,0,0);
-              
-      break;
-      case 2 :
-                bit1.image.sprite = b1;
-                bit2.image.color=new Color(0,0,0,0);
-                bit3.image.sprite = b3;
-      break;
-      default :
-                bit1.image.sprite = b1;
-                bit2.image.sprite = b2 ;
-                bit3.image.sprite = b3;
+        public Sprite Image;
+    }
+    
+    public List<SelectedBit> SelctedBitsList;
 
-      break;
+ public void seletedBtn()
+ {
+    int tempIndex;
+    GameObject tempGameObjectBit;
+    Bits RemoveBit;
+    string bitNmae = null;
+     for(int i =0; i < sBits.Count; i++)
+        {
+            if(sBits[i].IsSetceted)
+            {
+                Addimage(sBits[i].Image);
+                break;
+            }
+        }
+      bitNmae = findBits(SelctedBitsList[0].Image);
+      PR.BitsDic.TryGetValue(bitNmae, out tempIndex);
+      tempGameObjectBit = indToSprite(tempIndex);
+      RemoveBit = tempGameObjectBit.GetComponent<Bits>();
+      PlayerInformation.PlayerInfo.playerInfo.bitsList.Remove(RemoveBit);
+ }
+ void Addimage(Sprite img) 
+    {
+        if(SelctedBitsList == null)
+        SelctedBitsList = new List<SelectedBit>();
+        SelectedBit sb = new SelectedBit(){Image = img};
+        SelctedBitsList.Add(sb);
+
+    }
+
+  public string findBits(Sprite img){
+    string spn = img.name;
+    string bitName = null;
+    switch (spn)
+    {
+      case "Brown": bitName = "AddAngleBit";
+        break;
+      case "Red": bitName = "HealBit";
+        break;
+        case "Aquamarin": bitName = "IncreBit";
+        break;
+        case "Blue": bitName = "LengthBit" ;
+        break;
+        case "Lilac": bitName = "MaxHealBit";
+        break;
+        case "Dark_Blue": bitName = "SizeBit";
+        break;
+        case "Yellow": bitName = "SizeDownBit";
+        break;
+        case "Emerald": bitName = "SpeedUpBit";
+        break;
+        case "Green": bitName = "SubAngleBit";
+        break;
+        case "Orange": bitName = "TiltBit";
+        break;
       
-    }    
-  }*/
+    }
+    return bitName;
+  }
+    ////
 
-  
-  public void Regeneration()
+
+///// HP //////
+
+  public void regenHP()
   {
     SaveFullHPJSON();
-    PlayerInformation.PlayerInfo.playerInfo.LoadPlayerInfo();
+   
   }
-
-  public void ToMap()
-  {
-    SceneManager.LoadScene(2);
-  }
-
- /*   
-  public void SelectedBit(int bitselcet)
-    {
-        
-        switch (bitselcet)
-        {
-            case 0:
-                bit1.image.color = Color.green;
-                bit2.image.color = Color.white;
-                bit3.image.color = Color.white;
-                sbit = 0;
-                break;
-            case 1:
-                bit1.image.color = Color.white;
-                bit2.image.color = Color.green;
-                bit3.image.color = Color.white;
-                sbit = 1;
-                break;
-            case 2:
-                bit1.image.color = Color.white;
-                bit2.image.color = Color.white;
-                bit3.image.color = Color.green;
-                sbit = 2;
-                break;
-        }
-    }
-    */
-///// HP //////
   private PlayerInformation.PlayerRun saveGameObject()
     {
         PlayerInformation.PlayerRun save = new PlayerInformation.PlayerRun();
@@ -243,7 +223,24 @@ public GameObject PI;
         StreamWriter sw = new StreamWriter(Application.dataPath + "/PlayerInfo.json");
         sw.Write(JsonString);
         sw.Close();
+         PlayerInformation.PlayerInfo.playerInfo.HP = save.HP;
         Debug.Log("Save");
     }
+    //Load Secne//
+    public void ToMap()
+   {
+        StartCoroutine(LoadLevel(2));
+   }
     
+   
+    public Animator transtiton;
+    public float transtitonTime = 1f;
+    
+    
+    IEnumerator LoadLevel(int scene)
+    {
+        transtiton.SetTrigger("Start");
+        yield return new WaitForSeconds(transtitonTime);
+        SceneManager.LoadScene(scene);
+    }
 }

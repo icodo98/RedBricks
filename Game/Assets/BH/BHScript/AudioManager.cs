@@ -33,7 +33,7 @@ public class AudioManager : MonoBehaviour
         
         PlayMusic("BGM");
         LoadByJSON();
-        volumeSlider.value = musicSource.volume;
+        if(volumeSlider != null) volumeSlider.value = musicSource.volume;
     }
 
     public void PlayMusic(string name)

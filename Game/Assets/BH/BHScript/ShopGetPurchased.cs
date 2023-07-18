@@ -20,6 +20,7 @@ public class ShopGetPurchased : MonoBehaviour
     #endregion
 
         Button buyBtn;
+        public Button comfirmBtn;
 
    [System.Serializable] public class Purchased
     {
@@ -29,7 +30,7 @@ public class ShopGetPurchased : MonoBehaviour
     public List<Purchased> PurchasedList;
 
 
-    
+    public PlayerInformation.PlayerRun PR;
     public void GetAvailablePurchased()
     {
         for(int i =0; i < ShopingsecenManager.instance.ShopItemList.Count; i++)
@@ -55,9 +56,57 @@ public class ShopGetPurchased : MonoBehaviour
         for(int i =0; i < 6; i++){
         buyBtn = ShopingsecenManager.instance.ShopView.GetChild(i).GetChild(2).GetComponent<Button>();
         buyBtn.interactable = false;
+        comfirmBtn.interactable = false;
     }
     SaveByCoinJSON();
+
+        string bitName;
+        int tempIndex;
+        GameObject tempGameObjectBit;
+        Bits AddBit;
+        for(int i = 0; i < PurchasedList.Count ;i++){
+        bitName = findBits(PurchasedList[i].Image);
+      PR.BitsDic.TryGetValue(bitName, out tempIndex);
+      tempGameObjectBit = indToSprite(tempIndex);
+      AddBit = tempGameObjectBit.GetComponent<Bits>();
+      PlayerInformation.PlayerInfo.playerInfo.bitsList.Add(AddBit);
+        }
 }
+
+ public string findBits(Sprite img){
+    string spn = img.name;
+    string bitName = null;
+    switch (spn)
+    {
+      case "Brown": bitName = "AddAngleBit";
+        break;
+      case "Red": bitName = "HealBit";
+        break;
+        case "Aquamarin": bitName = "IncreBit";
+        break;
+        case "Blue": bitName = "LengthBit" ;
+        break;
+        case "Lilac": bitName = "MaxHealBit";
+        break;
+        case "Dark_Blue": bitName = "SizeBit";
+        break;
+        case "Yellow": bitName = "SizeDownBit";
+        break;
+        case "Emerald": bitName = "SpeedUpBit";
+        break;
+        case "Green": bitName = "SubAngleBit";
+        break;
+        case "Orange": bitName = "TiltBit";
+        break;
+      
+    }
+    return bitName;
+  }
+     public GameObject indToSprite(int index)
+        {
+            return PlayerInformation.PlayerInfo.playerInfo.bitPrefs[index];
+        }
+
  private CoinJson saveGameObject()
     {
         CoinJson save = new CoinJson();

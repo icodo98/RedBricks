@@ -1,9 +1,6 @@
-using Cinemachine;
-using Mono.Cecil;
 using PlayerInformation;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerConroller : MonoBehaviour,IListener
@@ -17,10 +14,11 @@ public class PlayerConroller : MonoBehaviour,IListener
     Vector3 mousePosition;
     Vector3 lastPosition;
     bool isClicked= false;
+    private WaitForSeconds waitfor3seconds = new WaitForSeconds(3.0f);
     private bool isPaused;
     public int MAXHP;
-    public int HP;
-
+    public float HP;
+    
     public GameObject hudDamageText;
 
     private int _priority = 3;
@@ -29,7 +27,6 @@ public class PlayerConroller : MonoBehaviour,IListener
         get => _priority;
         set => _priority = value;
     }
-
     private void Start()
     {
         EventManager.Instance.AddListener(myEventType.GameOver,this);
@@ -41,6 +38,7 @@ public class PlayerConroller : MonoBehaviour,IListener
         MAXHP = PlayerInfo.playerInfo.MaxHP;
         HP = PlayerInfo.playerInfo.HP;
         isPaused = false;
+        StartCoroutine(RegenHealth());
     }
     private void AddBall()
     {
@@ -159,5 +157,18 @@ public class PlayerConroller : MonoBehaviour,IListener
     private void OnDestroy()
     {
         PlayerInfo.playerInfo.HP = HP;
+    }
+    IEnumerator RegenHealth()
+    {
+        while (true)
+        {
+            if (isPaused) yield return waitfor3seconds;
+            if(PlayerInfo.playerInfo.curData.RegenHealth > 0)
+            {
+                HP += PlayerInfo.playerInfo.curData.RegenHealth;
+            }
+           
+            yield return waitfor3seconds;
+        }
     }
 }
