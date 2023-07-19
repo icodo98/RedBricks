@@ -16,6 +16,10 @@ public class MapHPUI : MonoBehaviour
         hpSlider.value = PlayerInformation.PlayerInfo.playerInfo.HP;
     }
 
+    void Update()
+    {
+         hpSlider.value = PlayerInformation.PlayerInfo.playerInfo.HP;
+    }
     // Update is called once per frame
 
 
