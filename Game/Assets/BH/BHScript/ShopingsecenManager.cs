@@ -62,26 +62,26 @@ public class ShopingsecenManager : MonoBehaviour
    }
    
    void onShopItemBtnClicked(int itemIndex){
-        buyBtn = ShopView.GetChild(itemIndex).GetChild(2).GetComponent<Button>();
+       buyBtn = ShopView.GetChild(itemIndex).GetChild(2).GetComponent<Button>();
       // buyBtn.interactable = false;
       if(ShopItemList[itemIndex].IsPurchased){
         ShopCoin.Instance.getBackCoins(ShopItemList[itemIndex].Price);
         buyBtn.transform.GetChild(0).GetComponent<Text>().text = "Buy";
         ShopItemList [itemIndex].IsPurchased = false;
-       SetCoinsUI();
+        SetCoinsUI();
       }
       else if (!ShopItemList[itemIndex].IsPurchased)
       {
          if(ShopCoin.Instance.HasEnoughCoins(ShopItemList[itemIndex].Price)){
-         buyBtn.transform.GetChild(0).GetComponent<Text>().text = "Purchased";
-          ShopCoin.Instance.UesCoins(ShopItemList[itemIndex].Price);
-        Debug.Log(itemIndex);
-        ShopItemList [itemIndex].IsPurchased = true;
+            buyBtn.transform.GetChild(0).GetComponent<Text>().text = "Purchased";
+            ShopCoin.Instance.UesCoins(ShopItemList[itemIndex].Price);
+            Debug.Log(itemIndex);
+            ShopItemList [itemIndex].IsPurchased = true;
           }else{
-        NoCoinsAnim.SetTrigger("noMoney");
-        Debug.Log("Not enough Coin");
-      }
-        SetCoinsUI();
+            NoCoinsAnim.SetTrigger("noMoney");
+            Debug.Log("Not enough Coin");
+           }
+          SetCoinsUI();
       }
    }
    /////////

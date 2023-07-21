@@ -57,6 +57,8 @@ public class PlayerCollision : MonoBehaviour
             {
                 BitDrop(pos);
             }
+            PlayerInfo.playerInfo.curRun.coin += Random.Range(0, 4);
+            PlayerInfo.playerInfo.curRun.brokenBlock++;
             Invoke("DestoryParticle", 0.5f);
         }
         else if(other.gameObject.CompareTag("Player"))
