@@ -57,19 +57,19 @@ public class ShopGetPurchased : MonoBehaviour
         buyBtn = ShopingsecenManager.instance.ShopView.GetChild(i).GetChild(2).GetComponent<Button>();
         buyBtn.interactable = false;
         comfirmBtn.interactable = false;
-    }
-    SaveByCoinJSON();
+        }
+        SaveByCoinJSON();
 
         string bitName;
         int tempIndex;
         GameObject tempGameObjectBit;
         Bits AddBit;
         for(int i = 0; i < PurchasedList.Count ;i++){
-        bitName = findBits(PurchasedList[i].Image);
-      PR.BitsDic.TryGetValue(bitName, out tempIndex);
-      tempGameObjectBit = indToSprite(tempIndex);
-      AddBit = tempGameObjectBit.GetComponent<Bits>();
-      PlayerInformation.PlayerInfo.playerInfo.bitsList.Add(AddBit);
+            bitName = findBits(PurchasedList[i].Image);
+            PR.BitsDic.TryGetValue(bitName, out tempIndex);
+            tempGameObjectBit = indToSprite(tempIndex);
+            AddBit = tempGameObjectBit.GetComponent<Bits>();
+            PlayerInformation.PlayerInfo.playerInfo.bitsList.Add(AddBit);
         }
 }
 
@@ -78,27 +78,28 @@ public class ShopGetPurchased : MonoBehaviour
     string bitName = null;
     switch (spn)
     {
-      case "Brown": bitName = "AddAngleBit";
-        break;
-      case "Red": bitName = "HealBit";
-        break;
+        case "Brown": bitName = "AddAngleBit";
+            break;
+        case "Red": bitName = "HealBit";
+            break;
         case "Aquamarin": bitName = "IncreBit";
-        break;
+            break;
         case "Blue": bitName = "LengthBit" ;
-        break;
+            break;
         case "Lilac": bitName = "MaxHealBit";
-        break;
+            break;
         case "Dark_Blue": bitName = "SizeBit";
-        break;
+            break;
         case "Yellow": bitName = "SizeDownBit";
-        break;
+            break;
         case "Emerald": bitName = "SpeedUpBit";
-        break;
+            break;
         case "Green": bitName = "SubAngleBit";
-        break;
+            break;
         case "Orange": bitName = "TiltBit";
-        break;
-      
+            break;
+        default: bitName = "no such name bit";
+            break;
     }
     return bitName;
   }

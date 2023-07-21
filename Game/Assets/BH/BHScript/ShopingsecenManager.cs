@@ -56,7 +56,6 @@ public class ShopingsecenManager : MonoBehaviour
         buyBtn.AddEventListener(i,onShopItemBtnClicked);
     }
     Destroy(ItemTemplate);
-    LoadByCoinJSON();
     SetCoinsUI();
   
    }
@@ -128,46 +127,7 @@ public class ShopingsecenManager : MonoBehaviour
         yield return new WaitForSeconds(transtitonTime);
         SceneManager.LoadScene(scene);
     }
-    ///////Json///////
-
-     private CoinJson saveGameObject()
-    {
-        CoinJson save = new CoinJson();
-        save.Coin = ShopCoin.Instance.Coins;
-    
-        return save;
-    }
-
-    private void SaveByCoinJSON()
-    {
-        CoinJson save = saveGameObject();
-        string JsonString = JsonUtility.ToJson(save);
-        StreamWriter sw = new StreamWriter(Application.dataPath + "/CoinJson.text");
-        sw.Write(JsonString);
-        sw.Close();
-        Debug.Log("Save");
-    }
-
-     private void LoadByCoinJSON()
-    {
-        if(File.Exists(Application.dataPath + "/CoinJson.text"))
-        {
-            StreamReader sr = new StreamReader(Application.dataPath + "/CoinJson.text");
-            string JsonString = sr.ReadToEnd();
-            sr.Close();
-            CoinJson save =JsonUtility.FromJson<CoinJson>(JsonString);
-            Debug.Log("LOADED");
-
-        ////
-       ShopCoin.Instance.Coins = save.Coin;
-
-        
-        }
-        else
-        {
-            Debug.Log("NOT FOUND SAVE FILE");
-        }
-    }
+   
     public void testSetCoin()
     {
         ShopCoin.Instance.Coins = 400;
