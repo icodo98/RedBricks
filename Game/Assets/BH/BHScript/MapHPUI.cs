@@ -31,12 +31,15 @@ public class MapHPUI : MonoBehaviour
    
     void Update()
     {
+
          try {
             hpSlider.value = PlayerInformation.PlayerInfo.playerInfo.HP;
         }       
         catch (NullReferenceException ex) {
             Debug.Log("why Null");
         }
+
+        h
     }
 
     

@@ -9,7 +9,7 @@ namespace Relic
         public override void Power()
         {
             PlayerInfo.playerInfo.curData.EnableSelection= true;
-            PlayerInfo.playerInfo.curRun.relicList.Add(prefab);
+            AddtoPlayer();
         }
     }
 }

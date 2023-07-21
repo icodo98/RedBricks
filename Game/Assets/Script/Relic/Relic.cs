@@ -17,7 +17,8 @@ namespace Relic
         {
             if(prefab != null)
             {
-                PlayerInformation.PlayerInfo.playerInfo.Relic.Add(prefab);
+                PlayerInformation.PlayerInfo.playerInfo.curRun.relicList.Add(this.name);
+                
 
             }
         }
