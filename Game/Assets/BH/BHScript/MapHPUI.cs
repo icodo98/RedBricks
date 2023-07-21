@@ -3,23 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEngine.UI;
+using System;
 public class MapHPUI : MonoBehaviour
 {
     public Slider hpSlider;
     private float HpminValue = 0;
-  
+
+    
+   
     void Start()
     {
-        hpSlider = GetComponent<Slider>();
-        hpSlider.minValue = HpminValue;
-        hpSlider.maxValue = PlayerInformation.PlayerInfo.playerInfo.MaxHP; 
-        hpSlider.value = PlayerInformation.PlayerInfo.playerInfo.HP;
+/*
+        for(int i =0 ; i < 10 ; i++)
+        {
+        try {
+            hpSlider.value = PlayerInformation.PlayerInfo.playerInfo.HP;
+        }       
+        catch (NullReferenceException ex) {
+            Debug.Log("why Null");
+        }
+        }
+        */
+        hpSlider.interactable = false;
+        
+        
     }
-
+   
     void Update()
     {
-         hpSlider.value = PlayerInformation.PlayerInfo.playerInfo.HP;
+         try {
+            hpSlider.value = PlayerInformation.PlayerInfo.playerInfo.HP;
+        }       
+        catch (NullReferenceException ex) {
+            Debug.Log("why Null");
+        }
     }
+
+    
     // Update is called once per frame
 
 
