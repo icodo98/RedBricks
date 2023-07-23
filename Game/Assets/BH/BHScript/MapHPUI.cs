@@ -38,8 +38,6 @@ public class MapHPUI : MonoBehaviour
         catch (NullReferenceException ex) {
             Debug.Log("why Null");
         }
-
-        h
     }
 
     
