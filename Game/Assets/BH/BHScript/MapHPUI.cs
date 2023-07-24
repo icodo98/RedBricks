@@ -13,17 +13,6 @@ public class MapHPUI : MonoBehaviour
    
     void Start()
     {
-/*
-        for(int i =0 ; i < 10 ; i++)
-        {
-        try {
-            hpSlider.value = PlayerInformation.PlayerInfo.playerInfo.HP;
-        }       
-        catch (NullReferenceException ex) {
-            Debug.Log("why Null");
-        }
-        }
-        */
         hpSlider.interactable = false;
         
         
@@ -32,24 +21,6 @@ public class MapHPUI : MonoBehaviour
     void Update()
     {
 
-         try {
             hpSlider.value = PlayerInformation.PlayerInfo.playerInfo.HP;
-        }       
-        catch (NullReferenceException ex) {
-            Debug.Log("why Null");
-        }
     }
-
-    
-    // Update is called once per frame
-
-
-    /*
-    float HP;
-    public GameObject HPText;
-        public void ShowHP() {
-            HP = PlayerInformation.PlayerInfo.playerInfo.HP;
-            HPText.GetComponent<Text>().text = HP.ToString();
-        }
-        */
 }

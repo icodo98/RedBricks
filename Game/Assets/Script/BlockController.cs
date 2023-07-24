@@ -35,7 +35,6 @@ public class BlockController : MonoBehaviour,IListener
             case myEventType.GamePause:
                 _fallingSpeed = fallingSpeed;
                 fallingSpeed = 0;
-
                 break;
             case myEventType.GameResume:
                 fallingSpeed = _fallingSpeed;
