@@ -19,7 +19,11 @@ public class ShopCoin : MonoBehaviour
 
   public int Coins;
 
-  public void UesCoins (int amount)
+    private void Start()
+    {
+        Coins = PlayerInformation.PlayerInfo.playerInfo.curRun.coin;
+    }
+    public void UesCoins (int amount)
   {
     Coins -= amount;
   }
@@ -31,4 +35,8 @@ public class ShopCoin : MonoBehaviour
   {
     Coins += amount;
   }
+    private void OnDestroy()
+    {
+        PlayerInformation.PlayerInfo.playerInfo.curRun.coin = Coins;
+    }
 }

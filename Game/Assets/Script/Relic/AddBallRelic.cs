@@ -11,6 +11,7 @@ namespace Relic
         public override void Power()
         {
             PlayerInfo.playerInfo.curData.AddBall = true;
+            AddtoPlayer();
         }
     }
    

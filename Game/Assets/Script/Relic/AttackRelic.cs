@@ -12,6 +12,7 @@ namespace Relic
         public override void Power()
         {
             PlayerInfo.playerInfo.curData.Attack += 15;
+            AddtoPlayer();
         }
     }
 

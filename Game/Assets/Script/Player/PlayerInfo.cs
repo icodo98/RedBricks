@@ -11,9 +11,9 @@ namespace PlayerInformation
         public List<Bits> bitsList;
         public List<GameObject> bitPrefs;
 
-        public List<GameObject> Relic;
 
-        //ToDo : 코인 시스템 만들기. 
+        
+        //TO Do : 
         PlayerData LoadData;
         public PlayerRun curRun;
         public PlayerData curData;

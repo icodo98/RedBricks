@@ -56,32 +56,31 @@ public class ShopingsecenManager : MonoBehaviour
         buyBtn.AddEventListener(i,onShopItemBtnClicked);
     }
     Destroy(ItemTemplate);
-    LoadByCoinJSON();
     SetCoinsUI();
   
    }
    
    void onShopItemBtnClicked(int itemIndex){
-        buyBtn = ShopView.GetChild(itemIndex).GetChild(2).GetComponent<Button>();
+       buyBtn = ShopView.GetChild(itemIndex).GetChild(2).GetComponent<Button>();
       // buyBtn.interactable = false;
       if(ShopItemList[itemIndex].IsPurchased){
         ShopCoin.Instance.getBackCoins(ShopItemList[itemIndex].Price);
         buyBtn.transform.GetChild(0).GetComponent<Text>().text = "Buy";
         ShopItemList [itemIndex].IsPurchased = false;
-       SetCoinsUI();
+        SetCoinsUI();
       }
       else if (!ShopItemList[itemIndex].IsPurchased)
       {
          if(ShopCoin.Instance.HasEnoughCoins(ShopItemList[itemIndex].Price)){
-         buyBtn.transform.GetChild(0).GetComponent<Text>().text = "Purchased";
-          ShopCoin.Instance.UesCoins(ShopItemList[itemIndex].Price);
-        Debug.Log(itemIndex);
-        ShopItemList [itemIndex].IsPurchased = true;
+            buyBtn.transform.GetChild(0).GetComponent<Text>().text = "Purchased";
+            ShopCoin.Instance.UesCoins(ShopItemList[itemIndex].Price);
+            Debug.Log(itemIndex);
+            ShopItemList [itemIndex].IsPurchased = true;
           }else{
-        NoCoinsAnim.SetTrigger("noMoney");
-        Debug.Log("Not enough Coin");
-      }
-        SetCoinsUI();
+            NoCoinsAnim.SetTrigger("noMoney");
+            Debug.Log("Not enough Coin");
+           }
+          SetCoinsUI();
       }
    }
    /////////
@@ -128,46 +127,7 @@ public class ShopingsecenManager : MonoBehaviour
         yield return new WaitForSeconds(transtitonTime);
         SceneManager.LoadScene(scene);
     }
-    ///////Json///////
-
-     private CoinJson saveGameObject()
-    {
-        CoinJson save = new CoinJson();
-        save.Coin = ShopCoin.Instance.Coins;
-    
-        return save;
-    }
-
-    private void SaveByCoinJSON()
-    {
-        CoinJson save = saveGameObject();
-        string JsonString = JsonUtility.ToJson(save);
-        StreamWriter sw = new StreamWriter(Application.dataPath + "/CoinJson.text");
-        sw.Write(JsonString);
-        sw.Close();
-        Debug.Log("Save");
-    }
-
-     private void LoadByCoinJSON()
-    {
-        if(File.Exists(Application.dataPath + "/CoinJson.text"))
-        {
-            StreamReader sr = new StreamReader(Application.dataPath + "/CoinJson.text");
-            string JsonString = sr.ReadToEnd();
-            sr.Close();
-            CoinJson save =JsonUtility.FromJson<CoinJson>(JsonString);
-            Debug.Log("LOADED");
-
-        ////
-       ShopCoin.Instance.Coins = save.Coin;
-
-        
-        }
-        else
-        {
-            Debug.Log("NOT FOUND SAVE FILE");
-        }
-    }
+   
     public void testSetCoin()
     {
         ShopCoin.Instance.Coins = 400;

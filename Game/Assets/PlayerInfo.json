@@ -1,1 +1,11 @@
-{"bitList":[],"relicList":[],"HP":100.0,"MaxHP":100}
+{
+    "bitList": [
+        "TiltBit",
+        "SizeBit"
+    ],
+    "relicList": [],
+
+    "HP": 17.0,
+    "MaxHP": 100
+
+}

@@ -10,7 +10,7 @@ namespace Relic
     {
         public override void Power()
         {
-            PlayerInformation.PlayerInfo.playerInfo.curRun.relicList.Add(prefab);
+            AddtoPlayer();
         }
     }
 

@@ -1,12 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using PlayerInformation;
+using TMPro;
+using System.Text;
+using System.Linq.Expressions;
 
 public class LoseSceneManager : MonoBehaviour,IListener
 {
     private int _priority = 1;
+    public TextMeshProUGUI blockScore;
     public int priority { 
         get => _priority; 
         set => _priority = value; 
@@ -27,12 +29,22 @@ public class LoseSceneManager : MonoBehaviour,IListener
         {
             case myEventType.GameOver:
                 this.transform.GetChild(0).gameObject.SetActive(true);
+                BlockScore();
                 Time.timeScale = 0;
                 break;
             default: throw new System.Exception("There is a unhandled event at " + this.name);
         }
     }
-
+    public void BlockScore()
+    {
+        if(blockScore != null)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append("Broken block : ");
+            stringBuilder.Append(PlayerInfo.playerInfo.curRun.brokenBlock.ToString());
+            blockScore.text = stringBuilder.ToString();
+        }
+    }
     public void TitleButton()
     {
         Time.timeScale+= 1;
