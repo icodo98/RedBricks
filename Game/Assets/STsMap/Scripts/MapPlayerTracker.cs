@@ -91,7 +91,7 @@ namespace Map
                     break;
                 case NodeType.EliteEnemy:
                
-                StaticCoroutine.DoCoroutine(9);
+                StaticCoroutine.DoCoroutine(10);
                     break;
                 case NodeType.RestSite:
                StaticCoroutine.DoCoroutine(7);

@@ -773,17 +773,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &582666140 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2447304535057744087, guid: 81c6f704b9e714e99bff5de097f459ef, type: 3}
-  m_PrefabInstance: {fileID: 1057787759}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &642997564
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -965,22 +954,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 691112670}
     m_Modifications:
-    - target: {fileID: 2447304535057744085, guid: 81c6f704b9e714e99bff5de097f459ef, type: 3}
-      propertyPath: m_Name
-      value: BlockScore
-      objectReference: {fileID: 0}
-    - target: {fileID: 2447304535057744087, guid: 81c6f704b9e714e99bff5de097f459ef, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: c63f46f5939538f469fc5e0e59491f24, type: 2}
-    - target: {fileID: 2447304535057744087, guid: 81c6f704b9e714e99bff5de097f459ef, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2447304535841325833, guid: 81c6f704b9e714e99bff5de097f459ef, type: 3}
-      propertyPath: blockScore
-      value: 
-      objectReference: {fileID: 582666140}
     - target: {fileID: 2447304535841325846, guid: 81c6f704b9e714e99bff5de097f459ef, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1171,6 +1144,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 691112670}
     m_Modifications:
+    - target: {fileID: 2723313605511428983, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2723313605571001949, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
       propertyPath: m_IsActive
       value: 0

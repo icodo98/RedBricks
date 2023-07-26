@@ -766,8 +766,9 @@ GameObject:
   m_Component:
   - component: {fileID: 845118501}
   - component: {fileID: 845118500}
+  - component: {fileID: 845118502}
   m_Layer: 0
-  m_Name: Light 2D
+  m_Name: Global Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -867,6 +868,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &845118502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 845118499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3107b5f3a4821cc4ab5d786c242d9b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Light2D: {fileID: 845118500}
 --- !u!4 &857550130 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8679559896897149097, guid: 8519d8b57f44a8f449a7e09f79969600, type: 3}
