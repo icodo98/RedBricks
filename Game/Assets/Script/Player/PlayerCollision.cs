@@ -17,6 +17,8 @@ public class PlayerCollision : MonoBehaviour
     public float BrickHittedDamage = 1.0f;
     private float DamageCoefficient = 100f;
 
+    private int gold = 0;
+    private int breakBlock = 0;
     public List<Bits> BitTable = new List<Bits>();
 
     void Start()
@@ -53,12 +55,15 @@ public class PlayerCollision : MonoBehaviour
             Instantiate(woodbreak, pos, Quaternion.identity);
             bool isBroken = other.gameObject.GetComponent<Enemytext>().TakeDamage(CalculateDamage(), pos);
             float isDropped = Random.Range(0.0f, 1.0f);
-            if (isDropped < BitDropRate && isBroken)
+            if (isBroken)
             {
-                BitDrop(pos);
+                gold += Random.Range(0, 4);
+                breakBlock += 1;
+                if (isDropped < BitDropRate)
+                {
+                    BitDrop(pos);
+                }
             }
-            PlayerInfo.playerInfo.curRun.coin += Random.Range(0, 4);
-            PlayerInfo.playerInfo.curRun.brokenBlock++;
             Invoke("DestoryParticle", 0.5f);
         }
         else if(other.gameObject.CompareTag("Player"))
@@ -117,6 +122,11 @@ public class PlayerCollision : MonoBehaviour
         damage *= GetDamageTypeModifier(DamageType.Non);
 
         return damage;
+    }
+    private void OnDisable()
+    {
+        PlayerInfo.playerInfo.curRun.coin += gold;
+        PlayerInfo.playerInfo.curRun.brokenBlock = breakBlock;
     }
 
     /// <summary>

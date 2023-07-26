@@ -14,7 +14,6 @@ public class blockCollision : MonoBehaviour
         else if(collision.gameObject.CompareTag("Player"))
         {
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerConroller>().TakeDamage(25, false);
-            PlayerInformation.PlayerInfo.playerInfo.curRun.brokenBlock += 1;
             Destroy(this.gameObject);
         }
 
