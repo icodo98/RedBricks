@@ -478,16 +478,44 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1465763785}
     - target: {fileID: 880829400599826734, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 880829400599826734, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 880829400599826734, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1811110198}
     - target: {fileID: 880829400599826734, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1811110198}
+    - target: {fileID: 880829400599826734, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 880829400599826734, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SavePlayerInfo
+      objectReference: {fileID: 0}
+    - target: {fileID: 880829400599826734, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: ToMap
       objectReference: {fileID: 0}
     - target: {fileID: 880829400599826734, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Box, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 880829400599826734, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Box, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 880829400599826734, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 880829401048561886, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
       propertyPath: lootList.Array.size

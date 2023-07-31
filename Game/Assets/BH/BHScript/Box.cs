@@ -17,8 +17,12 @@ public class Box : MonoBehaviour
    {
         StartCoroutine(LoadLevel(2));
    }
-    
-   
+    public void SavePlayerInfo()
+    {
+        string path = Application.dataPath + "/PlayerInfo.json";
+        PlayerInformation.PlayerDataUtils.SaveDataAsJson(path, PlayerInformation.PlayerInfo.playerInfo);
+    }
+
     public Animator transtiton;
     public float transtitonTime = 1f;
     

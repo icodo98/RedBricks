@@ -142,6 +142,7 @@ namespace PlayerInformation
             PlayerDataUtils.SaveDataAsJson(infoFilePath, curRun);
 
         }
+
     }
 }
 

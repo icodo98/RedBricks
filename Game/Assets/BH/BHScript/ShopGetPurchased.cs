@@ -71,7 +71,10 @@ public class ShopGetPurchased : MonoBehaviour
             AddBit = tempGameObjectBit.GetComponent<Bits>();
             PlayerInformation.PlayerInfo.playerInfo.bitsList.Add(AddBit);
         }
-}
+        // scene 종료시에 playerInfo 파일을 저장함.
+        string path = Application.dataPath + "/PlayerInfo.json";
+        PlayerInformation.PlayerDataUtils.SaveDataAsJson(path, PlayerInformation.PlayerInfo.playerInfo);
+    }
 
  public string findBits(Sprite img){
     string spn = img.name;
