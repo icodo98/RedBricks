@@ -13,6 +13,8 @@ public class PlayerCollision : MonoBehaviour
     private float BitDropRate = 0.5f;
     [SerializeField]
     private float maxSpeed = 7.0f;
+    [SerializeField]
+    private float minSpeed = 3.0f;
     
     public float BrickHittedDamage = 1.0f;
     private float DamageCoefficient = 100f;
@@ -31,10 +33,15 @@ public class PlayerCollision : MonoBehaviour
     }
     private void Update()
     {
-        if(rb.velocity.magnitude > maxSpeed)
-        {
-            rb.velocity = rb.velocity.normalized * maxSpeed;
-        }
+        //속도가 너무 빠르거나 느릴경우 제한.
+        //if (rb.velocity.magnitude > maxSpeed)
+        //{
+        //    rb.velocity = rb.velocity.normalized * maxSpeed;
+        //} else if (rb.velocity.magnitude < 3.0f)
+        //{
+        //    rb.velocity = rb.velocity.normalized * 3.0f;
+        //}
+        rb.velocity = rb.velocity.normalized * Mathf.Clamp(rb.velocity.magnitude, minSpeed, maxSpeed);
         Vector3 pos = transform.position;
         if((pos.x < -2) || (pos.x > 1.1) 
             || (pos.y < -2) || (pos.y > 2.2f)
