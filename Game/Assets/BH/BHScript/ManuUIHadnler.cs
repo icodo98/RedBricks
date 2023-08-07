@@ -9,7 +9,7 @@ public class ManuUIHadnler : MonoBehaviour
     private Animator animator; //setting open animator
     public Animator transtiton;
     public float transtitonTime = 1f;
-    public Button loadbutton;
+    public GameObject loadbutton;
 
     private     int GO;
     
