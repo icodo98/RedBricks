@@ -11,6 +11,8 @@ public class characterManager : MonoBehaviour
   // public Text nameText;
     public SpriteRenderer artworkSprite;
 
+    
+
     public int selectedOption;
    // public GameObject playerskin;
 
@@ -61,6 +63,7 @@ public class characterManager : MonoBehaviour
    {
         SelectCharacter character = characterDB.GetCharacter(selectedOption);
         artworkSprite.sprite = character.characterSprite;
+        artworkSprite.material = character.charcterMaterial;
     //    nameText.text = character.characterName;
    }
    

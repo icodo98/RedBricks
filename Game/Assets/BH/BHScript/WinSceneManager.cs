@@ -34,21 +34,21 @@ public class WinSceneManager : MonoBehaviour, IListener
         {
             case Bitselcet.Bit1:
                 selectedBit = 1;
-                bit1.image.color = Color.green;
-                bit2.image.color = Color.white;
-                bit3.image.color = Color.white;
+               // bit1.image.color = Color.green;
+               // bit2.image.color = Color.white;
+               // bit3.image.color = Color.white;
                 break;
             case Bitselcet.Bit2:
                 selectedBit = 2;
-                bit1.image.color = Color.white;
-                bit2.image.color = Color.green;
-                bit3.image.color = Color.white;
+               // bit1.image.color = Color.white;
+               // bit2.image.color = Color.green;
+               // bit3.image.color = Color.white;
                 break;
             case Bitselcet.Bit3:
                 selectedBit = 3;
-                bit1.image.color = Color.white;
-                bit2.image.color = Color.white;
-                bit3.image.color = Color.green;
+                //bit1.image.color = Color.white;
+                //bit2.image.color = Color.white;
+               // bit3.image.color = Color.green;
                 break;
         }
     }
@@ -88,7 +88,10 @@ public class WinSceneManager : MonoBehaviour, IListener
                 break;
         }
     }
-
+    public void SelButton()
+    {
+        Debug.Log("the button " + this.name + "is selected");
+    }
     public void OnEvent(myEventType eventType, Component Sender, object Param = null)
     {
         switch (eventType)

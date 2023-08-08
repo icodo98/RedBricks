@@ -12,8 +12,6 @@ namespace PlayerInformation
         public List<GameObject> bitPrefs;
 
 
-        
-        //TO Do : 
         PlayerData LoadData;
         public PlayerRun curRun;
         public PlayerData curData;

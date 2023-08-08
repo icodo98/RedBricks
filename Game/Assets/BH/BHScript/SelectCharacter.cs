@@ -7,5 +7,8 @@ public class SelectCharacter
 {
    public string characterName;
    public Sprite characterSprite;
-    //ToDo materialÃß°¡. 
+   
+   public Material charcterMaterial;
+   
+    //ToDo materialï¿½ß°ï¿½. 
 }

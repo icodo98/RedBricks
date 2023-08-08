@@ -99,4 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterDB: {fileID: 11400000, guid: 32f3ce2c5b28449b2ac14599b6e45fdb, type: 2}
   artworkSprite: {fileID: 5782020683296248383}
-  playerskin: {fileID: 0}
+  selectedOption: 0
+  transtiton: {fileID: 0}
+  transtitonTime: 1
