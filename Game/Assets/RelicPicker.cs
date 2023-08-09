@@ -19,7 +19,7 @@ public class RelicPicker : MonoBehaviour
 
         //getRelic();
     }
-
+    
     public void getRelic()
     {
         int i = 0;
