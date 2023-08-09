@@ -18,6 +18,7 @@ public class PlayerConroller : MonoBehaviour,IListener
     private bool isPaused;
     public int MAXHP;
     public float HP;
+    public CharacterDatabase characterDatabase;
     
     public GameObject hudDamageText;
 
@@ -37,6 +38,9 @@ public class PlayerConroller : MonoBehaviour,IListener
         if (PlayerInfo.playerInfo.curData.AddBall) Invoke("AddBall", 1.5f);
         MAXHP = PlayerInfo.playerInfo.MaxHP;
         HP = PlayerInfo.playerInfo.HP;
+        MeshRenderer meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer.material = characterDatabase.GetCharacter(PlayerPrefs.GetInt("selectedOption")).charcterMaterial;
+
         isPaused = false;
         StartCoroutine(RegenHealth());
     }

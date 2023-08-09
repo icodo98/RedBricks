@@ -34,14 +34,8 @@ public class PlayerCollision : MonoBehaviour
     private void Update()
     {
         //속도가 너무 빠르거나 느릴경우 제한.
-        //if (rb.velocity.magnitude > maxSpeed)
-        //{
-        //    rb.velocity = rb.velocity.normalized * maxSpeed;
-        //} else if (rb.velocity.magnitude < 3.0f)
-        //{
-        //    rb.velocity = rb.velocity.normalized * 3.0f;
-        //}
         rb.velocity = rb.velocity.normalized * Mathf.Clamp(rb.velocity.magnitude, minSpeed, maxSpeed);
+        if (rb.velocity.y == 0) rb.AddForce(0.1f * Vector3.up);
         Vector3 pos = transform.position;
         if((pos.x < -2) || (pos.x > 1.1) 
             || (pos.y < -2) || (pos.y > 2.2f)
