@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 5526588074782824575}
   - component: {fileID: -8881978940007506523}
   - component: {fileID: 6147584643789748658}
-  m_Layer: 0
+  - component: {fileID: 1657619586289736855}
+  m_Layer: 6
   m_Name: AttackRelic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,3 +99,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1657619586289736855
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6942836888165980955}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fa1bfc042887544379da7c0d433672dd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

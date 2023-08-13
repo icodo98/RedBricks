@@ -501,7 +501,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   temporalBits: []
   permBits: []
-  maxHealBit: {fileID: 0}
 --- !u!114 &1847664750509776266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,10 +514,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 125
-  rb: {fileID: 0}
-  maxSpeed: 10
+  rb: {fileID: 245811707878116632}
   MAXHP: 100
   HP: 0
+  characterDatabase: {fileID: 11400000, guid: 32f3ce2c5b28449b2ac14599b6e45fdb, type: 2}
   hudDamageText: {fileID: 2898461515439624268, guid: 556a9ec9957a49d4fa043fa6fee3a559, type: 3}
 --- !u!33 &893961231
 MeshFilter:
