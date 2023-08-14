@@ -1105,7 +1105,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -1378,10 +1378,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AttackRelic
       objectReference: {fileID: 0}
-    - target: {fileID: 6942836888165980955, guid: d68ac8efd481253478e625625deffad8, type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d68ac8efd481253478e625625deffad8, type: 3}
 --- !u!4 &1038794506 stripped
@@ -1623,6 +1619,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 2723313605090517637, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: addRelic
+      objectReference: {fileID: 0}
     - target: {fileID: 2723313605452925701, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.4772
@@ -1794,6 +1794,10 @@ PrefabInstance:
     - target: {fileID: 2723313606676655846, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2723313606946182093, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: addRelic
       objectReference: {fileID: 0}
     - target: {fileID: 3332245186972990743, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

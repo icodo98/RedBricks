@@ -112,5 +112,9 @@ public class WinSceneManager : MonoBehaviour, IListener
     {
         PlayerInformation.PlayerInfo.playerInfo.addParmentBit(tempBits, selectedBit);
     }
+    public void addRelic()
+    {
+        GameObject.Find("RelicPicker").GetComponent<RelicPicker>().addRelic(selectedBit);
+    }
 }
 

@@ -59,7 +59,7 @@ namespace PlayerInformation
     }
     public class PlayerDataUtils : MonoBehaviour
     {
-        public static PlayerData ReadData(string Path)
+        public static PlayerData ReadData(string Path )
         {
             PlayerData LoadData= new ();
             if (File.Exists(Path))
@@ -67,7 +67,7 @@ namespace PlayerInformation
                 string data = File.ReadAllText(Path);
                 LoadData = JsonUtility.FromJson<PlayerData>(data);
             }
-            else return null;
+            else throw new Exception("There is no save flie!");
             return LoadData;
         }
         public static PlayerRun ReadInfo(string Path)
@@ -77,7 +77,7 @@ namespace PlayerInformation
                 string data = File.ReadAllText(Path);
                 return JsonUtility.FromJson<PlayerRun>(data);
             }
-            else return null;
+            else throw new Exception("There is no save flie!");
         }
         public static bool SaveDataAsJson(string Path, object data) {
             Type dataType = data.GetType();
@@ -92,6 +92,17 @@ namespace PlayerInformation
                 return false;
             }
             return true;
+        }
+        public static bool SavePerData() {
+            return SaveDataAsJson(Application.dataPath + "/PlayerData.json", PlayerInfo.playerInfo.curData);
+        }
+        public static bool SavePlayerInfo()
+        {
+            return SaveDataAsJson(Application.dataPath + "/PlayerInfo.json", PlayerInfo.playerInfo.curRun);
+        }
+        public static bool SaveCurData()
+        {
+            return SaveDataAsJson(Application.dataPath + "/PlayerCurData.json", PlayerInfo.playerInfo.curData);
         }
     }
     
