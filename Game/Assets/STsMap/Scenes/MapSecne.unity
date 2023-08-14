@@ -199,6 +199,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147933225}
   m_CullTransparentMesh: 1
+--- !u!1 &162017104 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1130177693080908566, guid: 5153453a2712d5647a291b50f9f6ba31, type: 3}
+  m_PrefabInstance: {fileID: 600360200}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &600360200
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1347,6 +1352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpSlider: {fileID: 1585501558}
+  Playerinfo: {fileID: 162017104}
 --- !u!114 &1776090139 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5337413451174954175, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
