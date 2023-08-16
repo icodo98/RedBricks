@@ -84,7 +84,7 @@ public class LootBag : MonoBehaviour
         break;
         case "AddRelic": bitName = "AddBallRelic";
         break;
-        case "OneHandedSword_Icon2": bitName = "AttackRelic";
+        case "OneHandedSword_Icon3": bitName = "AttackRelic";
         break;
         case "Bitsel": bitName = "BitSelRelic";
         break;
