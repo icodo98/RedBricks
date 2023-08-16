@@ -34,6 +34,7 @@ public class LootBag : MonoBehaviour
         GameObject tempGameObjectBit;
         Bits AddBit;
         Loot RandomItem = GetItem();
+        string b = "Bit";
         if(RandomItem != null)
         {
         GameObject lootGameObject = Instantiate(droppedItemPrefab, spawnPosition, Quaternion.identity);
@@ -45,15 +46,18 @@ public class LootBag : MonoBehaviour
 
         }
 
-         bitName = findBits(RandomItem.lootSprite);
+         bitName = finditems(RandomItem.lootSprite);
+         if(bitName.Contains(b))
+         {
       PR.BitsDic.TryGetValue(bitName, out tempIndex);
       tempGameObjectBit = indToSprite(tempIndex);
       AddBit = tempGameObjectBit.GetComponent<Bits>();
       PlayerInformation.PlayerInfo.playerInfo.bitsList.Add(AddBit);
+         }
 
     }
 
-     public string findBits(Sprite img){
+     public string finditems(Sprite img){
     string spn = img.name;
     string bitName = null;
     switch (spn)
@@ -77,6 +81,14 @@ public class LootBag : MonoBehaviour
         case "Green": bitName = "SubAngleBit";
         break;
         case "Orange": bitName = "TiltBit";
+        break;
+        case "AddRelic": bitName = "AddBallRelic";
+        break;
+        case "OneHandedSword_Icon2": bitName = "AttackRelic";
+        break;
+        case "Bitsel": bitName = "BitSelRelic";
+        break;
+        case "Regenpng": bitName = "RegenRelic";
         break;
       
     }

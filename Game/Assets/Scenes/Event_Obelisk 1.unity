@@ -519,7 +519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 880829401048561886, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
       propertyPath: lootList.Array.size
-      value: 10
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 880829401048561886, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
       propertyPath: lootList.Array.data[4]
@@ -545,6 +545,22 @@ PrefabInstance:
       propertyPath: lootList.Array.data[9]
       value: 
       objectReference: {fileID: 11400000, guid: 18850cf4c599f4e4d9371e8ae6cf0eca, type: 2}
+    - target: {fileID: 880829401048561886, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
+      propertyPath: lootList.Array.data[10]
+      value: 
+      objectReference: {fileID: 11400000, guid: 74902f07687344c07aeb5b3e3a4f2852, type: 2}
+    - target: {fileID: 880829401048561886, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
+      propertyPath: lootList.Array.data[11]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6fe8acc7069044ad883f5a938621fb0f, type: 2}
+    - target: {fileID: 880829401048561886, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
+      propertyPath: lootList.Array.data[12]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9afd9107464f6441a967dbb841cf3919, type: 2}
+    - target: {fileID: 880829401048561886, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
+      propertyPath: lootList.Array.data[13]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8e99cf2fec52f4265b0ba7d4d8a397c8, type: 2}
     - target: {fileID: 880829401220923622, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
