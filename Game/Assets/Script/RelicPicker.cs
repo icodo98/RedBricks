@@ -1,12 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RelicPicker : MonoBehaviour
 {
     Rito.WeightedRandomPicker<GameObject> wrRelicPicker = new Rito.WeightedRandomPicker<GameObject>();
     public Vector3[] positions = new Vector3[3];
+    private int[] pickedRelic = new int[3];
+    public Button[] btns = new Button[3];
     private void Start()
     {
         Transform[] Relics = GetComponentsInChildren<Transform>();
@@ -14,19 +15,27 @@ public class RelicPicker : MonoBehaviour
         {
             wrRelicPicker.Add(trRelic.gameObject,10);
         }
-
-
-
-        //getRelic();
+    
+        getRelic();
     }
     
     public void getRelic()
     {
         int i = 0;
-        foreach (int idx in woDuplicateRandomRange(transform.childCount,3))
+        pickedRelic = woDuplicateRandomRange(transform.childCount, 3);
+        foreach (int idx in pickedRelic)
         {
-            transform.GetChild(idx).position = positions[i++];
+            transform.GetChild(idx).position = positions[i];
+            
+            btns[i].onClick.AddListener(() => transform.GetChild(idx).GetComponent<Animator>().SetTrigger("Dance"));
+            i++;
         }
+    }
+    public void addRelic(int idx)
+    {
+        transform.GetChild(pickedRelic[--idx]).GetComponent<Relic.Relic>().Power();
+        PlayerInformation.PlayerDataUtils.SavePlayerInfo();
+        PlayerInformation.PlayerDataUtils.SaveCurData();
     }
     private int[] woDuplicateRandomRange (int max,int count)
     {

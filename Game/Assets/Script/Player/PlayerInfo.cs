@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Diagnostics;
 
 namespace PlayerInformation
 {
@@ -98,7 +99,8 @@ namespace PlayerInformation
                     // game over시 Map reloading을 위해 표시함.
                     PlayerPrefs.SetInt("GameOver", 1);
                     PlayerPrefs.Save();
-                    PlayerDataUtils.SaveDataAsJson(dataFilePath, curData);
+                    PlayerDataUtils.SaveCurData();
+                    //PlayerDataUtils.SaveDataAsJson(dataFilePath, curData);
                     break;
                 default: throw new System.Exception("There is a unhandled event at " + this.name);
 
@@ -106,12 +108,14 @@ namespace PlayerInformation
         }
         private void OnApplicationQuit()
         {
-           PlayerDataUtils.SaveDataAsJson(dataFilePath, curData);
+            //PlayerDataUtils.SaveDataAsJson(dataFilePath, curData);
+            PlayerDataUtils.SaveCurData();
         }
 
         public void LoadPlayerInfo()
         {
             PlayerRun loaded = PlayerDataUtils.ReadInfo(infoFilePath);
+            curData = PlayerDataUtils.ReadData(Application.dataPath + "/PlayerCurData.json");
             if (loaded != null)
             {
                 curRun = loaded;
@@ -137,8 +141,8 @@ namespace PlayerInformation
             {
                 curRun.bitList.Add(item.name);
             }
-            PlayerDataUtils.SaveDataAsJson(infoFilePath, curRun);
-
+            //PlayerDataUtils.SaveDataAsJson(infoFilePath, curRun);
+            PlayerDataUtils.SavePlayerInfo();
         }
 
     }

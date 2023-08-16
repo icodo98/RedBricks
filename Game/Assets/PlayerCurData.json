@@ -1,0 +1,16 @@
+{
+    "Amor": 0.0,
+    "Attack": 0.0,
+    "Speed": 0.0,
+    "BarLength": 0.0,
+    "Critical": 0.0,
+    "ElementDamage": [],
+    "AddBall": false,
+    "Resurrection": 0,
+    "EnableSelection": false,
+    "FallingPenalty": 0.0,
+    "IncreaseHealth": 0,
+    "curResurrection": 0,
+    "RegenHealth": 1.0,
+    "bitsList": []
+}
