@@ -1,4 +1,14 @@
 {
+<<<<<<< HEAD
+    "bitList": [
+        "SubAngleBit"
+    ],
+    "relicList": [],
+    "HP": 57.0,
+    "MaxHP": 100,
+    "coin": 32,
+    "brokenBlock": 8
+=======
     "bitList": [],
     "relicList": [
         "RegenRelic"
@@ -7,4 +17,5 @@
     "MaxHP": 100,
     "coin": 0,
     "brokenBlock": 0
+>>>>>>> 9bd042645bebcff2e61d7a72f0231106c683edb2
 }
