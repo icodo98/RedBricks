@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Relic;
 using UnityEngine;
 
 public class LootBag : MonoBehaviour
@@ -8,7 +9,11 @@ public class LootBag : MonoBehaviour
     public GameObject droppedItemPrefab;
     public List<Loot> lootList = new List<Loot>();
     // Start is called before the first frame update
-    
+    public GameObject AddRelic;
+    public GameObject AttackRelic;
+    public GameObject bitselRelic;
+    public GameObject RegenRelic;
+
    Loot GetItem(){
         int randomNumber = Random.Range(1,101);
         List<Loot> possibleItems = new List<Loot>();
@@ -53,6 +58,20 @@ public class LootBag : MonoBehaviour
       tempGameObjectBit = indToSprite(tempIndex);
       AddBit = tempGameObjectBit.GetComponent<Bits>();
       PlayerInformation.PlayerInfo.playerInfo.bitsList.Add(AddBit);
+         }
+         else{
+            switch (bitName)
+    {
+
+        case "AddBallRelic": AddRelic.GetComponent<AddBallRelic>().Power();
+        break;
+        case "AttackRelic": AttackRelic.GetComponent<AttackRelic>().Power();
+        break;
+        case "BitSelRelic": bitselRelic.GetComponent<BitselRelic>().Power();
+        break;
+        case "RegenRelic": RegenRelic.GetComponent<RegenRelic>().Power();
+        break;
+    }
          }
 
     }

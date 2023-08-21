@@ -1,21 +1,65 @@
 {
-<<<<<<< HEAD
-    "bitList": [
-        "SubAngleBit"
+    "bitsList": [
+        {
+            "instanceID": 17120
+        }
     ],
-    "relicList": [],
-    "HP": 57.0,
-    "MaxHP": 100,
-    "coin": 32,
-    "brokenBlock": 8
-=======
-    "bitList": [],
-    "relicList": [
-        "RegenRelic"
+    "bitPrefs": [
+        {
+            "instanceID": 16706
+        },
+        {
+            "instanceID": 16726
+        },
+        {
+            "instanceID": 16776
+        },
+        {
+            "instanceID": 16728
+        },
+        {
+            "instanceID": 16840
+        },
+        {
+            "instanceID": 16740
+        },
+        {
+            "instanceID": 16722
+        },
+        {
+            "instanceID": 16856
+        },
+        {
+            "instanceID": 16760
+        },
+        {
+            "instanceID": 16762
+        }
     ],
-    "HP": 100.0,
-    "MaxHP": 100,
-    "coin": 0,
-    "brokenBlock": 0
->>>>>>> 9bd042645bebcff2e61d7a72f0231106c683edb2
+    "curRun": {
+        "bitList": [
+            "SubAngleBit"
+        ],
+        "relicList": [],
+        "HP": 71.0,
+        "MaxHP": 100,
+        "coin": 33,
+        "brokenBlock": 20
+    },
+    "curData": {
+        "Amor": 0.0,
+        "Attack": 0.0,
+        "Speed": 0.0,
+        "BarLength": 0.0,
+        "Critical": 0.0,
+        "ElementDamage": [],
+        "AddBall": false,
+        "Resurrection": 0,
+        "EnableSelection": false,
+        "FallingPenalty": 0.0,
+        "IncreaseHealth": 0,
+        "curResurrection": 0,
+        "RegenHealth": 0.0,
+        "bitsList": []
+    }
 }
