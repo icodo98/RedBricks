@@ -11,6 +11,6 @@
     "FallingPenalty": 0.0,
     "IncreaseHealth": 0,
     "curResurrection": 0,
-    "RegenHealth": 1.0,
+    "RegenHealth": 0.0,
     "bitsList": []
 }

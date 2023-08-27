@@ -15,6 +15,8 @@ public class SpeedUpBit : Bits
             tmp = tmp * mulSpeed;
             item.GetComponent<Rigidbody2D>().velocity += tmp;
             item.GetComponent<PlayerCollision>().InitialSpeed = item.GetComponent<PlayerCollision>().InitialSpeed * (1 + mulSpeed);
+            item.GetComponent<PlayerCollision>().minSpeed = item.GetComponent<PlayerCollision>().minSpeed * (1 + mulSpeed);
+            item.GetComponent<PlayerCollision>().maxSpeed = item.GetComponent<PlayerCollision>().maxSpeed * (1 + mulSpeed);
         }
         
     }

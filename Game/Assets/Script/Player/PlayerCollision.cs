@@ -12,9 +12,9 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField]
     private float BitDropRate = 0.5f;
     [SerializeField]
-    private float maxSpeed = 7.0f;
+    public float maxSpeed = 7.0f;
     [SerializeField]
-    private float minSpeed = 3.0f;
+    public float minSpeed = 3.0f;
     
     public float BrickHittedDamage = 1.0f;
     private float DamageCoefficient = 100f;
