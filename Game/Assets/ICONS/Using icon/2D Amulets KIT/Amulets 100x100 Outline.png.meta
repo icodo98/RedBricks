@@ -101,6 +101,30 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1459,70 +1483,70 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Amulets 100x100 Outline_0: -1622834246
-      Amulets 100x100 Outline_1: 868221555
-      Amulets 100x100 Outline_10: 1205854827
-      Amulets 100x100 Outline_11: -145466
-      Amulets 100x100 Outline_12: -14910619
-      Amulets 100x100 Outline_13: -1930203592
-      Amulets 100x100 Outline_14: 534224837
-      Amulets 100x100 Outline_15: -1668348071
-      Amulets 100x100 Outline_16: -92243622
-      Amulets 100x100 Outline_17: -1514410517
-      Amulets 100x100 Outline_18: -1102034978
-      Amulets 100x100 Outline_19: -1742008862
-      Amulets 100x100 Outline_2: -1661603696
-      Amulets 100x100 Outline_20: -1328269304
-      Amulets 100x100 Outline_21: 1574939396
-      Amulets 100x100 Outline_22: 1359440384
-      Amulets 100x100 Outline_23: -1097855582
-      Amulets 100x100 Outline_24: 328679422
-      Amulets 100x100 Outline_25: 930862355
-      Amulets 100x100 Outline_26: -99151780
-      Amulets 100x100 Outline_27: 1153930583
-      Amulets 100x100 Outline_28: 494007301
-      Amulets 100x100 Outline_29: -1913556024
-      Amulets 100x100 Outline_3: -385347387
-      Amulets 100x100 Outline_30: -1592085102
-      Amulets 100x100 Outline_31: 787642801
-      Amulets 100x100 Outline_32: 556126386
-      Amulets 100x100 Outline_33: 1034217443
-      Amulets 100x100 Outline_34: 1969146006
-      Amulets 100x100 Outline_35: 338401572
-      Amulets 100x100 Outline_36: -1963066767
-      Amulets 100x100 Outline_37: -1653636730
       Amulets 100x100 Outline_38: 269381161
-      Amulets 100x100 Outline_39: -641486129
-      Amulets 100x100 Outline_4: -1951862237
-      Amulets 100x100 Outline_40: -1140828363
-      Amulets 100x100 Outline_41: 1987648934
-      Amulets 100x100 Outline_42: 770130306
-      Amulets 100x100 Outline_43: 1994417581
+      Amulets 100x100 Outline_33: 1034217443
       Amulets 100x100 Outline_44: 1863608191
-      Amulets 100x100 Outline_45: 2013586217
-      Amulets 100x100 Outline_46: 125741647
       Amulets 100x100 Outline_47: -1389033001
-      Amulets 100x100 Outline_48: -75983860
+      Amulets 100x100 Outline_57: 1999642654
+      Amulets 100x100 Outline_61: 2017397980
+      Amulets 100x100 Outline_18: -1102034978
+      Amulets 100x100 Outline_27: 1153930583
+      Amulets 100x100 Outline_52: 1275578497
+      Amulets 100x100 Outline_26: -99151780
+      Amulets 100x100 Outline_12: -14910619
+      Amulets 100x100 Outline_63: 484266107
+      Amulets 100x100 Outline_28: 494007301
+      Amulets 100x100 Outline_11: -145466
+      Amulets 100x100 Outline_14: 534224837
+      Amulets 100x100 Outline_42: 770130306
+      Amulets 100x100 Outline_1: 868221555
       Amulets 100x100 Outline_49: 1418248228
+      Amulets 100x100 Outline_19: -1742008862
+      Amulets 100x100 Outline_39: -641486129
+      Amulets 100x100 Outline_8: -1713079251
+      Amulets 100x100 Outline_45: 2013586217
+      Amulets 100x100 Outline_9: -1688417202
+      Amulets 100x100 Outline_62: 1969403655
+      Amulets 100x100 Outline_20: -1328269304
+      Amulets 100x100 Outline_31: 787642801
+      Amulets 100x100 Outline_55: -1104410970
+      Amulets 100x100 Outline_22: 1359440384
+      Amulets 100x100 Outline_35: 338401572
+      Amulets 100x100 Outline_48: -75983860
+      Amulets 100x100 Outline_21: 1574939396
+      Amulets 100x100 Outline_6: -41380926
+      Amulets 100x100 Outline_40: -1140828363
+      Amulets 100x100 Outline_23: -1097855582
+      Amulets 100x100 Outline_59: 356677564
+      Amulets 100x100 Outline_16: -92243622
+      Amulets 100x100 Outline_46: 125741647
+      Amulets 100x100 Outline_15: -1668348071
+      Amulets 100x100 Outline_0: -1622834246
+      Amulets 100x100 Outline_29: -1913556024
+      Amulets 100x100 Outline_2: -1661603696
+      Amulets 100x100 Outline_34: 1969146006
+      Amulets 100x100 Outline_7: 1315494674
+      Amulets 100x100 Outline_60: 1935760393
+      Amulets 100x100 Outline_10: 1205854827
       Amulets 100x100 Outline_5: 1552139907
+      Amulets 100x100 Outline_54: -1122903437
+      Amulets 100x100 Outline_53: -978644835
+      Amulets 100x100 Outline_25: 930862355
+      Amulets 100x100 Outline_30: -1592085102
+      Amulets 100x100 Outline_58: -1326518735
+      Amulets 100x100 Outline_37: -1653636730
       Amulets 100x100 Outline_50: -254771709
       Amulets 100x100 Outline_51: -2139395037
-      Amulets 100x100 Outline_52: 1275578497
-      Amulets 100x100 Outline_53: -978644835
-      Amulets 100x100 Outline_54: -1122903437
-      Amulets 100x100 Outline_55: -1104410970
+      Amulets 100x100 Outline_41: 1987648934
+      Amulets 100x100 Outline_43: 1994417581
+      Amulets 100x100 Outline_4: -1951862237
+      Amulets 100x100 Outline_13: -1930203592
+      Amulets 100x100 Outline_24: 328679422
+      Amulets 100x100 Outline_3: -385347387
+      Amulets 100x100 Outline_32: 556126386
+      Amulets 100x100 Outline_36: -1963066767
+      Amulets 100x100 Outline_17: -1514410517
       Amulets 100x100 Outline_56: 848819015
-      Amulets 100x100 Outline_57: 1999642654
-      Amulets 100x100 Outline_58: -1326518735
-      Amulets 100x100 Outline_59: 356677564
-      Amulets 100x100 Outline_6: -41380926
-      Amulets 100x100 Outline_60: 1935760393
-      Amulets 100x100 Outline_61: 2017397980
-      Amulets 100x100 Outline_62: 1969403655
-      Amulets 100x100 Outline_63: 484266107
-      Amulets 100x100 Outline_7: 1315494674
-      Amulets 100x100 Outline_8: -1713079251
-      Amulets 100x100 Outline_9: -1688417202
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

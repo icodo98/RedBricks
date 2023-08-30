@@ -13,6 +13,8 @@ public class LootBag : MonoBehaviour
     public GameObject AttackRelic;
     public GameObject bitselRelic;
     public GameObject RegenRelic;
+    public GameObject ResurrectionRelic;
+    public GameObject AmorRelic;
 
    Loot GetItem(){
         int randomNumber = Random.Range(1,101);
@@ -61,17 +63,22 @@ public class LootBag : MonoBehaviour
          }
          else{
             switch (bitName)
-    {
+            {
 
         case "AddBallRelic": AddRelic.GetComponent<AddBallRelic>().Power();
         break;
         case "AttackRelic": AttackRelic.GetComponent<AttackRelic>().Power();
         break;
-        case "BitSelRelic": bitselRelic.GetComponent<BitselRelic>().Power();
+        case "B1itSelRelic": bitselRelic.GetComponent<BitselRelic>().Power();
         break;
         case "RegenRelic": RegenRelic.GetComponent<RegenRelic>().Power();
         break;
-    }
+        case "ResurrectionRelic": ResurrectionRelic.GetComponent<ResurrectionRelic>().Power();
+        break;
+        case "AmorRelic": AmorRelic.GetComponent<AmorRelic>().Power();
+        break;
+       
+            }
          }
 
     }
@@ -105,9 +112,13 @@ public class LootBag : MonoBehaviour
         break;
         case "OneHandedSword_Icon3": bitName = "AttackRelic";
         break;
-        case "Bitsel": bitName = "BitSelRelic";
+        case "Bitsel": bitName = "B1itSelRelic";
         break;
         case "Regenpng": bitName = "RegenRelic";
+        break;
+        case "cross1282": bitName = "ResurrectionRelic";
+        break;
+        case "shield128": bitName = "AmorRelic";
         break;
       
     }
