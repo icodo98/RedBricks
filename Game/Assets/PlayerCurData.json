@@ -5,7 +5,7 @@
     "BarLength": 0.0,
     "Critical": 0.0,
     "ElementDamage": [],
-    "AddBall": false,
+    "AddBall": true,
     "Resurrection": 0,
     "EnableSelection": false,
     "FallingPenalty": 0.0,

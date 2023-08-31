@@ -1,8 +1,10 @@
 {
     "bitList": [],
-    "relicList": [],
-    "HP": 71.0,
+    "relicList": [
+        "AddBallRelic"
+    ],
+    "HP": 72.0,
     "MaxHP": 100,
-    "coin": 4,
+    "coin": 6,
     "brokenBlock": 5
 }
