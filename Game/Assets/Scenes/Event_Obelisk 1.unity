@@ -522,6 +522,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6942836888165980955, guid: ab8dd3c47c7478d40972675d01625944, type: 3}
     - target: {fileID: 880829401048561886, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
+      propertyPath: AmorRelic
+      value: 
+      objectReference: {fileID: 5012686321953488136, guid: 4cde61ab487de524ea8d1a46597974cb, type: 3}
+    - target: {fileID: 880829401048561886, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
       propertyPath: RegenRelic
       value: 
       objectReference: {fileID: 6942836888165980955, guid: 88154121817007f42aa7b24e90c46487, type: 3}
@@ -534,8 +538,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6942836888165980955, guid: 4f06a71eba524f14f9cb8bdca0be6e69, type: 3}
     - target: {fileID: 880829401048561886, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
+      propertyPath: ResurrectionRelic
+      value: 
+      objectReference: {fileID: 1089981469191192472, guid: 1e8c043d8d4a1f345b61078dee9dc6e6, type: 3}
+    - target: {fileID: 880829401048561886, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
       propertyPath: lootList.Array.size
-      value: 14
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 880829401048561886, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
       propertyPath: lootList.Array.data[4]
@@ -577,6 +585,14 @@ PrefabInstance:
       propertyPath: lootList.Array.data[13]
       value: 
       objectReference: {fileID: 11400000, guid: 8e99cf2fec52f4265b0ba7d4d8a397c8, type: 2}
+    - target: {fileID: 880829401048561886, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
+      propertyPath: lootList.Array.data[14]
+      value: 
+      objectReference: {fileID: 11400000, guid: 352f77afc629c4ec087bf802a9570c6f, type: 2}
+    - target: {fileID: 880829401048561886, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
+      propertyPath: lootList.Array.data[15]
+      value: 
+      objectReference: {fileID: 11400000, guid: e103596d8252a47129ea715822436328, type: 2}
     - target: {fileID: 880829401220923622, guid: 4b74fa5a8ccf64d94b0712644cf8df38, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
