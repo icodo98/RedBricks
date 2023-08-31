@@ -178,8 +178,8 @@ MonoBehaviour:
   endPoint: {x: 0.8, y: 1.9, z: 0}
   MaxCols: 7
   MaxRows: 5
-  MaxBloNums: 20
-  MinBloNums: 10
+  MaxBloNums: 5
+  MinBloNums: 2
 --- !u!114 &99703607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1140,21 +1140,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 691112670}
     m_Modifications:
-    - target: {fileID: 2723313605511428983, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2723313605571001949, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2723313606676655845, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
       propertyPath: m_Name
       value: YouWin
-      objectReference: {fileID: 0}
-    - target: {fileID: 2723313606676655845, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2723313606676655846, guid: 40e4c863ce60f43999a2bd11838f760b, type: 3}
       propertyPath: m_RootOrder
