@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using Relic;
+
 public class ShopGetPurchased : MonoBehaviour
 {
 
@@ -29,7 +31,10 @@ public class ShopGetPurchased : MonoBehaviour
     
     public List<Purchased> PurchasedList;
 
+    public List<GameObject> RelicList;
 
+
+    string b = "Relic";
     public PlayerInformation.PlayerRun PR;
     public void GetAvailablePurchased()
     {
@@ -66,12 +71,35 @@ public class ShopGetPurchased : MonoBehaviour
         Bits AddBit;
         for(int i = 0; i < PurchasedList.Count ;i++){
             bitName = findBits(PurchasedList[i].Image);
-            PR.BitsDic.TryGetValue(bitName, out tempIndex);
-            tempGameObjectBit = indToSprite(tempIndex);
-            AddBit = tempGameObjectBit.GetComponent<Bits>();
-            PlayerInformation.PlayerInfo.playerInfo.bitsList.Add(AddBit);
+            if(bitName.Contains(b))
+            {
+                switch(bitName)
+                {
+                    case "AddBallRelic": RelicList[0].GetComponent<AddBallRelic>().Power();
+                    break;
+                    case "AttackRelic": RelicList[2].GetComponent<AttackRelic>().Power();
+                    break;
+                    case "AmorRelic": RelicList[1].GetComponent<AmorRelic>().Power();
+                    break;
+                    case "BitSelRelic": RelicList[3].GetComponent<BitselRelic>().Power();
+                    break;
+                    case "ResurrectionRelic": RelicList[5].GetComponent<ResurrectionRelic>().Power();
+                    break;
+                    case "RegenRelic": RelicList[4].GetComponent<RegenRelic>().Power();
+                    break;
+                    default: 
+                    break;
+                }
+            }
+            else
+            {
+                PR.BitsDic.TryGetValue(bitName, out tempIndex);
+                tempGameObjectBit = indToSprite(tempIndex);
+                AddBit = tempGameObjectBit.GetComponent<Bits>();
+                PlayerInformation.PlayerInfo.playerInfo.bitsList.Add(AddBit);
+            }
         }
-        // scene Á¾·á½Ã¿¡ playerInfo ÆÄÀÏÀ» ÀúÀåÇÔ.
+        // scene ï¿½ï¿½ï¿½ï¿½Ã¿ï¿½ playerInfo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
         string path = Application.dataPath + "/PlayerInfo.json";
         PlayerInformation.PlayerDataUtils.SaveDataAsJson(path, PlayerInformation.PlayerInfo.playerInfo);
     }
@@ -100,6 +128,18 @@ public class ShopGetPurchased : MonoBehaviour
         case "Green": bitName = "SubAngleBit";
             break;
         case "Orange": bitName = "TiltBit";
+            break;
+        case "AddRelic": bitName = "AddBallRelic";
+            break;
+        case "OneHandedSword_Icon3": bitName = "AttackRelic";
+            break;
+        case "shield128": bitName = "AmorRelic";
+            break;
+        case "Bitsel": bitName = "BitSelRelic";
+            break;
+        case "cross1282": bitName = "ResurrectionRelic";
+            break;
+        case "Regenpng": bitName = "RegenRelic";
             break;
         default: bitName = "no such name bit";
             break;
