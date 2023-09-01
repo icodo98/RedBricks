@@ -1261,6 +1261,24 @@ MonoBehaviour:
   - Image: {fileID: 21300000, guid: 38d9710d55f29d24198155204a7f78ba, type: 3}
     Price: 100
     IsPurchased: 0
+  - Image: {fileID: 21300000, guid: 9146cea1ee5b24df9a38d14f7ad48150, type: 3}
+    Price: 500
+    IsPurchased: 0
+  - Image: {fileID: 21300000, guid: 37aba9b95e8d84608a3fe95b9b612494, type: 3}
+    Price: 500
+    IsPurchased: 0
+  - Image: {fileID: 21300000, guid: de7df77c67629447ab70e094c1c29881, type: 3}
+    Price: 500
+    IsPurchased: 0
+  - Image: {fileID: 21300000, guid: de923e08aa66947a19d4738319afec45, type: 3}
+    Price: 500
+    IsPurchased: 0
+  - Image: {fileID: 21300000, guid: f9bc2400db614477e83a5ba518790dad, type: 3}
+    Price: 500
+    IsPurchased: 0
+  - Image: {fileID: 21300000, guid: 15a37f5e7ad1645e1ac5608fd77bc5bd, type: 3}
+    Price: 500
+    IsPurchased: 0
   ShopItemList: []
   NoCoinsAnim: {fileID: 653405057}
   coinText: {fileID: 277569076}
@@ -1296,6 +1314,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comfirmBtn: {fileID: 1158765262}
   PurchasedList: []
+  RelicList:
+  - {fileID: 6942836888165980955, guid: ab8dd3c47c7478d40972675d01625944, type: 3}
+  - {fileID: 5012686321953488136, guid: 4cde61ab487de524ea8d1a46597974cb, type: 3}
+  - {fileID: 6942836888165980955, guid: d68ac8efd481253478e625625deffad8, type: 3}
+  - {fileID: 6942836888165980955, guid: 4f06a71eba524f14f9cb8bdca0be6e69, type: 3}
+  - {fileID: 6942836888165980955, guid: 88154121817007f42aa7b24e90c46487, type: 3}
+  - {fileID: 1089981469191192472, guid: 1e8c043d8d4a1f345b61078dee9dc6e6, type: 3}
   PR:
     bitList: []
     relicList: []
