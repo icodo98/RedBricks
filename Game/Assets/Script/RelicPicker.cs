@@ -16,7 +16,7 @@ public class RelicPicker : MonoBehaviour
             wrRelicPicker.Add(trRelic.gameObject,10);
         }
     
-        getRelic();
+    //    getRelic();
     }
     
     public void getRelic()
