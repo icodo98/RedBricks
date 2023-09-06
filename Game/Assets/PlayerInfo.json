@@ -1,8 +1,11 @@
 {
-    "bitList": [],
+    "bitList": [
+        "IncreBit",
+        "SpeedUpBit"
+    ],
     "relicList": [],
-    "HP": 77.0,
+    "HP": 1.0,
     "MaxHP": 100,
-    "coin": 19,
-    "brokenBlock": 5
+    "coin": 52,
+    "brokenBlock": 14
 }
