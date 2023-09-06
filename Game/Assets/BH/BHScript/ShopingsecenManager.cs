@@ -56,6 +56,7 @@ public class ShopingsecenManager : MonoBehaviour
         buyBtn.AddEventListener(i,onShopItemBtnClicked);
     }
     Destroy(ItemTemplate);
+    CoinUpdate();
     SetCoinsUI();
   
    }
@@ -87,6 +88,11 @@ public class ShopingsecenManager : MonoBehaviour
    void SetCoinsUI()
    {
     coinText.text = ShopCoin.Instance.Coins.ToString();
+   }
+
+   void CoinUpdate()
+   {
+     ShopCoin.Instance.Coins = PlayerInformation.PlayerInfo.playerInfo.curRun.coin;
    }
    /////////randomItem///////
     private void randomItemPutList()
