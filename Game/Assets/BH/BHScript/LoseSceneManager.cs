@@ -79,12 +79,12 @@ public class LoseSceneManager : MonoBehaviour,IListener
     
     public void setItem()
     {
-        ItemTemplate = ShopView.GetChild(0).GetChild(5).GetChild(0).gameObject;
+        ItemTemplate = ShopView.GetChild(0).gameObject;
          int len =obtainedBitAndRelicSprite.Count;
               for(int i =0; i <len; i++)
             {
                       g = Instantiate ( ItemTemplate, ShopView);
-                      g.transform.GetChild (0).GetComponent<SpriteRenderer>().sprite = obtainedBitAndRelicSprite[i];    
+                      g.transform.GetComponent<SpriteRenderer>().sprite = obtainedBitAndRelicSprite[i];    
             }
             Destroy(ItemTemplate);
     }
