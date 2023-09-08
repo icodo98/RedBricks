@@ -18,7 +18,9 @@ public class LoseSceneManager : MonoBehaviour,IListener
 
     
 
-    public List<GameObject> RelicList;
+    public List<Sprite> RelicImageList;
+
+    public List<GameObject> bitList;
     public List<Sprite> obtainedBitAndRelicSprite;
     public List<string> obtainedRelic;
     private int _priority = 1;
@@ -84,24 +86,27 @@ public class LoseSceneManager : MonoBehaviour,IListener
               for(int i =0; i <len; i++)
             {
                       g = Instantiate ( ItemTemplate, ShopView);
-                      g.transform.GetComponent<SpriteRenderer>().sprite = obtainedBitAndRelicSprite[i];    
+                      g.transform.GetChild(0).GetComponent<Image>().sprite = obtainedBitAndRelicSprite[i];    
             }
             Destroy(ItemTemplate);
     }
     
     public void bringitem()
     {
+        
         int lenBit = PlayerInformation.PlayerInfo.playerInfo.bitsList.Count;
         int lenRelic = PlayerInformation.PlayerInfo.playerInfo.curRun.relicList.Count;
         for(int i=0; i<lenBit; i++)
         {
-            obtainedBitAndRelicSprite.Add(PlayerInformation.PlayerInfo.playerInfo.bitsList[i].GetComponent<Sprite>());
+            string tempbits = PlayerInformation.PlayerInfo.playerInfo.bitsList[i].name;
+            GameObject tempGameobejetBits = bitList.Find(x => x.name == tempbits);
+            obtainedBitAndRelicSprite.Add(tempGameobejetBits.GetComponent<SpriteRenderer>().sprite);
         }
         for(int i=0; i<lenRelic; i++)
         {
             string temp = PlayerInformation.PlayerInfo.playerInfo.curRun.relicList[i];
-            GameObject tempGameobejet = RelicList.Find(x => x.name == temp);
-            obtainedBitAndRelicSprite.Add(tempGameobejet.GetComponent<Sprite>());
+            Sprite tempSprite = RelicImageList.Find(x => x.name == temp);
+            obtainedBitAndRelicSprite.Add(tempSprite);
         }
     }
 }
