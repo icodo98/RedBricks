@@ -26,15 +26,8 @@ public class BallManager : MonoBehaviour, IListener
         {
             case myEventType.GameOver:
             case myEventType.StageClear:
-                velocity = transform.GetChild(0).GetComponent<Rigidbody2D>().velocity;
                 gameObject.SetActive(false);
                 // gameover와 stageClear의 경우 공의 움직임을 멈춘다.
-                /*foreach (Transform Child in transform)
-                {
-                    rb = Child.GetComponent<Rigidbody2D>();
-                    rb.gravityScale = 0f;
-                    rb.velocity = Vector2.zero;
-                }*/
                 break;
             case myEventType.GamePause:
                 velocity = transform.GetChild(0).GetComponent<Rigidbody2D>().velocity;

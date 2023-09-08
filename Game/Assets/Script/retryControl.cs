@@ -9,12 +9,12 @@ public class retryControl : MonoBehaviour
     {
         if (PlayerInfo.playerInfo.curData.curResurrection > 0)
         {
-            transform.GetChild(6).gameObject.SetActive(true);
+            transform.GetChild(4).gameObject.SetActive(true);
 
         }
         else
         {
-            transform.GetChild(6).gameObject.SetActive(false);
+            transform.GetChild(4).gameObject.SetActive(false);
 
         }
         

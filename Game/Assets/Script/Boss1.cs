@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Boss1 : MonoBehaviour, IListener
 {
-    public int HP;
+    public int MaxHP;
     private int _priority = 0;
     public int priority {
         get => _priority; 
         set => _priority = value; 
     }
     public GameObject block;
-    private WaitForSeconds waitFor3Seconds = new (1f);
+    private WaitForSeconds waitFor3Seconds = new (1.8f);
     [SerializeField]
     private Vector3 startPoint = new Vector3(-0.85f, -0.2f, 0f);
 
@@ -39,7 +39,7 @@ public class Boss1 : MonoBehaviour, IListener
         EventManager.Instance.AddListener(myEventType.GameOver, this);
         EventManager.Instance.AddListener(myEventType.StageClear, this);
         EventManager.Instance.AddListener(myEventType.GamePause, this);
-        
+        GetComponent<Enemytext>().HP = MaxHP;
         StartCoroutine(summonBlocks());
     }
     /// <summary>

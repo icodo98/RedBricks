@@ -5,9 +5,7 @@ using TMPro;
 using System.Text;
 using System.Linq.Expressions;
 using System.Collections.Generic;
-using UnityEngine.UI;
-using Unity.VisualScripting;
-using System.Security.Cryptography.X509Certificates;
+
 
 public class LoseSceneManager : MonoBehaviour,IListener
 {
@@ -43,6 +41,7 @@ public class LoseSceneManager : MonoBehaviour,IListener
         {
             case myEventType.GameOver:
                 this.transform.GetChild(0).gameObject.SetActive(true);
+                GameObject.FindGameObjectWithTag("Ball").GetComponent<PlayerCollision>().countScore();
                 BlockScore();
                 bringitem();
                 setItem();

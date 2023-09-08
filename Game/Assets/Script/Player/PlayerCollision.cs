@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using PlayerInformation;
+using static UnityEditor.PlayerSettings;
 
 public class PlayerCollision : MonoBehaviour
 {
@@ -75,6 +76,13 @@ public class PlayerCollision : MonoBehaviour
         {
             BallHasFallen();
         }
+        else if (other.gameObject.CompareTag("Boss"))
+        {
+            Vector3 pos = other.transform.position;
+            Instantiate(woodbreak, pos, Quaternion.identity);
+            bool isBroken = other.gameObject.GetComponent<Enemytext>().TakeDamage(CalculateDamage(), pos);
+            Invoke("DestoryParticle", 0.5f);
+        }
 
 
     }
@@ -125,6 +133,13 @@ public class PlayerCollision : MonoBehaviour
         return damage;
     }
     private void OnDisable()
+    {
+        countScore();
+    }
+    /// <summary>
+    /// add gain gold and brokenBlock count to playerInfo.
+    /// </summary>
+    public void countScore()
     {
         PlayerInfo.playerInfo.curRun.coin += gold;
         PlayerInfo.playerInfo.curRun.brokenBlock = breakBlock;
