@@ -3,9 +3,8 @@ using UnityEngine.SceneManagement;
 using PlayerInformation;
 using TMPro;
 using System.Text;
-using System.Linq.Expressions;
 using System.Collections.Generic;
-
+using UnityEngine.UI;
 
 public class LoseSceneManager : MonoBehaviour,IListener
 {
@@ -86,6 +85,7 @@ public class LoseSceneManager : MonoBehaviour,IListener
             {
                       g = Instantiate ( ItemTemplate, ShopView);
                       g.transform.GetChild(0).GetComponent<Image>().sprite = obtainedBitAndRelicSprite[i];    
+            
             }
             Destroy(ItemTemplate);
     }
