@@ -7,11 +7,12 @@ using UnityEngine.UI;
 public class HPslider : MonoBehaviour
 {
     public Slider hpSlider;
-    public PlayerConroller player;
+    public GameObject player;
     void Start()
     {
         hpSlider = GetComponent<Slider>();
-        player = GameObject.FindWithTag("Player").GetComponent<PlayerConroller>();
+        //player = GameObject.FindWithTag("Player").GetComponent<PlayerConroller>();
+        
         hpSlider.minValue = 0;
     }
 
@@ -19,8 +20,22 @@ public class HPslider : MonoBehaviour
     void Update()
     {
 
-        hpSlider.maxValue = player.MAXHP; 
-        hpSlider.value = player.HP;
-        
+        switch (player.tag)
+        {
+            case "Player":
+                hpSlider.maxValue = player.GetComponent<PlayerConroller>().MAXHP;
+                hpSlider.value = player.GetComponent<PlayerConroller>().HP;
+                break;
+            case "Boss":
+                hpSlider.maxValue = player.GetComponent<Boss1>().MaxHP;
+                hpSlider.value = player.GetComponent<Enemytext>().HP;
+                break;
+
+            default:
+                hpSlider.maxValue = 0;
+                hpSlider.value = 0;
+                break;
+        }
+
     }
 }

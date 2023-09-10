@@ -30,7 +30,13 @@ public abstract class Bits : MonoBehaviour
     }
     private void OnEnable()
     {
-        FallingSpeed = GameObject.Find("Blocks").GetComponent<BlockController>().fallingSpeed + 0.2f;
+        GameObject blocks = GameObject.Find("Blocks");
+        if(blocks != null)
+        {
+            FallingSpeed = blocks.GetComponent<BlockController>().fallingSpeed;
+
+        }
+        FallingSpeed += 0.2f;
     }
     private void Update()
     {
