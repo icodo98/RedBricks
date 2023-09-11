@@ -97,5 +97,8 @@ public class Boss1 : MonoBehaviour, IListener
         }
         return returnArray;
     }
-
+    private void OnDisable()
+    {
+        EventManager.Instance.PostNotification(myEventType.StageClear,null);
+    }
 }
