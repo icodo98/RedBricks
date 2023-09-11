@@ -79,6 +79,7 @@ public class PlayerCollision : MonoBehaviour
         else if (other.gameObject.CompareTag("Boss"))
         {
             Vector3 pos = other.transform.position;
+            pos.z = -1f; //º¸½º¿¡ ±Û¾¾°¡ °¡·ÁÁ®¼­ ÇÑÄ­ ¾ÕÀ¸·Î ¶¯±è
             Instantiate(woodbreak, pos, Quaternion.identity);
             bool isBroken = other.gameObject.GetComponent<Enemytext>().TakeDamage(CalculateDamage(), pos);
             Invoke("DestoryParticle", 0.5f);
