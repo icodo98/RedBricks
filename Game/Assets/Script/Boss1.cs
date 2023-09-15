@@ -28,7 +28,7 @@ public class Boss1 : MonoBehaviour, IListener
             case myEventType.GamePause:
                 break;
             case myEventType.GameResume:
-                
+                break; 
             default: throw new System.Exception("There is a unhandled event at " + this.name);
         }
     }

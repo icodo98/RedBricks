@@ -884,6 +884,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 396215886}
     m_Modifications:
+    - target: {fileID: 1336563359, guid: 8519d8b57f44a8f449a7e09f79969600, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 893961222}
     - target: {fileID: 1375913277, guid: 8519d8b57f44a8f449a7e09f79969600, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -938,6 +942,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8519d8b57f44a8f449a7e09f79969600, type: 3}
+--- !u!1 &893961222 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8679559896897149103, guid: 8519d8b57f44a8f449a7e09f79969600, type: 3}
+  m_PrefabInstance: {fileID: 893961221}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1021013808 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1542401146278438133, guid: f5685eec0d5484a76a45dfdc2545dbc7, type: 3}

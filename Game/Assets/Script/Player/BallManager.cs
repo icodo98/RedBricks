@@ -30,12 +30,14 @@ public class BallManager : MonoBehaviour, IListener
                 // gameover와 stageClear의 경우 공의 움직임을 멈춘다.
                 break;
             case myEventType.GamePause:
-                velocity = transform.GetChild(0).GetComponent<Rigidbody2D>().velocity;
-                transform.GetChild(0).GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+  //              Debug.Log("velocity :" + transform.GetChild(0).GetComponent<Rigidbody2D>().velocity);
+ //               velocity = transform.GetChild(0).GetComponent<Rigidbody2D>().velocity;
+//                transform.GetChild(0).GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                 break;
             case myEventType.GameResume:
-                gameObject.SetActive(true);
-                transform.GetChild(0).GetComponent<Rigidbody2D>().velocity = velocity;
+ //               Debug.Log("velocity :" + velocity);
+ //               gameObject.SetActive(true);
+ //               transform.GetChild(0).GetComponent<Rigidbody2D>().velocity = velocity;
                 break;
 
             default: throw new System.Exception("There is a unhandled event at " + this.name);

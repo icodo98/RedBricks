@@ -4,16 +4,18 @@ public class Enemytext : MonoBehaviour
 {
     public GameObject hudDamageText;
     public int HP = 5;
+    public int Amor;
     
     public bool TakeDamage(float damage,Vector3 hudPos)
     {
         int normalizedDamage;
 
         // Apply Amor. 현재는 block별 아머가 따로 없으므로 1로 고정. 추후 레벨별 혹은 블럭별로 설정필요.
-        damage -= 1f;
+        damage -= Amor;
 
         // 소수점 버림.
         normalizedDamage = Mathf.FloorToInt(damage);
+        if( normalizedDamage < 0) normalizedDamage = 0;
         HP -= normalizedDamage;
 
         DisplayDamage(normalizedDamage, hudPos);
