@@ -59,8 +59,11 @@ namespace PlayerInformation
         }
         public void Start()
         {
-            EventManager.Instance.AddListener(myEventType.StageClear, playerInfo);
-            EventManager.Instance.AddListener(myEventType.GameOver, playerInfo);
+            if(EventManager.Instance != null)
+            {
+                EventManager.Instance.AddListener(myEventType.StageClear, playerInfo);
+                EventManager.Instance.AddListener(myEventType.GameOver, playerInfo);
+            }
             foreach (GameObject obj in bitPrefs)
             {
                 Bits bits = obj.GetComponent<Bits>();

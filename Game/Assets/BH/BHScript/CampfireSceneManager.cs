@@ -201,6 +201,7 @@ void onItemBtnClicked(int itemIndex){
       tempGameObjectBit = indToSprite(tempIndex);
       RemoveBit = tempGameObjectBit.GetComponent<Bits>();
       PlayerInformation.PlayerInfo.playerInfo.bitsList.Remove(RemoveBit);
+        PlayerInformation.PlayerDataUtils.SavePlayerInfo();
  }
  void Addimage(Sprite img) 
     {
@@ -260,13 +261,20 @@ void onItemBtnClicked(int itemIndex){
 
     private void SaveFullHPJSON()
     {
-        PlayerInformation.PlayerRun save = saveGameObject();
-        string JsonString = JsonUtility.ToJson(save);
-        StreamWriter sw = new StreamWriter(Application.dataPath + "/PlayerInfo.json");
-        sw.Write(JsonString);
-        sw.Close();
-         PlayerInformation.PlayerInfo.playerInfo.HP = save.HP;
-        Debug.Log("Save");
+        //PlayerInformation.PlayerRun save = saveGameObject();
+        //string JsonString = JsonUtility.ToJson(save);
+        //StreamWriter sw = new StreamWriter(Application.dataPath + "/PlayerInfo.json");
+        //sw.Write(JsonString);
+        //sw.Close();
+        // PlayerInformation.PlayerInfo.playerInfo.HP = save.HP;
+        //Debug.Log("Save");
+
+
+        PlayerInformation.PlayerInfo.playerInfo.HP = PlayerInformation.PlayerInfo.playerInfo.MaxHP;
+        PlayerInformation.PlayerDataUtils.SavePlayerInfo();
+
+
+
     }
     //Load Secne//
     public void ToMap()
