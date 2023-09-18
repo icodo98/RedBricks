@@ -24,25 +24,56 @@ public List<campfirebit> sBits;
 
 public List<campfirebit> presBits; 
 
-public GameObject b;
-public GameObject c;
+public GameObject b3;
+public GameObject b2;
+public GameObject b1;
 GameObject ItemTemplate;
    GameObject g;
    public Transform bitView;
 
    Button selectBtn;
+
+   int count;
 private void Start() {
    bBits = PlayerInformation.PlayerInfo.playerInfo.bitsList;
-  convertBitsImage();
-  randomItemPutList();
+   if(bBits.Count > 2)
+   {
+    count = 3;
+    bitView = b3.GetComponent<RectTransform>();
+    b3.SetActive(true);
+    b2.SetActive(false);
+    b1.SetActive(false);
+   }
+   else if(bBits.Count == 2)
+   {
+    count = 2;
+    bitView = b2.GetComponent<RectTransform>();
+    b3.SetActive(false);
+    b2.SetActive(true);
+    b1.SetActive(false);
+   }
+   else if(bBits.Count == 1)
+   {
+    count = 1;
+    bitView = b1.GetComponent<RectTransform>();
+    b3.SetActive(false);
+    b2.SetActive(false);
+    b1.SetActive(true);
+   }
+   convertBitsImage();
+   randomItemPutList();
+  
   ItemTemplate = bitView.GetChild(0).gameObject;
   if(bBits.Count == 0)
       {
-        b.SetActive(false);
-         c.SetActive(false);
+        b3.SetActive(false);
+        b2.SetActive(false);
+        b1.SetActive(false);
       }
       else{
+    
     int len = sBits.Count;
+    ItemTemplate = bitView.GetChild(0).gameObject;
     for(int i =0; i <len; i++)
     {
         g = Instantiate ( ItemTemplate, bitView);
@@ -51,6 +82,7 @@ private void Start() {
       
         selectBtn.AddEventListener(i,onItemBtnClicked);
     }
+    
     Destroy(ItemTemplate);
       }
 }
@@ -66,14 +98,16 @@ void onItemBtnClicked(int itemIndex){
          selectBtn.transform.GetChild(0).GetComponent<Text>().text = "Selected";
         Debug.Log(itemIndex);
         sBits [itemIndex].IsSetceted = true;
-        for(int i =0; i < 3 ; i++){
+        for(int i =0; i < count ; i++){
           bitView.GetChild(i).GetChild(1).GetComponent<Button>().interactable = false;
         }        
+        seletedBtn();
       }
 
        private void randomItemPutList()
     {
          List<int> intList = new List<int>();
+         List<int> Num = new List<int>();
       if(bBits.Count == 0)
       {
         //
@@ -81,13 +115,21 @@ void onItemBtnClicked(int itemIndex){
       else
       {
         
-               for(int i =0; i < 3;){
-              int ranNum = Random.Range(0,bBits.Count);
-                intList.Add(ranNum);
+        for(int i=0 ; i<bBits.Count ; i++)
+        {
+          Num.Add(i);
+        }
+        
+               for(int i =0; i < count;){
+                int n = Random.Range(0,bBits.Count-i);
+                intList.Add(Num[n]);
+                Num.RemoveAt(n);
+             // int ranNum = Random.Range(0,bBits.Count);
+             //   intList.Add(ranNum);
                 i++;
               
         }
-        for(int i =0; i < 3; i++){
+        for(int i =0; i < count; i++){
       
         sBits.Add(presBits[intList[i]]);
         }

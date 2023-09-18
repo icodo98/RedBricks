@@ -1,8 +1,12 @@
 {
-    "bitList": [],
+    "bitList": [
+        "LengthBit",
+        "SizeBit",
+        "LengthBit"
+    ],
     "relicList": [],
-    "HP": 97.0,
+    "HP": 44.0,
     "MaxHP": 100,
-    "coin": 12,
-    "brokenBlock": 5
+    "coin": 57,
+    "brokenBlock": 10
 }
