@@ -56,29 +56,33 @@ public class LootBag : MonoBehaviour
          bitName = finditems(RandomItem.lootSprite);
          if(bitName.Contains(b))
          {
-      PR.BitsDic.TryGetValue(bitName, out tempIndex);
-      tempGameObjectBit = indToSprite(tempIndex);
-      AddBit = tempGameObjectBit.GetComponent<Bits>();
-      PlayerInformation.PlayerInfo.playerInfo.bitsList.Add(AddBit);
-         }
-         else{
+              PR.BitsDic.TryGetValue(bitName, out tempIndex);
+              tempGameObjectBit = indToSprite(tempIndex);
+              AddBit = tempGameObjectBit.GetComponent<Bits>();
+              PlayerInformation.PlayerInfo.playerInfo.bitsList.Add(AddBit);
+            PlayerInformation.PlayerDataUtils.SavePlayerInfo();
+
+        }
+        else
+        {
             switch (bitName)
             {
 
-        case "AddBallRelic": AddRelic.GetComponent<AddBallRelic>().Power();
-        break;
-        case "AttackRelic": AttackRelic.GetComponent<AttackRelic>().Power();
-        break;
-        case "B1itSelRelic": bitselRelic.GetComponent<BitselRelic>().Power();
-        break;
-        case "RegenRelic": RegenRelic.GetComponent<RegenRelic>().Power();
-        break;
-        case "ResurrectionRelic": ResurrectionRelic.GetComponent<ResurrectionRelic>().Power();
-        break;
-        case "AmorRelic": AmorRelic.GetComponent<AmorRelic>().Power();
-        break;
+                case "AddBallRelic": AddRelic.GetComponent<AddBallRelic>().Power();
+                break;
+                case "AttackRelic": AttackRelic.GetComponent<AttackRelic>().Power();
+                break;
+                case "B1itSelRelic": bitselRelic.GetComponent<BitselRelic>().Power();
+                break;
+                case "RegenRelic": RegenRelic.GetComponent<RegenRelic>().Power();
+                break;
+                case "ResurrectionRelic": ResurrectionRelic.GetComponent<ResurrectionRelic>().Power();
+                break;
+                case "AmorRelic": AmorRelic.GetComponent<AmorRelic>().Power();
+                break;
        
             }
+            PlayerInformation.PlayerDataUtils.SaveCurData();
          }
 
     }
