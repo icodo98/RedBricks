@@ -103,7 +103,7 @@ namespace Map
                 StaticCoroutine.DoCoroutine(8);
                     break;
                 case NodeType.Boss:
-               StaticCoroutine.DoCoroutine(4);
+               StaticCoroutine.DoCoroutine(11);
                     break;
                 case NodeType.Mystery:
                 StaticCoroutine.DoCoroutine(4);
