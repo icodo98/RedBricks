@@ -1,2 +1,10 @@
-
-{"bitList":[],"relicList":[],"HP":100.0,"MaxHP":100,"coin":0,"brokenBlock":0}
+{
+    "bitList": [
+        "IncreBit"
+    ],
+    "relicList": [],
+    "HP": 73.0,
+    "MaxHP": 100,
+    "coin": 5,
+    "brokenBlock": 0
+}

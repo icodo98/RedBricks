@@ -8,7 +8,7 @@ public class bricksFlyer : MonoBehaviour
     private GameObject prefab;
 
     private float timer = 1f;
-    private float distance = 13f;
+    private float distance = 8f;
 
     // Start is called before the first frame update
     void Start()
