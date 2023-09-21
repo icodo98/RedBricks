@@ -98,6 +98,7 @@ namespace PlayerInformation
         }
         public static bool SavePlayerInfo()
         {
+
             return SaveDataAsJson(Application.dataPath + "/PlayerInfo.json", PlayerInfo.playerInfo.curRun);
         }
         public static bool SaveCurData()

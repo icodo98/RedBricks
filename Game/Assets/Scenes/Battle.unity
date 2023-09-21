@@ -178,8 +178,8 @@ MonoBehaviour:
   endPoint: {x: 0.8, y: 1.9, z: 0}
   MaxCols: 7
   MaxRows: 5
-  MaxBloNums: 5
-  MinBloNums: 2
+  MaxBloNums: 15
+  MinBloNums: 4
 --- !u!114 &99703607
 MonoBehaviour:
   m_ObjectHideFlags: 0
