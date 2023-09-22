@@ -22,7 +22,6 @@ public class WinSceneManager : MonoBehaviour, IListener
     private List<Bits> tempBits;
     public int selectedBit = 0;
     
-    //ToDo : 이겼을때 UI새로 고치기. 깬 블럭이나 클리어 시간 보여주기?
     private void Start()
     {
         EventManager.Instance.AddListener(myEventType.StageClear, this);

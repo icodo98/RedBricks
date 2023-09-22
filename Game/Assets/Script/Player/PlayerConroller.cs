@@ -2,6 +2,7 @@ using PlayerInformation;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerConroller : MonoBehaviour,IListener
 {
@@ -152,8 +153,11 @@ public class PlayerConroller : MonoBehaviour,IListener
                 break;
             case myEventType.StageClear:
                 PlayerInfo.playerInfo.HP = HP;
-                List<Bits> selectedBits =  GetComponent<PlayerBits>().pickRandomBit();
-                GameObject.Find("YouWin").GetComponent<WinSceneManager>().selectBit(selectedBits);
+                if(SceneManager.GetActiveScene().buildIndex == 3)
+                {
+                    List<Bits> selectedBits = GetComponent<PlayerBits>().pickRandomBit();
+                    GameObject.Find("YouWin").GetComponent<WinSceneManager>().selectBit(selectedBits);
+                }
                 break;
             default: throw new System.Exception("There is a unhandled event at " + this.name);
         }

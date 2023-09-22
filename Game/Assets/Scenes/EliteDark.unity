@@ -493,6 +493,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ResurrectionRelic
       objectReference: {fileID: 0}
+    - target: {fileID: 1089981469191192472, guid: 1e8c043d8d4a1f345b61078dee9dc6e6, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3164104327542597040, guid: 1e8c043d8d4a1f345b61078dee9dc6e6, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -2824,6 +2828,10 @@ PrefabInstance:
     - target: {fileID: 5012686321953488136, guid: 4cde61ab487de524ea8d1a46597974cb, type: 3}
       propertyPath: m_Name
       value: AmorRelic
+      objectReference: {fileID: 0}
+    - target: {fileID: 5012686321953488136, guid: 4cde61ab487de524ea8d1a46597974cb, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cde61ab487de524ea8d1a46597974cb, type: 3}
