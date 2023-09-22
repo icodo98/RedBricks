@@ -25,7 +25,7 @@ public class RelicPicker : MonoBehaviour
         pickedRelic = woDuplicateRandomRange(transform.childCount, 3);
         foreach (int idx in pickedRelic)
         {
-            transform.GetChild(idx).position = positions[i];
+            transform.GetChild(idx).localPosition = positions[i];
             
             btns[i].onClick.AddListener(() => transform.GetChild(idx).GetComponent<Animator>().SetTrigger("Dance"));
             i++;
