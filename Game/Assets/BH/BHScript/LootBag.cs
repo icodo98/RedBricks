@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Relic;
@@ -17,10 +18,11 @@ public class LootBag : MonoBehaviour
     public GameObject AmorRelic;
 
    Loot GetItem(){
-        int randomNumber = Random.Range(1,101);
+        
         List<Loot> possibleItems = new List<Loot>();
         foreach (Loot item in lootList)
         {
+            int randomNumber = UnityEngine.Random.Range(1,101);
             if(randomNumber <= item.dropChance)
             {
                 possibleItems.Add(item);
@@ -28,7 +30,7 @@ public class LootBag : MonoBehaviour
         }
         if(possibleItems.Count > 0)
         {
-            Loot droppedItem = possibleItems[Random.Range(0, possibleItems.Count)];
+            Loot droppedItem = possibleItems[UnityEngine.Random.Range(0, possibleItems.Count)];
             return droppedItem;
         }
         Debug.Log("No loot deroped");
@@ -44,16 +46,11 @@ public class LootBag : MonoBehaviour
         string b = "Bit";
         if(RandomItem != null)
         {
-        GameObject lootGameObject = Instantiate(droppedItemPrefab, spawnPosition, Quaternion.identity);
+        GameObject lootGameObject = Instantiate(droppedItemPrefab, spawnPosition , Quaternion.identity);
         lootGameObject.GetComponent<SpriteRenderer>().sprite =RandomItem.lootSprite;
-
-       // float dropForce = 3f;
-      //  Vector2 dropDirecetion = new Vector2(Random.Range(-1f,1f),Random.Range(-1f,1f));
-      //  lootGameObject.GetComponent<Rigidbody2D>().AddForce(dropDirecetion * dropForce, ForceMode2D.Impulse);
-
         }
-
-         bitName = finditems(RandomItem.lootSprite);
+    
+         bitName = findloot(RandomItem.lootSprite.name);
          if(bitName.Contains(b))
          {
               PR.BitsDic.TryGetValue(bitName, out tempIndex);
@@ -61,7 +58,6 @@ public class LootBag : MonoBehaviour
               AddBit = tempGameObjectBit.GetComponent<Bits>();
               PlayerInformation.PlayerInfo.playerInfo.bitsList.Add(AddBit);
             PlayerInformation.PlayerDataUtils.SavePlayerInfo();
-
         }
         else
         {
@@ -87,10 +83,9 @@ public class LootBag : MonoBehaviour
 
     }
 
-     public string finditems(Sprite img){
-    string spn = img.name;
+     public string findloot(String lootName){
     string bitName = null;
-    switch (spn)
+    switch (lootName)
     {
       case "Brown": bitName = "AddAngleBit";
         break;
