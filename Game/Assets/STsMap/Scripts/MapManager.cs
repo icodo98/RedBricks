@@ -1,19 +1,32 @@
 ﻿using System.Linq;
 using UnityEngine;
 using Newtonsoft.Json;
+using UnityEngine.Analytics;
 
 namespace Map
 {
     public class MapManager : MonoBehaviour
     {
-        MapHPUI MHU;
         public MapConfig config;
         public MapView view;
 
         public Map CurrentMap { get; private set; }
 
-        private void Start()
+       /* void Awake()
         {
+            if (PlayerPrefs.GetInt("GameOver")==1){
+                PlayerInformation.PlayerInfo.playerInfo.newGame();             
+            }
+            else{
+                if (PlayerPrefs.HasKey("Map"))
+            {
+                PlayerInformation.PlayerInfo.playerInfo.LoadPlayerInfo();
+            }
+            }
+        }
+        */
+        private void Start()
+        {   
             if (PlayerPrefs.GetInt("GameOver")==1){
                 PlayerInformation.PlayerInfo.playerInfo.newGame();
                 GenerateNewMap();
@@ -51,6 +64,7 @@ namespace Map
                     }
                 
                 }
+                
             }
             else
             {

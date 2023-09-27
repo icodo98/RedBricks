@@ -97,6 +97,7 @@ public class ShopGetPurchased : MonoBehaviour
                 tempGameObjectBit = indToSprite(tempIndex);
                 AddBit = tempGameObjectBit.GetComponent<Bits>();
                 PlayerInformation.PlayerInfo.playerInfo.bitsList.Add(AddBit);
+                PlayerInformation.PlayerInfo.playerInfo.curRun.bitList.Add(tempGameObjectBit.name);
             }
         }
         // scene ����ÿ� playerInfo ������ ������.
