@@ -1,73 +1,12 @@
 {
-    "bitsList": [
-        {
-            "instanceID": 32528
-        },
-        {
-            "instanceID": 32488
-        },
-        {
-            "instanceID": 32528
-        }
+
+    "bitList": [
+        "IncreBit"
     ],
-    "bitPrefs": [
-        {
-            "instanceID": 32444
-        },
-        {
-            "instanceID": 32446
-        },
-        {
-            "instanceID": 32448
-        },
-        {
-            "instanceID": 32450
-        },
-        {
-            "instanceID": 32452
-        },
-        {
-            "instanceID": 32454
-        },
-        {
-            "instanceID": 32456
-        },
-        {
-            "instanceID": 32458
-        },
-        {
-            "instanceID": 32460
-        },
-        {
-            "instanceID": 32462
-        }
-    ],
-    "curRun": {
-        "bitList": [
-            "SpeedUpBit",
-            "AddAngleBit",
-            "SpeedUpBit"
-        ],
-        "relicList": [],
-        "HP": 101.0,
-        "MaxHP": 100,
-        "coin": 23,
-        "brokenBlock": 15
-    },
-    "curData": {
-        "Amor": 0.0,
-        "Attack": 0.0,
-        "Speed": 0.0,
-        "BarLength": 0.0,
-        "Critical": 0.0,
-        "ElementDamage": [],
-        "AddBall": false,
-        "Resurrection": 0,
-        "EnableSelection": false,
-        "FallingPenalty": 0.0,
-        "IncreaseHealth": 0,
-        "curResurrection": 0,
-        "RegenHealth": 0.0,
-        "bitsList": []
-    }
+    "relicList": [],
+    "HP": 100.0,
+    "MaxHP": 100,
+    "coin": 0,
+    "brokenBlock": 0
+
 }

@@ -53,11 +53,12 @@ public class LootBag : MonoBehaviour
          bitName = findloot(RandomItem.lootSprite.name);
          if(bitName.Contains(b))
          {
-              PR.BitsDic.TryGetValue(bitName, out tempIndex);
-              tempGameObjectBit = indToSprite(tempIndex);
-              AddBit = tempGameObjectBit.GetComponent<Bits>();
-              PlayerInformation.PlayerInfo.playerInfo.bitsList.Add(AddBit);
-              PlayerInformation.PlayerInfo.playerInfo.curRun.bitList.Add(tempGameObjectBit.name);
+            PR.BitsDic.TryGetValue(bitName, out tempIndex);
+            tempGameObjectBit = indToSprite(tempIndex);
+            AddBit = tempGameObjectBit.GetComponent<Bits>();
+            PlayerInformation.PlayerInfo.playerInfo.addParmentBit(AddBit);
+        //     PlayerInformation.PlayerInfo.playerInfo.bitsList.Add(AddBit);
+
             PlayerInformation.PlayerDataUtils.SavePlayerInfo();
         }
         else

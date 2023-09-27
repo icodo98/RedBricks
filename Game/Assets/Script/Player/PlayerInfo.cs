@@ -130,6 +130,11 @@ namespace PlayerInformation
             }
 
         }
+        /// <summary>
+        /// bits 리스트의 Index에 있는 비트를 영구 bit로 추가함.
+        /// </summary>
+        /// <param name="bits"></param>
+        /// <param name="index"></param>
         public void addParmentBit(List<Bits> bits,int index)
         {
             if(index > 0) {
@@ -147,6 +152,17 @@ namespace PlayerInformation
             //PlayerDataUtils.SaveDataAsJson(infoFilePath, curRun);
             PlayerDataUtils.SavePlayerInfo();
         }
+        /// <summary>
+        /// 단일 비트만 추가
+        /// </summary>
+        /// <param name="bits"></param>
+        public void addParmentBit(Bits bits)
+        {
+            bitsList.Add((Bits)bits);
+            curRun.bitList.Add(bits.name);
+            PlayerDataUtils.SavePlayerInfo();
+        }
+
 
     }
 }

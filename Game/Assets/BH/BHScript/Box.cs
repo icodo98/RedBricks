@@ -19,8 +19,7 @@ public class Box : MonoBehaviour
    }
     public void SavePlayerInfo()
     {
-        string path = Application.dataPath + "/PlayerInfo.json";
-        PlayerInformation.PlayerDataUtils.SaveDataAsJson(path, PlayerInformation.PlayerInfo.playerInfo);
+        PlayerInformation.PlayerDataUtils.SavePlayerInfo();
     }
 
     public Animator transtiton;
