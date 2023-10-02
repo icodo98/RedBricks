@@ -96,13 +96,12 @@ public class ShopGetPurchased : MonoBehaviour
                 PR.BitsDic.TryGetValue(bitName, out tempIndex);
                 tempGameObjectBit = indToSprite(tempIndex);
                 AddBit = tempGameObjectBit.GetComponent<Bits>();
-                PlayerInformation.PlayerInfo.playerInfo.bitsList.Add(AddBit);
-                PlayerInformation.PlayerInfo.playerInfo.curRun.bitList.Add(tempGameObjectBit.name);
+                PlayerInformation.PlayerInfo.playerInfo.addParmentBit(AddBit);
+               // PlayerInformation.PlayerInfo.playerInfo.bitsList.Add(AddBit);
+               // PlayerInformation.PlayerInfo.playerInfo.curRun.bitList.Add(tempGameObjectBit.name);
             }
         }
-        // scene ����ÿ� playerInfo ������ ������.
-        string path = Application.dataPath + "/PlayerInfo.json";
-        PlayerInformation.PlayerDataUtils.SaveDataAsJson(path, PlayerInformation.PlayerInfo.playerInfo);
+        PlayerInformation.PlayerInfo.playerInfo.ParmentSavePalyerInfo();
     }
 
  public string findBits(Sprite img){

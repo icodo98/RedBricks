@@ -201,7 +201,8 @@ void onItemBtnClicked(int itemIndex){
       tempGameObjectBit = indToSprite(tempIndex);
       RemoveBit = tempGameObjectBit.GetComponent<Bits>();
       PlayerInformation.PlayerInfo.playerInfo.bitsList.Remove(RemoveBit);
-        PlayerInformation.PlayerDataUtils.SavePlayerInfo();
+      PlayerInformation.PlayerInfo.playerInfo.curRun.bitList.Remove(RemoveBit.name);
+        PlayerInformation.PlayerInfo.playerInfo.ParmentSavePalyerInfo();
  }
  void Addimage(Sprite img) 
     {

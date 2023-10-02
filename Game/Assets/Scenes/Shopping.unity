@@ -1261,22 +1261,22 @@ MonoBehaviour:
     Price: 100
     IsPurchased: 0
   - Image: {fileID: 21300000, guid: 9146cea1ee5b24df9a38d14f7ad48150, type: 3}
-    Price: 500
+    Price: 400
     IsPurchased: 0
   - Image: {fileID: 21300000, guid: 37aba9b95e8d84608a3fe95b9b612494, type: 3}
-    Price: 500
+    Price: 400
     IsPurchased: 0
   - Image: {fileID: 21300000, guid: de7df77c67629447ab70e094c1c29881, type: 3}
-    Price: 500
+    Price: 400
     IsPurchased: 0
   - Image: {fileID: 21300000, guid: de923e08aa66947a19d4738319afec45, type: 3}
-    Price: 500
+    Price: 400
     IsPurchased: 0
   - Image: {fileID: 21300000, guid: f9bc2400db614477e83a5ba518790dad, type: 3}
-    Price: 500
+    Price: 400
     IsPurchased: 0
   - Image: {fileID: 21300000, guid: 15a37f5e7ad1645e1ac5608fd77bc5bd, type: 3}
-    Price: 500
+    Price: 400
     IsPurchased: 0
   ShopItemList: []
   NoCoinsAnim: {fileID: 653405057}

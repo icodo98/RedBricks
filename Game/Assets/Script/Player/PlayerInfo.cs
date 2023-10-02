@@ -38,7 +38,7 @@ namespace PlayerInformation
         }
 
         /// <summary>
-        /// Map scene¿¡¼­ Ã³À½ »ý¼ºµÇ¾î Áú ¶§ don't destory¸¦ À§ÇÑ ¼³Á¤À» ¿Ï·áÇÔ.
+        /// Map sceneï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ ï¿½ï¿½ don't destoryï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ï¿½ï¿½.
         /// </summary>
         public void Awake()
         {
@@ -71,7 +71,7 @@ namespace PlayerInformation
             }
         }
         /// <summary>
-        /// ÀúÀåµÇ¾îÁø ½ºÅ³ µ¥ÀÌÅÍ¸¦ ·ÎµåÇÏ°í ±âÁ¸ÀÇ Ã¼·Â°ú bit List¸¦ »õ·Î ÃÊ±âÈ­ÇÔ.
+        /// ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Îµï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½Â°ï¿½ bit Listï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½ï¿½.
         /// </summary>
         public void newGame()
         {
@@ -99,7 +99,7 @@ namespace PlayerInformation
                 case myEventType.StageClear:
                     break;
                 case myEventType.GameOver:
-                    // game over½Ã Map reloadingÀ» À§ÇØ Ç¥½ÃÇÔ.
+                    // game overï¿½ï¿½ Map reloadingï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½ï¿½.
                     PlayerPrefs.SetInt("GameOver", 1);
                     PlayerPrefs.Save();
                     PlayerDataUtils.SaveCurData();
@@ -131,7 +131,7 @@ namespace PlayerInformation
 
         }
         /// <summary>
-        /// bits ¸®½ºÆ®ÀÇ Index¿¡ ÀÖ´Â ºñÆ®¸¦ ¿µ±¸ bit·Î Ãß°¡ÇÔ.
+        /// bits ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Indexï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ bitï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½.
         /// </summary>
         /// <param name="bits"></param>
         /// <param name="index"></param>
@@ -153,7 +153,7 @@ namespace PlayerInformation
             PlayerDataUtils.SavePlayerInfo();
         }
         /// <summary>
-        /// ´ÜÀÏ ºñÆ®¸¸ Ãß°¡
+        /// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ß°ï¿½
         /// </summary>
         /// <param name="bits"></param>
         public void addParmentBit(Bits bits)
@@ -162,7 +162,11 @@ namespace PlayerInformation
             curRun.bitList.Add(bits.name);
             PlayerDataUtils.SavePlayerInfo();
         }
-
+        public void ParmentSavePalyerInfo()
+        {
+            
+            PlayerDataUtils.SavePlayerInfo();
+        }
 
     }
 }

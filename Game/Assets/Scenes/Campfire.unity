@@ -1967,7 +1967,6 @@ MonoBehaviour:
   b3: {fileID: 902841310}
   b2: {fileID: 819428995}
   b1: {fileID: 2006557997}
-  c: {fileID: 0}
   bitView: {fileID: 902841311}
   SelctedBitsList: []
   transtiton: {fileID: 650642475}

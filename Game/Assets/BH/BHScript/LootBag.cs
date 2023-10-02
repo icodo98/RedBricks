@@ -80,7 +80,7 @@ public class LootBag : MonoBehaviour
                 break;
        
             }
-            PlayerInformation.PlayerDataUtils.SaveCurData();
+            PlayerInformation.PlayerInfo.playerInfo.ParmentSavePalyerInfo();
          }
 
     }
