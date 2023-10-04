@@ -2,6 +2,7 @@
 using UnityEngine;
 using Newtonsoft.Json;
 using UnityEngine.Analytics;
+using UnityEngine.UI;
 
 namespace Map
 {
@@ -12,19 +13,6 @@ namespace Map
 
         public Map CurrentMap { get; private set; }
 
-       /* void Awake()
-        {
-            if (PlayerPrefs.GetInt("GameOver")==1){
-                PlayerInformation.PlayerInfo.playerInfo.newGame();             
-            }
-            else{
-                if (PlayerPrefs.HasKey("Map"))
-            {
-                PlayerInformation.PlayerInfo.playerInfo.LoadPlayerInfo();
-            }
-            }
-        }
-        */
         private void Start()
         {   
             if (PlayerPrefs.GetInt("GameOver")==1){
@@ -106,5 +94,7 @@ namespace Map
             PlayerPrefs.SetString("TampMap", Tampjson);
             PlayerPrefs.Save();
         }
+
+        
     }
 }

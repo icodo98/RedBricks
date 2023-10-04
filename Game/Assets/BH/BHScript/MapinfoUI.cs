@@ -6,12 +6,13 @@ using UnityEngine.UI;
 using System;
 using PlayerInformation;
 
-public class MapHPUI : MonoBehaviour
+public class MapinfoUI : MonoBehaviour
 {
     public Slider hpSlider;
     private float HpminValue = 0;
     private float MaxHP;
     
+    public Text MapCoin;
    
     void Start()
     {
@@ -24,7 +25,13 @@ public class MapHPUI : MonoBehaviour
    
     void Update()
     {
-
+            UpdateCoin();
             hpSlider.value = PlayerInformation.PlayerInfo.playerInfo.HP;
     }
+    public void UpdateCoin()
+        {
+            
+            MapCoin.text = PlayerInformation.PlayerInfo.playerInfo.curRun.coin.ToString();
+            
+        }
 }
