@@ -1905,6 +1905,14 @@ PrefabInstance:
       propertyPath: MapCoin
       value: 
       objectReference: {fileID: 896053216}
+    - target: {fileID: 5337413451174954175, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
+      propertyPath: config1
+      value: 
+      objectReference: {fileID: 11400000, guid: 19bf411c79e522b4b8e54f82b0140314, type: 2}
+    - target: {fileID: 5337413451174954175, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
+      propertyPath: config2
+      value: 
+      objectReference: {fileID: 11400000, guid: 918462dae582c4710a0f35afb32a3934, type: 2}
     - target: {fileID: 5337413451386887161, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
       propertyPath: background
       value: 

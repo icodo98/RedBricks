@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a21f71146b25f5f4faa3957f18d627ba, type: 3}
-  m_Name: DefaultMapConfig
+  m_Name: config2
   m_EditorClassIdentifier: 
   nodeBlueprints:
-  - {fileID: 11400000, guid: f09a895d243765545b867adcb10cd13e, type: 2}
-  - {fileID: 11400000, guid: e1635866d1c2f154e8c9045bd0e000f2, type: 2}
-  - {fileID: 11400000, guid: 2cc0c8e74e85bc14d8be96c9a834594d, type: 2}
-  - {fileID: 11400000, guid: bb14966bf28c4164ba9c2580c724cdf9, type: 2}
-  - {fileID: 11400000, guid: 9686a87dacea8254c959c4f1aec9941f, type: 2}
-  - {fileID: 11400000, guid: dfb2651849bbba640970aec1f4b8601f, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   numOfPreBossNodes:
     min: 2
     max: 3
@@ -40,75 +40,68 @@ MonoBehaviour:
         min: 2
         max: 3
       nodesApartDistance: 2
-      randomizePosition: 0.587
-      randomizeNodes: 0.229
+      randomizePosition: 0
+      randomizeNodes: 0.109
     - nodeType: 0
       distanceFromPreviousLayer:
         min: 2
         max: 3
       nodesApartDistance: 2
-      randomizePosition: 0.509
-      randomizeNodes: 0
-    - nodeType: 3
-      distanceFromPreviousLayer:
-        min: 2
-        max: 3
-      nodesApartDistance: 2
-      randomizePosition: 0.542
-      randomizeNodes: 0.739
+      randomizePosition: 0
+      randomizeNodes: 0.144
     - nodeType: 0
       distanceFromPreviousLayer:
         min: 2
         max: 3
       nodesApartDistance: 2
-      randomizePosition: 0.176
-      randomizeNodes: 0.282
-    - nodeType: 0
-      distanceFromPreviousLayer:
-        min: 2
-        max: 3
-      nodesApartDistance: 2
-      randomizePosition: 0.649
-      randomizeNodes: 0.351
-    - nodeType: 0
-      distanceFromPreviousLayer:
-        min: 2
-        max: 3
-      nodesApartDistance: 2
-      randomizePosition: 0.176
-      randomizeNodes: 0.359
-    - nodeType: 0
-      distanceFromPreviousLayer:
-        min: 2
-        max: 3
-      nodesApartDistance: 2
-      randomizePosition: 0.829
-      randomizeNodes: 0.282
-    - nodeType: 0
-      distanceFromPreviousLayer:
-        min: 2
-        max: 3
-      nodesApartDistance: 2
-      randomizePosition: 0.829
-      randomizeNodes: 0.311
-    - nodeType: 1
-      distanceFromPreviousLayer:
-        min: 2
-        max: 3
-      nodesApartDistance: 2
-      randomizePosition: 0.524
-      randomizeNodes: 0.193
+      randomizePosition: 0
+      randomizeNodes: 0.179
     - nodeType: 2
       distanceFromPreviousLayer:
         min: 2
         max: 3
       nodesApartDistance: 2
-      randomizePosition: 0.526
-      randomizeNodes: 0
+      randomizePosition: 0
+      randomizeNodes: 0.685
+    - nodeType: 1
+      distanceFromPreviousLayer:
+        min: 2
+        max: 3
+      nodesApartDistance: 2
+      randomizePosition: 0
+      randomizeNodes: 0.213
+    - nodeType: 0
+      distanceFromPreviousLayer:
+        min: 2
+        max: 3
+      nodesApartDistance: 2
+      randomizePosition: 0
+      randomizeNodes: 0.241
+    - nodeType: 0
+      distanceFromPreviousLayer:
+        min: 2
+        max: 3
+      nodesApartDistance: 2
+      randomizePosition: 0
+      randomizeNodes: 1
+    - nodeType: 1
+      distanceFromPreviousLayer:
+        min: 2
+        max: 3
+      nodesApartDistance: 2
+      randomizePosition: 0
+      randomizeNodes: 0.061
+    - nodeType: 0
+      distanceFromPreviousLayer:
+        min: 2
+        max: 3
+      nodesApartDistance: 2
+      randomizePosition: 0
+      randomizeNodes: 1
     - nodeType: 5
       distanceFromPreviousLayer:
-        min: 4
-        max: 5
+        min: 2
+        max: 3
       nodesApartDistance: 2
-      randomizePosition: 0.194
+      randomizePosition: 0
       randomizeNodes: 0

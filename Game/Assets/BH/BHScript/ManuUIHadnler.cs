@@ -21,7 +21,8 @@ public class ManuUIHadnler : MonoBehaviour
     }
 
     public void ToMapSeceneNewGame()
-    {
+    {   
+        PlayerPrefs.SetInt("CrrStage",1);
         PlayerPrefs.SetInt("GameOver",1);
         StartCoroutine(LoadLevel(1));
     }

@@ -8,7 +8,9 @@ namespace Map
 {
     public class MapManager : MonoBehaviour
     {
-        public MapConfig config;
+        public MapConfig config1;
+
+        public MapConfig config2;
         public MapView view;
 
         public Map CurrentMap { get; private set; }
@@ -32,8 +34,10 @@ namespace Map
                 var Tampmap = JsonConvert.DeserializeObject<Map>(TampmapJson);
                 // using this instead of .Contains()
                 if (map.path.Any(p => p.Equals(map.GetBossNode().point)))
-                {
+                {   
+                    int i = PlayerPrefs.GetInt("CrrStage");
                     // payer has already reached the boss, generate a new map
+                    PlayerPrefs.SetInt("CrrStage",++i);
                     GenerateNewMap();
                 }
                 else
@@ -63,11 +67,40 @@ namespace Map
 
         public void GenerateNewMap()
         {
-            var map = MapGenerator.GetMap(config);
+            int i= PlayerPrefs.GetInt("CrrStage");
+            switch(i)
+            {
+                case 1:
+                         var map = MapGenerator.GetMap(config1);
+                         CurrentMap = map;
+                         Debug.Log(map.ToJson());
+                          view.ShowMap(map);
+                break;
+
+                case 2:
+                        map = MapGenerator.GetMap(config2);
+                         CurrentMap = map;
+                         Debug.Log(map.ToJson());
+                          view.ShowMap(map);
+                          break;
+                default :
+                        map = MapGenerator.GetMap(config1);
+                         CurrentMap = map;
+                         Debug.Log(map.ToJson());
+                          view.ShowMap(map);
+                          break;
+
+            }
+            
+        }
+        
+       /* public void GenerateNextMap()
+        {   
+            var map = MapGenerator.GetMap(config2);
             CurrentMap = map;
-            Debug.Log(map.ToJson());
             view.ShowMap(map);
         }
+        */
 
         public void SaveMap()
         {
