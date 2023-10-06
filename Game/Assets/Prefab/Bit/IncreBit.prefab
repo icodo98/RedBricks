@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FallingSpeed: 0.3
-  weight: 100
+  weight: 10000
   prefab: {fileID: 0}
   OriPos: {x: 0.02, y: -1.23, z: 0}
 --- !u!61 &7025291462532211200

@@ -42,7 +42,7 @@ public class LoseSceneManager : MonoBehaviour,IListener
         {
             case myEventType.GameOver:
                 this.transform.GetChild(0).gameObject.SetActive(true);
-                GameObject.FindGameObjectWithTag("Ball").GetComponent<PlayerCollision>().countScore();
+               // GameObject.FindGameObjectWithTag("Ball").GetComponent<PlayerCollision>().countScore();
                 BlockScore();
                 bringitem();
                 setItem();
