@@ -17,6 +17,8 @@ public class LootBag : MonoBehaviour
     public GameObject ResurrectionRelic;
     public GameObject AmorRelic;
 
+    public GameObject nothing;
+
    Loot GetItem(){
         
         List<Loot> possibleItems = new List<Loot>();
@@ -33,8 +35,12 @@ public class LootBag : MonoBehaviour
             Loot droppedItem = possibleItems[UnityEngine.Random.Range(0, possibleItems.Count)];
             return droppedItem;
         }
-        Debug.Log("No loot deroped");
-        return null;
+        
+            nothing.SetActive(true);
+            gameObject.SetActive(false);
+            Debug.Log("No loot deroped");
+            return null;
+        
     }
     public void InstantiateLoot(Vector3 spawnPosition)
     {

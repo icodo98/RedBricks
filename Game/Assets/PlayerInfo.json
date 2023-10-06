@@ -5,6 +5,6 @@
     "relicList": [],
     "HP": 40.0,
     "MaxHP": 100,
-    "coin": 35,
-    "brokenBlock": 15
+    "coin": 0,
+    "brokenBlock": 0
 }
