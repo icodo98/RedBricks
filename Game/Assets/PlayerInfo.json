@@ -1,13 +1,10 @@
 {
     "bitList": [
-        "IncreBit",
         "IncreBit"
     ],
-    "relicList": [
-        "ResurrectionRelic"
-    ],
-    "HP": 100.0,
+    "relicList": [],
+    "HP": 40.0,
     "MaxHP": 100,
-    "coin": 93,
-    "brokenBlock": 70
+    "coin": 35,
+    "brokenBlock": 15
 }

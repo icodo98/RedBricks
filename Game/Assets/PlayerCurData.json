@@ -10,7 +10,7 @@
     "EnableSelection": false,
     "FallingPenalty": 0.0,
     "IncreaseHealth": 0,
-    "curResurrection": 1,
+    "curResurrection": 0,
     "RegenHealth": 0.0,
     "bitsList": []
 }

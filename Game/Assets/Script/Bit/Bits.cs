@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public abstract class Bits : MonoBehaviour
+public abstract class Bits : MonoBehaviour, IListener
 {
     public float FallingSpeed;
     public double weight;
+    private int _priority = 0;
+    public int priority { 
+        get => _priority;
+        set => _priority = value;
+    }
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player"))
@@ -36,7 +43,8 @@ public abstract class Bits : MonoBehaviour
             FallingSpeed = blocks.GetComponent<BlockController>().fallingSpeed;
 
         }
-        FallingSpeed += 0.2f;
+        FallingSpeed += 0.25f;
+        EventManager.Instance.AddListener(myEventType.GameOver, this);
     }
     private void Update()
     {
@@ -45,4 +53,27 @@ public abstract class Bits : MonoBehaviour
     public abstract void Power();
     public abstract double Weight();
 
+    public void OnEvent(myEventType eventType, Component Sender, object Param = null)
+    {
+        switch (eventType)
+        {
+            case myEventType.GameEnd:
+                break;
+            case myEventType.GameStart:
+                break;
+            case myEventType.GamePause:
+                break;
+            case myEventType.GameResume:
+                break;
+            case myEventType.GameOver:
+                Destroy(gameObject);
+                break;
+            case myEventType.StageClear:
+                break;
+            case myEventType.HealthChange:
+                break;
+            default:
+                throw new System.Exception("There is unhandled event at " + this.name);
+        }
+    }
 }
