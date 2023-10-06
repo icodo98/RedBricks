@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da5af05dee52b6d44a42589bfb443462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FallingSpeed: 0.3
-  weight: 200
+  FallingSpeed: 0.4
+  weight: 300
   Heal: 10
 --- !u!212 &-1403838048998020409
 SpriteRenderer:

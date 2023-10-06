@@ -20,9 +20,8 @@ public class PlayerCollision : MonoBehaviour
     public float BrickHittedDamage = 1.0f;
     private float DamageCoefficient = 100f;
 
-    private int gold = 0;
-    private int breakBlock = 0;
-    public List<Bits> BitTable = new List<Bits>();
+    public int gold = 0;
+    public int breakBlock = 0;
 
     void Start()
     {
@@ -59,8 +58,12 @@ public class PlayerCollision : MonoBehaviour
             float isDropped = Random.Range(0.0f, 1.0f);
             if (isBroken)
             {
-                gold += Random.Range(0, 4);
-                breakBlock += 1;
+                //gold += Random.Range(0, 4);
+                //breakBlock += 1;
+                PlayerInfo.playerInfo.curRun.coin += Random.Range(0, 4);
+                PlayerInfo.playerInfo.curRun.brokenBlock += 1;
+
+
                 if (isDropped < BitDropRate)
                 {
                     BitDrop(pos);
@@ -135,7 +138,7 @@ public class PlayerCollision : MonoBehaviour
     }
     private void OnDisable()
     {
-        countScore();
+       // countScore();
     }
     /// <summary>
     /// add gain gold and brokenBlock count to playerInfo.
