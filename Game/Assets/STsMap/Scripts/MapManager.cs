@@ -11,6 +11,8 @@ namespace Map
         public MapConfig config1;
 
         public MapConfig config2;
+
+        public MapConfig config3;
         public MapView view;
 
         public Map CurrentMap { get; private set; }
@@ -34,11 +36,9 @@ namespace Map
                 var Tampmap = JsonConvert.DeserializeObject<Map>(TampmapJson);
                 // using this instead of .Contains()
                 if (map.path.Any(p => p.Equals(map.GetBossNode().point)))
-                {   
-                    int i = PlayerPrefs.GetInt("CrrStage");
-                    // payer has already reached the boss, generate a new map
-                    PlayerPrefs.SetInt("CrrStage",++i);
-                    GenerateNewMap();
+                {               
+                    // payer has already reached the boss, generate a new map        
+                    GenerateNextMap();
                 }
                 else
                 {
@@ -67,40 +67,45 @@ namespace Map
 
         public void GenerateNewMap()
         {
-            int i= PlayerPrefs.GetInt("CrrStage");
-            switch(i)
-            {
-                case 1:
+            
                          var map = MapGenerator.GetMap(config1);
                          CurrentMap = map;
                          Debug.Log(map.ToJson());
                           view.ShowMap(map);
-                break;
-
-                case 2:
-                        map = MapGenerator.GetMap(config2);
-                         CurrentMap = map;
-                         Debug.Log(map.ToJson());
-                          view.ShowMap(map);
-                          break;
-                default :
-                        map = MapGenerator.GetMap(config1);
-                         CurrentMap = map;
-                         Debug.Log(map.ToJson());
-                          view.ShowMap(map);
-                          break;
-
-            }
+            int i = PlayerPrefs.GetInt("CrrStage");
+            Debug.Log("crrmap"+i);
             
         }
         
-       /* public void GenerateNextMap()
+     public void GenerateNextMap()
         {   
-            var map = MapGenerator.GetMap(config2);
-            CurrentMap = map;
-            view.ShowMap(map);
+            int i = PlayerPrefs.GetInt("CrrStage");
+            i++;
+            switch(i){
+
+            case 2:
+            var map2 = MapGenerator.GetMap(config2);
+            CurrentMap = map2;
+            view.ShowMap(map2);
+             PlayerPrefs.SetInt("CrrStage",2);
+            break;
+
+            case 3:
+                    var map3 = MapGenerator.GetMap(config3);
+                     CurrentMap = map3;
+                     view.ShowMap(map3);
+                      PlayerPrefs.SetInt("CrrStage",3);
+            break;
+
+            default:
+                GenerateNewMap();
+                PlayerPrefs.SetInt("CrrStage",1);
+            break;
+            }
+            int c = PlayerPrefs.GetInt("CrrStage");
+            Debug.Log("crrmap"+c);
         }
-        */
+        
 
         public void SaveMap()
         {
