@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
 
 namespace Map
@@ -14,7 +15,7 @@ namespace Map
             RightToLeft,
             LeftToRight
         }
-
+        //public int tempTeststage;
         public MapManager mapManager;
         public MapOrientation orientation;
 
@@ -28,6 +29,9 @@ namespace Map
         [Header("Background Settings")]
         [Tooltip("If the background sprite is null, background will not be shown")]
         public Sprite background;
+        public Sprite stage1Background;
+        public Sprite stage2Background;
+        public Sprite stage3Background;
         public Color32 backgroundColor = Color.white;
         public float xSize;
         public float yOffset;
@@ -113,6 +117,17 @@ namespace Map
             var sr = backgroundObject.AddComponent<SpriteRenderer>();
             sr.color = backgroundColor;
             sr.drawMode = SpriteDrawMode.Sliced;
+            switch(PlayerPrefs.GetInt("CrrStage")/*tempTeststage*/)
+            {
+                case 1: background = stage1Background;
+                break;
+                case 2: background = stage2Background;
+                break;
+                case 3: background = stage3Background;
+                break;
+                default : background = stage1Background;
+                break;
+            }
             sr.sprite = background;
             sr.size = new Vector2(xSize, span + yOffset * 2f);
         }

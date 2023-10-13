@@ -3,19 +3,14 @@
         "IncreBit",
         "IncreBit",
         "IncreBit",
-        "SizeBit"
+        "IncreBit",
+        "IncreBit",
+        "IncreBit",
+        "LengthBit"
     ],
-    "relicList": [
-        "AttackRelic",
-        "AmorRelic",
-        "AmorRelic",
-        "AddBallRelic",
-        "AmorRelic",
-        "AttackRelic",
-        "AmorRelic"
-    ],
-    "HP": 106.0,
+    "relicList": [],
+    "HP": 100.0,
     "MaxHP": 100,
-    "coin": 99,
-    "brokenBlock": 59
+    "coin": 138,
+    "brokenBlock": 105
 }
