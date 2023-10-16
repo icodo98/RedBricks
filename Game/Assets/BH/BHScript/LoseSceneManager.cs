@@ -21,7 +21,9 @@ public class LoseSceneManager : MonoBehaviour,IListener
     public List<Sprite> obtainedBitAndRelicSprite;
     public List<string> obtainedRelic;
     private int _priority = 1;
-    public TextMeshProUGUI blockScore;
+    public TextMeshProUGUI blockText;
+    public Text coinText;
+
     public int priority { 
         get => _priority; 
         set => _priority = value; 
@@ -44,6 +46,7 @@ public class LoseSceneManager : MonoBehaviour,IListener
                 this.transform.GetChild(0).gameObject.SetActive(true);
                // GameObject.FindGameObjectWithTag("Ball").GetComponent<PlayerCollision>().countScore();
                 BlockScore();
+                CoinScore();
                 bringitem();
                 setItem();
                 Time.timeScale = 0;
@@ -53,12 +56,22 @@ public class LoseSceneManager : MonoBehaviour,IListener
     }
     public void BlockScore()
     {
-        if(blockScore != null)
+        if(blockText != null)
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append("Broken block : ");
             stringBuilder.Append(PlayerInfo.playerInfo.curRun.brokenBlock.ToString());
-            blockScore.text = stringBuilder.ToString();
+            blockText.text = stringBuilder.ToString();
+        }
+    }
+    public void CoinScore()
+    {
+        if(coinText != null)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append("coin...........");
+            stringBuilder.Append(PlayerInfo.playerInfo.curRun.coin.ToString());
+            coinText.text = stringBuilder.ToString();
         }
     }
     public void TitleButton()
