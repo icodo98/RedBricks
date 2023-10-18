@@ -1,16 +1,10 @@
 {
-    "bitList": [
-        "IncreBit",
-        "IncreBit",
-        "IncreBit",
-        "IncreBit",
-        "IncreBit",
-        "IncreBit",
-        "LengthBit"
+    "bitList": [],
+    "relicList": [
+        "AmorRelic"
     ],
-    "relicList": [],
     "HP": 100.0,
     "MaxHP": 100,
-    "coin": 138,
-    "brokenBlock": 105
+    "coin": 13,
+    "brokenBlock": 9
 }
