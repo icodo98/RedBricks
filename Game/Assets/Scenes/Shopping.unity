@@ -1282,6 +1282,8 @@ MonoBehaviour:
   NoCoinsAnim: {fileID: 653405057}
   coinText: {fileID: 277569076}
   ShopView: {fileID: 1543593687}
+  cheapText: {fileID: 18262699}
+  Lavaimage: {fileID: 0}
   transtiton: {fileID: 2063683266}
   transtitonTime: 1
 --- !u!4 &295301920

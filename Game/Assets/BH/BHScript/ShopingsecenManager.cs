@@ -40,6 +40,10 @@ public class ShopingsecenManager : MonoBehaviour
    public Transform ShopView;
 
     Button buyBtn;
+
+    public GameObject cheapText;
+    public GameObject Lavaimage;
+
     
    void Start()
    {
