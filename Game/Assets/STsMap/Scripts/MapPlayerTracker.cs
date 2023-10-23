@@ -90,8 +90,9 @@ namespace Map
                 StaticCoroutine.DoCoroutine(3);
                     break;
                 case NodeType.EliteEnemy:
-               
+                PlayerPrefs.SetInt("StageClear",0);
                 StaticCoroutine.DoCoroutine(10);
+                
                     break;
                 case NodeType.RestSite:
                StaticCoroutine.DoCoroutine(7);
@@ -103,6 +104,7 @@ namespace Map
                 StaticCoroutine.DoCoroutine(8);
                     break;
                 case NodeType.Boss:
+                 PlayerPrefs.SetInt("StageClear",0);
                StaticCoroutine.DoCoroutine(11);
                     break;
                 case NodeType.Mystery:

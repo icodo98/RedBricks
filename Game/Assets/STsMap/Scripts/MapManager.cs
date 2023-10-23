@@ -38,14 +38,25 @@ namespace Map
                 if (map.path.Any(p => p.Equals(map.GetBossNode().point)))
                 {               
                     // payer has already reached the boss, generate a new map        
-                    GenerateNextMap();
+                  
+                    if(PlayerPrefs.GetInt("StageClear") == 1)
+                    {
+                      GenerateNextMap();
+                    }
+                    else
+                    {
+                        CurrentMap = Tampmap;
+                  
+                         view.ShowMap(Tampmap);
+                    }
                 }
                 else
                 {
+                    // player has not reached the boss yet, load the current map
                     if(PlayerPrefs.GetInt("StageClear") == 1)
                     {
                     CurrentMap = map;
-                    // player has not reached the boss yet, load the current map
+                    
                     view.ShowMap(map);
                     }
                     else
@@ -84,22 +95,25 @@ namespace Map
             switch(i){
 
             case 2:
+            PlayerPrefs.SetInt("CrrStage",2);
             var map2 = MapGenerator.GetMap(config2);
             CurrentMap = map2;
             view.ShowMap(map2);
-             PlayerPrefs.SetInt("CrrStage",2);
+            
             break;
 
             case 3:
+                    PlayerPrefs.SetInt("CrrStage",3);
                     var map3 = MapGenerator.GetMap(config3);
                      CurrentMap = map3;
                      view.ShowMap(map3);
-                      PlayerPrefs.SetInt("CrrStage",3);
+                    
             break;
 
             default:
+             PlayerPrefs.SetInt("CrrStage",1);
                 GenerateNewMap();
-                PlayerPrefs.SetInt("CrrStage",1);
+                
             break;
             }
             int c = PlayerPrefs.GetInt("CrrStage");
