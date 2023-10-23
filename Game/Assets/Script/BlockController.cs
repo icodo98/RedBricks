@@ -53,7 +53,14 @@ public class BlockController : MonoBehaviour,IListener
     {
         while (true)
         {
-            blCount = (transform.childCount > 0) ? false : true;
+            foreach (Transform child in this.transform)
+            {
+                if(child.CompareTag("Block"))
+                {
+                    blCount = false; break;
+                }
+                blCount = true;
+            }
             blLeft = (GetComponent<CreateScene>().leftBlock > 0) ? false : true;
 
             if (blCount && blLeft)
