@@ -1,21 +1,8 @@
 {
-<<<<<<< Updated upstream
     "bitList": [],
-    "relicList": [
-        "ResurrectionRelic"
-    ],
-    "HP": 16.0,
-    "MaxHP": 100,
-    "coin": 21,
-    "brokenBlock": 23
-=======
-    "bitList": [
-        "SizeDownBit"
-    ],
     "relicList": [],
-    "HP": 100.0,
+    "HP": 98.0,
     "MaxHP": 100,
-    "coin": 0,
-    "brokenBlock": 0
->>>>>>> Stashed changes
+    "coin": 2,
+    "brokenBlock": 2
 }
