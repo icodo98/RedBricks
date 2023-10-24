@@ -684,7 +684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1115,8 +1115,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1280,7 +1280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1380,7 +1380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1905,10 +1905,50 @@ PrefabInstance:
       propertyPath: MapCoin
       value: 
       objectReference: {fileID: 896053216}
+    - target: {fileID: 5337413451174954175, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
+      propertyPath: config1
+      value: 
+      objectReference: {fileID: 11400000, guid: 19bf411c79e522b4b8e54f82b0140314, type: 2}
+    - target: {fileID: 5337413451174954175, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
+      propertyPath: config2
+      value: 
+      objectReference: {fileID: 11400000, guid: 918462dae582c4710a0f35afb32a3934, type: 2}
+    - target: {fileID: 5337413451174954175, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
+      propertyPath: config3
+      value: 
+      objectReference: {fileID: 11400000, guid: 8bd8efee9e60f4e6a9e1a35339ddab41, type: 2}
     - target: {fileID: 5337413451386887161, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
       propertyPath: background
       value: 
       objectReference: {fileID: 21300000, guid: 7a0d908bed1e245b1bd132699537f238, type: 3}
+    - target: {fileID: 5337413451386887161, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
+      propertyPath: tempTeststage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337413451386887161, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
+      propertyPath: stage1Background
+      value: 
+      objectReference: {fileID: 21300000, guid: 7a0d908bed1e245b1bd132699537f238, type: 3}
+    - target: {fileID: 5337413451386887161, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
+      propertyPath: stage2Background
+      value: 
+      objectReference: {fileID: 21300000, guid: 08b615549720d49e5a147338ee563098, type: 3}
+    - target: {fileID: 5337413451386887161, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
+      propertyPath: stage3Background
+      value: 
+      objectReference: {fileID: 21300000, guid: 8b0368dddce724e43848410d1a678863, type: 3}
+    - target: {fileID: 5337413451386887161, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
+      propertyPath: allMapConfigs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5337413451386887161, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
+      propertyPath: allMapConfigs.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 918462dae582c4710a0f35afb32a3934, type: 2}
+    - target: {fileID: 5337413451386887161, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
+      propertyPath: allMapConfigs.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8bd8efee9e60f4e6a9e1a35339ddab41, type: 2}
     - target: {fileID: 6173653652465991376, guid: 6dc8f4ee6004b5345a5925b01e34cb27, type: 3}
       propertyPath: m_Name
       value: MapObjects

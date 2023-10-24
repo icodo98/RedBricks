@@ -59,6 +59,7 @@ public class PlayerConroller : MonoBehaviour,IListener
         if (HP <= 0)
         {
             EventManager.Instance.PostNotification(myEventType.GameOver, this);
+            EventManager.Instance.RemoveEvent(myEventType.StageClear);
         }
 
     }

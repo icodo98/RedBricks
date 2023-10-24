@@ -8,7 +8,11 @@ namespace Map
 {
     public class MapManager : MonoBehaviour
     {
-        public MapConfig config;
+        public MapConfig config1;
+
+        public MapConfig config2;
+
+        public MapConfig config3;
         public MapView view;
 
         public Map CurrentMap { get; private set; }
@@ -32,16 +36,27 @@ namespace Map
                 var Tampmap = JsonConvert.DeserializeObject<Map>(TampmapJson);
                 // using this instead of .Contains()
                 if (map.path.Any(p => p.Equals(map.GetBossNode().point)))
-                {
-                    // payer has already reached the boss, generate a new map
-                    GenerateNewMap();
+                {               
+                    // payer has already reached the boss, generate a new map        
+                  
+                    if(PlayerPrefs.GetInt("StageClear") == 1)
+                    {
+                      GenerateNextMap();
+                    }
+                    else
+                    {
+                        CurrentMap = Tampmap;
+                  
+                         view.ShowMap(Tampmap);
+                    }
                 }
                 else
                 {
+                    // player has not reached the boss yet, load the current map
                     if(PlayerPrefs.GetInt("StageClear") == 1)
                     {
                     CurrentMap = map;
-                    // player has not reached the boss yet, load the current map
+                    
                     view.ShowMap(map);
                     }
                     else
@@ -63,11 +78,48 @@ namespace Map
 
         public void GenerateNewMap()
         {
-            var map = MapGenerator.GetMap(config);
-            CurrentMap = map;
-            Debug.Log(map.ToJson());
-            view.ShowMap(map);
+            
+                         var map = MapGenerator.GetMap(config1);
+                         CurrentMap = map;
+                         Debug.Log(map.ToJson());
+                          view.ShowMap(map);
+            int i = PlayerPrefs.GetInt("CrrStage");
+            Debug.Log("crrmap"+i);
+            
         }
+        
+     public void GenerateNextMap()
+        {   
+            int i = PlayerPrefs.GetInt("CrrStage");
+            i++;
+            switch(i){
+
+            case 2:
+            PlayerPrefs.SetInt("CrrStage",2);
+            var map2 = MapGenerator.GetMap(config2);
+            CurrentMap = map2;
+            view.ShowMap(map2);
+            
+            break;
+
+            case 3:
+                    PlayerPrefs.SetInt("CrrStage",3);
+                    var map3 = MapGenerator.GetMap(config3);
+                     CurrentMap = map3;
+                     view.ShowMap(map3);
+                    
+            break;
+
+            default:
+             PlayerPrefs.SetInt("CrrStage",1);
+                GenerateNewMap();
+                
+            break;
+            }
+            int c = PlayerPrefs.GetInt("CrrStage");
+            Debug.Log("crrmap"+c);
+        }
+        
 
         public void SaveMap()
         {

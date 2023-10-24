@@ -46,6 +46,7 @@ public class EventManager : MonoBehaviour
     public void PostNotification(myEventType eventType, Component Sender, object param = null)
     {
         List<IListener> ListenerList = null;
+        RemoveRedundancies();
         if(!Listeners.TryGetValue(eventType, out ListenerList))
         {
             return;

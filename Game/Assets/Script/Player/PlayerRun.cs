@@ -28,7 +28,8 @@ namespace PlayerInformation
             {"AttackRelic", 1 },
             {"BitselRelic", 2 },
             {"PowerRelic", 3 },
-            {"RegenRelic", 4 }
+            {"RegenRelic", 4 },
+            {"ResurrectionRelic", 5 }
 
         };
         public List<string> bitList; 
