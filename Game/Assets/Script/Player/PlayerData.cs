@@ -59,9 +59,13 @@ namespace PlayerInformation
     }
     public class PlayerDataUtils : MonoBehaviour
     {
-        public static PlayerData ReadData(string Path )
+        public static PlayerData ReadData(string Path)
         {
             PlayerData LoadData= new ();
+            if(Path == null)
+            {
+                Path = Application.dataPath + "/PlayerData.json";
+            }
             if (File.Exists(Path))
             {
                 string data = File.ReadAllText(Path);
