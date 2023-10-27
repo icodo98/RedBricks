@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using Unity.VisualScripting;
+using UnityEditor.Rendering.Universal.ShaderGUI;
+
 public class SkillManager : MonoBehaviour
 {
     public static SkillManager instance;
@@ -114,6 +117,7 @@ public class SkillManager : MonoBehaviour
         DisplaySkillPoint();
         DisplaySkillLevel();
         SaveByJSON();
+        
     }
     public void DisplaySkillLevel()
     {
@@ -170,12 +174,32 @@ public class SkillManager : MonoBehaviour
     private void SaveByJSON()
     {
         SkillTreeSaveJson save = saveGameObject();
+        ApplyPlayerData(save);
         string JsonString = JsonUtility.ToJson(save);
         StreamWriter sw = new StreamWriter(Application.dataPath + "/JsonDataSkillTree.text");
         sw.Write(JsonString);
         sw.Close();
         Debug.Log("Save");
         
+    }
+    private void ApplyPlayerData(SkillTreeSaveJson skillTree)
+    {
+        if (skillTree == null) return;
+        PlayerInformation.PlayerData perData = PlayerInformation.PlayerDataUtils.ReadData(null);
+        perData.AddBall = skillTree.AddBall > 0 ? true : false;
+        perData.Amor = skillTree.Amor * 1.5f;
+        perData.Attack = skillTree.Attack * 1.5f;
+        perData.BarLength = skillTree.BarLength * 2;
+        perData.Critical = skillTree.Critiacal * 0.1f;
+        perData.IncreaseHealth = skillTree.IncreaseHealth * 50;
+        //perData.RegenHealth
+        perData.Resurrection = skillTree.Resurrection;
+        perData.EnableSelection = skillTree.EnalbeSeletion > 0 ? true : false;
+        perData.FallingPenalty = skillTree.FallingPenalty; //Todo: adjust falling penality factor
+        perData.Speed = skillTree.Speed;//Todo: apply Speed skill
+
+        PlayerInformation.PlayerDataUtils.SaveDataAsJson(Application.dataPath + "/PlayerData.json", perData);
+
     }
     private void LoadByJSON()
     {
