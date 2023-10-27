@@ -18,7 +18,7 @@ public class SkillManager : MonoBehaviour
     public Text PointsText;
     
 
-    [Header("STAGE 04")]
+    [Header("...")]
     public Text[] skillLevelTexts;
     //public Text SkillLevelDisplayText;
 
@@ -245,11 +245,42 @@ public class SkillManager : MonoBehaviour
         }
     }
     
-    public void testButton()
+    public void testPlusButton()
     {
         SkillTreeSaveJson save = new SkillTreeSaveJson();
 
-        save.RemainPoint = 15;
+        save.RemainPoint = reamainPoint++;
+        
+
+     string JsonString = JsonUtility.ToJson(save);
+        StreamWriter sw = new StreamWriter(Application.dataPath + "/JsonDataSkillTree.text");
+        sw.Write(JsonString);
+        sw.Close();
+        Debug.Log("Save");
+        DisplaySkillPoint();
+        DisplaySkillLevel();
+    }
+    public void testmiuButton()
+    {
+        SkillTreeSaveJson save = new SkillTreeSaveJson();
+
+        save.RemainPoint = reamainPoint--;
+        
+
+     string JsonString = JsonUtility.ToJson(save);
+        StreamWriter sw = new StreamWriter(Application.dataPath + "/JsonDataSkillTree.text");
+        sw.Write(JsonString);
+        sw.Close();
+        Debug.Log("Save");
+        DisplaySkillPoint();
+        DisplaySkillLevel();
+    }
+    public void resetButton()
+    {
+        int totalSkillPoint = Amor.GetComponent<Skill>().skillLevel + Attack.GetComponent<Skill>().skillLevel + Speed.GetComponent<Skill>().skillLevel + BarLength.GetComponent<Skill>().skillLevel + Critical.GetComponent<Skill>().skillLevel + ElementDamage.GetComponent<Skill>().skillLevel + AddBall.GetComponent<Skill>().skillLevel + Resurrection.GetComponent<Skill>().skillLevel + EnableSeletion.GetComponent<Skill>().skillLevel + FallinfPenalty.GetComponent<Skill>().skillLevel + IncreaseHealth.GetComponent<Skill>().skillLevel + reamainPoint;
+        SkillTreeSaveJson save = new SkillTreeSaveJson();
+
+        save.RemainPoint = totalSkillPoint;
         save.AddBall = 0;
         save.Amor = 0;
         save.Attack = 0;
