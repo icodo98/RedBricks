@@ -22,7 +22,7 @@ public class SkillManager : MonoBehaviour
     //public Text SkillLevelDisplayText;
 
     [Header("Game object")]
-    public GameObject Amor, Attack, Speed, BarLength,Critical, ElementDamage, AddBall, Resurrection,EnableSeletion,FallinfPenalty,IncreaseHealth;
+    public GameObject Amor, Attack, Speed, BarLength,Critical, ElementDamage, AddBall, Resurrection,EnableSeletion,FallinfPenalty,IncreaseHealth, RegenHealth;
 
     private void Awake() {
         if(instance == null)
@@ -155,6 +155,8 @@ public class SkillManager : MonoBehaviour
         save.IncreaseHealth = IncreaseHealth.GetComponent<Skill>().skillLevel;
         save.Resurrection = Resurrection.GetComponent<Skill>().skillLevel;
         save.Speed = Speed.GetComponent<Skill>().skillLevel;
+        save.RegenHealth = RegenHealth.GetComponent<Skill>().skillLevel;
+    
 
         save.AddBallisUpgrad = AddBall.GetComponent<Skill>().isUpgrade;
         save.AmorisUpgrad = Amor.GetComponent<Skill>().isUpgrade;
@@ -167,6 +169,7 @@ public class SkillManager : MonoBehaviour
         save.IncreaseHealthisUpgrad = IncreaseHealth.GetComponent<Skill>().isUpgrade;
         save.ResurrectionisUpgrad = Resurrection.GetComponent<Skill>().isUpgrade;
         save.SpeedisUpgrad = Speed.GetComponent<Skill>().isUpgrade;
+        save.RegenHealthisUpgrad = RegenHealth.GetComponent<Skill>().isUpgrade;
     
         return save;
     }
@@ -224,6 +227,7 @@ public class SkillManager : MonoBehaviour
         IncreaseHealth.GetComponent<Skill>().skillLevel = save.IncreaseHealth;
         Resurrection.GetComponent<Skill>().skillLevel = save.Resurrection;
         Speed.GetComponent<Skill>().skillLevel= save.Speed;
+        RegenHealth.GetComponent<Skill>().skillLevel= save.RegenHealth;
 
         AddBall.GetComponent<Skill>().isUpgrade = save.AddBallisUpgrad;
         Amor.GetComponent<Skill>().isUpgrade =save.AmorisUpgrad;
@@ -236,6 +240,7 @@ public class SkillManager : MonoBehaviour
         IncreaseHealth.GetComponent<Skill>().isUpgrade = save.IncreaseHealthisUpgrad;
         Resurrection.GetComponent<Skill>().isUpgrade = save.ResurrectionisUpgrad;
         Speed.GetComponent<Skill>().isUpgrade= save.SpeedisUpgrad;
+        RegenHealth.GetComponent<Skill>().isUpgrade= save.RegenHealthisUpgrad;
         ///
         }
         else
@@ -276,7 +281,7 @@ public class SkillManager : MonoBehaviour
     }
     public void resetButton()
     {
-        int totalSkillPoint = Amor.GetComponent<Skill>().skillLevel + Attack.GetComponent<Skill>().skillLevel + Speed.GetComponent<Skill>().skillLevel + BarLength.GetComponent<Skill>().skillLevel + Critical.GetComponent<Skill>().skillLevel + ElementDamage.GetComponent<Skill>().skillLevel + AddBall.GetComponent<Skill>().skillLevel + Resurrection.GetComponent<Skill>().skillLevel + EnableSeletion.GetComponent<Skill>().skillLevel + FallinfPenalty.GetComponent<Skill>().skillLevel + IncreaseHealth.GetComponent<Skill>().skillLevel + reamainPoint;
+        int totalSkillPoint = Amor.GetComponent<Skill>().skillLevel + Attack.GetComponent<Skill>().skillLevel + Speed.GetComponent<Skill>().skillLevel + BarLength.GetComponent<Skill>().skillLevel + Critical.GetComponent<Skill>().skillLevel + ElementDamage.GetComponent<Skill>().skillLevel + AddBall.GetComponent<Skill>().skillLevel + Resurrection.GetComponent<Skill>().skillLevel + EnableSeletion.GetComponent<Skill>().skillLevel + FallinfPenalty.GetComponent<Skill>().skillLevel + IncreaseHealth.GetComponent<Skill>().skillLevel + reamainPoint + RegenHealth.GetComponent<Skill>().skillLevel;
         SkillTreeSaveJson save = new SkillTreeSaveJson();
 
         save.RemainPoint = totalSkillPoint;
@@ -291,6 +296,7 @@ public class SkillManager : MonoBehaviour
         save.IncreaseHealth = 0;
         save.Resurrection = 0;
         save.Speed = 0;
+        save.RegenHealth = 0;
 
         save.AddBallisUpgrad = false;
         save.AmorisUpgrad = false;
@@ -303,6 +309,7 @@ public class SkillManager : MonoBehaviour
         save.IncreaseHealthisUpgrad = false;
         save.ResurrectionisUpgrad = false;
         save.SpeedisUpgrad = false;
+        save.RegenHealthisUpgrad = false;
 
      string JsonString = JsonUtility.ToJson(save);
         StreamWriter sw = new StreamWriter(Application.dataPath + "/JsonDataSkillTree.text");

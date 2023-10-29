@@ -44,6 +44,7 @@ public class ShopingsecenManager : MonoBehaviour
 
     public GameObject cheapText;
     public GameObject crack2image;
+    public GameObject crack3image;
 
     
    void Start()
@@ -68,6 +69,13 @@ public class ShopingsecenManager : MonoBehaviour
     if(PlayerPrefs.GetInt("CrrStage") == 2)
     {
       crack2image.SetActive(true);
+      cheapText.SetActive(false);
+      NPC.transform.position = new Vector3( -0.5f,1.6f,0);
+    }
+    else if(PlayerPrefs.GetInt("CrrStage") == 3)
+    {
+      crack2image.SetActive(true);
+      crack3image.SetActive(true);
       cheapText.SetActive(false);
       NPC.transform.position = new Vector3( -0.5f,1.6f,0);
     }
