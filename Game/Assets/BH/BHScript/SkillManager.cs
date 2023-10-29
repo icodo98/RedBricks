@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using Unity.VisualScripting;
-using UnityEditor.Rendering.Universal.ShaderGUI;
 
 public class SkillManager : MonoBehaviour
 {
