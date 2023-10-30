@@ -93,9 +93,16 @@ public class SkillManager : MonoBehaviour
         //redbreak
          if( activateSkill.skillLevel < activateSkill.skillMaxLevel && reamainPoint > 0)
             {
-                reamainPoint -= 1;
+                int tempremainproint = reamainPoint;
+                reamainPoint = reamainPoint - (activateSkill.skillLevel + 1);
+                if (reamainPoint < 0)
+                {
+                    reamainPoint = tempremainproint;
+                }
+                else{
                 activateSkill.isUpgrade= true;
                 activateSkill.skillLevel++;
+                }
             }
      //   UpadteSkillImage();
         DisplaySkillPoint();
