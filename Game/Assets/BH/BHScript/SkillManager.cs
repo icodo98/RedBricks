@@ -24,21 +24,6 @@ public class SkillManager : MonoBehaviour
     [Header("Game object")]
     public GameObject Amor, Attack, Speed, BarLength,Critical, ElementDamage, AddBall, Resurrection,EnableSeletion,FallinfPenalty,IncreaseHealth, RegenHealth;
 
-    private void Awake() {
-        if(instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            if(instance != this)
-            {
-                Destroy(gameObject);
-            }
-        }
-        DontDestroyOnLoad(gameObject);
-    }
-
     private void Start() {
         reamainPoint = totalPoints;
         LoadByJSON();
@@ -194,11 +179,11 @@ public class SkillManager : MonoBehaviour
         perData.BarLength = skillTree.BarLength * 2;
         perData.Critical = skillTree.Critiacal * 0.1f;
         perData.IncreaseHealth = skillTree.IncreaseHealth * 50;
-        //perData.RegenHealth
+        perData.RegenHealth = skillTree.RegenHealth;
         perData.Resurrection = skillTree.Resurrection;
         perData.EnableSelection = skillTree.EnalbeSeletion > 0 ? true : false;
-        perData.FallingPenalty = skillTree.FallingPenalty; //Todo: adjust falling penality factor
-        perData.Speed = skillTree.Speed;//Todo: apply Speed skill
+        perData.FallingPenalty = skillTree.FallingPenalty; 
+        perData.Speed = skillTree.Speed;
 
         PlayerInformation.PlayerDataUtils.SaveDataAsJson(Application.dataPath + "/PlayerData.json", perData);
 

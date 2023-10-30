@@ -118,12 +118,11 @@ public class PlayerConroller : MonoBehaviour,IListener
         }
     }
     /// <summary>
-    /// 공을 떨어뜨렸을 때 입을 데미지 계산. 패널티 감소를 올려 놓았다면 0.25 -> 0.2 -> 0.15 순으로 적은 데미지를 받는다.
+    /// 공을 떨어뜨렸을 때 입을 데미지 계산. 패널티 감소를 올려 놓았다면 0.25 -> 0.2 -> 0.15...순으로 적은 데미지를 받는다.
     /// </summary>
     public void BallFallen()
     {
-        float fallenDamage = (PlayerInfo.playerInfo.curData.FallingPenalty < 1) ? 0.25f :
-            (PlayerInfo.playerInfo.curData.FallingPenalty < 2) ? 0.2f : 0.15f;
+        float fallenDamage = 0.05f * (6 - PlayerInfo.playerInfo.curData.FallingPenalty);
         TakeDamage(MAXHP * fallenDamage,true);
     }
     

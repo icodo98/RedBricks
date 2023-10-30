@@ -5,6 +5,7 @@ using TMPro;
 using System.Text;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.IO;
 
 public class LoseSceneManager : MonoBehaviour,IListener
 {
@@ -31,7 +32,7 @@ public class LoseSceneManager : MonoBehaviour,IListener
 
     private void Awake()
     {
-        
+        SkillTreeSaveJson skillTreeSaveJson = new SkillTreeSaveJson();
     }
     private void Start()
     {
@@ -49,6 +50,7 @@ public class LoseSceneManager : MonoBehaviour,IListener
                 CoinScore();
                 bringitem();
                 setItem();
+                skillPoint();
                 Time.timeScale = 0;
                 break;
             default: throw new System.Exception("There is a unhandled event at " + this.name);
@@ -64,7 +66,27 @@ public class LoseSceneManager : MonoBehaviour,IListener
             blockText.text = stringBuilder.ToString();
         }
     }
-    public void CoinScore()
+    private void skillPoint()
+    {
+
+        if (File.Exists(Application.dataPath + "/JsonDataSkillTree.text"))
+        {
+            StreamReader sr = new StreamReader(Application.dataPath + "/JsonDataSkillTree.text");
+            string JsonString = sr.ReadToEnd();
+            sr.Close();
+            SkillTreeSaveJson save = JsonUtility.FromJson<SkillTreeSaveJson>(JsonString);
+            
+
+            save.RemainPoint += PlayerInfo.playerInfo.curRun.brokenBlock / 10;
+
+            JsonString = JsonUtility.ToJson(save);
+            StreamWriter sw = new StreamWriter(Application.dataPath + "/JsonDataSkillTree.text");
+            sw.Write(JsonString);
+            sw.Close();
+        }
+    }
+
+   public void CoinScore()
     {
         if(coinText != null)
         {

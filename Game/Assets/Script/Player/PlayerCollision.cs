@@ -26,6 +26,10 @@ public class PlayerCollision : MonoBehaviour
        
         rb = GetComponent<Rigidbody2D>();
         Vector2 diagonal = new Vector2(-2, 2).normalized;
+        if(PlayerInfo.playerInfo.curData.Speed > 0)
+        {
+            InitialSpeed = InitialSpeed * (1 + PlayerInfo.playerInfo.curData.Speed * 0.1f);
+        }
         diagonal = InitialSpeed * diagonal;
         rb.velocity = diagonal;
     }

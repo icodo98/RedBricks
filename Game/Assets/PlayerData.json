@@ -8,7 +8,7 @@
     "AddBall": false,
     "Resurrection": 0,
     "EnableSelection": false,
-    "FallingPenalty": 0.0,
+    "FallingPenalty": 5.0,
     "IncreaseHealth": 0,
     "curResurrection": 0,
     "RegenHealth": 0.0,
