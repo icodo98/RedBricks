@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using PlayerInformation;
@@ -9,7 +11,7 @@ using System.IO;
 
 public class LoseSceneManager : MonoBehaviour,IListener
 {
-    
+     
        GameObject ItemTemplate;
        GameObject g;
         public Transform ShopView;
@@ -24,6 +26,8 @@ public class LoseSceneManager : MonoBehaviour,IListener
     private int _priority = 1;
     public TextMeshProUGUI blockText;
     public Text coinText;
+
+    public Animator animator;
 
     public int priority { 
         get => _priority; 
@@ -142,6 +146,18 @@ public class LoseSceneManager : MonoBehaviour,IListener
             Sprite tempSprite = RelicImageList.Find(x => x.name == temp);
             obtainedBitAndRelicSprite.Add(tempSprite);
         }
+    }
+
+    public void Close(){
+        StartCoroutine(CloseAfterDelay());
+    }
+
+    private IEnumerator CloseAfterDelay()
+    {
+        animator.SetTrigger("close");
+        yield return new WaitForSeconds(0.5f);
+        gameObject.SetActive(false);
+        animator.ResetTrigger("close");
     }
 }
 
