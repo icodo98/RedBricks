@@ -61,6 +61,7 @@ public class BlockController : MonoBehaviour,IListener
                 }
                 blCount = true;
             }
+            if (transform.childCount == 0) blCount = true;
             blLeft = (GetComponent<CreateScene>().leftBlock > 0) ? false : true;
 
             if (blCount && blLeft)
