@@ -24,10 +24,13 @@ public class LoseSceneManager : MonoBehaviour,IListener
     public List<Sprite> obtainedBitAndRelicSprite;
     public List<string> obtainedRelic;
     private int _priority = 1;
-    public TextMeshProUGUI blockText;
+    public Text blockText;
     public Text coinText;
+     public Text adPoint;
 
     public Animator animator;
+
+   
 
     public int priority { 
         get => _priority; 
@@ -65,7 +68,6 @@ public class LoseSceneManager : MonoBehaviour,IListener
         if(blockText != null)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append("Broken block : ");
             stringBuilder.Append(PlayerInfo.playerInfo.curRun.brokenBlock.ToString());
             blockText.text = stringBuilder.ToString();
         }
@@ -95,8 +97,7 @@ public class LoseSceneManager : MonoBehaviour,IListener
         if(coinText != null)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append("coin...........");
-            stringBuilder.Append(PlayerInfo.playerInfo.curRun.coin.ToString());
+            stringBuilder.Append(PlayerInfo.playerInfo.curRun.totalCoins.ToString());
             coinText.text = stringBuilder.ToString();
         }
     }

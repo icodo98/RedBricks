@@ -37,6 +37,7 @@ namespace PlayerInformation
         public float HP;
         public int MaxHP;
         public int coin;
+        public int totalCoins;
         public int brokenBlock;
 
         public PlayerRun()
