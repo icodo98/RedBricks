@@ -47,6 +47,7 @@ namespace PlayerInformation
             MaxHP = 100;
             HP = (float) MaxHP;
             coin = 0;
+            totalCoins = 0;
             brokenBlock = 0;
         }
         public Bits indToBits(int index)

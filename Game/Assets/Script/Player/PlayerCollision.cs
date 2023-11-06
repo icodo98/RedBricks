@@ -64,7 +64,7 @@ public class PlayerCollision : MonoBehaviour
                 //breakBlock += 1;
                 PlayerInfo.playerInfo.curRun.coin += Random.Range(0, 4);
                 PlayerInfo.playerInfo.curRun.brokenBlock += 1;
-                PlayerInfo.playerInfo.curRun.totalCoins = PlayerInfo.playerInfo.curRun.coin;
+                PlayerInfo.playerInfo.curRun.totalCoins += PlayerInfo.playerInfo.curRun.coin;
 
 
                 if (isDropped < BitDropRate)
