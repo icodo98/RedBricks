@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using Unity.VisualScripting;
+
 public class SkillManager : MonoBehaviour
 {
     public static SkillManager instance;
@@ -15,27 +17,12 @@ public class SkillManager : MonoBehaviour
     public Text PointsText;
     
 
-    [Header("STAGE 04")]
+    [Header("...")]
     public Text[] skillLevelTexts;
     //public Text SkillLevelDisplayText;
 
     [Header("Game object")]
-    public GameObject Amor, Attack, Speed, BarLength,Critical, ElementDamage, AddBall, Resurrection,EnableSeletion,FallinfPenalty,IncreaseHealth;
-
-    private void Awake() {
-        if(instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            if(instance != this)
-            {
-                Destroy(gameObject);
-            }
-        }
-        DontDestroyOnLoad(gameObject);
-    }
+    public GameObject Amor, Attack, Speed, BarLength,Critical, ElementDamage, AddBall, Resurrection,EnableSeletion,FallinfPenalty,IncreaseHealth, RegenHealth;
 
     private void Start() {
         reamainPoint = totalPoints;
@@ -106,14 +93,22 @@ public class SkillManager : MonoBehaviour
         //redbreak
          if( activateSkill.skillLevel < activateSkill.skillMaxLevel && reamainPoint > 0)
             {
-                reamainPoint -= 1;
+                int tempremainproint = reamainPoint;
+                reamainPoint = reamainPoint - (activateSkill.skillLevel + 1);
+                if (reamainPoint < 0)
+                {
+                    reamainPoint = tempremainproint;
+                }
+                else{
                 activateSkill.isUpgrade= true;
                 activateSkill.skillLevel++;
+                }
             }
      //   UpadteSkillImage();
         DisplaySkillPoint();
         DisplaySkillLevel();
         SaveByJSON();
+        
     }
     public void DisplaySkillLevel()
     {
@@ -152,6 +147,8 @@ public class SkillManager : MonoBehaviour
         save.IncreaseHealth = IncreaseHealth.GetComponent<Skill>().skillLevel;
         save.Resurrection = Resurrection.GetComponent<Skill>().skillLevel;
         save.Speed = Speed.GetComponent<Skill>().skillLevel;
+        save.RegenHealth = RegenHealth.GetComponent<Skill>().skillLevel;
+    
 
         save.AddBallisUpgrad = AddBall.GetComponent<Skill>().isUpgrade;
         save.AmorisUpgrad = Amor.GetComponent<Skill>().isUpgrade;
@@ -164,18 +161,39 @@ public class SkillManager : MonoBehaviour
         save.IncreaseHealthisUpgrad = IncreaseHealth.GetComponent<Skill>().isUpgrade;
         save.ResurrectionisUpgrad = Resurrection.GetComponent<Skill>().isUpgrade;
         save.SpeedisUpgrad = Speed.GetComponent<Skill>().isUpgrade;
+        save.RegenHealthisUpgrad = RegenHealth.GetComponent<Skill>().isUpgrade;
     
         return save;
     }
     private void SaveByJSON()
     {
         SkillTreeSaveJson save = saveGameObject();
+        ApplyPlayerData(save);
         string JsonString = JsonUtility.ToJson(save);
         StreamWriter sw = new StreamWriter(Application.dataPath + "/JsonDataSkillTree.text");
         sw.Write(JsonString);
         sw.Close();
         Debug.Log("Save");
         
+    }
+    private void ApplyPlayerData(SkillTreeSaveJson skillTree)
+    {
+        if (skillTree == null) return;
+        PlayerInformation.PlayerData perData = PlayerInformation.PlayerDataUtils.ReadData(null);
+        perData.AddBall = skillTree.AddBall > 0 ? true : false;
+        perData.Amor = skillTree.Amor * 1.5f;
+        perData.Attack = skillTree.Attack * 1.5f;
+        perData.BarLength = skillTree.BarLength * 2;
+        perData.Critical = skillTree.Critiacal * 0.1f;
+        perData.IncreaseHealth = skillTree.IncreaseHealth * 50;
+        perData.RegenHealth = skillTree.RegenHealth;
+        perData.Resurrection = skillTree.Resurrection;
+        perData.EnableSelection = skillTree.EnalbeSeletion > 0 ? true : false;
+        perData.FallingPenalty = skillTree.FallingPenalty; 
+        perData.Speed = skillTree.Speed;
+
+        PlayerInformation.PlayerDataUtils.SaveDataAsJson(Application.dataPath + "/PlayerData.json", perData);
+
     }
     private void LoadByJSON()
     {
@@ -201,6 +219,7 @@ public class SkillManager : MonoBehaviour
         IncreaseHealth.GetComponent<Skill>().skillLevel = save.IncreaseHealth;
         Resurrection.GetComponent<Skill>().skillLevel = save.Resurrection;
         Speed.GetComponent<Skill>().skillLevel= save.Speed;
+        RegenHealth.GetComponent<Skill>().skillLevel= save.RegenHealth;
 
         AddBall.GetComponent<Skill>().isUpgrade = save.AddBallisUpgrad;
         Amor.GetComponent<Skill>().isUpgrade =save.AmorisUpgrad;
@@ -213,6 +232,7 @@ public class SkillManager : MonoBehaviour
         IncreaseHealth.GetComponent<Skill>().isUpgrade = save.IncreaseHealthisUpgrad;
         Resurrection.GetComponent<Skill>().isUpgrade = save.ResurrectionisUpgrad;
         Speed.GetComponent<Skill>().isUpgrade= save.SpeedisUpgrad;
+        RegenHealth.GetComponent<Skill>().isUpgrade= save.RegenHealthisUpgrad;
         ///
         }
         else
@@ -221,11 +241,42 @@ public class SkillManager : MonoBehaviour
         }
     }
     
-    public void testButton()
+    public void testPlusButton()
     {
         SkillTreeSaveJson save = new SkillTreeSaveJson();
 
-        save.RemainPoint = 15;
+        save.RemainPoint = reamainPoint++;
+        
+
+     string JsonString = JsonUtility.ToJson(save);
+        StreamWriter sw = new StreamWriter(Application.dataPath + "/JsonDataSkillTree.text");
+        sw.Write(JsonString);
+        sw.Close();
+        Debug.Log("Save");
+        DisplaySkillPoint();
+        DisplaySkillLevel();
+    }
+    public void testmiuButton()
+    {
+        SkillTreeSaveJson save = new SkillTreeSaveJson();
+
+        save.RemainPoint = reamainPoint--;
+        
+
+     string JsonString = JsonUtility.ToJson(save);
+        StreamWriter sw = new StreamWriter(Application.dataPath + "/JsonDataSkillTree.text");
+        sw.Write(JsonString);
+        sw.Close();
+        Debug.Log("Save");
+        DisplaySkillPoint();
+        DisplaySkillLevel();
+    }
+    public void resetButton()
+    {
+        int totalSkillPoint = Amor.GetComponent<Skill>().skillLevel + Attack.GetComponent<Skill>().skillLevel + Speed.GetComponent<Skill>().skillLevel + BarLength.GetComponent<Skill>().skillLevel + Critical.GetComponent<Skill>().skillLevel + ElementDamage.GetComponent<Skill>().skillLevel + AddBall.GetComponent<Skill>().skillLevel + Resurrection.GetComponent<Skill>().skillLevel + EnableSeletion.GetComponent<Skill>().skillLevel + FallinfPenalty.GetComponent<Skill>().skillLevel + IncreaseHealth.GetComponent<Skill>().skillLevel + reamainPoint + RegenHealth.GetComponent<Skill>().skillLevel;
+        SkillTreeSaveJson save = new SkillTreeSaveJson();
+
+        save.RemainPoint = totalSkillPoint;
         save.AddBall = 0;
         save.Amor = 0;
         save.Attack = 0;
@@ -237,6 +288,7 @@ public class SkillManager : MonoBehaviour
         save.IncreaseHealth = 0;
         save.Resurrection = 0;
         save.Speed = 0;
+        save.RegenHealth = 0;
 
         save.AddBallisUpgrad = false;
         save.AmorisUpgrad = false;
@@ -249,6 +301,7 @@ public class SkillManager : MonoBehaviour
         save.IncreaseHealthisUpgrad = false;
         save.ResurrectionisUpgrad = false;
         save.SpeedisUpgrad = false;
+        save.RegenHealthisUpgrad = false;
 
      string JsonString = JsonUtility.ToJson(save);
         StreamWriter sw = new StreamWriter(Application.dataPath + "/JsonDataSkillTree.text");

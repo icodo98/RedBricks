@@ -24,6 +24,7 @@ public class ManuUIHadnler : MonoBehaviour
     {   
         PlayerPrefs.SetInt("CrrStage",1);
         PlayerPrefs.SetInt("GameOver",1);
+        //PlayerInformation.PlayerInfo.playerInfo.curRun.totalCoins = 0;
         StartCoroutine(LoadLevel(1));
     }
 

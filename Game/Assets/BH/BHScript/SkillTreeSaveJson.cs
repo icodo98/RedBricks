@@ -17,7 +17,7 @@ public class SkillTreeSaveJson
     public int EnalbeSeletion;
     public int FallingPenalty;
     public int IncreaseHealth;
-    
+    public int RegenHealth;    
     public bool AmorisUpgrad;
     public bool AttackisUpgrad;
     public bool SpeedisUpgrad;
@@ -29,5 +29,6 @@ public class SkillTreeSaveJson
     public bool EnalbeSeletionisUpgrad;
     public bool FallingPenaltyisUpgrad;
     public bool IncreaseHealthisUpgrad;
+    public bool RegenHealthisUpgrad;
 
 }

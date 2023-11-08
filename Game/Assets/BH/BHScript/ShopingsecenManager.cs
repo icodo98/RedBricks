@@ -40,13 +40,16 @@ public class ShopingsecenManager : MonoBehaviour
    public Transform ShopView;
 
     Button buyBtn;
+    public GameObject NPC;
 
     public GameObject cheapText;
-    public GameObject Lavaimage;
+    public GameObject crack2image;
+    public GameObject crack3image;
 
     
    void Start()
    {
+
     randomItemPutList();
     ItemTemplate = ShopView.GetChild(0).gameObject;
     int len =ShopItemList.Count;
@@ -62,7 +65,20 @@ public class ShopingsecenManager : MonoBehaviour
     Destroy(ItemTemplate);
     CoinUpdate();
     SetCoinsUI();
-  
+
+    if(PlayerPrefs.GetInt("CrrStage") == 2)
+    {
+      crack2image.SetActive(true);
+      cheapText.SetActive(false);
+      NPC.transform.position = new Vector3( -0.5f,1.6f,0);
+    }
+    else if(PlayerPrefs.GetInt("CrrStage") == 3)
+    {
+      crack2image.SetActive(true);
+      crack3image.SetActive(true);
+      cheapText.SetActive(false);
+      NPC.transform.position = new Vector3( -0.5f,1.6f,0);
+    }
    }
    
    void onShopItemBtnClicked(int itemIndex){

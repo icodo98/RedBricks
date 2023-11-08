@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using PlayerInformation;
@@ -5,10 +7,11 @@ using TMPro;
 using System.Text;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.IO;
 
 public class LoseSceneManager : MonoBehaviour,IListener
 {
-    
+     
        GameObject ItemTemplate;
        GameObject g;
         public Transform ShopView;
@@ -21,8 +24,15 @@ public class LoseSceneManager : MonoBehaviour,IListener
     public List<Sprite> obtainedBitAndRelicSprite;
     public List<string> obtainedRelic;
     private int _priority = 1;
-    public TextMeshProUGUI blockText;
+    public Text blockText;
     public Text coinText;
+     public Text adPoint;
+
+     public GameObject NoItem;
+
+    public Animator animator;
+
+   
 
     public int priority { 
         get => _priority; 
@@ -31,7 +41,7 @@ public class LoseSceneManager : MonoBehaviour,IListener
 
     private void Awake()
     {
-        
+        SkillTreeSaveJson skillTreeSaveJson = new SkillTreeSaveJson();
     }
     private void Start()
     {
@@ -47,8 +57,10 @@ public class LoseSceneManager : MonoBehaviour,IListener
                // GameObject.FindGameObjectWithTag("Ball").GetComponent<PlayerCollision>().countScore();
                 BlockScore();
                 CoinScore();
+                obtainSkillPoint();
                 bringitem();
                 setItem();
+                skillPoint();
                 Time.timeScale = 0;
                 break;
             default: throw new System.Exception("There is a unhandled event at " + this.name);
@@ -59,17 +71,47 @@ public class LoseSceneManager : MonoBehaviour,IListener
         if(blockText != null)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append("Broken block : ");
             stringBuilder.Append(PlayerInfo.playerInfo.curRun.brokenBlock.ToString());
             blockText.text = stringBuilder.ToString();
         }
     }
-    public void CoinScore()
+    private void skillPoint()
+    {
+
+        if (File.Exists(Application.dataPath + "/JsonDataSkillTree.text"))
+        {
+            StreamReader sr = new StreamReader(Application.dataPath + "/JsonDataSkillTree.text");
+            string JsonString = sr.ReadToEnd();
+            sr.Close();
+            SkillTreeSaveJson save = JsonUtility.FromJson<SkillTreeSaveJson>(JsonString);
+            
+
+            save.RemainPoint += PlayerInfo.playerInfo.curRun.brokenBlock / 10;
+
+            JsonString = JsonUtility.ToJson(save);
+            StreamWriter sw = new StreamWriter(Application.dataPath + "/JsonDataSkillTree.text");
+            sw.Write(JsonString);
+            sw.Close();
+        }
+    }
+
+    private void obtainSkillPoint()
+    {
+        if(adPoint != null)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            int temp = PlayerInfo.playerInfo.curRun.brokenBlock/10;
+            stringBuilder.Append(temp.ToString());
+            adPoint.text = stringBuilder.ToString();
+        }
+        
+    }
+
+   public void CoinScore()
     {
         if(coinText != null)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append("coin...........");
             stringBuilder.Append(PlayerInfo.playerInfo.curRun.coin.ToString());
             coinText.text = stringBuilder.ToString();
         }
@@ -101,6 +143,9 @@ public class LoseSceneManager : MonoBehaviour,IListener
             
             }
             Destroy(ItemTemplate);
+            if(len == 0){
+                NoItem.SetActive(true);
+            }
     }
     
     public void bringitem()
@@ -120,6 +165,18 @@ public class LoseSceneManager : MonoBehaviour,IListener
             Sprite tempSprite = RelicImageList.Find(x => x.name == temp);
             obtainedBitAndRelicSprite.Add(tempSprite);
         }
+    }
+
+    public void Close(){
+        StartCoroutine(CloseAfterDelay());
+    }
+
+    private IEnumerator CloseAfterDelay()
+    {
+        animator.SetTrigger("close");
+        yield return new WaitForSeconds(0.5f);
+        gameObject.SetActive(false);
+        animator.ResetTrigger("close");
     }
 }
 
