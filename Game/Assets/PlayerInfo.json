@@ -1,8 +1,8 @@
 {
     "bitList": [],
     "relicList": [],
-    "HP": 98.0,
+    "HP": 100.0,
     "MaxHP": 100,
-    "coin": 2,
-    "brokenBlock": 2
+    "coin": 0,
+    "brokenBlock": 0
 }
