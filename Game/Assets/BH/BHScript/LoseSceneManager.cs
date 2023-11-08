@@ -28,6 +28,8 @@ public class LoseSceneManager : MonoBehaviour,IListener
     public Text coinText;
      public Text adPoint;
 
+     public GameObject NoItem;
+
     public Animator animator;
 
    
@@ -141,6 +143,9 @@ public class LoseSceneManager : MonoBehaviour,IListener
             
             }
             Destroy(ItemTemplate);
+            if(len == 0){
+                NoItem.SetActive(true);
+            }
     }
     
     public void bringitem()
