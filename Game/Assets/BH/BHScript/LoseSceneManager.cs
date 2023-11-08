@@ -55,6 +55,7 @@ public class LoseSceneManager : MonoBehaviour,IListener
                // GameObject.FindGameObjectWithTag("Ball").GetComponent<PlayerCollision>().countScore();
                 BlockScore();
                 CoinScore();
+                obtainSkillPoint();
                 bringitem();
                 setItem();
                 skillPoint();
@@ -92,12 +93,24 @@ public class LoseSceneManager : MonoBehaviour,IListener
         }
     }
 
+    private void obtainSkillPoint()
+    {
+        if(adPoint != null)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            int temp = PlayerInfo.playerInfo.curRun.brokenBlock/10;
+            stringBuilder.Append(temp.ToString());
+            adPoint.text = stringBuilder.ToString();
+        }
+        
+    }
+
    public void CoinScore()
     {
         if(coinText != null)
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append(PlayerInfo.playerInfo.curRun.totalCoins.ToString());
+            stringBuilder.Append(PlayerInfo.playerInfo.curRun.coin.ToString());
             coinText.text = stringBuilder.ToString();
         }
     }

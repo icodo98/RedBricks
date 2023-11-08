@@ -37,7 +37,6 @@ namespace PlayerInformation
         public float HP;
         public int MaxHP;
         public int coin;
-        public int totalCoins;
         public int brokenBlock;
 
         public PlayerRun()
@@ -47,7 +46,6 @@ namespace PlayerInformation
             MaxHP = 100;
             HP = (float) MaxHP;
             coin = 0;
-            totalCoins = 0;
             brokenBlock = 0;
         }
         public Bits indToBits(int index)

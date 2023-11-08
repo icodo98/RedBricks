@@ -1,11 +1,11 @@
 {
     "bitList": [
+        "IncreBit",
         "IncreBit"
     ],
     "relicList": [],
-    "HP": 6985.0,
+    "HP": 993.0,
     "MaxHP": 10000,
-    "coin": 17,
-    "totalCoins": 17,
-    "brokenBlock": 15
+    "coin": 39,
+    "brokenBlock": 30
 }
