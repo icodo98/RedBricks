@@ -125,7 +125,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hudDamageText: {fileID: 2898461515439624268, guid: 556a9ec9957a49d4fa043fa6fee3a559, type: 3}
-  HP: 5
+  HP: 50
+  Amor: 0
 --- !u!114 &6201097295771774320
 MonoBehaviour:
   m_ObjectHideFlags: 0

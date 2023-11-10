@@ -56,7 +56,7 @@ public class PlayerCollision : MonoBehaviour
         {
             Vector3 pos = other.transform.position;
             Instantiate(woodbreak, pos, Quaternion.identity);
-            bool isBroken = other.gameObject.GetComponent<Enemytext>().TakeDamage(CalculateDamage(), pos);
+            bool isBroken = other.gameObject.GetComponent<Enemytext>().TakeDamage(CalculateDamage(other), pos);
             float isDropped = Random.Range(0.0f, 1.0f);
             if (isBroken)
             {
@@ -86,7 +86,7 @@ public class PlayerCollision : MonoBehaviour
             Vector3 pos = other.transform.position;
             pos.z = -1f; //보스에 글씨가 가려져서 한칸 앞으로 땡김
             Instantiate(woodbreak, pos, Quaternion.identity);
-            bool isBroken = other.gameObject.GetComponent<Enemytext>().TakeDamage(CalculateDamage(), pos);
+            bool isBroken = other.gameObject.GetComponent<Enemytext>().TakeDamage(CalculateDamage(other), pos);
             Invoke("DestoryParticle", 0.5f);
         }
 
@@ -120,7 +120,7 @@ public class PlayerCollision : MonoBehaviour
         Drop.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
     }
 
-    public float CalculateDamage()
+    public float CalculateDamage(Collision2D other)
     {
         float baseDamage = rb.velocity.magnitude * rb.mass * DamageCoefficient;
         
@@ -134,7 +134,8 @@ public class PlayerCollision : MonoBehaviour
         if (Random.value < PlayerInfo.playerInfo.curData.Critical) damage *= 2;
 
         // Apply 속성. 현재는 구현되어진 속성이 없으므로 Non(무) 속성 고정.
-        damage *= GetDamageTypeModifier(DamageType.Non);
+        //damage *= GetDamageTypeModifier(PlayerInfo.playerInfo.curData.ElementDamage, other);
+        damage *= GetDamageTypeModifier(DamageType.Fire, other);
 
         return damage;
     }
@@ -159,17 +160,18 @@ public class PlayerCollision : MonoBehaviour
     /// </summary>
     /// <param name="damageType"></param>
     /// <returns></returns>
-    private float GetDamageTypeModifier(DamageType damageType)
+    private float GetDamageTypeModifier(DamageType damageType, Collision2D other)
     {
         // Retrieve the damage type modifier based on the specific damage type
         float damageModifier = 1f;
 
         switch (damageType)
         {
-            case DamageType.Explosion:
-                damageModifier = 1.2f;
+            case DamageType.Fire:
+                damageModifier = 1.0f;
+                Relic.FireElementalRelic.Fire(other);
                 break;
-            case DamageType.Poision:
+            case DamageType.Water:
                 damageModifier = 0.8f;
                 break;
             case DamageType.Dark:

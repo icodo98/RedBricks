@@ -4,7 +4,7 @@
     "Speed": 0.0,
     "BarLength": 0.0,
     "Critical": 0.0,
-    "ElementDamage": [],
+    "ElementDamage": 0,
     "AddBall": false,
     "Resurrection": 0,
     "EnableSelection": false,
