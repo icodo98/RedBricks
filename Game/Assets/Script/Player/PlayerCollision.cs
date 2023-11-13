@@ -35,7 +35,7 @@ public class PlayerCollision : MonoBehaviour
     }
     private void Update()
     {
-        //¼Óµµ°¡ ³Ê¹« ºü¸£°Å³ª ´À¸±°æ¿ì Á¦ÇÑ.
+        //ï¿½Óµï¿½ï¿½ï¿½ ï¿½Ê¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?ï¿½ï¿½ï¿½ï¿½.
         rb.velocity = rb.velocity.normalized * Mathf.Clamp(rb.velocity.magnitude, minSpeed, maxSpeed);
         if (rb.velocity.y == 0) rb.AddForce(0.1f * Vector3.up);
         Vector3 pos = transform.position;
@@ -46,8 +46,8 @@ public class PlayerCollision : MonoBehaviour
         }
     }
     /// <summary>
-    /// ºí·°¿¡ ºÎµúÈù´Ù¸é ºÎµúÈù ºí·°À» ÆÄ±« ÈÄ ¾ÆÀÌÅÛ µå¶ø
-    /// ¹Ù´Ú¿¡ ¶³¾îÁø °æ¿ì Ã¼·ÂÀ» ÁÙÀÌ°í ÃÊ±â À§Ä¡·Î µ¹¾Æ¿Í ´Ù½Ã ¹ß»çµÊ.  
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä±ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿?
+    /// ï¿½Ù´Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿?Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½Ù½ï¿½ ï¿½ß»ï¿½ï¿?  
     /// </summary>
     /// <param name="other"></param>
     void OnCollisionEnter2D(Collision2D other)
@@ -84,7 +84,7 @@ public class PlayerCollision : MonoBehaviour
         else if (other.gameObject.CompareTag("Boss"))
         {
             Vector3 pos = other.transform.position;
-            pos.z = -1f; //º¸½º¿¡ ±Û¾¾°¡ °¡·ÁÁ®¼­ ÇÑÄ­ ¾ÕÀ¸·Î ¶¯±è
+            pos.z = -1f; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             Instantiate(woodbreak, pos, Quaternion.identity);
             bool isBroken = other.gameObject.GetComponent<Enemytext>().TakeDamage(CalculateDamage(other), pos);
             Invoke("DestoryParticle", 0.5f);
@@ -130,12 +130,17 @@ public class PlayerCollision : MonoBehaviour
         // Apply Attack attribute of player info
         damage += PlayerInfo.playerInfo.curData.Attack;
 
-        // Apply Ä¡¸íÅ¸. Ä¡¸íÅ¸ ¼º°ø½Ã µ¥¹ÌÁö 200%Áõ°¡
+        // Apply Ä¡ï¿½ï¿½Å¸. Ä¡ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 200%ï¿½ï¿½ï¿½ï¿½
         if (Random.value < PlayerInfo.playerInfo.curData.Critical) damage *= 2;
 
+<<<<<<< HEAD
         // Apply ¼Ó¼º. ÇöÀç´Â ±¸ÇöµÇ¾îÁø ¼Ó¼ºÀÌ ¾øÀ¸¹Ç·Î Non(¹«) ¼Ó¼º °íÁ¤.
         //damage *= GetDamageTypeModifier(PlayerInfo.playerInfo.curData.ElementDamage, other);
         damage *= GetDamageTypeModifier(DamageType.Fire, other);
+=======
+        // Apply ï¿½Ó¼ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿?ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ Non(ï¿½ï¿½) ï¿½Ó¼ï¿½ ï¿½ï¿½ï¿½ï¿½.
+        damage *= GetDamageTypeModifier(DamageType.Non);
+>>>>>>> a9c17235add49a3f4756e908e4a398c8841b8a87
 
         return damage;
     }
@@ -154,9 +159,9 @@ public class PlayerCollision : MonoBehaviour
 
     /// <summary>
     /// Working on implement element(attribute) damage. 
-    /// TODO : ¼Ó¼ºº° µ¥¹ÌÁö °è¼ö Á¤ÇÏ±â.
-    /// PlayerInfo ¿¡¼­ ÇöÀç element¼³Á¤ÇÏ±â.
-    /// °¢ ¼Ó¼ºº° Æ¯¼º¿¡ ¸Â´Â °ø°Ý ¹æ½Ä Ãß°¡.
+    /// TODO : ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿?ï¿½ï¿½ï¿½Ï±ï¿½.
+    /// PlayerInfo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ elementï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½.
+    /// ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ ï¿½Â´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿?ï¿½ß°ï¿½.
     /// </summary>
     /// <param name="damageType"></param>
     /// <returns></returns>

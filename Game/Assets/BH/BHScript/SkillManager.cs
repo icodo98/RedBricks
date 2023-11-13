@@ -24,6 +24,19 @@ public class SkillManager : MonoBehaviour
     [Header("Game object")]
     public GameObject Amor, Attack, Speed, BarLength,Critical, ElementDamage, AddBall, Resurrection,EnableSeletion,FallinfPenalty,IncreaseHealth, RegenHealth;
 
+       private void Awake() {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            if(instance != this)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
     private void Start() {
         reamainPoint = totalPoints;
         LoadByJSON();
