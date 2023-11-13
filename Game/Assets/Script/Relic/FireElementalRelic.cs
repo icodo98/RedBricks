@@ -17,23 +17,6 @@ namespace Relic
 
         }
 
-        public static void Fire(Collision2D other)
-        {
-            int i = 0;
-            float startTime = Time.time;
-
-            while (i < 5)
-            {
-                if(Time.time - startTime >= 1f)
-                {
-                    other.gameObject.GetComponent<Enemytext>().TakeDamage(1, other.transform.position);
-                    i++;
-                    startTime = Time.time;
-
-                }
-
-            }
-        }
     }
 }
 

@@ -169,7 +169,7 @@ public class PlayerCollision : MonoBehaviour
         {
             case DamageType.Fire:
                 damageModifier = 1.0f;
-                Relic.FireElementalRelic.Fire(other);
+                PlayerInfo.playerInfo.gameObject.GetComponent<ElementalPower>().FirePower(other);
                 break;
             case DamageType.Water:
                 damageModifier = 0.8f;
