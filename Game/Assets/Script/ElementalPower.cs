@@ -7,7 +7,7 @@ public class ElementalPower : MonoBehaviour
 
 
     public void FirePower(Collision2D other) {
-        StartCoroutine(FIrePower(other));    
+        StartCoroutine(FIrePower(other)); 
 
     }
 
