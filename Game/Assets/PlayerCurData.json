@@ -4,17 +4,12 @@
     "Speed": 0.0,
     "BarLength": 0.0,
     "Critical": 0.0,
-<<<<<<< HEAD
     "ElementDamage": 0,
     "AddBall": false,
-=======
-    "ElementDamage": [],
-    "AddBall": true,
->>>>>>> a9c17235add49a3f4756e908e4a398c8841b8a87
     "Resurrection": 0,
     "EnableSelection": false,
     "FallingPenalty": 0.0,
-    "IncreaseHealth": 100,
+    "IncreaseHealth": 0,
     "curResurrection": 0,
     "RegenHealth": 0.0,
     "bitsList": []

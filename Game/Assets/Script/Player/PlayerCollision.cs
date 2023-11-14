@@ -35,7 +35,7 @@ public class PlayerCollision : MonoBehaviour
     }
     private void Update()
     {
-        //�ӵ��� �ʹ� �����ų� �������?����.
+        //속도가 너무 빠르거나 느릴경우 제한.
         rb.velocity = rb.velocity.normalized * Mathf.Clamp(rb.velocity.magnitude, minSpeed, maxSpeed);
         if (rb.velocity.y == 0) rb.AddForce(0.1f * Vector3.up);
         Vector3 pos = transform.position;
@@ -46,8 +46,8 @@ public class PlayerCollision : MonoBehaviour
         }
     }
     /// <summary>
-    /// ������ �ε����ٸ� �ε��� ������ �ı� �� ������ ���?
-    /// �ٴڿ� ������ ���?ü���� ���̰� �ʱ� ��ġ�� ���ƿ� �ٽ� �߻��?  
+    /// 블럭에 부딪힌다면 부딪힌 블럭을 파괴 후 아이템 드랍
+    /// 바닥에 떨어진 경우 체력을 줄이고 초기 위치로 돌아와 다시 발사됨.  
     /// </summary>
     /// <param name="other"></param>
     void OnCollisionEnter2D(Collision2D other)
@@ -84,7 +84,7 @@ public class PlayerCollision : MonoBehaviour
         else if (other.gameObject.CompareTag("Boss"))
         {
             Vector3 pos = other.transform.position;
-            pos.z = -1f; //������ �۾��� �������� ��ĭ ������ ����
+            pos.z = -1f; //보스에 글씨가 가려져서 한칸 앞으로 땡김
             Instantiate(woodbreak, pos, Quaternion.identity);
             bool isBroken = other.gameObject.GetComponent<Enemytext>().TakeDamage(CalculateDamage(other), pos);
             Invoke("DestoryParticle", 0.5f);
@@ -130,17 +130,12 @@ public class PlayerCollision : MonoBehaviour
         // Apply Attack attribute of player info
         damage += PlayerInfo.playerInfo.curData.Attack;
 
-        // Apply ġ��Ÿ. ġ��Ÿ ������ ������ 200%����
+        // Apply 치명타. 치명타 성공시 데미지 200%증가
         if (Random.value < PlayerInfo.playerInfo.curData.Critical) damage *= 2;
 
-<<<<<<< HEAD
-        // Apply �Ӽ�. ����� �����Ǿ��� �Ӽ��� �����Ƿ� Non(��) �Ӽ� ����.
+        // Apply 속성. 현재는 구현되어진 속성이 없으므로 Non(무) 속성 고정.
         //damage *= GetDamageTypeModifier(PlayerInfo.playerInfo.curData.ElementDamage, other);
         damage *= GetDamageTypeModifier(DamageType.Fire, other);
-=======
-        // Apply �Ӽ�. �����?�����Ǿ��� �Ӽ��� �����Ƿ� Non(��) �Ӽ� ����.
-        damage *= GetDamageTypeModifier(DamageType.Non);
->>>>>>> a9c17235add49a3f4756e908e4a398c8841b8a87
 
         return damage;
     }
@@ -159,9 +154,9 @@ public class PlayerCollision : MonoBehaviour
 
     /// <summary>
     /// Working on implement element(attribute) damage. 
-    /// TODO : �Ӽ��� ������ ���?���ϱ�.
+    /// TODO : �Ӽ��� ������ ��� ���ϱ�.
     /// PlayerInfo ���� ���� element�����ϱ�.
-    /// �� �Ӽ��� Ư���� �´� ���� ���?�߰�.
+    /// �� �Ӽ��� Ư���� �´� ���� ��� �߰�.
     /// </summary>
     /// <param name="damageType"></param>
     /// <returns></returns>
@@ -174,7 +169,7 @@ public class PlayerCollision : MonoBehaviour
         {
             case DamageType.Fire:
                 damageModifier = 1.0f;
-                PlayerInfo.playerInfo.gameObject.GetComponent<ElementalPower>().FirePower(other);
+                other.gameObject.GetComponent<ElementalPower>().FirePower(other);
                 break;
             case DamageType.Water:
                 damageModifier = 0.8f;
