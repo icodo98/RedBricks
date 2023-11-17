@@ -35,7 +35,7 @@ public class PlayerCollision : MonoBehaviour
     }
     private void Update()
     {
-        //ï¿½Óµï¿½ï¿½ï¿½ ï¿½Ê¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+        //ï¿½Óµï¿½ï¿½ï¿½ ï¿½Ê¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?ï¿½ï¿½ï¿½ï¿½.
         rb.velocity = rb.velocity.normalized * Mathf.Clamp(rb.velocity.magnitude, minSpeed, maxSpeed);
         if (rb.velocity.y == 0) rb.AddForce(0.1f * Vector3.up);
         Vector3 pos = transform.position;
@@ -46,8 +46,8 @@ public class PlayerCollision : MonoBehaviour
         }
     }
     /// <summary>
-    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä±ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
-    /// ï¿½Ù´Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½Ù½ï¿½ ï¿½ß»ï¿½ï¿½.  
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½Ù¸ï¿½ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ä±ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿?
+    /// ï¿½Ù´Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿?Ã¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì°ï¿½ ï¿½Ê±ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½Ù½ï¿½ ï¿½ß»ï¿½ï¿?  
     /// </summary>
     /// <param name="other"></param>
     void OnCollisionEnter2D(Collision2D other)
@@ -56,7 +56,7 @@ public class PlayerCollision : MonoBehaviour
         {
             Vector3 pos = other.transform.position;
             Instantiate(woodbreak, pos, Quaternion.identity);
-            bool isBroken = other.gameObject.GetComponent<Enemytext>().TakeDamage(CalculateDamage(), pos);
+            bool isBroken = other.gameObject.GetComponent<Enemytext>().TakeDamage(CalculateDamage(other), pos);
             float isDropped = Random.Range(0.0f, 1.0f);
             if (isBroken)
             {
@@ -86,7 +86,7 @@ public class PlayerCollision : MonoBehaviour
             Vector3 pos = other.transform.position;
             pos.z = -1f; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             Instantiate(woodbreak, pos, Quaternion.identity);
-            bool isBroken = other.gameObject.GetComponent<Enemytext>().TakeDamage(CalculateDamage(), pos);
+            bool isBroken = other.gameObject.GetComponent<Enemytext>().TakeDamage(CalculateDamage(other), pos);
             Invoke("DestoryParticle", 0.5f);
         }
 
@@ -120,7 +120,7 @@ public class PlayerCollision : MonoBehaviour
         Drop.transform.localScale = new Vector3(0.2f,0.2f,0.2f);
     }
 
-    public float CalculateDamage()
+    public float CalculateDamage(Collision2D other)
     {
         float baseDamage = rb.velocity.magnitude * rb.mass * DamageCoefficient;
         
@@ -133,8 +133,14 @@ public class PlayerCollision : MonoBehaviour
         // Apply Ä¡ï¿½ï¿½Å¸. Ä¡ï¿½ï¿½Å¸ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 200%ï¿½ï¿½ï¿½ï¿½
         if (Random.value < PlayerInfo.playerInfo.curData.Critical) damage *= 2;
 
-        // Apply ï¿½Ó¼ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ Non(ï¿½ï¿½) ï¿½Ó¼ï¿½ ï¿½ï¿½ï¿½ï¿½.
+<<<<<<< HEAD
+        // Apply ¼Ó¼º. ÇöÀç´Â ±¸ÇöµÇ¾îÁø ¼Ó¼ºÀÌ ¾øÀ¸¹Ç·Î Non(¹«) ¼Ó¼º °íÁ¤.
+        //damage *= GetDamageTypeModifier(PlayerInfo.playerInfo.curData.ElementDamage, other);
+        damage *= GetDamageTypeModifier(DamageType.Fire, other);
+=======
+        // Apply ï¿½Ó¼ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿?ï¿½ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ Non(ï¿½ï¿½) ï¿½Ó¼ï¿½ ï¿½ï¿½ï¿½ï¿½.
         damage *= GetDamageTypeModifier(DamageType.Non);
+>>>>>>> a9c17235add49a3f4756e908e4a398c8841b8a87
 
         return damage;
     }
@@ -153,23 +159,24 @@ public class PlayerCollision : MonoBehaviour
 
     /// <summary>
     /// Working on implement element(attribute) damage. 
-    /// TODO : ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½.
+    /// TODO : ï¿½Ó¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿?ï¿½ï¿½ï¿½Ï±ï¿½.
     /// PlayerInfo ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ elementï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½.
-    /// ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ ï¿½Â´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ß°ï¿½.
+    /// ï¿½ï¿½ ï¿½Ó¼ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½ï¿½ï¿½ ï¿½Â´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿?ï¿½ß°ï¿½.
     /// </summary>
     /// <param name="damageType"></param>
     /// <returns></returns>
-    private float GetDamageTypeModifier(DamageType damageType)
+    private float GetDamageTypeModifier(DamageType damageType, Collision2D other)
     {
         // Retrieve the damage type modifier based on the specific damage type
         float damageModifier = 1f;
 
         switch (damageType)
         {
-            case DamageType.Explosion:
-                damageModifier = 1.2f;
+            case DamageType.Fire:
+                damageModifier = 1.0f;
+                PlayerInfo.playerInfo.gameObject.GetComponent<ElementalPower>().FirePower(other);
                 break;
-            case DamageType.Poision:
+            case DamageType.Water:
                 damageModifier = 0.8f;
                 break;
             case DamageType.Dark:

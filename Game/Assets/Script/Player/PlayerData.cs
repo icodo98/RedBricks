@@ -13,7 +13,7 @@ namespace PlayerInformation
         public float Speed; //공의 속도
         public float BarLength; //바의 길이 증가
         public float Critical; //치명타확률 증가
-        public float[] ElementDamage; //속성 데미지
+        public DamageType ElementDamage; //속성 데미지
         public bool AddBall; //시작시 추가 공
         public int Resurrection; // 부활기회
         public bool EnableSelection; //bit 계승 가능
@@ -28,6 +28,7 @@ namespace PlayerInformation
         public PlayerData()
         {
             curResurrection = Resurrection;
+            ElementDamage = DamageType.Non;
             AddBall = false;
         }
         public PlayerData( PlayerData loadData)
@@ -52,10 +53,11 @@ namespace PlayerInformation
     public enum DamageType
     {
         Non,
-        Explosion,
-        Poision,
+        Fire,
+        Water,
         Dark,
-        Electricity
+        Electricity,
+        Air
     }
     public class PlayerDataUtils : MonoBehaviour
     {
