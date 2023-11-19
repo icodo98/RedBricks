@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5865805073489956135}
   - component: {fileID: 5895769259752544224}
   - component: {fileID: 6201097295771774320}
+  - component: {fileID: 8638029652640548610}
   m_Layer: 0
   m_Name: BlockElite
   m_TagString: Block
@@ -126,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hudDamageText: {fileID: 2898461515439624268, guid: 556a9ec9957a49d4fa043fa6fee3a559, type: 3}
   HP: 10
+  Amor: 0
 --- !u!114 &6201097295771774320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,5 +138,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 062ee4c6620a6924da03e2831af4061a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8638029652640548610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5865805073489956123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f596476eebcf0cc42a2445a379fa06a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

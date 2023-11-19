@@ -281,6 +281,7 @@ GameObject:
   - component: {fileID: 5895769259752544224}
   - component: {fileID: 6201097295771774320}
   - component: {fileID: 1960342227453123280}
+  - component: {fileID: -8737232430186633416}
   m_Layer: 0
   m_Name: BlockBoss1
   m_TagString: Block
@@ -421,6 +422,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Timer: {fileID: 6422374571492808549}
   fallingSpeed: 1
+--- !u!114 &-8737232430186633416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5865805073489956123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f596476eebcf0cc42a2445a379fa06a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7837840518427312280
 GameObject:
   m_ObjectHideFlags: 0
