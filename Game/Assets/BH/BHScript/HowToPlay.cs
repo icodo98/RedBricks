@@ -11,14 +11,13 @@ public class HowToPlay : MonoBehaviour
    public void Next(){
     Ani.SetTrigger("Next");
      StartCoroutine(WaitForIt());
-     curob.SetActive(false);
-     Nextob.SetActive(true);
 
    }
 
     IEnumerator WaitForIt()
  {
-   yield return new WaitForSeconds(10.3f);
-   
+   yield return new WaitForSeconds(0.8f);
+     curob.SetActive(false);
+     Nextob.SetActive(true);
  }
 }
