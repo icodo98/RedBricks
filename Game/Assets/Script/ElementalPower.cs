@@ -37,5 +37,12 @@ public class ElementalPower : MonoBehaviour
         }
         isCoroutineRunnig = false;
     }
+
+
+    public void ElectricPower(Collision2D other)
+    {
+
+    }
+
 }
 
