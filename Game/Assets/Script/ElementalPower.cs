@@ -48,9 +48,10 @@ public class ElementalPower : MonoBehaviour
         //Todo : Exception handle. exclude ball and itself.
         foreach (Collider2D rangeBox in rangeBoxes)
         {
+            if (!rangeBox.CompareTag("Block") || rangeBox.transform == transform) continue;
             if(rangeBox != null)
             {
-                rangeBox.gameObject.GetComponent<Enemytext>().TakeDamage(1, rangeBox.transform.position + new Vector3(0.05f, -0.1f, 0));
+                rangeBox.gameObject.GetComponent<Enemytext>().TakeDamage(1, rangeBox.transform.position + new Vector3(0.05f, -0.1f, 0),Color.blue);
 
             }
         }
