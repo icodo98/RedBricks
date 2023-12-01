@@ -135,7 +135,8 @@ public class PlayerCollision : MonoBehaviour
 
         // Apply 속성. 현재는 구현되어진 속성이 없으므로 Non(무) 속성 고정.
         //damage *= GetDamageTypeModifier(PlayerInfo.playerInfo.curData.ElementDamage, other);
-        damage *= GetDamageTypeModifier(DamageType.Fire, other);
+        //Todo: debugging elemental
+        damage *= GetDamageTypeModifier(DamageType.Electricity, other);
 
         return damage;
     }
@@ -178,7 +179,8 @@ public class PlayerCollision : MonoBehaviour
                 damageModifier = 1.5f;
                 break;
             case DamageType.Electricity:
-                damageModifier = 0.5f;
+                damageModifier = 1.0f;
+                other.gameObject.GetComponent<ElementalPower>().ElectricPower(other);
                 break;
             case DamageType.Non:
                 damageModifier= 1f;
