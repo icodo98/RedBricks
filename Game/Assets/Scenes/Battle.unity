@@ -177,7 +177,7 @@ MonoBehaviour:
   startPoint: {x: -0.85, y: 0.45, z: 0}
   endPoint: {x: 0.8, y: 1.9, z: 0}
   MaxCols: 7
-  MaxRows: 5
+  MaxRows: 4
   MaxBloNums: 15
   MinBloNums: 5
 --- !u!114 &99703607
@@ -1949,15 +1949,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5865805073489956121, guid: 10358870fdb478247b8912dca364caa3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.2201211
+      value: -1.563
       objectReference: {fileID: 0}
     - target: {fileID: 5865805073489956121, guid: 10358870fdb478247b8912dca364caa3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5608367
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 5865805073489956121, guid: 10358870fdb478247b8912dca364caa3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.09802352
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5865805073489956121, guid: 10358870fdb478247b8912dca364caa3, type: 3}
       propertyPath: m_LocalRotation.w

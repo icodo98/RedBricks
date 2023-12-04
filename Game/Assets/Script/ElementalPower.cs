@@ -7,6 +7,7 @@ public class ElementalPower : MonoBehaviour
     int i = 0;
     bool isCoroutineRunnig = false;
     public Vector2 ElectricSize = new Vector2(0.6f,0.2f);
+    public float dampingSpeed = 0.03f;
     public void FirePower(Collision2D other) {
         if (isCoroutineRunnig)
         {
@@ -14,12 +15,12 @@ public class ElementalPower : MonoBehaviour
         }
         else
         {
-            StartCoroutine(FIrePower(other));
+            StartCoroutine(onFire(other));
         }
 
     }
 
-    IEnumerator FIrePower(Collision2D other)
+    IEnumerator onFire(Collision2D other)
     {
         isCoroutineRunnig = true;
         Enemytext damageTxt =  other.gameObject.GetComponent<Enemytext>();
@@ -64,7 +65,26 @@ public class ElementalPower : MonoBehaviour
 
     public void WaterPower(Collision2D other)
     {
-
+        if (isCoroutineRunnig)
+        {
+            i = 0;
+        }
+        else
+        {
+            StartCoroutine(inWater(other));
+        }
+    }
+    IEnumerator inWater(Collision2D other)
+    {
+        isCoroutineRunnig = true;
+        while (i < 6)
+        {
+            //To do : Overlap porblem
+            other.transform.Translate(0, dampingSpeed * Time.deltaTime, 0);
+            i++;
+            yield return null;
+        }
+        isCoroutineRunnig = false;
     }
 }
 
