@@ -42,8 +42,7 @@ public class BlockController : MonoBehaviour,IListener
             default: throw new System.Exception("There is a unhandled event at " + this.name);
         }
     }
-
-    // Update is called once per frame
+        // Update is called once per frame
     private void Update()
     {
         transform.Translate(0,-fallingSpeed*Time.deltaTime,0);

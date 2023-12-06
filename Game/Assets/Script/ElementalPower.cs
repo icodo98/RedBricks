@@ -7,6 +7,7 @@ public class ElementalPower : MonoBehaviour
     int i = 0;
     bool isCoroutineRunnig = false;
     public Vector2 ElectricSize = new Vector2(0.6f,0.2f);
+    public float dampingSpeed = 0.03f;
     public void FirePower(Collision2D other) {
         if (isCoroutineRunnig)
         {
@@ -14,12 +15,12 @@ public class ElementalPower : MonoBehaviour
         }
         else
         {
-            StartCoroutine(FIrePower(other));
+            StartCoroutine(onFire(other));
         }
 
     }
 
-    IEnumerator FIrePower(Collision2D other)
+    IEnumerator onFire(Collision2D other)
     {
         isCoroutineRunnig = true;
         Enemytext damageTxt =  other.gameObject.GetComponent<Enemytext>();
@@ -39,27 +40,51 @@ public class ElementalPower : MonoBehaviour
         isCoroutineRunnig = false;
     }
 
-
+    /// <summary>
+    /// Electric elemental ability.damage multiple nearby objects.
+    /// </summary>
+    /// <param name="other"></param>
     public void ElectricPower(Collision2D other)
     {
         // Find blcoks in range
         Collider2D[] rangeBoxes = Physics2D.OverlapBoxAll(other.transform.position, ElectricSize,0);
 
-        //Todo : Exception handle. exclude ball and itself.
         foreach (Collider2D rangeBox in rangeBoxes)
         {
-            if (!rangeBox.CompareTag("Block") || rangeBox.transform == transform) continue;
-            if(rangeBox != null)
-            {
-                rangeBox.gameObject.GetComponent<Enemytext>().TakeDamage(1, rangeBox.transform.position + new Vector3(0.05f, -0.1f, 0),Color.blue);
+            if (rangeBox == null) continue;
+            if (!rangeBox.CompareTag("Block") || rangeBox.transform == transform) continue; // Exception handle. exclude ball and itself.
+            rangeBox.gameObject.GetComponent<Enemytext>().TakeDamage(1, rangeBox.transform.position + new Vector3(0.05f, -0.1f, 0), Color.blue);
 
-            }
         }
     }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(transform.position, ElectricSize);
+    }
+
+    public void WaterPower(Collision2D other)
+    {
+        if (isCoroutineRunnig)
+        {
+            i = 0;
+        }
+        else
+        {
+            StartCoroutine(inWater(other));
+        }
+    }
+    IEnumerator inWater(Collision2D other)
+    {
+        isCoroutineRunnig = true;
+        while (i < 6)
+        {
+            //To do : Overlap porblem
+            other.transform.Translate(0, dampingSpeed * Time.deltaTime, 0);
+            i++;
+            yield return null;
+        }
+        isCoroutineRunnig = false;
     }
 }
 

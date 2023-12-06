@@ -136,7 +136,7 @@ public class PlayerCollision : MonoBehaviour
         // Apply 속성. 현재는 구현되어진 속성이 없으므로 Non(무) 속성 고정.
         //damage *= GetDamageTypeModifier(PlayerInfo.playerInfo.curData.ElementDamage, other);
         //Todo: debugging elemental
-        damage *= GetDamageTypeModifier(DamageType.Electricity, other);
+        damage *= GetDamageTypeModifier(DamageType.Water, other);
 
         return damage;
     }

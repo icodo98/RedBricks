@@ -35,7 +35,7 @@ public class CreateScene : MonoBehaviour
      */
     void Start()
     {
-        
+        //Todo : Fix overlapping blocks
         GameObject Blocks = this.gameObject;
         int cols = MaxCols;
         int rows = MaxRows;
