@@ -7,7 +7,7 @@ public class ElementalPower : MonoBehaviour
     int i = 0;
     bool isCoroutineRunnig = false;
     public Vector2 ElectricSize = new Vector2(0.6f,0.2f);
-    public float dampingSpeed = 0.03f;
+    public float dampingSpeed = 0.05f;
     public void FirePower(Collision2D other) {
         if (isCoroutineRunnig)
         {
@@ -77,7 +77,7 @@ public class ElementalPower : MonoBehaviour
     IEnumerator inWater(Collision2D other)
     {
         isCoroutineRunnig = true;
-        while (i < 6)
+        while (i < 640)
         {
             //To do : Overlap porblem
             other.transform.Translate(0, dampingSpeed * Time.deltaTime, 0);
