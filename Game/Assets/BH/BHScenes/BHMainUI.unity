@@ -5192,7 +5192,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "If you break,\n use the "
+  m_Text: "If you feel weak,\n use the "
 --- !u!222 &1281844602
 CanvasRenderer:
   m_ObjectHideFlags: 0
