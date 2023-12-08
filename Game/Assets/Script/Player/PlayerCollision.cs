@@ -173,7 +173,9 @@ public class PlayerCollision : MonoBehaviour
                 other.gameObject.GetComponent<ElementalPower>().FirePower(other);
                 break;
             case DamageType.Water:
-                damageModifier = 0.8f;
+                damageModifier = 1.0f;
+                other.gameObject.GetComponent<ElementalPower>().WaterPower(other);
+
                 break;
             case DamageType.Dark:
                 damageModifier = 1.5f;

@@ -35,14 +35,15 @@ public class CreateScene : MonoBehaviour
      */
     void Start()
     {
-        //Todo : Fix overlapping blocks
+        //Todo : Fix random poisition
         GameObject Blocks = this.gameObject;
         int cols = MaxCols;
         int rows = MaxRows;
         float h = endPoint.y - startPoint.y;
         float w = endPoint.x - startPoint.x;
         h /= cols;
-        w /= rows;
+        //w /= rows;
+        w = 0.57f;
         LeftBloNum = MaxBloNums - MinBloNums;
         if(LeftBloNum < 0 ) { throw new Exception("Max block number should bigger than min block num"); }
         float[] colPoint = new float[cols];
@@ -85,7 +86,7 @@ public class CreateScene : MonoBehaviour
             coroutineWorking = true;
             float h = endPoint.y;
             float w = endPoint.x - startPoint.x;
-            w /= MaxRows;
+            w = 0.57f;
 
             int newBlock = UnityEngine.Random.Range(0, MaxRows);
             newBlock = (newBlock < LeftBloNum) ? newBlock : LeftBloNum;
