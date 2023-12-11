@@ -174,8 +174,13 @@ public class PlayerCollision : MonoBehaviour
                 break;
             case DamageType.Water:
                 damageModifier = 1.0f;
-                other.gameObject.GetComponent<ElementalPower>().WaterPower(other);
+                if(Random.Range(0.0f,1.0f) < 0.15f)
+                {
+                    Debug.Log("Gotcha!");
 
+                    other.gameObject.GetComponent<ElementalPower>().WaterPower(other);
+
+                }
                 break;
             case DamageType.Dark:
                 damageModifier = 1.5f;
