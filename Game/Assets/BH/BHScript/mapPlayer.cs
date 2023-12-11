@@ -15,7 +15,6 @@ public class mapPlayer : MonoBehaviour
 
     public int selectedOption;
 
-    characterManager CM = new characterManager();
  
 
     // Start is called before the first frame update
@@ -23,7 +22,7 @@ public class mapPlayer : MonoBehaviour
     
     void Start()
     { 
-        selectedOption = CM.selectedOption;
+        
        // playerSprite = selectedskin.GetComponent<SpriteRenderer>().sprite;
 
        // player.GetComponent<SpriteRenderer>().sprite = playerSprite;
@@ -37,6 +36,9 @@ public class mapPlayer : MonoBehaviour
         {
             load();
        }
+       characterManager CM = gameObject.AddComponent<characterManager>();
+        CM.characterDB = characterDB;
+        CM.artworkSprite = gameObject.GetComponent<SpriteRenderer>();
         UpdateCharacter(selectedOption); 
         
     }

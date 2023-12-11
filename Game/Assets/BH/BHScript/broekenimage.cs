@@ -1,26 +1,18 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class broekenimage : MonoBehaviour
 {
-   //public CharacterDatabase characterDB;
-
-    //public SpriteRenderer artworkSprite;
-
-   // public Sprite brokenImageRed;
-    //public Sprite brokenImageGreen;
-    //public Sprite brokenImageBlack;
+  
     
     public List<Sprite> BrokenpritesList;
     public int selectedOption;
 
-    characterManager CM = new characterManager();
     
     void Start()
     { 
-        selectedOption = CM.selectedOption;
+       
 
        if(!PlayerPrefs.HasKey("selectedOption"))
         {
