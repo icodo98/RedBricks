@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 using PlayerInformation;
 using TMPro;
 using System.Text;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using System.IO;
 
