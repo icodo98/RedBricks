@@ -77,10 +77,13 @@ public class ElementalPower : MonoBehaviour
     IEnumerator inWater(Collision2D other)
     {
         isCoroutineRunnig = true;
+        dampingSpeed = other.transform.GetComponentInParent<BlockController>().fallingSpeed;
+        Transform t = other.transform; // variable other differs when coroutine called. So other variable shouldn't be in the loop
+
         while (i < 640)
         {
             //To do : Overlap porblem
-            other.transform.Translate(0, dampingSpeed * Time.deltaTime, 0);
+            t.Translate(0, dampingSpeed * Time.deltaTime, 0);
             i++;
             yield return null;
         }
