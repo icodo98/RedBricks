@@ -15,6 +15,8 @@ public class SkillManager : MonoBehaviour
     public int totalPoints;
     public int reamainPoint;
     public Text PointsText;
+
+    public Animator MaxLevel;
     
 
     [Header("...")]
@@ -117,6 +119,10 @@ public class SkillManager : MonoBehaviour
                 activateSkill.skillLevel++;
                 }
             }
+        else if(activateSkill.skillMaxLevel == activateSkill.skillLevel)
+        {
+            MaxLevel.SetTrigger("MaxLevel");
+        }
      //   UpadteSkillImage();
         DisplaySkillPoint();
         DisplaySkillLevel();
