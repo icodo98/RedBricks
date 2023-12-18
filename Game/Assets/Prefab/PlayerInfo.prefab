@@ -56,23 +56,26 @@ MonoBehaviour:
   - {fileID: 1002333147501056570, guid: 88e7bc4d3af79a04d840275b200d9a80, type: 3}
   - {fileID: 1002333147501056570, guid: 134f81db0eb4b9241b8d8c867770fef6, type: 3}
   - {fileID: 1002333147501056570, guid: 4f0446e88a0a5d845abc261f1b4d404c, type: 3}
-  Relic: []
+  - {fileID: 1002333147501056570, guid: 184db6f8ff645524281a5fc47e97487c, type: 3}
   curRun:
     bitList: []
     relicList: []
     HP: 100
     MaxHP: 100
+    coin: 0
+    brokenBlock: 0
   curData:
     Amor: 0
     Attack: 0
     Speed: 0
     BarLength: 0
     Critical: 0
-    ElementDamage: []
+    ElementDamage: 0
     AddBall: 0
     Resurrection: 0
     EnableSelection: 0
     FallingPenalty: 0
     IncreaseHealth: 0
     curResurrection: 0
+    RegenHealth: 0
     bitsList: []
