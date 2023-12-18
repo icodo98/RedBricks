@@ -17,6 +17,7 @@ public class PlayerCollision : MonoBehaviour
     
     public float BrickHittedDamage = 1.0f;
     private float DamageCoefficient = 100f;
+    public bool FreezeBit = false;
 
     public int gold = 0;
     public int breakBlock = 0;

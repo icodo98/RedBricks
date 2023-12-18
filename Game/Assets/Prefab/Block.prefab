@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5895769259752544224}
   - component: {fileID: 6201097295771774320}
   - component: {fileID: 702086584581787682}
+  - component: {fileID: -3853935649202045447}
   m_Layer: 0
   m_Name: Block
   m_TagString: Block
@@ -152,3 +153,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f596476eebcf0cc42a2445a379fa06a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ElectricSize: {x: 0.6, y: 0.2}
+  dampingSpeed: 0.01
+--- !u!50 &-3853935649202045447
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5865805073489956123}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1000
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: f28c705332a49d1458d54057e374d896, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
