@@ -19,7 +19,8 @@ namespace PlayerInformation
             {"SpeedUpBit",  6},
             {"SubAngleBit", 7},
             {"TiltBit",     8},
-            {"SizeDownBit", 9}
+            {"SizeDownBit", 9},
+            {"FreezeBit",  10}
         };
 
         public Dictionary<string, int> RelicDic = new Dictionary<string, int>()

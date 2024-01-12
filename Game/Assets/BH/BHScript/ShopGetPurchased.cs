@@ -129,6 +129,8 @@ public class ShopGetPurchased : MonoBehaviour
             break;
         case "Orange": bitName = "TiltBit";
             break;
+        case "Purple": bitName = "FreezeBit";
+            break;
         case "AddRelic": bitName = "AddBallRelic";
             break;
         case "OneHandedSword_Icon3": bitName = "AttackRelic";
